@@ -9,5 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+
+  //Comentario pra push
 }
 
