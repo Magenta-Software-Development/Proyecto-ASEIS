@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 class="text-3xl font-bold underline bg-blue-200 text-gray-300">
-        Hello world!
+        Hola mundo!
       </h1>
 </body>
 </html>
