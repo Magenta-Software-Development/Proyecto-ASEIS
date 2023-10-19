@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('load-data');
 });
+
+// Prueba de isma
