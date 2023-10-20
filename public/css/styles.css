@@ -1,0 +1,121 @@
+/* Estilos para el modal de gestión */
+.modal-gestion {
+    width: 927px;
+    height: 740px;
+    border-radius: 16px;
+    background: #132D3C;
+}
+
+/* Estilos para una imagen redonda */
+.rounded-image {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: lightgray 0.139px -36.941px / 100% 149.982% no-repeat; /* Cambia el color de fondo de la imagen */
+}
+
+/* Cambia el color del título a blanco */
+.modal-title {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Cambia el color del texto a blanco */
+.text-white {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Estilos para un botón de retroceso */
+.btn-back {
+    width: 71px;
+    height: 71px;
+    flex-shrink: 0;
+    background: transparent;
+    /* Establece un fondo transparente */
+    border: none;
+    /* Elimina el borde del botón */
+    cursor: pointer;
+    /* Cambia el cursor al estilo de mano */
+}
+
+/* Estilos para el modal que se desplaza hacia la derecha */
+.modal.right .modal-dialog {
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.75s;
+}
+
+/* Estilos para el modal que se muestra en la posición correcta */
+.modal.right.show .modal-dialog {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Estilos para una etiqueta con descripción */
+.label-descripcion {
+    width: 348px;
+    height: 165px;
+    padding: 16px;
+    text-align: left;
+    /* Alinea el texto a la izquierda */
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 2px solid #797979;
+}
+
+/* Estilos para una etiqueta simple */
+.label-simple {
+    display: flex;
+    width: 348px;
+    padding: 16px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    border: 2px solid #797979;
+}
+
+/* Estilos para un botón de cancelar */
+.btn-cancel {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    width: 163px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #CECECE;
+}
+
+/* Estilos para un botón de guardar */
+.btn-save {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    width: 163px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #1F76BD;
+}
