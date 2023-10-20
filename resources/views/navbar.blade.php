@@ -25,7 +25,7 @@
     <!--Barra lateral-->
     <div style="padding-top: 55px; padding-bottom: 50px; padding-left: 40px; padding-right: 44px; left: 0px; top: 81px; position: absolute; background: white; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 370px; display: inline-flex">
         <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 21px; display: inline-flex">
-            <a href="holamundo">
+            <a href="MostrarInfo">
                 <div style="width: 287px; padding: 20px; background: #1E6DA6; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: white">
                 Gestión de usuarios
             </div>
@@ -53,7 +53,7 @@
                 Cerrar sesión
             </div>
             </a>
-            
+
     </div>
 </div>
 
