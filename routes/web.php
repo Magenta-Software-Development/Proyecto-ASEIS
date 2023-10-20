@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |  dfgdfgdfgdfg
 */
 
-//Eliseo 
+
 
 Route::get('/', function () {
     return view('load-data');
 });
 
-// Prueba de isma
