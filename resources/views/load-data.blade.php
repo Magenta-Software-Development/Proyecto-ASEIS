@@ -8,8 +8,11 @@
     
 </head>
 <body>
+    @extends('navbar')
+    @section('content')
     <h1 class="text-3xl font-bold underline bg-blue-200 text-gray-300">
-        Hola mundo!
+        load data
       </h1>
+    @endsection
 </body>
 </html>
