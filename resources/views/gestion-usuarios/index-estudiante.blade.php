@@ -7,8 +7,10 @@
 @section('css')
 @vite('resources/css/crearUsuarioAdminStyle.css')
 @vite('resources/css/index-usuarios.css')
+@vite('resources/js/crearUsuarioAdmin.js')
 @endsection
 @section('content')
+<!--Eliseo Antonio Santos Diaz Y Julio Armando Miranda Reyes-->
 <div class="cuerpoGestion">
   <div class="botonesFiltro">
     <a href="{{route('app_index_usuarios')}}">
@@ -29,29 +31,6 @@
     <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
       <p class="crearBoton1">Nuevo estudiante</p>
     </button>
-  </div>
-
-  <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-body">
-        <div class="container">
-          <form class="formulario-CrearUsuarioAdmin">
-            <div class="input-container">
-              <label for="email">Correo Electrónico</label>
-              <input class="borde" type="email" id="email" name="email" required>
-            </div>
-            <div class="input-container">
-              <label for="password">Contraseña</label>
-              <input type="password" id="passworddd" name="password" required>
-            </div>
-            <div class="button-container">
-              <button type="button" class="btn-Cancelar button-common" id="btnCancelar">Cancelar</button>
-              <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="cuerpoUsuarios">
@@ -80,8 +59,10 @@
     </button>
   </div>
 </div>
+<!--Eliseo Antonio Santos Diaz Y Julio Armando Miranda Reyes-->
 
 <!-- Modal para crear usuario -->
+<!-- José David Del Cid Cruz Y José Noé Ayala Rodríguez-->
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-body">
@@ -104,8 +85,10 @@
     </div>
   </div>
 </div>
+<!-- José David Del Cid Cruz Y José Noé Ayala Rodríguez-->
 
 <!-- Modal para ver información de usuario -->
+<!--Edwin Eismaeli Barrera Arce Y Mike Anderson Cruz Martinez-->
 <div class="modal right" id="modal-Docente" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content modal-gestion">
@@ -179,4 +162,5 @@
     </div>
   </div>
 </div>
+<!--Edwin Eismaeli Barrera Arce Y Mike Anderson Cruz Martinez-->
 @endsection

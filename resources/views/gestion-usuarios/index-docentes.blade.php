@@ -10,6 +10,7 @@
 @vite('resources/js/crearUsuarioAdmin.js')
 @endsection
 @section('content')
+<!--Eliseo Antonio Santos Diaz Y Julio Armando Miranda Reyes-->
 <div class="cuerpoGestion">
     <div class="botonesFiltro">
         <a href="{{route('app_index_usuarios')}}">
@@ -58,8 +59,10 @@
         </button>
     </div>
 </div>
+<!--Eliseo Antonio Santos Diaz Y Julio Armando Miranda Reyes-->
 
 <!-- Modal para crear usuario -->
+<!-- José David Del Cid Cruz Y José Noé Ayala Rodríguez-->
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-body">
@@ -82,7 +85,9 @@
         </div>
     </div>
 </div>
+<!-- José David Del Cid Cruz Y José Noé Ayala Rodríguez-->
 
+<!--Edwin Eismaeli Barrera Arce Y Mike Anderson Cruz Martinez-->
 <!-- Modal para ver información de usuario -->
 <div class="modal right" id="modal-Docente" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -158,4 +163,5 @@
         </div>
     </div>
 </div>
+<!--Edwin Eismaeli Barrera Arce Y Mike Anderson Cruz Martinez-->
 @endsection
