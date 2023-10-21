@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('load-data');
+    return view('login');
 });
 
 Route::get('/holamundo', function () {
