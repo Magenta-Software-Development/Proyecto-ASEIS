@@ -22,7 +22,7 @@
     <div class="cuerpo">
         <!--Barra superior-->
         <div class="BarraSuperior">
-            <a href="{{route('index')}}"><img style="width: 133px; height: 63px" src="imgLogos/LogoASEISNEWSLETRAS.png" /></a>
+            <a href="{{route('app_index')}}"><img style="width: 133px; height: 63px" src="imgLogos/LogoASEISNEWSLETRAS.png" /></a>
         </div>
         <!--Cuerpo de la pagina-->
         <div class="contenido">
@@ -31,7 +31,7 @@
         <!--Barra lateral-->
         <div style="padding-top: 55px; padding-bottom: 50px; padding-left: 40px; padding-right: 44px; left: 0px; top: 81px; position: absolute; background: white; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 370px; display: inline-flex">
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 21px; display: inline-flex">
-                <a href="MostrarInfo">
+                <a href="{{route('app_index_usuarios')}}">
                     <div style="width: 287px; padding: 20px; background: #1E6DA6; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: white">
                         Gestión de usuarios
                     </div>

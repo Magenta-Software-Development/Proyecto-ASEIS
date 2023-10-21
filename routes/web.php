@@ -14,9 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('index');
+})->name('app_index');
+
+
+Route::get('/GestionarUsuarios', function () {
     return view('gestion-usuarios/index-usuarios');
-})->name('index');
+})->name('app_index_usuarios');
 
 Route::get('/MostrarInfo', function () {
     return view('gestion-usuarios/mostar-informacion');
-});
+})->name('app_mostrar_info');
+
+Route::get('/CrearUsuarioAdmin', function () {
+    return view('gestion-usuarios/crearUsuariosAdmin');
+})->name('app_crear_usuario_admin');

@@ -9,7 +9,7 @@ $(document).ready(function () {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Por favor, selecciona un archivo con extensión .xlsx!',
-              })
+            })
             $(this).val("");
         }
         console.log("selecionado")
