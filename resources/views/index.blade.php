@@ -1,5 +1,5 @@
 @extends('Layouts.app')
-    @section('title', 'Cargar datos')
+    @section('title', 'Inicio')
     @section('scripts')
     @vite(['resources/js/load-file.js'])
     @endsection
