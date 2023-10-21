@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|CAMBIOS MIKESBAHIA
+| 
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
@@ -14,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
-});
-
-Route::get('/holamundo', function () {
-    return view('holamundo');
-});
+    return view('gestion-usuarios/index-usuarios');
+})->name('index');
 
 Route::get('/MostrarInfo', function () {
-    return view('mostar-informacion');
+    return view('gestion-usuarios/mostar-informacion');
 });
