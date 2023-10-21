@@ -10,8 +10,8 @@
 
     @section('css')
     <!-- Enlaza tu archivo CSS personalizado -->
-    <link href="/css/NavBarStyle.css" rel="stylesheet" type="text/css">
-    <link href="/css/informacion.css" rel="stylesheet" type="text/css">
+    @vite('resources/css/informacion.css')
+    @vite('resources/css/NavbarStyle.css')
     @endsection
 
 </head>
