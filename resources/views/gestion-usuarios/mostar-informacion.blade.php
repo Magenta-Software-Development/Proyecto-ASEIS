@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>Mostrar Información de Usuario</title>
-</head>
-
-<body>
-    @extends('navbar') <!-- Incluyen la navbar y el sidebar -->
-    @section('content')<!-- Aqui va el contenido de la pagina -->
+@extends('Layouts.app')
+    @section('title', 'Mostrar información')
+    @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    @endsection
+@section('content')
     <!-- Botones para abrir modales -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-Docente">
         Ver Mas
@@ -102,14 +101,9 @@
             </div>
         </div>
     </div>
+@endsection
 
-    <script src="js/estilo.js"></script> <!-- Intento de hacer el recorrido hacia la derecha pero no funciono :,v -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
-    @endsection<!-- Fin del contenido de la pagina -->
-</body>
+    
+    
 
 
-
-</html>
