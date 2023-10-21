@@ -1,20 +1,14 @@
 @extends('Layouts.app')
-
 @section('title', 'Gestion de estudiantes')
-
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
 @endsection
-
 @section('css')
-@vite('resources/css/informacion.css')
 @vite('resources/css/crearUsuarioAdminStyle.css')
 @vite('resources/css/index-usuarios.css')
 @endsection
-
 @section('content')
-
 <div class="cuerpoGestion">
   <div class="botonesFiltro">
     <a href="{{route('app_index_usuarios')}}">
@@ -89,100 +83,100 @@
 
 <!-- Modal para crear usuario -->
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-body">
-            <div class="container">
-                <form class="formulario-CrearUsuarioAdmin">
-                    <div class="input-container">
-                        <label for="email">Correo Electrónico</label>
-                        <input class="borde" type="email" id="email" name="email" required>
-                    </div>
-                    <div class="input-container">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="passworddd" name="password" required>
-                    </div>
-                    <div class="button-container">
-                        <button type="button" class="btn-Cancelar button-common" id="btnCancelar">Cancelar</button>
-                        <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-body">
+      <div class="container">
+        <form class="formulario-CrearUsuarioAdmin">
+          <div class="input-container">
+            <label for="email">Correo Electrónico</label>
+            <input class="borde" type="email" id="email" name="email" required>
+          </div>
+          <div class="input-container">
+            <label for="password">Contraseña</label>
+            <input type="password" id="passworddd" name="password" required>
+          </div>
+          <div class="button-container">
+            <button type="button" class="btn-Cancelar button-common" id="btnCancelar">Cancelar</button>
+            <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Modal para ver información de usuario -->
 <div class="modal right" id="modal-Docente" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content modal-gestion">
-            <div class="modal-body">
-                <!-- Botón de retroceso -->
-                <button type="button" class="btn btn-back btn-back2" data-bs-dismiss="modal" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71" fill="none">
-                        <path d="M51.8001 11.4488L46.5343 6.21252L17.2764 35.5L46.5639 64.7875L51.8001 59.5513L27.7489 35.5L51.8001 11.4488Z" fill="white" />
-                    </svg>
-                </button>
-                <div class="d-flex justify-content-center align-items-center ">
-                    <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
-                </div>
-                <h5 class="text-center mt-3 modal-title">Elian Francisco Treminio Parada</h5>
-                <br>
-                <p class="text-center text-white">Especialidad: Movil</p>
-                <br>
-                <p class="text-center text-white">Correo</p>
-                <br>
-                <p class="text-center text-white">Descripción</p>
-            </div>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content modal-gestion">
+      <div class="modal-body">
+        <!-- Botón de retroceso -->
+        <button type="button" class="btn btn-back btn-back2" data-bs-dismiss="modal" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="71" height="71" viewBox="0 0 71 71" fill="none">
+            <path d="M51.8001 11.4488L46.5343 6.21252L17.2764 35.5L46.5639 64.7875L51.8001 59.5513L27.7489 35.5L51.8001 11.4488Z" fill="white" />
+          </svg>
+        </button>
+        <div class="d-flex justify-content-center align-items-center ">
+          <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
         </div>
+        <h5 class="text-center mt-3 modal-title">Elian Francisco Treminio Parada</h5>
+        <br>
+        <p class="text-center text-white">Especialidad: Movil</p>
+        <br>
+        <p class="text-center text-white">Correo</p>
+        <br>
+        <p class="text-center text-white">Descripción</p>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Modal para editar información de usuario -->
 <div class="modal right" id="modal-DocenteE" tabindex="-1" aria-labelledby="modal-DocenteElLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content ">
-            <div class="modal-body">
-                <div class="d-flex justify-content-center align-items-center ">
-                    <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control label-simple" placeholder="Profesion" aria-label="Profesion" aria-describedby="basic-addon1">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" class="form-control label-simple" placeholder="Especialidad" aria-label="Especialidad" aria-describedby="basic-addon1">
-                                </td>
-                                <td>
-                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center" colspan="2">
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
-                                            Cancelar
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close">
-                                            Aceptar
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content ">
+      <div class="modal-body">
+        <div class="d-flex justify-content-center align-items-center ">
+          <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
         </div>
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="input-group">
+                    <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </td>
+                <td>
+                  <input type="text" class="form-control label-simple" placeholder="Profesion" aria-label="Profesion" aria-describedby="basic-addon1">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" class="form-control label-simple" placeholder="Especialidad" aria-label="Especialidad" aria-describedby="basic-addon1">
+                </td>
+                <td>
+                  <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center" colspan="2">
+                  <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
+                      Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close">
+                      Aceptar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 @endsection

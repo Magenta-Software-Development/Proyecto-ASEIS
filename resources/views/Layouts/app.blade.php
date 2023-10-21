@@ -11,10 +11,12 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @vite('resources/css/app.css')
-    @vite('resources/css/NavBarStyle.css')
-    @vite('resources/css/informacion.css')
     @yield('scripts')
+    @vite('resources/js/app.js')
+    @vite('resources/js/load-file.js')
+    @vite('resources/css/app.css')
+    @vite('resources/css/NavbarStyle.css')
+    @vite('resources/css/informacion.css')
     @yield('css')
 
 </head>
