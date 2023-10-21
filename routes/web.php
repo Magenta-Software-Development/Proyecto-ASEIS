@@ -22,5 +22,5 @@ Route::get('/holamundo', function () {
 });
 
 Route::get('/MostrarInfo', function () {
-    return view('Listar-usuarios/mostar-informacion');
+    return view('mostar-informacion');
 });
