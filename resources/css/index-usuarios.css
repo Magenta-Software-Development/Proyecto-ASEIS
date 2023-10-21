@@ -16,188 +16,6 @@ ul {
   padding-inline-start: 1.5em;
 }
 
-.gestion-de-usuarios-box_3085box_99101438x {
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 0;
-  width: 1440px;
-  height: 1024px;
-  box-sizing: border-box;
-  background-color: rgba(217, 217, 217, 1);
-  display: flex;
-  font-family: Inter;
-  text-align: left;
-}
-
-.gestion-de-usuarios-header {
-  width: 1440px;
-  box-sizing: border-box;
-  padding-top: 9px;
-  padding-bottom: 9px;
-  padding-left: 60px;
-  padding-right: 1247px;
-  filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.05));
-  background-color: rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-}
-
-.gestion-de-usuarios-logo-aseis-news-letras-1x {
-  background-size: cover;
-  background-position: center;
-  background-image: url(https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/images/e91909b1b4ba334a9e90847fddc3083e5461b6af.webp);
-  box-sizing: border-box;
-  height: 63px;
-  width: 133px;
-}
-
-.gestion-de-usuarios-box_99101438x {
-  align-items: center;
-  justify-content: space-between;
-  display: flex;
-  gap: 22px;
-  box-sizing: border-box;
-}
-
-.gestion-de-usuarios-side-menu {
-  padding-right: 44px;
-  padding-bottom: 50px;
-  padding-left: 40px;
-  padding-top: 55px;
-  background-color: rgba(255, 255, 255, 1);
-  box-sizing: border-box;
-  height: 100%;
-  width: 371px;
-}
-
-.gestion-de-usuarios-box_9910299108x {
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  display: flex;
-  gap: 370px;
-  box-sizing: border-box;
-}
-
-.gestion-de-usuarios-frame-34x {
-  align-items: flex-start;
-  flex-direction: column;
-  display: flex;
-  gap: 21px;
-}
-
-.gestion-de-usuarios-frame-2 {
-  transition-property: all;
-  font-weight: 600;
-  text-align: left;
-  font-family: Inter;
-  padding: 20px;
-  border-radius: 16px;
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 287px;
-  background-color: rgba(30, 109, 166, 1);
-  color: white;
-}
-
-.gestion-de-usuarios-gestin-de-usuarios {
-  transition-property: all;
-  font-size: 20px;
-  width: 193;
-}
-
-.gestion-de-usuarios-frame {
-  transition-property: all;
-  font-weight: 600;
-  text-align: left;
-  font-family: Inter;
-  padding: 20px;
-  border-radius: 16px;
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 287px;
-  background-color: white;
-  color: rgba(30, 109, 166, 1);
-}
-
-.gestion-de-usuarios-gestin-de-usuarios-0 {
-  transition-property: all;
-  font-size: 20px;
-  width: 213;
-}
-
-.gestion-de-usuarios-frame-0 {
-  transition-property: all;
-  font-weight: 600;
-  text-align: left;
-  font-family: Inter;
-  padding: 20px;
-  border-radius: 16px;
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 287px;
-  background-color: white;
-  color: rgba(30, 109, 166, 1);
-}
-
-.gestion-de-usuarios-gestin-de-usuarios-1 {
-  transition-property: all;
-  font-size: 20px;
-  width: 176;
-}
-
-.gestion-de-usuarios-frame-1 {
-  transition-property: all;
-  font-weight: 600;
-  text-align: left;
-  font-family: Inter;
-  padding: 20px;
-  border-radius: 16px;
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 287px;
-  background-color: white;
-  color: rgba(30, 109, 166, 1);
-}
-
-.gestion-de-usuarios-gestin-de-usuarios-2 {
-  transition-property: all;
-  font-size: 20px;
-  width: 215;
-}
-
-.gestion-de-usuarios-frame-3 {
-  transition-property: all;
-  font-weight: 600;
-  text-align: left;
-  font-family: Inter;
-  padding: 20px;
-  border-radius: 16px;
-  align-items: center;
-  display: inline-flex;
-  gap: 10px;
-  box-sizing: border-box;
-  width: 287px;
-  background-color: white;
-  color: rgba(30, 109, 166, 1);
-}
-
-.gestion-de-usuarios-gestin-de-usuarios-3 {
-  transition-property: all;
-  font-size: 20px;
-  width: 181;
-}
-
 .gestion-de-usuarios-frame-4 {
   transition-property: all;
   font-weight: 600;
@@ -214,13 +32,7 @@ ul {
   color: rgba(30, 109, 166, 1);
 }
 
-.gestion-de-usuarios-gestin-de-usuarios-4 {
-  transition-property: all;
-  font-size: 20px;
-  width: 131;
-}
-
-.gestion-de-usuarios-box_box_88698871box_94119796212762x {
+.cuerpoGestion{
   padding-top: 58px;
   padding-right: 30px;
   padding-left: 30px;
@@ -235,7 +47,7 @@ ul {
   border-radius: 16px;
 }
 
-.gestion-de-usuarios-box_88698871x {
+.botonesFiltro {
   align-items: center;
   justify-content: space-between;
   display: flex;
@@ -245,7 +57,7 @@ ul {
   width: 568px;
 }
 
-.gestion-de-usuarios-frame-32x-2 {
+.botonFiltroActivo {
   transition-property: all;
   font-weight: 600;
   text-align: left;
@@ -256,7 +68,7 @@ ul {
   justify-content: center;
   display: inline-flex;
   gap: 10px;
-  box-shadow-width: 2px;
+ 
   box-shadow: 0px 0px 0px 2px rgba(30, 109, 166, 1) inset;
   box-sizing: border-box;
   width: 259px;
@@ -264,13 +76,13 @@ ul {
   color: white;
 }
 
-.gestion-de-usuarios-docentes {
+.botonFiltro {
   transition-property: all;
   font-size: 20px;
   width: 93;
 }
 
-.gestion-de-usuarios-frame-32x {
+.botonFiltroDesactivo {
   transition-property: all;
   font-weight: 600;
   text-align: left;
@@ -281,7 +93,6 @@ ul {
   justify-content: center;
   display: inline-flex;
   gap: 10px;
-  box-shadow-width: 2px;
   box-shadow: 0px 0px 0px 2px rgba(30, 109, 166, 1) inset;
   box-sizing: border-box;
   width: 259px;
@@ -289,13 +100,7 @@ ul {
   color: rgba(30, 109, 166, 1);
 }
 
-.gestion-de-usuarios-docentes-0 {
-  transition-property: all;
-  font-size: 20px;
-  width: 115;
-}
-
-.gestion-de-usuarios-box_941197962x {
+.BuscaYCrea {
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   align-items: center;
@@ -307,7 +112,7 @@ ul {
   width: 894px;
 }
 
-.gestion-de-usuarios-frame-33x-1 {
+.buscarInput {
   font-weight: 400;
   text-align: left;
   color: rgba(121, 121, 121, 1);
@@ -317,24 +122,13 @@ ul {
   align-items: center;
   display: inline-flex;
   gap: 12px;
-  box-shadow-width: 2px;
   box-shadow: 0px 0px 0px 2px rgba(121, 121, 121, 1) inset;
   box-sizing: border-box;
   width: 658px;
   flex-grow: 1;
 }
 
-.gestion-de-usuarios-vector {
-  height: 18px;
-  width: 18px;
-}
-
-.gestion-de-usuarios-buscar {
-  width: 81px;
-  font-size: 20px;
-}
-
-.gestion-de-usuarios-frame-31x {
+.crearBoton {
   padding: 16px;
   border-radius: 16px;
   align-items: center;
@@ -346,12 +140,12 @@ ul {
   width: 211px;
 }
 
-.gestion-de-usuarios-nuevo-docente {
+.crearBoton1 {
   width: 144px;
   font-size: 20px;
 }
 
-.gestion-de-usuarios-box_12763box_12764127651277312774x {
+.cuerpoUsuarios {
   padding-top: 12px;
   padding-right: 29px;
   padding-left: 40px;
@@ -367,7 +161,7 @@ ul {
   font-weight: 600;
 }
 
-.gestion-de-usuarios-ellipse-9x {
+.imagenUsuario {
   background-repeat: no-repeat;
   background-position: -0.02px -5.3px;
   background-size: 100% 149.98%;
@@ -378,28 +172,20 @@ ul {
   width: 71px;
 }
 
-.gestion-de-usuarios-box_1276412765x {
-  color: rgba(0, 0, 0, 1);
-  justify-content: space-between;
-  flex-direction: column;
-  display: flex;
-  gap: 8px;
-  box-sizing: border-box;
-}
 
-.gestion-de-usuarios-hctor-javier-paiz-r {
+.DocenteNombreTxt {
   width: 246px;
   height: 24px;
   font-size: 20px;
 }
 
-.gestion-de-usuarios-docente {
+.DocenteDescripcionTxt {
   width: 82px;
   height: 24px;
   font-size: 20px;
 }
 
-.gestion-de-usuarios-frame-38x {
+.BotonEdit {
   color: rgba(30, 109, 166, 1);
   padding: 16px;
   border-radius: 16px;
@@ -411,17 +197,17 @@ ul {
   box-sizing: border-box;
 }
 
-.gestion-de-usuarios-material-symbols-edit {
+.BotonEditSymbol {
   height: 24px;
   width: 24px;
 }
 
-.gestion-de-usuarios-editar {
+.BotonEditarText {
   width: 57px;
   font-size: 20px;
 }
 
-.gestion-de-usuarios-frame-39x {
+.BotonVerMas {
   color: rgba(30, 109, 166, 1);
   padding: 16px;
   border-radius: 16px;
@@ -432,12 +218,7 @@ ul {
   box-sizing: border-box;
 }
 
-.gestion-de-usuarios-ep-user-filled {
-  height: 24px;
-  width: 24px;
-}
-
-.gestion-de-usuarios-ver-ms {
+.BotonVerMasText {
   width: 79px;
   font-size: 20px;
 }

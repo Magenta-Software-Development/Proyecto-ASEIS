@@ -18,9 +18,13 @@ Route::get('/', function () {
 })->name('app_index');
 
 
-Route::get('/GestionarUsuarios', function () {
-    return view('gestion-usuarios/index-usuarios');
+Route::get('/GestionarUsuarios/indexDocente', function () {
+    return view('gestion-usuarios/index-docentes');
 })->name('app_index_usuarios');
+
+Route::get('/GestionarUsuarios/indexEstudiante', function () {
+    return view('gestion-usuarios/index-estudiante');
+})->name('app_index_estudiante');
 
 Route::get('/MostrarInfo', function () {
     return view('gestion-usuarios/mostar-informacion');

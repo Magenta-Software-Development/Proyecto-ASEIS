@@ -14,20 +14,24 @@
     @vite('resources/css/app.css')
     @vite('resources/css/NavBarStyle.css')
     @vite('resources/css/informacion.css')
-    @yield('css')
     @yield('scripts')
+    @yield('css')
+
 </head>
 
 <body>
     <div class="cuerpo">
+
         <!--Barra superior-->
         <div class="BarraSuperior">
             <a href="{{route('app_index')}}"><img style="width: 133px; height: 63px" src="imgLogos/LogoASEISNEWSLETRAS.png" /></a>
         </div>
+
         <!--Cuerpo de la pagina-->
         <div class="contenido">
             @yield('content')
         </div>
+
         <!--Barra lateral-->
         <div style="padding-top: 55px; padding-bottom: 50px; padding-left: 40px; padding-right: 44px; left: 0px; top: 81px; position: absolute; background: white; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 370px; display: inline-flex">
             <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 21px; display: inline-flex">
