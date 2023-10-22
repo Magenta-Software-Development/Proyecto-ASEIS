@@ -99,6 +99,8 @@
                 </div>
                 <h5 class="text-center mt-3 modal-title">Héctor Javier Paiz Ramos</h5>
                 <br>
+                <p class="text-center text-white">Docente</p>
+                <br>
                 <p class="text-center text-white">Especialidad: BackEnd</p>
                 <br>
                 <p class="text-center text-white">hector.paiz@ues.edu.sv</p>
