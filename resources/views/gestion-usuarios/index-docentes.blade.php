@@ -8,6 +8,7 @@
 @section('css')
     @vite('resources/css/crearUsuarioAdminStyle.css')
     @vite('resources/css/index-usuarios.css')
+    @vite('resources/css/informacion.css')
     @vite('resources/js/crearUsuarioAdmin.js')
 @endsection
 @section('content')

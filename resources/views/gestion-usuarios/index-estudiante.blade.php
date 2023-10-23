@@ -8,6 +8,7 @@
 @section('css')
     @vite('resources/css/crearUsuarioAdminStyle.css')
     @vite('resources/css/index-usuarios.css')
+    @vite('resources/css/informacion.css')
 @endsection
 @section('content')
     <div class="cuerpoGestion">
@@ -25,7 +26,7 @@
         </div>
         <div class="BuscaYCrea">
             <div>
-                <input type="text" class="buscarInput" placeholder="Buscar" />
+                <input type="text" class="buscarInput form-control label-simple" placeholder="Buscar" />
             </div>
             <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
                 <p class="crearBoton1">Nuevo estudiante</p>
