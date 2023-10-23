@@ -5,7 +5,7 @@
 </script>
 @endsection
 @section('css')
-@vite('resources/css/crearUsuarioAdminStyle.css')
+@vite('resources/css/styleUsuariosAdmin.css')
 @vite('resources/css/index-usuarios.css')
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
@@ -63,7 +63,9 @@
 <!-- Modal para crear usuario -->
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-body">
+        <div class="modal-content ">
+            
+
             <div class="container">
                 <form class="formulario-CrearUsuarioAdmin">
                     <div class="input-container">
@@ -75,14 +77,17 @@
                         <input type="password" id="passworddd" name="password" required>
                     </div>
                     <div class="button-container">
-                        <button type="button" class="btn-Cancelar button-common" id="btn">Cancelar</button>
-                        <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
+                    <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
+                        <button type="button" class="btn-Crear button-common"  data-bs-dismiss="modal" aria-label="Close" id="btnCrear">Crear</button>
                     </div>
                 </form>
             </div>
+
+    
         </div>
     </div>
 </div>
+
 
 <!-- Modal para ver información de usuario -->
 <div class="modal right" id="modal-Docente" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">

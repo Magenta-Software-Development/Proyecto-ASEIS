@@ -6,7 +6,7 @@
     box-shadow: 0 0 10px rgba(97, 16, 16, 0.2);
     text-align: center;
     width: 894px;
-    height: 527px;
+    height: 527px; 
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -44,6 +44,8 @@ label {
 
 input[type="email"],
 input[type="password"] {
+    height: 46px;
+    width: 644px;
     padding: 5px;
     border-radius: 16px;
     border: 2px solid #797979;
@@ -80,7 +82,7 @@ button {
 .btn-Cancelar {
     background-color: #CECECE;
     color:#000000;
-    margin-right: 60px;
+    margin-right: 60px; 
 }
 
 .btn-Crear {
@@ -197,7 +199,3 @@ button {
         margin: 10px 0; /* Agrega espacio vertical entre los botones */
     }
 }
-
-
-
-
