@@ -1,34 +1,11 @@
-.cuerpo {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
 
-.BarraSuperior {
-    width: 100%;
-    height: 81px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 60px;
-    padding-right: 1247px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-    justify-content: flex-start;
-    align-items: center;
-    display: inline-flex
-}
-
-.contenido {
-    width: 78%;
-    height: 850px;
-    left: 393px;
-    top: 97px;
-    position: absolute;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden
-}
-
+    .div2 { grid-area: 2 / 1 / 7 / 2; }
+    .div1 { grid-area: 1 / 1 / 2 / 6; }
+    .div3 { grid-area: 2 / 2 / 7 / 6; }

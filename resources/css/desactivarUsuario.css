@@ -1,0 +1,80 @@
+.btn-desactivar {
+    background-color: #FFFFFF;
+    color: #1E6DA6;
+    border-color: #FFFFFF;
+    font-weight: 600;
+    width: 140px;
+    height: 56px;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.button-common{
+    width: 120px;
+    height: 36px;
+    top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    border: transparent;
+}
+.btn-si {
+    background-color: #CECECE;
+    color: #000000;
+}
+
+.btn-no {
+    background-color: #1F76BD;
+    color: #FFFFFF;
+}
+
+.btn-desactivar:active,
+.btn-desactivar:focus,
+.btn-desactivar:active:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #FFFFFF;
+}
+
+/* Media query para móvil pequeño (360 x 640 px) */
+
+@media (max-width: 360px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+    .button-common {
+        width: 100%;
+    }
+}
+
+/* Media query para móvil medio (375 x 667 px) */
+
+@media (min-width: 361px) and (max-width: 375px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+    .button-common {
+        width: 100%;
+    }
+}
+
+
+/* Media query para smartphone grande (720 x 1280 px) 
+
+@media (min-width: 376px) and (max-width: 720px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+    .button-common {
+        width: 100%;
+    }
+}
+*/
+
+

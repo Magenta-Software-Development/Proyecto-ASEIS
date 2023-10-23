@@ -6,55 +6,34 @@
     </script>
 @endsection
 @section('css')
-    @vite('resources/css/crearUsuarioAdminStyle.css')
+
     @vite('resources/css/index-usuarios.css')
+    @vite('resources/js/crearUsuarioAdmin.js')
+    @vite('resources/css/informacion.css')
 @endsection
 @section('content')
     <div class="cuerpoGestion">
         <div class="botonesFiltro">
-            <a href="{{ route('app_index_usuarios') }}">
-                <button class="botonFiltroDesactivo">
+            <a class="botonFiltroDesactivo" href="{{ route('app_index_usuarios') }}">
+                <button>
                     <p class="gestion-de-usuarios-docentes">Docentes</p>
                 </button>
             </a>
-            <a href="{{ route('app_index_estudiante') }}">
-                <button class="botonFiltroActivo">
+            <a class="botonFiltroActivo" href="{{ route('app_index_estudiante') }}">
+                <button>
                     <p class="gestion-de-usuarios-docentes-0">Estudiantes</p>
                 </button>
             </a>
         </div>
         <div class="BuscaYCrea">
-            <div>
-                <input type="text" class="buscarInput" placeholder="Buscar" />
-            </div>
+
+            <input type="text" class="buscarInput" placeholder="Buscar" />
+
             <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
                 <p class="crearBoton1">Nuevo estudiante</p>
             </button>
         </div>
 
-        <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-body">
-                    <div class="container">
-                        <form class="formulario-CrearUsuarioAdmin">
-                            <div class="input-container">
-                                <label for="email">Correo Electrónico</label>
-                                <input class="borde" type="email" id="email" name="email" required>
-                            </div>
-                            <div class="input-container">
-                                <label for="password">Contraseña</label>
-                                <input type="password" id="passworddd" name="password" required>
-                            </div>
-                            <div class="button-container">
-                                <button type="button" class="btn-Cancelar button-common" id="btnCancelar">Cancelar</button>
-                                <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="cuerpoUsuarios">
             <div class="imagenUsuario"></div>
@@ -64,7 +43,6 @@
                 </p>
                 <p class="DocenteDescripcionTxt">Estudiante</p>
             </div>
-
             <button class="BotonEdit" data-bs-toggle="modal" data-bs-target="#modal-EstudianteE">
                 <div class="BotonEditSymbol">
                     <svg width="100%" height="100%" preserve-aspect-ratio="none" view-box="0 0 24 24" fill="none"
@@ -76,7 +54,6 @@
                 </div>
                 <p class="BotonEditarText">Editar</p>
             </button>
-
             <button class="BotonVerMas" data-bs-toggle="modal" data-bs-target="#modal-Estudiante">
                 <div class="BotonEditSymbol">
                     <svg width="100%" height="100%" preserve-aspect-ratio="none" view-box="0 0 24 24" fill="none"
@@ -95,30 +72,32 @@
     <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-body">
-                <div class="container">
-                    <form class="formulario-CrearUsuarioAdmin">
-                        <div class="input-container">
-                            <label for="email">Correo Electrónico</label>
-                            <input class="borde" type="email" id="email" name="email" required>
-                        </div>
-                        <div class="input-container">
-                            <label for="password">Contraseña</label>
-                            <input type="password" id="passworddd" name="password" required>
-                        </div>
-                        <div class="button-container">
-                            <button type="button" class="btn-Cancelar button-common" id="btnCancelar">Cancelar</button>
-                            <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
-                        </div>
-                    </form>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <form class="formulario-CrearUsuarioAdmin">
+                            <div class="input-group">
+                                <input type="text" class="form-control label-simple" placeholder="Nombre"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="password" class="form-control label-simple" placeholder="password"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="button-container">
+                                <button type="button" class="btn-Cancelar button-common" id="btn">Cancelar</button>
+                                <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal para ver información de usuario Estudiante -->
-    <div class="modal right" id="modal-Estudiante" tabindex="-1" aria-labelledby="modal-EstudiantelLabel"
-        aria-hidden="true">
+    <!-- Modal para ver información de usuario -->
+    <div class="modal right" id="modal-Estudiante" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content modal-gestion">
                 <div class="modal-body">
@@ -136,7 +115,7 @@
                     </div>
                     <h5 class="text-center mt-3 modal-title">Elian Francisco Treminio Parada</h5>
                     <br>
-                    <p class="text-center text-white">Estudiante</p>
+                    <p class="text-center text-white">Especialidad: Movil</p>
                     <br>
                     <p class="text-center text-white">Correo</p>
                     <br>
@@ -146,58 +125,58 @@
         </div>
     </div>
 
-    <!-- Modal para editar información de usuario Estudiante -->
+    <!-- Modal para editar información de usuario -->
     <div class="modal right" id="modal-EstudianteE" tabindex="-1" aria-labelledby="modal-EstudianteElLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content ">
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center align-items-center ">
-                        <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control label-simple" placeholder="Nombre"
-                                                aria-label="Username" aria-describedby="basic-addon1">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control label-simple"
-                                                placeholder="Profesion" aria-label="Profesion"
-                                                aria-describedby="basic-addon1">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"
-                                            style="width: 100%"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center" colspan="2">
-                                        <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-secondary btn-cancel"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                Cancelar
-                                            </button>
-                                            <button type="button" class="btn btn-primary btn-save ms-5"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                Aceptar
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content ">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center align-items-center ">
+                    <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre"
+                                            aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control label-simple"
+                                            placeholder="Profesion" aria-label="Profesion"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"
+                                        style="width: 100%"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" colspan="2">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-secondary btn-cancel"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-save ms-5"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            Aceptar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
