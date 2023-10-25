@@ -198,7 +198,7 @@ ul {
   color: rgba(30, 109, 166, 1);
   padding: 16px;
   border-radius: 16px;
-  margin-left: 20%;
+  margin-left: 40%;
   align-items: flex-start;
   display: flex;
   gap: 10px;
@@ -210,6 +210,7 @@ ul {
 }
 
 .BotonEditSymbol {/*modf Eliseo*/
+  margin-top: 5%;
   height: 24px;
   min-width: 24px;
   width: 25%;
@@ -232,6 +233,21 @@ ul {
   box-sizing: border-box;
   height: 25%;
   width: 15%;
+  min-height: 50px;
+
+}
+
+.BotonDelete {/*modf Eliseo*/
+  color: rgb(255, 255, 255);
+  padding: 16px;
+  border-radius: 16px;
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(255, 0, 0);
+  box-sizing: border-box;
+  height: 25%;
+  width: auto;
   min-height: 50px;
 
 }
