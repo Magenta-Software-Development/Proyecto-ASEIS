@@ -9,6 +9,8 @@
 @vite('resources/css/index-usuarios.css')
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
+@vite('resources/css/desactivarUsuario.css')
+@vite('resources/js/desactivarUsuario.js')
 @endsection
 @section('content')
 <div class="cuerpoGestion">
@@ -57,6 +59,11 @@
                 </svg>
             </div>
             <p class="BotonVerMasText">Ver más</p>
+        </button>
+        <button type="button" class="BotonDelete" data-bs-toggle="modal" data-bs-target="#modalconfirmacion">
+            <div class="BotonEditSymbol">
+                <i class="fa-solid fa-trash"></i>
+            </div>
         </button>
     </div>
 </div>
@@ -160,6 +167,28 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mensaje-exito" class="alert alert-success" style="display: none;">
+    ¡Desactivado con éxito!
+</div>
+
+<!--modal para desactivar Usuario-->
+<div class="modal" id="modalconfirmacion" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h5 class="modal-title-delete"><i class="fas fa-exclamation-triangle text-danger"></i> Confirmación</h5>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas desactivar al docente/estudiante?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
+                <button type="button" class="btn-Eliminar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn-si">Eliminar</button>
             </div>
         </div>
     </div>
