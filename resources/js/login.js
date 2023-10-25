@@ -36,7 +36,7 @@ $(document).ready(function () {
                     let id = response.usuario.id_usurio;
                     localStorage.setItem('id', id);
 
-                    //Redireccionar a la pagina de inicio
+                    //Redireccionar a la pagina de inicio de forma temporal
                     window.location.href = `index`
 
                     //let token = xhr.getResponseHeader('Authorization')
