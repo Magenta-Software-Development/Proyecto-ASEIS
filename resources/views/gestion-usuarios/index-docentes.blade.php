@@ -34,7 +34,7 @@
     </div>
 
     <div class="cuerpoUsuarios">
-        <div class="imagenUsuario"></div>
+        <div class="imagenUsuario"><img src="{{ asset('images/Ellipse_10.png') }}"></div>
         <div class="nombreDocenteBox">
             <p class="DocenteNombreTxt">
                 Héctor Javier Paiz Ramos
@@ -64,7 +64,7 @@
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content ">
-            
+
 
             <div class="container">
                 <form class="formulario-CrearUsuarioAdmin">
@@ -77,13 +77,13 @@
                         <input type="password" id="passworddd" name="password" required>
                     </div>
                     <div class="button-container">
-                    <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
-                        <button type="button" class="btn-Crear button-common"  data-bs-dismiss="modal" aria-label="Close" id="btnCrear">Crear</button>
+                        <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
+                        <button type="button" class="btn-Crear button-common" data-bs-dismiss="modal" aria-label="Close" id="btnCrear">Crear</button>
                     </div>
                 </form>
             </div>
 
-    
+
         </div>
     </div>
 </div>
@@ -101,7 +101,7 @@
                     </svg>
                 </button>
                 <div class="d-flex justify-content-center align-items-center ">
-                    <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                    <img src="{{ asset('images/Ellipse_10.png') }}" alt="Usuario" class="img-fluid rounded-circle rounded-image">
                 </div>
                 <h5 class="text-center mt-3 modal-title">Héctor Javier Paiz Ramos</h5>
                 <br>
@@ -117,65 +117,57 @@
 </div>
 
 <!-- Modal para editar información de usuario -->
-<div class="modal right" id="modal-DocenteE" tabindex="-1" aria-labelledby="modal-DocenteElLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content ">
-        <div class="modal-body">
-            <div class="d-flex justify-content-center align-items-center ">
-                <img src="images/Ellipse_10.png" alt="Usuario" class="img-fluid rounded-circle rounded-image">
-            </div>
-            <div class="table-responsive">
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="input-group">
-                                    <input type="text" class="form-control label-simple" placeholder="Nombre"
-                                        aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group">
-                                    <input type="text" class="form-control label-simple"
-                                        placeholder="Profesion" aria-label="Profesion"
-                                        aria-describedby="basic-addon1">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group">
-                                    <input type="text" class="form-control label-simple"
-                                        placeholder="Especialidad" aria-label="Especialidad"
-                                        aria-describedby="basic-addon1">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group">
-                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"></textarea>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center" colspan="2">
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-secondary btn-cancel"
-                                        data-bs-dismiss="modal" aria-label="Close">
-                                        Cancelar
-                                    </button>
-                                    <button type="button" class="btn btn-primary btn-save ms-5"
-                                        data-bs-dismiss="modal" aria-label="Close">
-                                        Aceptar
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="modal right" id="modal-DocenteE" tabindex="-1" aria-labelledby="modal-DocenteElLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content ">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center align-items-center ">
+                    <img src="{{ asset('images/Ellipse_10.png') }}" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control label-simple" placeholder="Profesion" aria-label="Profesion" aria-describedby="basic-addon1">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control label-simple" placeholder="Especialidad" aria-label="Especialidad" aria-describedby="basic-addon1">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group">
+                                        <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" colspan="2">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close">
+                                            Aceptar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
