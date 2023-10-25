@@ -10,6 +10,7 @@
     @vite('resources/css/index-usuarios.css')
     @vite('resources/js/crearUsuarioAdmin.js')
     @vite('resources/css/informacion.css')
+    @vite('resources/css/styleUsuariosAdmin.css')
 @endsection
 @section('content')
     <div class="cuerpoGestion">
@@ -72,27 +73,23 @@
     <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="container">
-                        <form class="formulario-CrearUsuarioAdmin">
-                            <div class="input-group">
-                                <input type="text" class="form-control label-simple" placeholder="Nombre"
-                                    aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <input type="password" class="form-control label-simple" placeholder="password"
-                                aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <div class="button-container">
-                                <button type="button" class="btn-Cancelar button-common" id="btn">Cancelar</button>
-                                <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
-                            </div>
-                        </form>
+            <div class="container">
+                <form class="formulario-CrearUsuarioAdmin">
+                    <div class="input-container">
+                        <label for="email">Correo Electrónico</label>
+                        <input class="borde" type="email" id="email" name="email" required>
                     </div>
-                </div>
+                    <div class="input-container">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="passworddd" name="password" required>
+                    </div>
+                    <div class="button-container">
+                        <button type="button" class="btn-Cancelar button-common" id="btn">Cancelar</button>
+                        <button type="button" class="btn-Crear button-common" id="btnCrear">Crear</button>
+                    </div>
+                </form>
             </div>
+
         </div>
     </div>
 
