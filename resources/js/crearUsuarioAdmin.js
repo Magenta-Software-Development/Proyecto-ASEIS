@@ -1,5 +1,5 @@
 
-document.getElementById("btnCrear").addEventListener("click", function () {
+document.getElementById("btnCrear").addEventListener("click", function() {
 
     var email = document.getElementById("email").value;
     var password = document.getElementById("passworddd").value;
@@ -21,6 +21,6 @@ document.getElementById("btnCrear").addEventListener("click", function () {
         alert("La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número");
         return;
     }
-
+    
     alert("Formulario válido, puedes continuar.");
 });

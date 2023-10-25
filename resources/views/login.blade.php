@@ -1,52 +1,76 @@
-@extends('layouts.app')
-@section('title', 'Inicio de sesión')
-@section('content')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-    <div
-        class="w-[1440px] h-[1024px] bg-[#D9D9D9] font-inter font-[600] py-[120px] px-[168px] flex justify-center items-center text-left">
-        <div
-            class="gap-[130px] pb-[143px] pl-[134px] pt-[118px] rounded-2xl w-full flex bg-white h-full items-end justify-between pr-14">
-            <div class="h-[496px] bg-logo-aseis-news-vertical-1x w-72 bg-center bg-cover">
-                <img src="https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/images/c01fa20a026a0b11fd19195cb8afd3ea163f3fd8.webp"
-                    alt="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASEISNEW - @yield('title')</title>
+    <!-- Inicio Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <!-- Fin Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Enlaza tu archivo CSS personalizado -->
+
+    @vite('resources/css/app.css')
+    @vite('resources/js/login.js')
+</head>
+
+<body>
+
+    <div class="flex flex-col justify-center items-center h-screen bg-gray-100">
+        <div class="flex flex-col md:flex-row w-10/12 h-3/4">
+            <div class=" md:w-1/2 flex items-center justify-center  rounded-2xl">
+                <img src="https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/images/c01fa20a026a0b11fd19195cb8afd3ea163f3fd8.webp" alt="Image" class="w-80 h-auto">
             </div>
-            <div class="[flex-grow:1] gap-[29px] flex flex-col justify-between h-full">
-                <p class="text-[40px] w-[402px] text-black h-12">
-                    Bienvenido de nuevo
-                </p>
-                <div class="gap-[25px] flex flex-col items-end w-full">
-                    <div
-                        class="gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1]">
-                        <p class="transition-all text-xl w-[181px]">
+
+            <div class="bg-white md:w-1/2 flex items-center justify-center rounded-2xl">
+
+                <div class="w-full max-w-lg">
+                    <p class="text-[30px] md:text-[40px] text-black h-12 font-semibold">
+                        Bienvenido
+                    </p>
+                    <div class="mt-7 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">
+                        <p class="transition-all text-xl font-semibold">
                             Correo electrónico
                         </p>
-                        <input type="text"
-                            class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-[496px] h-[60px] rounded-2xl" />
+                        <input type="text" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
                     </div>
-                    <div
-                        class="gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1]">
-                        <p class="transition-all text-xl w-[113px]">Contraseña</p>
-                        <input type="password"
-                            class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-[496px] h-[60px] rounded-2xl" />
-                    </div>
-                    <p class="text-[#6D6D6D] w-[253px] text-xl h-6">
-                        ¿Olvidaste tu contraseña?
-                    </p>
-                    <button type="submit"
-                        class="w-[496px] bg-[#1F76BD] mt-[19px] gap-2.5 flex justify-center items-center rounded-2xl p-4 text-white">
-                        <p class="[max-width:153px] w-[37.3%] text-2xl">
-                            Iniciar sesión
+                    <div class="mt-6 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">
+                        <p class="transition-all text-xl font-semibold">
+                            Contraseña
                         </p>
-                </div>
-                <div class="mt-[11px] w-[418px] leading-none h-6">
-                    <p class="text-[#6D6D6D] text-xl inline">
-                        ¿Aun no tienes una cuenta?
-                    </p>
-                    <p class="text-[#1F76BD] text-xl inline">Regístrate aquí</p>
+                        <input type="text" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
+                    </div>
+                    <div class="gap-[36px] flex flex-col items-end w-full">
+                        <p class=" text-[#6D6D6D] mt-6 text-xl">
+                        ¿Olvidaste tu contraseña?
+                        </p>
+                    </div>
+
+                    <div class="flex gap-[44px] items-center justify-between">
+                        <button id="btnLogin" type="submit" class="bg-[#1F76BD] mt-[19px] w-full gap-2.5 flex justify-center items-center rounded-2xl p-[11px] text-white">
+                            <p class="text-2xl">
+                                Iniciar sesión
+                            </p>
+                        </button>
+                    </div>
+                    <div class=" flex flex-col items-end mt-[36px] leading-none h-6">
+                        <p class="text-[#6D6D6D] text-xl inline">
+                            ¿Aun no tienes una cuenta? <span class="text-[#1F76BD] text-xl inline">Regístrate aquí</span>
+                        </p>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-@endsection
+
+</body>
+
+</html>
