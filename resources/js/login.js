@@ -36,6 +36,9 @@ $(document).ready(function () {
                     let id = response.usuario.id_usurio;
                     localStorage.setItem('id', id);
 
+                    //Redireccionar a la pagina de inicio
+                    window.location.href = `index`
+
                     //let token = xhr.getResponseHeader('Authorization')
                     //localStorage.setItem('token', token)
                     //window.location.href = `{{ route('app_index_usuarios') }}`

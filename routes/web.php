@@ -13,23 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/',function(){
+    //redirije a login
+    return redirect()->route('app_login');
+})->name('app_welcome');
+
+//Ruta a Login
+Route::get('/login', function () {
     return view('login');
+})->name('app_login');
+
+//Todas estas rutas deben de estar bloqueadas hasta que se haga un auth o un login
+
+//Ruta a Index
+Route::get('/index', function () {
+    return view('index');
 })->name('app_index');
 
-
+//Ruta a index de gestion de usuarios de docentes
 Route::get('/GestionarUsuarios/indexDocente', function () {
     return view('gestion-usuarios/index-docentes');
 })->name('app_index_usuarios');
 
+//Ruta a index de gestion de usuarios de estudiantes
 Route::get('/GestionarUsuarios/indexEstudiante', function () {
     return view('gestion-usuarios/index-estudiante');
 })->name('app_index_estudiante');
 
-Route::get('/MostrarInfo', function () {
-    return view('gestion-usuarios/mostar-informacion');
-})->name('app_mostrar_info');
-
-Route::get('/CrearUsuarioAdmin', function () {
-    return view('gestion-usuarios/crearUsuariosAdmin');
-})->name('app_crear_usuario_admin');
