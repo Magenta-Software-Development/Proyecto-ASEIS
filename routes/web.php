@@ -18,6 +18,11 @@ Route::get('/',function(){
     return redirect()->route('app_login');
 })->name('app_welcome');
 
+Route::get('/registro-docente',function(){
+    //redirije a login
+    return view('registro-docente');
+})->name('registro');
+
 //Ruta a Login
 Route::get('/login', function () {
     return view('login');
