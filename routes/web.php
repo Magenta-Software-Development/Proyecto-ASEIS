@@ -40,3 +40,7 @@ Route::get('/GestionarUsuarios/indexEstudiante', function () {
     return view('gestion-usuarios/index-estudiante');
 })->name('app_index_estudiante');
 
+Route::get('/indexD', function(){
+    return view('indexD');
+})->name('app_index_docente');
+
