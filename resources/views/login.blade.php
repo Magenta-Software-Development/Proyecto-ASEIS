@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASEISNEW - @yield('title')</title>
+    <title>ASEISNEW - Inicio de sesion</title>
     <!-- Inicio Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
@@ -38,13 +38,13 @@
                         <p class="transition-all text-xl font-semibold">
                             Correo electrónico
                         </p>
-                        <input type="text" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
+                        <input type="text" id="correo" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
                     </div>
                     <div class="mt-6 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">
                         <p class="transition-all text-xl font-semibold">
                             Contraseña
                         </p>
-                        <input type="text" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
+                        <input type="text" id="password" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
                     </div>
                     <div class="gap-[36px] flex flex-col items-end w-full">
                         <p class=" text-[#6D6D6D] mt-6 text-xl">
@@ -61,7 +61,7 @@
                     </div>
                     <div class=" flex flex-col items-end mt-[36px] leading-none h-6">
                         <p class="text-[#6D6D6D] text-xl inline">
-                            ¿Aun no tienes una cuenta? <span class="text-[#1F76BD] text-xl inline">Regístrate aquí</span>
+                            ¿Aun no tienes una cuenta? <span class="text-[#1F76BD] text-xl inline"> <a href="{{route('registro')}}"> Regístrate aquí </a></span>
                         </p>
 
                     </div>
