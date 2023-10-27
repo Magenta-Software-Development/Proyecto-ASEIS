@@ -15,8 +15,8 @@ $(document).ready(function () {
 
         // Datos que deseas enviar en el cuerpo de la solicitud
         var datos = {
-            correo: "ga19014@ues.edu.sv",
-            password: "Minerva.23"
+            correo: $("#correo").val(),
+            password: $("#password").val(),
         };
 
         // Realizar la solicitud Ajax
@@ -28,20 +28,20 @@ $(document).ready(function () {
             data: JSON.stringify(datos),
             success: function(response,textStatus,xhr) {
                 console.log(response);
-                console.log(textStatus);
-                console.log(xhr.getAllResponseHeaders());
                 let message = response.message
-                if(xhr.status == 200){
+                let status = xhr.status;
+                if(status == 200){
                     sweetalert('success', 'Bienvenido', message);
-                    let id = response.usuario.id_usurio;
+                    let id = response.usuario.id_usuario;
+                    let token = response.token;
+                    console.log(token);
                     localStorage.setItem('id', id);
+                    localStorage.setItem('token', token);
 
                     //Redireccionar a la pagina de inicio de forma temporal
                     window.location.href = `index`
-
-                    //let token = xhr.getResponseHeader('Authorization')
-                    //localStorage.setItem('token', token)
-                    //window.location.href = `{{ route('app_index_usuarios') }}`
+                }else if(status === 202){
+                    sweetalert('success', 'Vamos', message);
                 }
                 
             },
