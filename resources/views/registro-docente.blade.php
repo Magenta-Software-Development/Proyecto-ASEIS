@@ -32,6 +32,12 @@
                     </p>
                     <input type="email" id="correo" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
                 </div>
+                <div class="mt-7 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">
+                    <p class="transition-all text-xl font-semibold">
+                        Ingresa tu codigo unico
+                    </p>
+                    <input type="text" id="codigo" class="[box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
+                </div>
                 <div class="flex items-center justify-between">
                     <button id="btnFindByCorreo" type="submit" class="bg-[#1F76BD] mt-[19px] w-full gap-2.5 flex justify-center items-center rounded-2xl p-[11px] text-white">
                         <p class="text-2xl">

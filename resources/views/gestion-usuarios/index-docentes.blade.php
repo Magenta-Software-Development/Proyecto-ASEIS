@@ -1,8 +1,14 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de docentes')
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
+    <!-- Inicio Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <!-- Fin Bootstrap -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
@@ -75,17 +81,27 @@
 <div class="modal right" id="modal-CrearUsuario" tabindex="-1" aria-labelledby="modal-CrearUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content ">
-
-
             <div class="container">
-                <form class="formulario-CrearUsuarioAdmin">
+                <form class="formulario-CrearUsuarioAdmin needs-validation">
                     <div class="input-container">
                         <label for="email">Correo Electrónico</label>
                         <input class="borde" type="email" id="emailDocente" name="email" required>
+                        <div class="valid-feedback">
+                            Correcto!!
+                        </div>
+                        <div class="invalid-feedback">
+                            <p id="message-error">Por favor, escriba un nombre de usuario.</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <label for="password">Contraseña</label>
                         <input type="password" id="passwordDocente" name="password" required>
+                        <div class="valid-feedback">
+                            Correcto!!
+                        </div>
+                        <div class="invalid-feedback">
+                            <p class="menssage-error">Por favor, escriba un nombre de usuario.</p>
+                        </div>
                     </div>
                     <div class="button-container">
                         <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
@@ -93,8 +109,6 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
     </div>
 </div>

@@ -1,4 +1,6 @@
 function sweetalert(icon, title, message) {
+    $("#btnLogin").removeAttr('disabled');
+    $("#indicadorCarga").attr('hidden', true);
     Swal.fire({
         icon: icon,
         title: title,
@@ -10,15 +12,15 @@ $(document).ready(function () {
     $.ajaxSetup({
         global: false
     });
-
     $("#btnLogin").click(function() {
-
+        $("#indicadorCarga").removeAttr('hidden');
+        $("#btnLogin").attr('disabled',true)
         // Datos que deseas enviar en el cuerpo de la solicitud
         var datos = {
             correo: $("#correo").val(),
             password: $("#password").val(),
         };
-
+        
         // Realizar la solicitud Ajax
         $.ajax({
             type: "POST",
@@ -37,7 +39,6 @@ $(document).ready(function () {
                     console.log(token);
                     localStorage.setItem('id', id);
                     localStorage.setItem('token', token);
-
                     //Redireccionar a la pagina de inicio de forma temporal
                     window.location.href = `index`
                 }else if(status === 202){
@@ -52,6 +53,7 @@ $(document).ready(function () {
                     sweetalert('error',message, "Error del credenciales");
                 }
             }
+            
         });
     });
 });

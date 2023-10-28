@@ -52,11 +52,18 @@
                         </p>
                     </div>
 
+            
+
                     <div class="flex gap-[44px] items-center justify-between">
                         <button id="btnLogin" type="submit" class="bg-[#1F76BD] mt-[19px] w-full gap-2.5 flex justify-center items-center rounded-2xl p-[11px] text-white">
                             <p class="text-2xl">
                                 Iniciar sesión
                             </p>
+                            <div class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status" id="indicadorCarga" hidden>
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
                         </button>
                     </div>
                     <div class=" flex flex-col items-end mt-[36px] leading-none h-6">

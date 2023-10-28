@@ -11,6 +11,7 @@
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
 @vite('resources/js/desactivarUsuario.js')
+@vite('resources/js/crearUsuariosAdmin.js')
 @endsection
 @section('content')
 <div class="cuerpoGestion">
@@ -78,15 +79,15 @@
                 <form class="formulario-CrearUsuarioAdmin">
                     <div class="input-container">
                         <label for="email">Correo Electrónico</label>
-                        <input class="borde" type="email" id="email" name="email" required>
+                        <input class="borde" type="email" id="emailEstudiante" name="email" required>
                     </div>
                     <div class="input-container">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="passworddd" name="password" required>
+                        <input type="password" id="passwordEstudiante" name="password" required>
                     </div>
                     <div class="button-container">
                         <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
-                        <button type="button" class="btn-Crear button-common" data-bs-dismiss="modal" aria-label="Close" id="btnCrear">Crear</button>
+                        <button type="button" class="btn-Crear button-common" data-bs-dismiss="modal" aria-label="Close" id="btnCrearEstudiante">Crear</button>
                     </div>
                 </form>
             </div>
