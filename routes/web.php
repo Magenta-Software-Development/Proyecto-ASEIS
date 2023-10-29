@@ -18,6 +18,11 @@ Route::get('/',function(){
     return redirect()->route('app_login');
 })->name('app_welcome');
 
+Route::get('/registro-docente',function(){
+    //redirije a login
+    return view('registro-docente');
+})->name('registro');
+
 //Ruta a Login
 Route::get('/login', function () {
     return view('login');
@@ -40,8 +45,11 @@ Route::get('/GestionarUsuarios/indexEstudiante', function () {
     return view('gestion-usuarios/index-estudiante');
 })->name('app_index_estudiante');
 
+Route::get('/indexD', function(){
+    return view('indexD');
+})->name('app_index_docente');
 
-//ruta a index de gestion de categorias
+//ruta a index de gestion de categorias Admin
 Route::get('/GestionarCategorias/indexCategorias',function(){
     return view('gestion-categorias/index-categorias');
 })->name('app_index_categorias');

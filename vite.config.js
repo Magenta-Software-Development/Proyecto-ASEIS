@@ -20,6 +20,7 @@ export default defineConfig({
                 "resources/js/login.js",
                 "resources/js/crearUsuariosAdmin.js",
                 "resources/js/desactivarUsuario.js",
+                "resources/js/registro-docente.js",
             ],
             refresh: true,
         }),
