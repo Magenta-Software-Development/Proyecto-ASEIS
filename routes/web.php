@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-| 
+|
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
@@ -17,6 +17,11 @@ Route::get('/',function(){
     //redirije a login
     return redirect()->route('app_login');
 })->name('app_welcome');
+
+Route::get('/registro-docente',function(){
+    //redirije a login
+    return view('registro-docente');
+})->name('registro');
 
 //Ruta a Login
 Route::get('/login', function () {
@@ -55,3 +60,7 @@ Route::get('/gestionAdmin/indexCursosPublicados', function(){
     return view('gestion-admin/index-cursos-publicados');
 })->name('app_index_cursos_publicados');
 
+//ruta a index de gestion de categorias Admin
+Route::get('/GestionarCategorias/indexCategorias',function(){
+    return view('gestion-categorias/index-categorias');
+})->name('app_index_categorias');

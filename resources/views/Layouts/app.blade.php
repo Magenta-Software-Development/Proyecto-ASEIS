@@ -8,18 +8,21 @@
     <!-- Inicio Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"> <!--Fontawesome-->
-    <!-- Fin Bootstrap -->
 
+    <!-- Fin Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"> <!--Fontawesome-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Enlaza tu archivo CSS personalizado -->
 
     @vite('resources/css/app.css')
     @yield('css')
     @yield('scripts')
+    @vite('resources/js/navBarAdmin.js')
+    @vite('resources/css/navBar.css')
 </head>
 
 <body>
@@ -53,39 +56,53 @@
             <ul class="space-y-2 font-medium" style="padding: 0px;">
                 <li class="bd-links w-100">
                     <a href="{{ route('app_index_usuarios') }}">
-                        <div style="width: 200px; padding: 20px; background: #1E6DA6; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: white">
+                        <div class="custom-div" id="btnGestionUsuarios">
                             Gestión de usuarios
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                    <a href="{{ route('app_index_categorias')}}">
+                        <div class="custom-div" id="btnGestionCategorias">
                             Gestión de categorías
                         </div>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnGestionCursos">
                             Gestión de cursos
                         </div>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
-                            Cursos disponibles
+                        <div class="custom-div" id="btnCursosDisponibles">
+                            Cursos no disponibles
                         </div>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnCursosPublicados">
                             Cursos publicados
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
+                    <a href="#">
+                        <div class="custom-div" id="btnGestionNoticias">
+                            Gestion de noticias
+                        </div>
+                    </a>
+                </li>
+                <li class="bd-links w-100">
+                    <a href="#">
+                        <div class="custom-div" id="btnNoticiasPublicadas">
+                            Noticias publicadas
+                        </div>
+                    </a>
+                </li>
+                <li class="bd-links w-100">
                     <a href="{{route('app_login')}}">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnCerrarSesion">
                             Cerrar sesión
                         </div>
                     </a>
