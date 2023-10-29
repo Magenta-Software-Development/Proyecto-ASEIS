@@ -40,7 +40,18 @@ Route::get('/GestionarUsuarios/indexEstudiante', function () {
     return view('gestion-usuarios/index-estudiante');
 })->name('app_index_estudiante');
 
+//Ruta a navbar lateral
 Route::get('/indexD', function(){
     return view('indexD');
 })->name('app_index_docente');
+
+//Ruta de la vista cursos no disponibles
+Route::get('/gestionAdmin/indexCursosNoDisponibles', function(){
+    return view('gestion-admin/index-cursos-no-disponibles');
+})->name('app_index_cursos_no_disponibles');
+
+//Ruta de la vista cursos publicados
+Route::get('/gestionAdmin/indexCursosPublicados', function(){
+    return view('gestion-admin/index-cursos-publicados');
+})->name('app_index_cursos_publicados');
 
