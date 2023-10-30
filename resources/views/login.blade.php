@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Enlaza tu archivo CSS personalizado -->
-
+    @vite('resources/css/loader.css')
     @vite('resources/css/app.css')
     @vite('resources/js/login.js')
 </head>
@@ -53,6 +53,23 @@
                     </div>
 
             
+                    <!-- Modal de Indicador de Carga -->
+                    <div class="modal fade" id="modal-indicador-carga" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent" hidden>
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.7);">
+                            <div class="modal-body text-center">
+                                <div class="containerIndicadorLoading">
+                                    <p id="messageIndicator">Cargando...</p> 
+                                    <div class="loaderborde">
+                                        <div class="loadersecundario">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+  
 
                     <div class="flex gap-[44px] items-center justify-between">
                         <button id="btnLogin" type="submit" class="bg-[#1F76BD] mt-[19px] w-full gap-2.5 flex justify-center items-center rounded-2xl p-[11px] text-white">

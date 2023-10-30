@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const modalOverlay = document.querySelector('.modal-overlay');
+    modalOverlay.addEventListener('click', function(event) {
+        event.stopPropagation(); // Evita que el clic se propague al modal
+    });
+});
+
+
 function sweetalert(icon, title, message) {
     $("#btnLogin").removeAttr('disabled');
     $("#indicadorCarga").attr('hidden', true);
@@ -13,6 +21,10 @@ $(document).ready(function () {
         global: false
     });
     $("#btnLogin").click(function() {
+        // Mostrar el modal de indicador de carga
+        $('#modal-indicador-carga').removeAttr('hidden');
+        $('#modal-indicador-carga').modal('show');
+        $('.modal-backdrop').modal('show');
         $("#indicadorCarga").removeAttr('hidden');
         $("#btnLogin").attr('disabled',true)
         // Datos que deseas enviar en el cuerpo de la solicitud
@@ -20,7 +32,6 @@ $(document).ready(function () {
             correo: $("#correo").val(),
             password: $("#password").val(),
         };
-        
         // Realizar la solicitud Ajax
         $.ajax({
             type: "POST",
@@ -32,6 +43,8 @@ $(document).ready(function () {
                 console.log(response);
                 let message = response.message
                 let status = xhr.status;
+                $('#modal-indicador-carga').modal('hide');
+                $('#modal-indicador-carga').attr('hidden', true);
                 if(status == 200){
                     sweetalert('success', 'Bienvenido', message);
                     let id = response.usuario.id_usuario;
@@ -49,6 +62,11 @@ $(document).ready(function () {
             error: function(xhr, textStatus, errorThrown) {
                 let response = xhr.responseJSON
                 let message = response.message
+                // Ocultar el modal de indicador de carga
+                $('#modal-indicador-carga').modal('hide');
+                $('#modal-indicador-carga').attr('hidden', true); 
+                $('.modal-backdrop').attr('hidden',true);
+               
                 if (xhr.status == 500) {
                     sweetalert('error',message, "Error del credenciales");
                 }

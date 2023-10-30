@@ -45,28 +45,25 @@ $(document).ready(function () {
         // Obtengo el valor del correo electrónico del input
         if(validandoDatos()){
             var data = {
-                correo: $('#emailEstudiante').val(),
+                correo: $("#emailEstudiante").val(),
+                password: $("#passwordEstudiante").val(),
+                estado: 0
             };
             console.log(JSON.stringify(data));
             // Realizamos una solicitud AJAX utilizando jQuery
             $.ajax({
-                url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/findByCorreo', 
+                url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/crear-estudiante', 
                 type: 'POST', 
                 contentType: "application/json",
                 crossDomain: true,
                 data: JSON.stringify(data), 
                 success: function(response, textStatus, xhr) {
                     // Si la solicitud fue exitosa aca...
-                    //console.log(response);
+                    console.log(response);
                     console.log(response.message);
                     console.log(xhr.status);
-                    if(xhr.status == 200){//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
-                        console.log(response);
-                        let id_usuario = response.usuario.id_usuario;
-                        console.log(id_usuario);
-                    }
-                    else if(xhr.status == 202){ //Estado de respyuesta = aceptado, el usuario ya posee una cuenta
-                        sweetalert('error',"Ya posees una cuenta",response.message);
+                    if(xhr.status == 201){//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
+                        sweetalert('success','Creado con exito!',response.message);
                     }
                 },
                 error: function(error) {
@@ -74,7 +71,7 @@ $(document).ready(function () {
                     console.error('Error en la solicitud AJAX:', error);
                     //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
                     if (error.status == 500) {
-                        sweetalert('error', "Error, no se encontro tu correo",error.responseJSON.message);
+                        sweetalert('error',"Correo Existente",error.responseJSON.message);
                     }
                 }
             });
