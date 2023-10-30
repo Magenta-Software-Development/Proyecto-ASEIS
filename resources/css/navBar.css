@@ -1,0 +1,17 @@
+.custom-div {
+    width: 200px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex;
+    color: #1E6DA6;
+    transition: background 0.3s; /* Agrega una transición suave para el cambio de color de fondo */
+}
+
+.custom-div.active {
+    background: #1E6DA6;
+    color: white; 
+}

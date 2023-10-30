@@ -1,0 +1,239 @@
+.cuerpoGestion {
+    padding-top: 80px;
+}
+
+.BuscaYCrea { /*Estilo para contenedor que tiene el boton de crear y buscador*/
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    gap: 25px;
+    box-sizing: border-box;
+    height: 56px;
+    width: 90%;
+
+}
+
+.buscarInput { /*Estilo para el input de buscar*/
+    font-weight: 400;
+    text-align: left;
+    color: rgba(121, 121, 121, 1);
+    font-family: Inter;
+    padding: 16px;
+    border-radius: 16px;
+    align-items: center;
+    display: inline-flex;
+    gap: 12px;
+    box-shadow: 0px 0px 0px 2px rgba(121, 121, 121, 1) inset;
+    box-sizing: border-box;
+    width: 70%;
+    flex-grow: 1;
+    margin-left: 10%;
+}
+
+.crearBoton { /*Estilo para el boton de crear*/
+    padding: 1.5%;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(30, 109, 166, 1);
+    box-sizing: border-box;
+    width: 15%;
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: auto;
+    font-style: normal;
+    font-weight: auto;
+    line-height: normal;
+}
+
+
+.contenedorCurso { /*Estilo para el contenedor de cada curso*/
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 95px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #80AFD1;
+}
+
+.letraCurso { /*Estilo para el texto del curso*/
+    color: #000;
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    /* Oculta el contenido que excede el ancho del contenedor */
+    text-overflow: ellipsis;
+    /* Muestra los tres puntos (...) cuando el texto se corta */
+    font-family: Inter;
+    font-size: 300%;
+    /* antes estaba en 36px por si se rompe en otras pantallas */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.botonesCurso { /*Estilo para el contenedor de los botones de editar y eliminar*/
+    display: flex;
+    padding: 1%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 16px;
+    background: #FFF;
+}
+
+
+
+.botonesCurso>svg {
+    width: 24px;
+    /* Ajusta el ancho máximo de la imagen SVG */
+    height: 24px;
+    /* Ajusta la altura máxima de la imagen SVG */
+}
+
+/* Hace que el texto sea prácticamente invisible en pantallas pequeñas */
+
+
+/* Ajusta el espaciado de los botones en pantallas pequeñas */
+@media (max-width: 768px) {
+    .botonesCurso {
+        padding: 2%;
+    }
+    .letraBoton {
+        display: none;
+    }
+}
+
+
+.letrabtnEliminar { /*Estilo para el texto del boton de eliminar*/
+    color: #F00;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.letrabtnEditar { /*Estilo para el texto del boton de editar*/
+    color: #1E6DA6;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.row {
+    padding-top: 1%;
+}
+
+/* Estilos para el modal que se desplaza hacia la derecha */
+.modal.right .modal-dialog {
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.75s;
+}
+
+/* Estilos para el modal que se muestra en la posición correcta */
+.modal.right.show .modal-dialog {
+    transform: translate3d(0, 0, 0);
+}
+
+.modal-content { /*Estilo para el contenedor del modal*/
+    width: 947px;
+    height: 508px;
+    border-radius: 16px;
+    background: #FFF;
+
+}
+
+.label-simple { /*Estilo para el texto de la etiqueta*/
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    border: 2px solid #797979;
+}
+
+.letraCategoria { /*Estilo para el texto de la categoria*/
+    color: #000;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.btn-cancel { /*Estilo para el boton de cancelar*/
+    display: flex;
+    width: 163px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #CECECE;
+    color: #000;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.btn-save { /*Estilo para el boton de guardar*/
+    display: flex;
+    width: 187px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #1F76BD;
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.letraEliminar { /*Estilo para el texto de eliminar*/
+    color: #000;
+
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.btn-eliminar { /*Estilo para el boton de eliminar*/
+    display: flex;
+    width: 190px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #D30A0A;
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

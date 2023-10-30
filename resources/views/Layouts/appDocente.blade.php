@@ -13,13 +13,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 
+    
     <!-- Enlaza tu archivo CSS personalizado -->
 
     @vite('resources/css/app.css')
     @yield('css')
     @yield('scripts')
+    @vite('resources/js/navBarAdmin.js')
+    @vite('resources/css/navBar.css')
 </head>
 
 <body>
@@ -53,47 +57,47 @@
             <ul class="space-y-2 font-medium" style="padding: 0px;">
                 <li class="bd-links w-100">
                     <a href="{{ route('app_index_usuarios') }}">
-                        <div style="width: 200px; padding: 20px; background: #1E6DA6; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: white">
+                        <div class="custom-div" id="btnPerfil">
                             Perfil
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnGestionCursos">
                             Gestión de cursos
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                    <a href="{{ route('app_index_cursos_publicados') }}">
+                        <div class="custom-div" id="btnCursosPublicados">
                             Cursos publicados
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
-                            Cursos no disponibles 
+                    <a href="{{ route('app_index_cursos_no_disponibles') }}">
+                        <div class="custom-div" id="btnCursosNoPublicados">
+                            Cursos no disponibles
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnGestionNoticias">
                             Gestion de noticias
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
                     <a href="#">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnNoticiasPublicadas">
                             Noticias publicadas
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
                     <a href="{{route('app_login')}}">
-                        <div style="width: 200px; padding: 20px; background: white; border-radius: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex; color: #1E6DA6">
+                        <div class="custom-div" id="btnCerrarSesion">
                             Cerrar sesión
                         </div>
                     </a>
@@ -106,7 +110,7 @@
     <div class="sm:ml-64">
         @yield('content')
     </div>
-
+    
 </body>
 
 </html>
