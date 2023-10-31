@@ -14,6 +14,8 @@ export default defineConfig({
                 "resources/css/index-usuarios.css",
                 "resources/css/styleUsuariosAdmin.css",
                 "resources/css/desactivarUsuario.css",
+                "resources/css/perfilDocente.css",
+    
                 //Js
                 "resources/js/app.js",
                 "resources/js/load-file.js",
@@ -21,6 +23,7 @@ export default defineConfig({
                 "resources/js/crearUsuariosAdmin.js",
                 "resources/js/desactivarUsuario.js",
                 "resources/js/registro-docente.js",
+                "resources/js/editPerfDoc.js",
             ],
             refresh: true,
         }),
