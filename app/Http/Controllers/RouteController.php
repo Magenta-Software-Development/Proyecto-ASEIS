@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
 {
@@ -12,10 +13,122 @@ class RouteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //Funciones de ruta para administrador---------------------------------------------------------------------------------------------------------------------
     public function index()
     {
-        //
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //Si es admin le da acceso
+                return view('index');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
     }
+
+    public function gestionIndexDocente()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //si es admin le da acceso
+                return view('index-docentes');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+    public function gestionIndexEstudiante()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //si es admin le da acceso
+                return view('index-estudiante');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+    public function gestionCursosNoDisponibles()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //si es admin le da acceso
+                return view('index-cursos-no-disponibles');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+    public function gestionCursosDisponibles()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //si es admin le da acceso
+                return view('index-cursos-publicados');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+    public function gestionCategorias()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Administrador') { //si es admin le da acceso
+                return view('index-categorias');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+
+
+    //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
+    public function indexD()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Estudiante') { //Si es docente le da acceso
+                return view('indexD');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+   /* public function perfilDocente()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Estudiante') { //Si es docente le da acceso
+                return view('app_perfil_docente');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }*/
 
     /**
      * Show the form for creating a new resource.

@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_categorias')}}">
+                    <a href="{{ route('app_index_docentes')}}">
                         <div class="custom-div" id="btnGestionCategorias">
                             Gestión de categorías
                         </div>

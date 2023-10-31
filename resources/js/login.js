@@ -5,7 +5,7 @@ function sweetalert(icon, title, message) {
         text: message,
     })
 }
-$(document).ready(function () {
+$(document).ready(function API() {
     // Deshabilitar el manejo global de errores de jQuery
     $.ajaxSetup({
         global: false
@@ -27,16 +27,14 @@ $(document).ready(function () {
             crossDomain: true,
             data: JSON.stringify(datos),
             success: function (response, textStatus, xhr) {
-                console.log(response);
+                //console.log(response);
                 let message = response.message
                 let status = xhr.status;
                 if (status == 200) {
                     sweetalert('success', 'Bienvenido', message);
                     let id = response.usuario.id_usuario;
                     let token = response.token;
-                    console.log(token);
-                    console.log(id);
-                    console.log(response.usuario.rol);
+
                     localStorage.setItem('id', id);
                     localStorage.setItem('token', token);
 
@@ -50,14 +48,6 @@ $(document).ready(function () {
                     verifyLogin(dataNew);
                 } else if (status === 202) {
                     sweetalert('success', 'Vamos', message);
-
-                    let dataNew = {
-                        username: datos.correo,
-                        password: datos.password,
-                        rol: "ADMINISTRADOR",
-                    }
-
-                    verifyLogin(dataNew);
                 }
 
             },
@@ -72,21 +62,18 @@ $(document).ready(function () {
     });
 });
 
-function verifyLogin(data) {
-    let rol = data.rol;
-    if (rol == 'ADMINISTRADOR') {
-        $("#rol").val("ADMINISTRADOR")
-    }
+function verifyLogin(data = []) {
 
-    if (rol == 'USUARIO') {
-        $("#rol").val("USUARIO")
-    }
+    let rol = data.rol;
+    let id = localStorage.getItem('id');
+    let token = localStorage.getItem('token');
+    let email = data.username;
+    let password = data.password;
 
     //Hace la peticion al controller y ejecuta el metodo
     //console.log(data);
 
     $.ajaxSetup({
-
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
@@ -97,15 +84,28 @@ function verifyLogin(data) {
         type: "POST",
         url: "/login/Verify",
         data: {
-            email: data.username,
-            password: data.password,
-            rol: data.rol,
+            email: email,
+            password: password,
+            rol: rol,
+            id: id,
+            token: token
         },
         success: function (response) {
-            console.log(response);            
+            console.log(response);
+
+            //Espera 3 segundos y redirecciona
+            setTimeout(function () {
+                if (response.rol == 'Administrador') {
+                    window.location.href = "index";
+                } else if (response.rol == 'Estudiante') {
+                    window.location.href = "indexD";
+                } else if (response.rol == 'Estudiante') {
+                    window.location.href = "login";
+                }
+            }, 3000);
         },
         error: function (xhr, textStatus, errorThrown) {
-            sweetalert('error', 'Error', 'No se pudo iniciar sesion');
+            console.log(xhr);
         }
     });
 

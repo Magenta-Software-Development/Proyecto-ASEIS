@@ -56,7 +56,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800" style="background-color: white">
             <ul class="space-y-2 font-medium" style="padding: 0px;">
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_usuarios') }}">
+                    <a href="{{ route('app_perfil_docente') }}">
                         <div class="custom-div" id="btnPerfil">
                             Perfil
                         </div>
@@ -96,11 +96,10 @@
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{route('app_login')}}">
-                        <div class="custom-div" id="btnCerrarSesion">
-                            Cerrar sesión
-                        </div>
-                    </a>
+                <form method="POST" action="{{ route('app_logout') }}">
+                        @csrf
+                        <button type="submit" class="custom-div">Cerrar Sesion</button>
+                    </form>
                 </li>
             </ul>
         </div>
