@@ -116,19 +116,19 @@ class RouteController extends Controller
         }
     }
 
-   /* public function perfilDocente()
+    public function perfilDocente()
     {
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Estudiante') { //Si es docente le da acceso
-                return view('app_perfil_docente');
+                return view('gestion-perfilDocente.perfilDocente');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
         }
-    }*/
+    }
 
     /**
      * Show the form for creating a new resource.

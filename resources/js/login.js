@@ -91,7 +91,7 @@ function verifyLogin(data = []) {
             token: token
         },
         success: function (response) {
-            console.log(response);
+            //console.log(response);
 
             //Espera 3 segundos y redirecciona
             setTimeout(function () {
