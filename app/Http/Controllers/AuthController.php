@@ -65,6 +65,6 @@ class AuthController extends Controller
         User::where('id', $user->id)->delete();
 
         Auth::logout();
-        return redirect()->route('app_login')->with('success', 'Sesion crerada correctamente');
+        return redirect()->route('app_login')->with('success', 'Sesion cerrada correctamente');
     }
 }
