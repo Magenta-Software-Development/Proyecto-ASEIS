@@ -50,6 +50,11 @@ Route::get('/indexD', function(){
     return view('indexD');
 })->name('app_index_docente');
 
+//Ruta para visualizar el perfil del Docente
+Route::get('/indexD/perfilDocente',function(){
+    return view('gestion-perfilDocente/perfilDocente');
+})->name('app_perfil_docente');
+
 //Ruta de la vista cursos no disponibles
 Route::get('/gestionAdmin/indexCursosNoDisponibles', function(){
     return view('gestion-admin/index-cursos-no-disponibles');
@@ -64,3 +69,4 @@ Route::get('/gestionAdmin/indexCursosPublicados', function(){
 Route::get('/GestionarCategorias/indexCategorias',function(){
     return view('gestion-categorias/index-categorias');
 })->name('app_index_categorias');
+

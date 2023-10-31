@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASEISNEW - @yield('title')</title>
+    <title>ASEISNEWS - @yield('title')</title>
     <!-- Inicio Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -56,7 +56,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800" style="background-color: white">
             <ul class="space-y-2 font-medium" style="padding: 0px;">
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_usuarios') }}">
+                    <a href="{{ route('app_perfil_docente') }}">
                         <div class="custom-div" id="btnPerfil">
                             Perfil
                         </div>
