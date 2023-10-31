@@ -101,11 +101,10 @@
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{route('app_login')}}">
-                        <div class="custom-div" id="btnCerrarSesion">
-                            Cerrar sesión
-                        </div>
-                    </a>
+                    <form method="POST" action="{{ route('app_logout') }}">
+                        @csrf
+                        <button type="submit" class="custom-div">Cerrar Sesion</button>
+                    </form>
                 </li>
             </ul>
         </div>

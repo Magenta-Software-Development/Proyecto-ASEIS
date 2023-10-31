@@ -11,7 +11,7 @@ $(document).ready(function () {
         global: false
     });
 
-    $("#btnLogin").click(function() {
+    $("#btnLogin").click(function () {
 
         // Datos que deseas enviar en el cuerpo de la solicitud
         var datos = {
@@ -26,32 +26,87 @@ $(document).ready(function () {
             contentType: "application/json",
             crossDomain: true,
             data: JSON.stringify(datos),
-            success: function(response,textStatus,xhr) {
+            success: function (response, textStatus, xhr) {
                 console.log(response);
                 let message = response.message
                 let status = xhr.status;
-                if(status == 200){
+                if (status == 200) {
                     sweetalert('success', 'Bienvenido', message);
                     let id = response.usuario.id_usuario;
                     let token = response.token;
                     console.log(token);
+                    console.log(id);
+                    console.log(response.usuario.rol);
                     localStorage.setItem('id', id);
                     localStorage.setItem('token', token);
 
-                    //Redireccionar a la pagina de inicio de forma temporal
-                    window.location.href = `index`
-                }else if(status === 202){
+                    let dataNew = {
+                        username: datos.correo,
+                        password: datos.password,
+                        rol: response.usuario.rol,
+                    }
+
+                    //verificamos los datos y los enviamos al controller
+                    verifyLogin(dataNew);
+                } else if (status === 202) {
                     sweetalert('success', 'Vamos', message);
+
+                    let dataNew = {
+                        username: datos.correo,
+                        password: datos.password,
+                        rol: "ADMINISTRADOR",
+                    }
+
+                    verifyLogin(dataNew);
                 }
-                
+
             },
-            error: function(xhr, textStatus, errorThrown) {
+            error: function (xhr, textStatus, errorThrown) {
                 let response = xhr.responseJSON
                 let message = response.message
                 if (xhr.status == 500) {
-                    sweetalert('error',message, "Error del credenciales");
+                    sweetalert('error', message, "Error del credenciales");
                 }
             }
         });
     });
 });
+
+function verifyLogin(data) {
+    let rol = data.rol;
+    if (rol == 'ADMINISTRADOR') {
+        $("#rol").val("ADMINISTRADOR")
+    }
+
+    if (rol == 'USUARIO') {
+        $("#rol").val("USUARIO")
+    }
+
+    //Hace la peticion al controller y ejecuta el metodo
+    //console.log(data);
+
+    $.ajaxSetup({
+
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    $.ajax({
+        type: "POST",
+        url: "/login/Verify",
+        data: {
+            email: data.username,
+            password: data.password,
+            rol: data.rol,
+        },
+        success: function (response) {
+            console.log(response);            
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            sweetalert('error', 'Error', 'No se pudo iniciar sesion');
+        }
+    });
+
+}
