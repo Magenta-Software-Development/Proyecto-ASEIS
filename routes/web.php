@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
         //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         Route::get('/indexD', [RouteController::class, 'indexD'])->name('app_index_docente'); //Muestra el indice del docente
         Route::get('/indexD/perfilDocente', [RouteController::class, 'perfilDocente'])->name('app_perfil_docente');
+        Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER
         //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER
         
     });
