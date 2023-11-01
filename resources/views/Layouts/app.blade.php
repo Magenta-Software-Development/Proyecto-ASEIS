@@ -55,14 +55,14 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800" style="background-color: white">
             <ul class="space-y-2 font-medium" style="padding: 0px;">
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_usuarios') }}">
+                    <a href="{{ route('app_index_docentes') }}">
                         <div class="custom-div" id="btnGestionUsuarios">
                             Gestión de usuarios
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_docentes')}}">
+                    <a href="{{ route('app_index_categorias')}}">
                         <div class="custom-div" id="btnGestionCategorias">
                             Gestión de categorías
                         </div>
@@ -74,13 +74,13 @@
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
+                    <a href="{{ route('app_index_cursos_no_disponibles')}}">
                         <div class="custom-div" id="btnCursosDisponibles">
                             Cursos no disponibles
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
+                    <a href="{{ route('app_index_cursos_publicados')}}">
                         <div class="custom-div" id="btnCursosPublicados">
                             Cursos publicados
                         </div>

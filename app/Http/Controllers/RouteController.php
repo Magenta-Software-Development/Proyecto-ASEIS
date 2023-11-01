@@ -35,7 +35,7 @@ class RouteController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Administrador') { //si es admin le da acceso
-                return view('index-docentes');
+                return view('gestion-usuarios.index-docentes');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
@@ -49,7 +49,7 @@ class RouteController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Administrador') { //si es admin le da acceso
-                return view('index-estudiante');
+                return view('gestion-usuarios.index-estudiante');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
@@ -63,7 +63,7 @@ class RouteController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Administrador') { //si es admin le da acceso
-                return view('index-cursos-no-disponibles');
+                return view('gestion-admin.index-cursos-no-disponibles');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
@@ -77,7 +77,7 @@ class RouteController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Administrador') { //si es admin le da acceso
-                return view('index-cursos-publicados');
+                return view('gestion-admin.index-cursos-publicados');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
@@ -91,7 +91,7 @@ class RouteController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->rol == 'Administrador') { //si es admin le da acceso
-                return view('index-categorias');
+                return view('gestion-categorias.index-categorias');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
@@ -107,7 +107,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Estudiante') { //Si es docente le da acceso
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
                 return view('indexD');
             } else {
                 //Send him back to where it was
@@ -121,7 +121,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Estudiante') { //Si es docente le da acceso
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
                 return view('gestion-perfilDocente.perfilDocente');
             } else {
                 //Send him back to where it was
@@ -129,6 +129,22 @@ class RouteController extends Controller
             }
         }
     }
+
+   /* public function NOMBRE DE LA FUNCION COMO EN WEB.PHP()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'ROL QUE DAR ACCESO') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.perfilDocente');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }*/
+
+    
 
     /**
      * Show the form for creating a new resource.

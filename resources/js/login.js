@@ -97,12 +97,15 @@ function verifyLogin(data = []) {
             setTimeout(function () {
                 if (response.rol == 'Administrador') {
                     window.location.href = "index";
-                } else if (response.rol == 'Estudiante') {
+                } else if (response.rol == 'Docente') {
                     window.location.href = "indexD";
                 } else if (response.rol == 'Estudiante') {
                     window.location.href = "login";
                 }
-            }, 3000);
+                else {
+                    window.location.href = "login";
+                }
+            }, 2000);
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);

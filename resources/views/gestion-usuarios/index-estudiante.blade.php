@@ -15,12 +15,12 @@
 @section('content')
 <div class="cuerpoGestion">
     <div class="botonesFiltro">
-        <a class="botonFiltroDesactivo" href="{{ route('app_index_usuarios') }}">
+        <a class="botonFiltroDesactivo" href="{{ route('app_index_docentes') }}">
             <button>
                 <p class="botonFiltro">Docentes</p>
             </button>
         </a>
-        <a class="botonFiltroActivo" href="{{ route('app_index_estudiante') }}">
+        <a class="botonFiltroActivo" href="{{ route('app_index_estudiantes') }}">
             <button>
                 <p class="botonFiltro">Estudiantes</p>
             </button>
