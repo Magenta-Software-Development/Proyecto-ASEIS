@@ -63,33 +63,33 @@
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
+                    <a href="{{ route('app_index_gestion_cursos') }}">
                         <div class="custom-div" id="btnGestionCursos">
                             Gestión de cursos
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_cursos_publicados') }}">
+                    <a href="{{ route('app_index_cursosPublicados_docente') }}">
                         <div class="custom-div" id="btnCursosPublicados">
                             Cursos publicados
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_cursos_no_disponibles') }}">
+                    <a href="{{ route('app_index_cursos_no_disponibles_docente') }}">
                         <div class="custom-div" id="btnCursosNoPublicados">
                             Cursos no disponibles
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
+                    <a href="{{ route('app_index_noticias_docente') }}">
                         <div class="custom-div" id="btnGestionNoticias">
                             Gestion de noticias
                         </div>
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="#">
+                    <a href="{{ route('app_index_noticias_publicadas') }}">
                         <div class="custom-div" id="btnNoticiasPublicadas">
                             Noticias publicadas
                         </div>

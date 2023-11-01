@@ -55,6 +55,31 @@ Route::get('/indexD/perfilDocente',function(){
     return view('gestion-perfilDocente/perfilDocente');
 })->name('app_perfil_docente');
 
+//Ruta para gestionar cursos
+Route::get('/gestionDocente/indexCrearCurso',function(){
+    return view('gestion-perfilDocente/index-gestion-cursos');
+})->name('app_index_gestion_cursos');
+
+//Ruta para visualizar cursos Publicados en Docente
+Route::get('/gestionDocente/indexCursosPublicadosDocente',function(){
+    return view('gestion-perfilDocente/index-cursosPublicados-Docente');
+})->name('app_index_cursosPublicados_docente');
+
+//Ruta para visualizar cursos No Disponibles en Docente
+Route::get('/gestionDocente/indexCursosNoDisponiblesDocente',function(){
+    return view('gestion-perfilDocente/index-cursos-no-disponibles-docente');
+})->name('app_index_cursos_no_disponibles_docente');
+
+//Ruta para visualizar la gestion de noticias en Docente
+Route::get('/gestionDocente/indexNoticiasDocente',function(){
+    return view('gestion-perfilDocente/index-noticias-docente');
+})->name('app_index_noticias_docente');
+
+//Ruta para visualizar las noticias publicadas en Docente
+Route::get('/gestionDocente/indexNoticiasPublicadas',function(){
+    return view('gestion-perfilDocente/index-noticias-publicadas');
+})->name('app_index_noticias_publicadas');
+
 //Ruta de la vista cursos no disponibles
 Route::get('/gestionAdmin/indexCursosNoDisponibles', function(){
     return view('gestion-admin/index-cursos-no-disponibles');
