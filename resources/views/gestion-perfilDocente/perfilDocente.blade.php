@@ -4,7 +4,6 @@
 @section('scripts')
     @vite('resources/js/editPerfDoc.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('css')
@@ -23,11 +22,11 @@
             <img src="https://via.placeholder.com/232x232" alt="Perfil Docente" class="foto-redonda" />
         </div>
         <div class="info-generalDocente">
-            <h5 class="text-center mt-3 textTarjetaDoc" >Héctor Javier Paiz Ramos</h5>
-            <p class="text-center text-contenido" id="docenteListado">Docente</p>
-            <p class="text-center text-contenido" id="especialidadDocente">Especialidad: BackEnd</p>
-            <p class="text-center text-contenido" id="correoDocenteLis">Correo: hector.paiz@ues.edu.sv</p>
-            <p class="text-center text-contenido" id="DescDocenteLis">Descripción: Especialista en desarrollo de aplicaciones aplicaciones en Android</p>
+            <h5 class="text-center mt-3 textTarjetaDoc" id="nombreDocente-Pefil" ></h5>
+            <p class="text-center text-contenido" id="docenteListado"></p>
+            <p class="text-center text-contenido" id="especialidadDocente"></p>
+            <p class="text-center text-contenido" id="correoDocenteLis"></p>
+            <p class="text-center text-contenido" id="DescDocenteLis"></p>
         </div>
     </div>
     <div class="boton-editar">
