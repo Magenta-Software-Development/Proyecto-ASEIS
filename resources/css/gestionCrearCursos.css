@@ -1,0 +1,51 @@
+.contenedorCursos{
+    margin-top: 4%;
+}
+
+.contenedorFormulario {
+    margin: 15px;
+    padding: 0px;
+    border-radius: 5px;
+    
+}
+
+
+.fileedos {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #610303;
+    border-radius: 5px;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+/* Estilos para etiquetas de título */
+label {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+}
+
+/* Ajuste de margen superior para todos los elementos de entrada */
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    margin-top: 5px;
+}
+
+/* Estilo para el botón de envío */
+.btn-primary {
+    margin-top: 33px;
+    background-color: #1F76BD;
+}
+
+/* Estilo para el contenedor del formulario en dispositivos pequeños */
+@media (max-width: 767px) {
+    .contenedorFormulario {
+        padding: 10px;
+    }
+}
