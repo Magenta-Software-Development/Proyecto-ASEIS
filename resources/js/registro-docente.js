@@ -5,6 +5,36 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
+
+function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2){
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: icon,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: messageConfirmButton
+      }).then((result) => {
+        if (result.isConfirmed) {
+            let idUser = localStorage.getItem('idUsuario');
+            $.ajax({
+                type: "PUT",
+                url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/activar/"+idUser, // Reemplaza con la URL de tu endpoint
+                contentType: "application/json",
+                crossDomain: true,
+                success: function (response, textStatus, xhr) {
+                    localStorage.removeItem('idUsuario');
+                    sweetalert(icon2,title2,message2);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+
+                },
+            });
+        }
+      })
+}
+
 $(document).ready(function () {
     // Deshabilitar el manejo global de errores de jQuery
     $.ajaxSetup({
@@ -13,14 +43,14 @@ $(document).ready(function () {
     async function registrarDocente(id) {
         $.ajax({
             type: "POST",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/docentes/resgistrar", // Reemplaza con la URL de tu endpoint
+            url: "https://springgcp-402821.uc.r.appspot.com/api/docentes/registrar", // Reemplaza con la URL de tu endpoint
             contentType: "application/json",
             crossDomain: true,
             data: JSON.stringify(id),
             success: function (response, textStatus, xhr) {
                 localStorage.removeItem('idProvicional');
                 localStorage.removeItem('mensajeProvicional');
-                window.location.href = `login`
+                //window.location.href = `login`
             },
             error: function (xhr, textStatus, errorThrown) {
                 let response = xhr.responseJSON;
@@ -95,16 +125,17 @@ $(document).ready(function () {
         // Realizar la solicitud Ajax
         $.ajax({
             type: "POST",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/findByCorreo", // Reemplaza con la URL de tu endpoint
+            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/findByCorreo-docente", // Reemplaza con la URL de tu endpoint
             contentType: "application/json",
             crossDomain: true,
             data: JSON.stringify(datos),
             success: function (response, textStatus, xhr) {
                 let status = xhr.status;
                 let message = response.message;
-                if (status == 200) {
-                    console.log(response);
+                console.log(xhr);
+                if (status === 200) {
                     let id = response.usuario.id_usuario;
+                    console.log(response);
                     localStorage.setItem('mensajeProvicional',message);
                     localStorage.setItem('idProvicional',id);
                     let inputCodigo = $("#codigo").val();
@@ -113,12 +144,16 @@ $(document).ready(function () {
                     };
                     verificarCodigo(dataCodigo);
 
-                } else if (status == 202) {
+                } else if (status === 202) {
                     sweetalert(
                         "success",
                         "Vuelve al inicio de sesion 😁",
                         message
                     );
+                }else if(status === 201){
+                    let id = response.usuario.id_usuario;
+                    localStorage.setItem('idUsuario',id);
+                    sweetalertquestion('question','Quieres volver a activar tu cuenta?',message,'Estoy seguro','success','Cuenta Activada','Tu cuenta ha sido activada con exito!')
                 }
             },
             error: function (xhr, textStatus, errorThrown) {

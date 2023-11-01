@@ -244,7 +244,7 @@ ul {
   align-items: flex-start;
   display: flex;
   gap: 10px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(255, 255, 255, 1);
   box-sizing: border-box;
   height: 25%;
   width: auto;

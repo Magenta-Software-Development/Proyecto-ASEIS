@@ -54,11 +54,11 @@
 
             
                     <!-- Modal de Indicador de Carga -->
-                    <div class="modal fade" id="modal-indicador-carga" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: transparent" hidden>
+                    <div class="modal fade" id="modal-indicador-carga" tabindex="-1" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true" style="background-color: transparent" hidden>
                         <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.7);">
-                            <div class="modal-body text-center">
-                                <div class="containerIndicadorLoading">
+                        <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.7);" data-backdrop="static">
+                            <div class="modal-body text-center" data-backdrop="static">
+                                <div class="containerIndicadorLoading" data-backdrop="static">
                                     <p id="messageIndicator">Cargando...</p> 
                                     <div class="loaderborde">
                                         <div class="loadersecundario">

@@ -11,12 +11,9 @@
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
 @vite('resources/css/index-usuarios.css')
-@vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/desactivarUsuario.js')
-@vite('resources/js/crearEstudiantesAdmin.js')
-@vite('resources/js/listarEstudiantesAdmin.js')
+@vite('resources/js/modulo-gestion-usuarios/estudiantes-admin.js')
 @endsection
 @section('content')
 <div class="cuerpoGestion">
@@ -65,11 +62,7 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
-
-
     </div>
 </div>
 
@@ -113,18 +106,13 @@
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Profesion" aria-label="Profesion" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreEstudiante">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea" style="width: 100%"></textarea>
+                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea" style="width: 100%" id="inputDescripcionEstudiante"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -133,7 +121,7 @@
                                         <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
                                             Cancelar
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close" id="btnEditarEstudiante">
                                             Aceptar
                                         </button>
                                     </div>
@@ -147,9 +135,6 @@
     </div>
 </div>
 
-<div id="mensaje-exito" class="alert alert-success" style="display: none;">
-    ¡Desactivado con éxito!
-</div>
 
 <!--modal para desactivar Usuario-->
 <div class="modal" id="modalconfirmacion" tabindex="-1" role="dialog">
@@ -163,7 +148,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
-                <button type="button" class="btn-Eliminar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn-si">Eliminar</button>
+                <button type="button" class="btn-Eliminar button-common" data-bs-dismiss="modal" aria-label="Close" id="btnDesactivarEstudiante">Eliminar</button>
             </div>
         </div>
     </div>

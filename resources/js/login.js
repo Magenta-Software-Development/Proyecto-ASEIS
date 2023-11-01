@@ -1,11 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const modalOverlay = document.querySelector('.modal-overlay');
-    modalOverlay.addEventListener('click', function(event) {
-        event.stopPropagation(); // Evita que el clic se propague al modal
-    });
-});
-
-
 function sweetalert(icon, title, message) {
     $("#btnLogin").removeAttr('disabled');
     $("#indicadorCarga").attr('hidden', true);
@@ -35,7 +27,7 @@ $(document).ready(function () {
         // Realizar la solicitud Ajax
         $.ajax({
             type: "POST",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/login", // Reemplaza con la URL de tu endpoint
+            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/login-docente", // Reemplaza con la URL de tu endpoint
             contentType: "application/json",
             crossDomain: true,
             data: JSON.stringify(datos),
@@ -56,6 +48,9 @@ $(document).ready(function () {
                     window.location.href = `index`
                 }else if(status === 202){
                     sweetalert('success', 'Vamos', message);
+                    $('#modal-indicador-carga').modal('hide');
+                    $('#modal-indicador-carga').attr('hidden', true); 
+                    $('.modal-backdrop').attr('hidden',true);
                 }
                 
             },
