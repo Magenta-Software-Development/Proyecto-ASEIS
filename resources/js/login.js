@@ -111,9 +111,9 @@ function verifyLogin(data = []) {
 
             //Espera 3 segundos y redirecciona
             setTimeout(function () {
-                if (response.rol == 'Docente') {
+                if (response.rol == 'Admin') {
                     window.location.href = "index";
-                } else if (response.rol == 'Administrador') {
+                } else if (response.rol == 'Docente') {
                     window.location.href = "indexD";
                 } else if (response.rol == 'Estudiante') {
                     window.location.href = "login";
