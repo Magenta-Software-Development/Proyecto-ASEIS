@@ -1,16 +1,19 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de estudiantes')
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
+    <!-- Inicio Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <!-- Fin Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
 @vite('resources/css/index-usuarios.css')
-@vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/desactivarUsuario.js')
+@vite('resources/js/modulo-gestion-usuarios/estudiantes-admin.js')
 @endsection
 @section('content')
 <div class="cuerpoGestion">
@@ -34,38 +37,7 @@
             <p class="crearBoton1">Nuevo estudiante</p>
         </button>
     </div>
-
-
-    <div class="cuerpoUsuarios">
-        <div class="imagenUsuario"><img src="{{ asset('images/Ellipse_10.png') }}"></div>
-        <div class="nombreDocenteBox">
-            <p class="DocenteNombreTxt">
-                Elian Francisco Treminio
-            </p>
-            <p class="DocenteDescripcionTxt">Estudiante</p>
-        </div>
-        <button class="BotonEdit" data-bs-toggle="modal" data-bs-target="#modal-EstudianteE">
-            <div class="BotonEditSymbol">
-                <svg width="100%" height="100%" preserve-aspect-ratio="none" view-box="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 19.3 8.925 L 15.05 4.725 L 16.45 3.325 C 16.833 2.942 17.304 2.75 17.863 2.75 C 18.422 2.75 18.892 2.942 19.275 3.325 L 20.675 4.725 C 21.058 5.108 21.258 5.571 21.275 6.113 C 21.292 6.655 21.108 7.117 20.725 7.5 L 19.3 8.925 Z M 17.85 10.4 L 7.25 21 H 3 V 16.75 L 13.6 6.15 L 17.85 10.4 Z" fill="#1E6DA6" />
-                </svg>
-            </div>
-            <p class="BotonEditarText">Editar</p>
-        </button>
-        <button class="BotonVerMas" data-bs-toggle="modal" data-bs-target="#modal-Estudiante">
-            <div class="BotonEditSymbol">
-                <svg width="100%" height="100%" preserve-aspect-ratio="none" view-box="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 6.75 7.5 C 6.75 8.892 7.303 10.228 8.288 11.212 C 9.272 12.197 10.608 12.75 12 12.75 C 13.392 12.75 14.728 12.197 15.712 11.212 C 16.697 10.228 17.25 8.892 17.25 7.5 C 17.25 6.108 16.697 4.772 15.712 3.788 C 14.728 2.803 13.392 2.25 12 2.25 C 10.608 2.25 9.272 2.803 8.288 3.788 C 7.303 4.772 6.75 6.108 6.75 7.5 Z M 19.5 21.75 H 3.75 C 3.551 21.75 3.36 21.671 3.22 21.53 C 3.079 21.39 3 21.199 3 21 V 18.75 C 3 17.755 3.395 16.802 4.098 16.098 C 4.802 15.395 5.755 15 6.75 15 H 17.25 C 18.245 15 19.198 15.395 19.902 16.098 C 20.605 16.802 21 17.755 21 18.75 V 21 C 21 21.199 20.921 21.39 20.78 21.53 C 20.64 21.671 20.449 21.75 20.25 21.75 H 19.5 Z" fill="#1E6DA6" />
-                </svg>
-            </div>
-            <p class="BotonVerMasText">Ver más</p>
-        </button>
-        <button type="button" class="BotonDelete" data-bs-toggle="modal" data-bs-target="#modalconfirmacion">
-            <div class="BotonEditSymbol">
-                <i class="fa-solid fa-trash"></i>
-            </div>
-        </button>
-    </div>
+    <div id="contenedorEstudiantes"></div>
 </div>
 
 <!-- Modal para crear el estudiante -->
@@ -78,23 +50,19 @@
                 <form class="formulario-CrearUsuarioAdmin">
                     <div class="input-container">
                         <label for="email">Correo Electrónico</label>
-                        <input class="borde" type="email" id="email" name="email" required>
+                        <input class="borde" type="email" id="emailEstudiante" name="email" required>
                     </div>
                     <div class="input-container">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="passworddd" name="password" required>
+                        <input type="password" id="passwordEstudiante" name="password" required>
                     </div>
                     <div class="button-container">
                         <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
-                        <button type="button" class="btn-Crear button-common" data-bs-dismiss="modal" aria-label="Close" id="btnCrear">Crear</button>
+                        <button type="button" class="btn-Crear button-common" data-bs-dismiss="modal" aria-label="Close" id="btnCrearEstudiante">Crear</button>
                     </div>
                 </form>
             </div>
-
-
         </div>
-
-
     </div>
 </div>
 
@@ -109,16 +77,16 @@
                         <path d="M51.8001 11.4488L46.5343 6.21252L17.2764 35.5L46.5639 64.7875L51.8001 59.5513L27.7489 35.5L51.8001 11.4488Z" fill="white" />
                     </svg>
                 </button>
-                <div class="d-flex justify-content-center align-items-center ">
-                    <img src="{{ asset('images/Ellipse_10.png') }}" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="" id="img_estudiante" alt="Usuario" class="img-fluid rounded-circle rounded-image">
                 </div>
-                <h5 class="text-center mt-3 modal-title">Elian Francisco Treminio Parada</h5>
+                <h5 class="text-center mt-3 modal-title" id="nombre_estudiante"></h5>
                 <br>
-                <p class="text-center text-white">Especialidad: Movil</p>
+                <p class="text-center text-white" id="especialidad_estudiante">Estudiante</p>
                 <br>
-                <p class="text-center text-white">Correo</p>
+                <p class="text-center text-white" id="correo_estudiante"></p>
                 <br>
-                <p class="text-center text-white">Descripción</p>
+                <p class="text-center text-white" id="descripcion_estudiante"></p>
             </div>
         </div>
     </div>
@@ -138,18 +106,13 @@
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Profesion" aria-label="Profesion" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreEstudiante">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea" style="width: 100%"></textarea>
+                                    <textarea class="form-control label-descripcion" placeholder="Descripcion" aria-label="With textarea" style="width: 100%" id="inputDescripcionEstudiante"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -158,7 +121,7 @@
                                         <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
                                             Cancelar
                                         </button>
-                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close" id="btnEditarEstudiante">
                                             Aceptar
                                         </button>
                                     </div>
@@ -172,9 +135,6 @@
     </div>
 </div>
 
-<div id="mensaje-exito" class="alert alert-success" style="display: none;">
-    ¡Desactivado con éxito!
-</div>
 
 <!--modal para desactivar Usuario-->
 <div class="modal" id="modalconfirmacion" tabindex="-1" role="dialog">
@@ -188,7 +148,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn-Cancelar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn">Cancelar</button>
-                <button type="button" class="btn-Eliminar button-common" data-bs-dismiss="modal" aria-label="Close" id="btn-si">Eliminar</button>
+                <button type="button" class="btn-Eliminar button-common" data-bs-dismiss="modal" aria-label="Close" id="btnDesactivarEstudiante">Eliminar</button>
             </div>
         </div>
     </div>

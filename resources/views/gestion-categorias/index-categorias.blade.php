@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     @vite('resources/css/gestion-categorias.css')
+    @vite('resources/js/modulo-gestion-categorias/categorias-admin.js')
 @endsection
 @section('content')
 
@@ -25,35 +26,8 @@
             </button>
         </div>
 
-
-        <div class="container text-center contenedorCurso"> <!-- Contenedor de cursos -->
-
-            <div class="row">
-                <div class="col-8 letraCurso text-start">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae quibusdam illum quisquam eos, doloribus expedita nam nihil quae cupiditate, libero cum officiis odit corporis. Voluptate voluptatibus odit ipsum aut veniam!</p>
-                </div>
-                <div class="col-4 d-grid gap-2 d-md-flex justify-content-md-end container"> <!-- Botones de editar y eliminar -->
-                    <button type="button" class="btn btn-light botonesCurso letrabtnEditar" data-bs-toggle="modal"
-                        data-bs-target="#editarCategoria">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
-                            fill="none">
-                            <path
-                                d="M19.3 9.425L15.05 5.225L16.45 3.825C16.8333 3.44167 17.3043 3.25 17.863 3.25C18.4217 3.25 18.8923 3.44167 19.275 3.825L20.675 5.225C21.0583 5.60833 21.2583 6.071 21.275 6.613C21.2917 7.155 21.1083 7.61733 20.725 8L19.3 9.425ZM17.85 10.9L7.25 21.5H3V17.25L13.6 6.65L17.85 10.9Z"
-                                fill="#1E6DA6" />
-                        </svg>
-                        <p class="letraBoton" style="padding-top: 10%">Editar</p>
-                    </button>
-                    <button type="button" class="btn btn-light botonesCurso letrabtnEliminar" data-bs-toggle="modal" data-bs-target="#eliminarCategoria">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25"
-                            fill="none">
-                            <path
-                                d="M7 21.5C6.45 21.5 5.979 21.304 5.587 20.912C5.195 20.52 4.99933 20.0493 5 19.5V6.5H4V4.5H9V3.5H15V4.5H20V6.5H19V19.5C19 20.05 18.804 20.521 18.412 20.913C18.02 21.305 17.5493 21.5007 17 21.5H7ZM9 17.5H11V8.5H9V17.5ZM13 17.5H15V8.5H13V17.5Z"
-                                fill="#FF0000" />
-                        </svg>
-                        <p class="letraBoton" style="padding-top: 10%">Eliminar</p>
-                    </button>
-                </div>
-            </div>
+        <div id="containerListaCategoria">
+            
         </div>
 
         <div class="modal right" id="creaCategoria" tabindex="-1" aria-labelledby="modal-creaCategorialLabel"
@@ -66,7 +40,7 @@
                                 <h5 class="letraCategoria ">Nombre categoría</h5>
                                 <div class="input-group">
                                     <input type="text" class="form-control label-simple" placeholder="Nombre"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                        aria-label="Username" aria-describedby="basic-addon1" id="inputCrearCategoria-Nombre">
                                 </div>
                             </div>
                             <br><br>
@@ -81,7 +55,7 @@
                                                         Cancelar
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-save ms-5"
-                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                        data-bs-dismiss="modal" aria-label="Close" id="btnCrearCategoria">
                                                         Crear categoría
                                                     </button>
                                                 </div>
@@ -106,7 +80,7 @@
                                 <h5 class="letraCategoria ">Nombre categoría</h5>
                                 <div class="input-group">
                                     <input type="text" class="form-control label-simple" placeholder="Nombre"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                        aria-label="Username" aria-describedby="basic-addon1" id="inputEditarCategoriaNombre">
                                 </div>
                             </div>
                             <br><br>
@@ -121,7 +95,7 @@
                                                         Cancelar
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-save ms-5"
-                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                        data-bs-dismiss="modal" aria-label="Close" id="btnEditarCategoria">
                                                         Editar categoría
                                                     </button>
                                                 </div>
@@ -162,7 +136,7 @@
                                                         Cancelar
                                                     </button>
                                                     <button type="button" class="btn btn-primary btn-eliminar ms-5"
-                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                        data-bs-dismiss="modal" aria-label="Close" id="btnDesactivarCategoria">
                                                         Eliminar
                                                     </button>
                                                 </div>

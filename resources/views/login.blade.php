@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Enlaza tu archivo CSS personalizado -->
-
+    @vite('resources/css/loader.css')
     @vite('resources/css/app.css')
     @vite('resources/js/login.js')
 </head>
@@ -52,12 +52,36 @@
                                 ¿Olvidaste tu contraseña?
                             </p>
                         </div>
+
+            
+                    <!-- Modal de Indicador de Carga -->
+                    <div class="modal fade" id="modal-indicador-carga" tabindex="-1" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true" style="background-color: transparent" hidden>
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.7);" data-backdrop="static">
+                            <div class="modal-body text-center" data-backdrop="static">
+                                <div class="containerIndicadorLoading" data-backdrop="static">
+                                    <p id="messageIndicator">Cargando...</p> 
+                                    <div class="loaderborde">
+                                        <div class="loadersecundario">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+  
                         <div class="flex gap-[44px] items-center justify-between">
                             <button id="btnLogin" type="submit" class="bg-[#1F76BD] mt-[19px] w-full gap-2.5 flex justify-center items-center rounded-2xl p-[11px] text-white">
                                 <p class="text-2xl">
                                     Iniciar sesión
                                 </p>
-                            </button>
+                                <div class="d-flex justify-content-center">
+                                <div class="spinner-border" role="status" id="indicadorCarga" hidden>
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </button>
                         </div>
                 
                 <div class=" flex flex-col items-end mt-[36px] leading-none h-6">

@@ -109,7 +109,6 @@
     <div class="sm:ml-64">
         @yield('content')
     </div>
-    
 </body>
 
 </html>
