@@ -11,7 +11,7 @@
 
         <!--Nombre del usuario con sesion activa-->
         <div class="flex justify-end">
-            <p class="text-2xl font-bold">Bienvenido, {{ Auth::user()->name }}</p>
+            <p class="text-2xl font-bold">Bienvenido, {{ Auth::user()->rol }}</p>
         </div>
 
     </div>

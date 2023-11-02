@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Contracts\Providers\Auth as ProvidersAuth;
@@ -42,7 +43,7 @@ class AuthController extends Controller
             $user = new User();
             $user->names = "Usuario";
             $user->email = $request->email;
-            $user->password = $request->password;
+            $user->password = bcrypt($request->password);
             $user->rol = $request->rol['roles'];
 
             User::create([
@@ -61,10 +62,15 @@ class AuthController extends Controller
     public function logout()
     {
 
-        $user = Auth::user();
-        User::where('id', $user->id)->delete();
+        if (Auth::check()) {
 
-        Auth::logout();
-        return redirect()->route('app_login')->with('success', 'Sesion cerrada correctamente');
+            $user = Auth::user();
+            User::where('id', $user->id)->delete();
+
+            Auth::logout();
+            return redirect()->route('app_login')->with('success', 'Sesión cerrada correctamente');
+        } else {
+            return redirect()->route('app_login')->with('error', 'No hay ninguna sesión activa');
+        }
     }
 }

@@ -56,8 +56,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/gestionDocente/indexCursosNoDisponiblesDocente', [RouteController::class, 'CursosNoDisponiblesDocente'])->name('app_index_cursos_no_disponibles_docente');
         Route::get('/gestionDocente/indexNoticiasDocente', [RouteController::class, 'NoticiasDocente'])->name('app_index_noticias_docente');
         Route::get('/gestionDocente/indexNoticiasPublicadas', [RouteController::class, 'NoticiasPublicadas'])->name('app_index_noticias_publicadas');
-        
-        //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER
-        
+
+        //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER A CONFIGURAR TU FUNCION
+
     });
 });

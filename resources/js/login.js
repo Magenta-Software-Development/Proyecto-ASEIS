@@ -12,13 +12,13 @@ $(document).ready(function API() {
     $.ajaxSetup({
         global: false
     });
-    $("#btnLogin").click(function() {
+    $("#btnLogin").click(function () {
         // Mostrar el modal de indicador de carga
         $('#modal-indicador-carga').removeAttr('hidden');
         $('#modal-indicador-carga').modal('show');
         $('.modal-backdrop').modal('show');
         $("#indicadorCarga").removeAttr('hidden');
-        $("#btnLogin").attr('disabled',true)
+        $("#btnLogin").attr('disabled', true)
         // Datos que deseas enviar en el cuerpo de la solicitud
         var datos = {
             correo: $("#correo").val(),
@@ -32,18 +32,23 @@ $(document).ready(function API() {
             crossDomain: true,
             data: JSON.stringify(datos),
             success: function (response, textStatus, xhr) {
+
                 //console.log(response);
                 let message = response.message
                 let status = xhr.status;
+
                 $('#modal-indicador-carga').modal('hide');
                 $('#modal-indicador-carga').attr('hidden', true);
-                if(status == 200){
+
+                if (status == 200) {
+
                     sweetalert('success', 'Bienvenido', message);
                     let id = response.usuario.id_usuario;
                     let token = response.token;
 
                     localStorage.setItem('id', id);
                     localStorage.setItem('token', token);
+                    localStorage.setItem('rol', response.usuario.rol);
 
                     let dataNew = {
                         username: datos.correo,
@@ -54,10 +59,21 @@ $(document).ready(function API() {
                     //verificamos los datos y los enviamos al controller
                     verifyLogin(dataNew);
                 } else if (status === 202) {
-                    sweetalert('success', 'Vamos', message);
-                    $('#modal-indicador-carga').modal('hide');
-                    $('#modal-indicador-carga').attr('hidden', true); 
-                    $('.modal-backdrop').attr('hidden',true);
+
+                    if (message == "No tienes permisos para ingresar") {
+                        sweetalert('error', "Estudiante", message);
+
+                        $('#modal-indicador-carga').modal('hide');
+                        $('#modal-indicador-carga').attr('hidden', true);
+                        $('.modal-backdrop').attr('hidden', true);
+
+                    } else {
+                        sweetalert('success', 'Vamos', message);
+
+                        $('#modal-indicador-carga').modal('hide');
+                        $('#modal-indicador-carga').attr('hidden', true);
+                        $('.modal-backdrop').attr('hidden', true);
+                    }
                 }
 
             },
@@ -66,14 +82,14 @@ $(document).ready(function API() {
                 let message = response.message
                 // Ocultar el modal de indicador de carga
                 $('#modal-indicador-carga').modal('hide');
-                $('#modal-indicador-carga').attr('hidden', true); 
-                $('.modal-backdrop').attr('hidden',true);
-               
+                $('#modal-indicador-carga').attr('hidden', true);
+                $('.modal-backdrop').attr('hidden', true);
+
                 if (xhr.status == 500) {
                     sweetalert('error', message, "Error del credenciales");
                 }
             }
-            
+
         });
     });
 });
@@ -116,12 +132,13 @@ function verifyLogin(data = []) {
                 } else if (response.rol == 'Docente') {
                     window.location.href = "indexD";
                 } else if (response.rol == 'Estudiante') {
+                    sweetalert('error', message, "No tienes permisos para ingresar a esta pagina");
                     window.location.href = "login";
                 }
                 else {
                     window.location.href = "login";
                 }
-            }, 2000);
+            }, 1500);
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);
