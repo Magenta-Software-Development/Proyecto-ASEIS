@@ -4,12 +4,25 @@ $(document).ready(function() {
     var idDocente = localStorage.getItem("id");
     var idDocenteImagenActualizar = 1; //Para poder obtener el id de docente
 
-    //---------------------------- Obtener todos los datos del cliente ---------------------------------------
+    //Variables para establecer los valores por defecto que trae la api cuando se consulta el docente 
+    var cargarNombreInput = "";
+    var cargarDescripcion = "";
+    var cargarEspecilidad = "";
+    var idEspecialidadPorDefecto = 1;
+    
+
+    //---------------------------- Obtener todos los datos del cliente y llenar la tarjeta ---------------------------------------
     $.ajax({
         type: "GET",
         url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
         success: function(data) {
             
+            //Se obinenen lo valores y se llana las variables
+            cargarNombreInput = data.nombre;
+            cargarDescripcion = data.descripcion;
+            cargarEspecilidad = data.id_especialidad.especialidad;
+            idEspecialidadPorDefecto = data.id_especialidad.id_especialidad;
+
             idDocenteImagenActualizar = data.id_docente; //-->Obtenemos el id de docente para pasarlo como parametro en el endpoit de actulizar
 
             $("#nombreDocente-Pefil").text(data.nombre);
@@ -27,8 +40,11 @@ $(document).ready(function() {
     //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
 
 
-
     function llenarSelectEspecialidades() {
+
+        $("#campo1").val(cargarNombreInput);
+        $("#campo3").val(cargarDescripcion);
+    
 
         // Realiza una solicitud GET para obtener la lista de especialidades
         $.ajax({
@@ -43,11 +59,16 @@ $(document).ready(function() {
     
                 // Agrega una opción por defecto
                 var defaultOption = document.createElement("option");
-                defaultOption.text = "Especialidad"; // Se carga el select con la especialidad
+                defaultOption.text = cargarEspecilidad; // Se carga el select con la especialidad
                 selectEspecialidades.add(defaultOption);
+
+                var especialidadesFiltradas = especialidades.filter(function(especialidad) {
+                    return especialidad.estado === true;
+                });
+        
     
                 // Agrega cada especialidad como una opción
-                especialidades.forEach(function(especialidad) {
+                especialidadesFiltradas.forEach(function(especialidad) {
                     var option = document.createElement("option");
                     option.value = especialidad.id_especialidad;
                     option.text = especialidad.especialidad;
@@ -63,11 +84,6 @@ $(document).ready(function() {
     
     //----------------------- Función para cargar la imagen y enviarla y subir los datos del docente --------------------------
     function guardarCambios() {
-
-        //Obterner lo valores de los inputs para actulizar el perfil 
-        var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
-        var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
-        var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
 
         //--------------------- Subir la imagen -------------------------------------------------------------------
         var fileInput = document.getElementById("imageInput");
@@ -112,15 +128,35 @@ $(document).ready(function() {
         } else {
             console.error("No se ha seleccionado una imagen para subir.");
         }
-        //--------------------------------- Fin del bloque subir y cambiar la foto ----------------------
+        //--------------------------------------------- Fin del bloque subir y cambiar la foto ----------------------
         
-        var datosObjeto = {    
-            nombre: nombre,
-            descripcion: descripcion,
-            id_especialidad: {
-                id_especialidad: parseInt(idEspecialidad)// Convierte el valor a un número entero
-            }
-        }; 
+
+        //Obterner lo valores de los inputs para actulizar el perfil 
+        var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
+        var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
+        var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
+
+        if(isNaN(idEspecialidad))
+        {
+            var datosObjeto = {    
+                nombre: nombre,
+                descripcion: descripcion,
+                id_especialidad: {
+                    id_especialidad: idEspecialidadPorDefecto// Convierte el valor a un número entero
+                }
+            }; 
+        }
+        else{
+
+            var datosObjeto = {    
+                nombre: nombre,
+                descripcion: descripcion,
+                id_especialidad: {
+                    id_especialidad: parseInt(idEspecialidad)// Convierte el valor a un número entero
+                }
+            }; 
+
+        }
 
         //Funcionabilida para mandar los datos y poder actulizar
         $.ajax({
@@ -140,8 +176,6 @@ $(document).ready(function() {
 
     }
 
-
-    //Se asigna 
     $("#btn-GuardarCambiosActulizados").click(guardarCambios);
     $("#btn-editarPerfilDocente").click(llenarSelectEspecialidades);
 
