@@ -53,24 +53,24 @@
                         
                    </div>
                    <form>
-                    <div class="form-group">
-                        <div class="inputsArriba">
-                            <input type="text" class="campos" id="campo1" placeholder="Nombre Completo">
+                        <div class="form-group">
+                            <div class="inputsArriba">
+                                <input type="text" class="campos" id="campo1" placeholder="Nombre Completo">
+                            </div>
+                            <div class="inputsArriba">
+                                <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
+                                </select>
+                            </div>
                         </div>
-                        <div class="inputsArriba">
-                            <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
-                            </select>
+                        <div class="form-group">
+                            <input type="text" class="campos" id="campo3" placeholder="Descripción">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="campos" id="campo3" placeholder="Descripción">
-                    </div>
-                    
-                    <div class="grupoBotones">
-                        <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                        <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal" id="btn-GuardarCambiosActulizados">Guardar Cambios</button>
-                    </div>
-                    </form>
+                        
+                        <div class="grupoBotones">
+                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal" id="btn-GuardarCambiosActulizados">Guardar Cambios</button>
+                        </div>
+                   </form>
                     
                 </div>
                 

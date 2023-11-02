@@ -1,16 +1,15 @@
 $(document).ready(function() {
    
-    // Obtener el ID del docente almacenado en el localStorage
-    var idDocente = localStorage.getItem("id"); //Pero este es el id de usuario no de docente
-    var idDocenteImagenActualizar = 1
+    // Obtener el ID del docente almacenado en el localStorage este es el id de usuario no de docente
+    var idDocente = localStorage.getItem("id");
+    var idDocenteImagenActualizar = 1; //Para poder obtener el id de docente
 
-    // Realizar la solicitud AJAX al endpoint con el ID
+    //---------------------------- Obtener todos los datos del cliente ---------------------------------------
     $.ajax({
         type: "GET",
         url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
         success: function(data) {
-            // Actualizar los elementos HTML con los datos de la respuesta
-
+            
             idDocenteImagenActualizar = data.id_docente; //-->Obtenemos el id de docente para pasarlo como parametro en el endpoit de actulizar
 
             $("#nombreDocente-Pefil").text(data.nombre);
@@ -25,8 +24,12 @@ $(document).ready(function() {
             console.error("Error al cargar la información del docente:", error);
         }
     });
+    //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
+
+
 
     function llenarSelectEspecialidades() {
+
         // Realiza una solicitud GET para obtener la lista de especialidades
         $.ajax({
             type: "GET",
@@ -40,7 +43,7 @@ $(document).ready(function() {
     
                 // Agrega una opción por defecto
                 var defaultOption = document.createElement("option");
-                defaultOption.text = "Especialidad";
+                defaultOption.text = "Especialidad"; // Se carga el select con la especialidad
                 selectEspecialidades.add(defaultOption);
     
                 // Agrega cada especialidad como una opción
@@ -58,22 +61,15 @@ $(document).ready(function() {
     }
 
     
-    // Función para cargar la imagen y enviarla al servidor
+    //----------------------- Función para cargar la imagen y enviarla y subir los datos del docente --------------------------
     function guardarCambios() {
 
         //Obterner lo valores de los inputs para actulizar el perfil 
         var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
         var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
         var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
-    
-        var data = {
-            nombre: nombre,
-            descripcion: descripcion,
-            id_especialidad: {
-                id_especialidad: parseInt(idEspecialidad) // Convierte el valor a un número entero
-            }
-        };
-        
+
+        //--------------------- Subir la imagen -------------------------------------------------------------------
         var fileInput = document.getElementById("imageInput");
         var imagen = fileInput.files[0];
         
@@ -116,12 +112,21 @@ $(document).ready(function() {
         } else {
             console.error("No se ha seleccionado una imagen para subir.");
         }
-    
+        //--------------------------------- Fin del bloque subir y cambiar la foto ----------------------
+        
+        var datosObjeto = {    
+            nombre: nombre,
+            descripcion: descripcion,
+            id_especialidad: {
+                id_especialidad: parseInt(idEspecialidad)// Convierte el valor a un número entero
+            }
+        }; 
+
         //Funcionabilida para mandar los datos y poder actulizar
         $.ajax({
             type: "PUT",
             url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/${idDocenteImagenActualizar}`, // Reemplaza "12" con el ID correcto
-            data: JSON.stringify(data),
+            data: JSON.stringify(datosObjeto),
             contentType: "application/json",
             success: function(putResponse) {
                 // Procesa la respuesta de la solicitud PUT
@@ -132,7 +137,6 @@ $(document).ready(function() {
                 console.error("Error al actualizar los datos del docente:", putError);
             }
         });
-
 
     }
 
