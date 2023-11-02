@@ -190,8 +190,7 @@ function validandoDatos(){
     // Se valida el formato del correo electrónico usando expresiones regulares, tiene que ser terminacxion @ues.edu.sv
     var emailRegex = /^[a-zA-Z0-9._%+-]+@ues\.edu\.sv$/;
     if (!emailRegex.test(email)) {
-        sweetalert("warning","Los campos están vacios", "Por favor, llene adecuadamente los campos que se le piden.");
-        //alert("El correo debe ser de la forma: usuario@ues.edu.sv");
+        sweetalert("warning","Formato incorrecto", "Los correos deben tener terminacion @ues.edu.sv");        //alert("El correo debe ser de la forma: usuario@ues.edu.sv");
         return false;
     }
 

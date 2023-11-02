@@ -80,7 +80,7 @@ async function editarCategoria(id){
     const categoriaTemp = await cargarDatos(id);
     //console.log(categoriaTemp.categoria);
     $("#editarCategoria").modal("show");
-    $("#btnEditarCategoria").click(function () { 
+    $("#btnEditarCategoria").off("click").on("click",function () { 
         if($.trim($("#inputEditarCategoriaNombre").val()) !== ''){
             let data = {
                 id_categoria: id,

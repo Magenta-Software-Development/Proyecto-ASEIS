@@ -65,7 +65,6 @@ function listaCodigos(filtro) {
         contentType: "application/json",
         crossDomain: true,
         success: function(response, textStatus, xhr) {
-            console.log(response);
             crearListaCodigos(response, filtro);
         },
         error: function(xhr, textStatus, errorThrown) {
@@ -79,6 +78,11 @@ const inputBusqueda = document.getElementById("inputBusqueda");
 inputBusqueda.addEventListener('input', function() {
     const valorBusqueda = inputBusqueda.value;
     listaCodigos(valorBusqueda);
+});
+
+$("#creaCodigos").click(function (e) { 
+    e.preventDefault();
+    sweetalertquestion("question","Creando nuevo codigo","Deseas crear un nuevo codigo de verificacion?","Si, crear","success","Codigo creado exitosamente","Se ha creado un nuevo codigo de verificacion de manera exitosa!!");
 });
 
 $(document).ready(function () {
