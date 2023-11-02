@@ -28,6 +28,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -42,6 +44,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -56,6 +60,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -70,6 +76,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -84,6 +92,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -98,10 +108,12 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
-
+///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
     public function indexD()
@@ -115,6 +127,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -129,6 +143,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -143,6 +159,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -157,6 +175,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -171,6 +191,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -185,6 +207,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -199,6 +223,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 

@@ -252,6 +252,13 @@ ul {
 
 }
 
+.BotonDeleteDisabled {
+  background-color: #ccc; /* Color gris para los botones deshabilitados */
+  color: #555; /* Color de texto para los botones deshabilitados */
+  cursor: not-allowed; /* Cambia el cursor cuando el botón está deshabilitado */
+}
+
+
 .BotonVerMasText {/*modf Eliseo*/
   width: 75%;
   min-width: 16px;

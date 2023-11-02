@@ -82,6 +82,8 @@
                 </div>
                 <h5 class="text-center mt-3 modal-title" id="nombre_estudiante"></h5>
                 <br>
+                <p class="text-center text-white" id="estado_estudiante"></p>
+                <br>
                 <p class="text-center text-white" id="especialidad_estudiante">Estudiante</p>
                 <br>
                 <p class="text-center text-white" id="correo_estudiante"></p>
@@ -118,7 +120,7 @@
                             <tr>
                                 <td class="text-center" colspan="2">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close" >
                                             Cancelar
                                         </button>
                                         <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close" id="btnEditarEstudiante">
