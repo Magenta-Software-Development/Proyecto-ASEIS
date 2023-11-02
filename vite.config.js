@@ -15,6 +15,7 @@ export default defineConfig({
                 "resources/css/styleUsuariosAdmin.css",
                 "resources/css/desactivarUsuario.css",
                 "resources/css/perfilDocente.css",
+                "resources/css/gestionCrearCursos.css",
     
                 //Js
                 "resources/js/app.js",

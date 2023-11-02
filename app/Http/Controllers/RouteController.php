@@ -15,6 +15,8 @@ class RouteController extends Controller
      */
 
     //Funciones de ruta para administrador---------------------------------------------------------------------------------------------------------------------
+    //REGRESAR A ADMINISTRADOR EL ROL CUANDO NOS DEN EL USUARIO ADMINISTRADOR
+
     public function index()
     {
         //Chequea que la sesion este activa
@@ -26,6 +28,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -40,6 +44,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -54,6 +60,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -68,6 +76,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -82,6 +92,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -96,6 +108,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -113,6 +127,8 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
@@ -127,10 +143,94 @@ class RouteController extends Controller
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
+        }else{
+            return redirect()->route('app_login');
         }
     }
 
-   /* public function NOMBRE DE LA FUNCION COMO EN WEB.PHP()
+    public function indexCrearCurso()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-gestion-cursos');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function CursosPublicadosDocente()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-cursosPublicados-Docente');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function CursosNoDisponiblesDocente()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-cursos-no-disponibles-Docente');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function NoticiasDocente()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-noticias-docente');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function NoticiasPublicadas()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-noticias-publicadas');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+
+
+    /* public function NOMBRE DE LA FUNCION COMO EN WEB.PHP()
     {
         //Chequea que la sesion este activa
         if (Auth::check()) {
@@ -144,7 +244,7 @@ class RouteController extends Controller
         }
     }*/
 
-    
+
 
     /**
      * Show the form for creating a new resource.
