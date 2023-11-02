@@ -22,37 +22,38 @@ async function editarEstudiante(id){
     const estudianteTemp = await cargarDatos(id);
     //console.log(estudianteTemp.estudiante.current_year);
     $("#btnEditarEstudiante").click(function (e) { 
-        let data = {
-            nombre: $("#inputNombreEstudiante").val(),
-            edad: -1,
-            year: -1,
-            current_year: estudianteTemp.estudiante.current_year,
-            descripcion: $("#inputDescripcionEstudiante").val(),
-            due: estudianteTemp.estudiante.due
-        }
-        $("#inputNombreEstudiante").val("");
-        $("#inputDescripcionEstudiante").val("");
-        $.ajax({
-            url: 'https://springgcp-402821.uc.r.appspot.com/api/estudiantes/actualizar/'+id, 
-            type: 'PUT', 
-            contentType: "application/json",
-            crossDomain: true,
-            data: JSON.stringify(data), 
-            success: function(response, textStatus, xhr) {
-                // Si la solicitud fue exitosa aca...
-                sweetalert('success','Actualizado con exito!',response.message);
-                listarEstudiantes();
-            },
-            error: function(error) {
-                // Ocurrió un error en la solicitud, no encontro correo...
-                console.error('Error en la solicitud AJAX:', error);
-                //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
-                if (error.status == 500) {
-                    sweetalert('error',"Ocurrio un error",error.responseJSON.message);
-                }
+        if($.trim($("#inputNombreEstudiante").val()) !== '' && $.trim($("#inputDescripcionEstudiante").val()) !== ''){
+            let data = {
+                nombre: $("#inputNombreEstudiante").val(),
+                edad: -1,
+                year: -1,
+                current_year: estudianteTemp.estudiante.current_year,
+                descripcion: $("#inputDescripcionEstudiante").val(),
+                due: estudianteTemp.estudiante.due
             }
-        });
-    
+            $("#inputNombreEstudiante").val("");
+            $("#inputDescripcionEstudiante").val("");
+            $.ajax({
+                url: 'https://springgcp-402821.uc.r.appspot.com/api/estudiantes/actualizar/'+id, 
+                type: 'PUT', 
+                contentType: "application/json",
+                crossDomain: true,
+                data: JSON.stringify(data), 
+                success: function(response, textStatus, xhr) {
+                    // Si la solicitud fue exitosa aca...
+                    sweetalert('success','Actualizado con exito!',response.message);
+                    listarEstudiantes();
+                },
+                error: function(error) {
+                    // Ocurrió un error en la solicitud, no encontro correo...
+                    console.error('Error en la solicitud AJAX:', error);
+                    //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
+                    if (error.status == 500) {
+                        sweetalert('error',"Ocurrio un error",error.responseJSON.message);
+                    }
+                }
+            });    
+        }
     });
 }
 function desactivarEstudiante(id){
@@ -96,6 +97,7 @@ function mostrarModal(id) {
         // Actualizamos el contenido del modal con los datos del estudiante
         $("#img_estudiante").attr("src", student.estudiante.imagen);
         $("#nombre_estudiante").text(student.estudiante.nombre);
+        $("#estado_estudiante").text(student.estudiante.id_usuario.estado?"Estado: Activo":"Estado: Desactivado");
         $("#especialidad_estudiante").text(student.estudiante.id_usuario.rol.roles);
         $("#correo_estudiante").text("Correo: "+student.estudiante.id_usuario.correo);
         $("#descripcion_estudiante").text("Descripción: " + student.estudiante.descripcion);
@@ -115,7 +117,8 @@ function crearListaEstudiantes(usuarios) {
 
     usuarios.forEach(usuario => {
         if(usuario.id_usuario.estado){
-            const nuevoEstudianteDiv = document.createElement("div");
+        }
+        const nuevoEstudianteDiv = document.createElement("div");
             nuevoEstudianteDiv.className = "cuerpoUsuarios";
             nuevoEstudianteDiv.style = "margin-top:5px";
             nuevoEstudianteDiv .innerHTML = '';
@@ -123,7 +126,7 @@ function crearListaEstudiantes(usuarios) {
             <div class="imagenUsuario"><img src="${usuario.imagen}"></div>
             <div class="nombreDocenteBox">
                 <p class="DocenteNombreTxt">${usuario.nombre}</p>
-                <p class="DocenteDescripcionTxt">Estudiante</p>
+                <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado?"Activo":"Inactivo"}</p>
             </div>
             <button class="BotonEdit" data-bs-toggle="modal" data-bs-target="#modal-EstudianteE" data-id-estudiante="${usuario.id_estudiante}">
                 <div class="BotonEditSymbol">
@@ -141,7 +144,7 @@ function crearListaEstudiantes(usuarios) {
                 </div>
                 <p class="BotonVerMasText">Ver más</p>
             </button>
-            <button type="button" class="BotonDelete" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-estudiante="${usuario.id_estudiante}" data-id-usuario="${usuario.id_usuario.id_usuario}">
+            <button type="button" class="BotonDelete ${usuario.id_usuario.estado ? '' : 'BotonDeleteDisabled'}" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-estudiante="${usuario.id_estudiante}" data-id-usuario="${usuario.id_usuario.id_usuario}" ${usuario.id_usuario.estado ? '' : 'disabled'}>
                 <div class="BotonEditSymbol">
                     <i class="fa-solid fa-ban" style="color: #1E6DA6;"></i>
                 </div>
@@ -149,7 +152,6 @@ function crearListaEstudiantes(usuarios) {
         `;
         // Adjuntando el contenedor al DOM, con la lista de docentes
         contenedorEstudiantes.appendChild(nuevoEstudianteDiv);
-        }
     });
 
     const btnVerMas = document.querySelectorAll(".BotonVerMas");

@@ -20,7 +20,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //Si es admin le da acceso
+            if ($user->rol == 'Admin') { //Si es admin le da acceso
                 return view('index');
             } else {
                 //Send him back to where it was
@@ -34,7 +34,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //si es admin le da acceso
+            if ($user->rol == 'Admin') { //si es admin le da acceso
                 return view('gestion-usuarios.index-docentes');
             } else {
                 //Send him back to where it was
@@ -48,7 +48,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //si es admin le da acceso
+            if ($user->rol == 'Admin') { //si es admin le da acceso
                 return view('gestion-usuarios.index-estudiante');
             } else {
                 //Send him back to where it was
@@ -62,7 +62,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //si es admin le da acceso
+            if ($user->rol == 'Admin') { //si es admin le da acceso
                 return view('gestion-admin.index-cursos-no-disponibles');
             } else {
                 //Send him back to where it was
@@ -76,7 +76,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //si es admin le da acceso
+            if ($user->rol == 'Admin') { //si es admin le da acceso
                 return view('gestion-admin.index-cursos-publicados');
             } else {
                 //Send him back to where it was
@@ -90,7 +90,7 @@ class RouteController extends Controller
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Administrador') { //si es admin le da acceso
+            if ($user->rol == 'Admin') { //si es admin le da acceso
                 return view('gestion-categorias.index-categorias');
             } else {
                 //Send him back to where it was
@@ -99,7 +99,7 @@ class RouteController extends Controller
         }
     }
 
-
+///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
     public function indexD()

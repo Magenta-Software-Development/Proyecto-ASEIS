@@ -24,35 +24,36 @@ async function editarDocente(id){
     //console.log(especialidad);
     $("#modal-DocenteE").modal("show");
     $("#btnEditarDocente").click(function () { 
-        let data = {
-            nombre: $("#inputNombreDocente").val(),
-            descripcion: $("#inputDescripcionDocente").val(),
-            id_especialidad: {
-                "id_especialidad": id_especialidad
-            }
-        }
-        $("#inputNombreDocente").val("");
-        $("#inputDescripcionDocente").val("");
-        $.ajax({
-            url: 'https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/'+id, 
-            type: 'PUT', 
-            contentType: "application/json",
-            crossDomain: true,
-            data: JSON.stringify(data), 
-            success: function(response, textStatus, xhr) {
-                // Si la solicitud fue exitosa aca...
-                sweetalert('success','Actualizado con exito!',response.message);
-                listarDocentes();
-            },
-            error: function(error) {
-                // Ocurrió un error en la solicitud, no encontro correo...
-                //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
-                if (error.status == 500) {
-                    sweetalert('error',"Ocurrio un error",error.responseJSON.message);
+        if($.trim($("#inputNombreDocente").val()) !== '' && $.trim($("#inputDescripcionDocente").val()) !== ''){
+            let data = {
+                nombre: $("#inputNombreDocente").val(),
+                descripcion: $("#inputDescripcionDocente").val(),
+                id_especialidad: {
+                    "id_especialidad": id_especialidad
                 }
             }
-        });
-    
+            $("#inputNombreDocente").val("");
+            $("#inputDescripcionDocente").val("");
+            $.ajax({
+                url: 'https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/'+id, 
+                type: 'PUT', 
+                contentType: "application/json",
+                crossDomain: true,
+                data: JSON.stringify(data), 
+                success: function(response, textStatus, xhr) {
+                    // Si la solicitud fue exitosa aca...
+                    sweetalert('success','Actualizado con exito!',response.message);
+                    listarDocentes();
+                },
+                error: function(error) {
+                    // Ocurrió un error en la solicitud, no encontro correo...
+                    //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
+                    if (error.status == 500) {
+                        sweetalert('error',"Ocurrio un error",error.responseJSON.message);
+                    }
+                }
+            });
+        }
     });
 }
 
@@ -89,9 +90,11 @@ async function getInfoDocente(id) {
 function mostrarModal(id) {
     getInfoDocente(id)
         .then(docente => {
+            //console.log(docente);
             // Actualizando el contenido del modal con los datos del docente
             $("#img_docente").attr("src", docente.imagen);
             $("#nombre_docente").text(docente.nombre);
+            $("#estado_docente").text(docente.id_usuario.estado?"Estado: Activo":"Estado: Desactivado");
             $("#especialidad_docente").text("Especialidad: " + docente.id_especialidad.especialidad);
             $("#correo_docente").text("Correo: " + docente.id_usuario.correo);
             $("#descripcion_docente").text("Descripción: " + docente.descripcion);
@@ -113,7 +116,8 @@ function crearListaDocentes(docente) {
         //console.log(usuario.id_usuario.estado);
         //console.log(usuario)
         if(usuario.id_usuario.estado){
-            const nuevoDocenteDiv = document.createElement("div");
+        }
+        const nuevoDocenteDiv = document.createElement("div");
             nuevoDocenteDiv.className = "cuerpoUsuarios";
             nuevoDocenteDiv.style = "margin-top:5px";
             nuevoDocenteDiv.innerHTML = '';
@@ -121,7 +125,7 @@ function crearListaDocentes(docente) {
             <div class="imagenUsuario"><img src="${usuario.imagen}"></div>
             <div class="nombreDocenteBox">
                 <p class="DocenteNombreTxt">${usuario.nombre}</p>
-                <p class="DocenteDescripcionTxt">Docente</p>
+                <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado?"Activo":"Inactivo"}</p>
             </div>
             <button class="BotonEdit" data-id-docente="${usuario.id_docente}">
                 <div class="BotonEditSymbol">
@@ -139,7 +143,8 @@ function crearListaDocentes(docente) {
                 </div>
                 <p class="BotonVerMasText">Ver más</p>
             </button>
-            <button type="button" class="BotonDelete" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-docente="${usuario.id_docente}" data-id-usuario="${usuario.id_usuario.id_usuario}">
+            
+            <button type="button" class="BotonDelete ${usuario.id_usuario.estado ? '' : 'BotonDeleteDisabled'}" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-docente="${usuario.id_docente}" data-id-usuario="${usuario.id_usuario.id_usuario}" ${usuario.id_usuario.estado ? '' : 'disabled'}>
                 <div class="BotonEditSymbol">
                     <i class="fa-solid fa-ban" style="color: #1E6DA6;"></i>
                 </div>
@@ -147,7 +152,6 @@ function crearListaDocentes(docente) {
         `;
         // Adjuntando el contenedor al DOM, con la lista de docentes
         contenedorDocentes.appendChild(nuevoDocenteDiv);
-        }
     });
 
     const btnVerMas = document.querySelectorAll(".BotonVerMas");

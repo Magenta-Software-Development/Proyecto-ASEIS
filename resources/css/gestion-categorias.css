@@ -121,6 +121,17 @@
     line-height: normal;
 }
 
+.letrabtnActivar { /*Estilo para el texto del boton de eliminar*/
+    color: rgba(4, 181, 7, 0.791);
+
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
 .letrabtnEditar { /*Estilo para el texto del boton de editar*/
     color: #1E6DA6;
 
@@ -237,3 +248,4 @@
     font-weight: 600;
     line-height: normal;
 }
+

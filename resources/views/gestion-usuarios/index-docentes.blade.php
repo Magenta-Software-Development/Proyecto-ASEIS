@@ -84,6 +84,8 @@
                 </div>
                 <h5 class="text-center mt-3 modal-title" id="nombre_docente"></h5>
                 <br>
+                <p class="text-center text-white" id="estado_docente"></p>
+                <br>
                 <p class="text-center text-white" id="especialidad_docente"></p>
                 <br>
                 <p class="text-center text-white" id="correo_docente"></p>
