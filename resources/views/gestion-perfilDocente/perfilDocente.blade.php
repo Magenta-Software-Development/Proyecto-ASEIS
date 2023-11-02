@@ -49,7 +49,7 @@
                             <i class="fas fa-camera"></i>
                         </div>
                     </label>
-                        <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="loadTemporaryImage(this)">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
                         
                    </div>
                    <form>
@@ -58,7 +58,8 @@
                             <input type="text" class="campos" id="campo1" placeholder="Nombre Completo">
                         </div>
                         <div class="inputsArriba">
-                            <input type="text" class="campos" id="campo2" placeholder="Especialidad">
+                            <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -67,7 +68,7 @@
                     
                     <div class="grupoBotones">
                         <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                        <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal">Guardar Cambios</button>
+                        <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal" id="btn-GuardarCambiosActulizados">Guardar Cambios</button>
                     </div>
                     </form>
                     
