@@ -131,6 +131,12 @@
     line-height: normal;
 }
 
+#iconActivar{
+    color: #0fbd43;
+    font-size: 200px;
+    padding-top: 10%;
+    display: block;
+}
 
 .letrabtnEditar { /*Estilo para el texto del boton de editar*/
     color: #1E6DA6;
@@ -249,3 +255,20 @@
     line-height: normal;
 }
 
+.btn-activar { /*Estilo para el boton de eliminar*/
+    display: flex;
+    width: 190px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: #049304;
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

@@ -113,6 +113,37 @@ class RouteController extends Controller
         }
     }
 
+    public function gestionEspecialidades()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //si es admin le da acceso
+                return view('gestion-especialidades.index-especialidades');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function gestionCodigos()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //si es admin le da acceso
+                return view('gestion-codigos.index-codigos');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
 ///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------

@@ -24,7 +24,12 @@ export default defineConfig({
                 "resources/js/crearUsuariosAdmin.js",
                 "resources/js/desactivarUsuario.js",
                 "resources/js/registro-docente.js",
-                "resources/js/editPerfDoc.js",
+                "resources/js/modulo-gestion-categorias/categorias-admin.js",
+                "resources/js/modulo-gestion-usuarios/docentes-admin.js",
+                "resources/js/modulo-gestion-usuarios/estudiantes-admin.js",
+                "resources/js/modulo-gestion-codigos/codigos-admin.js",
+                "resources/js/modulo-gestion-especialidades/especialidades-admin.js",
+
             ],
             refresh: true,
         }),

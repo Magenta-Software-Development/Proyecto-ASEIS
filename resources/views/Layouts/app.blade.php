@@ -68,6 +68,18 @@
                         </div>
                 </li>
                 <li class="bd-links w-100">
+                    <a href="{{ route('app_index_especialidades')}}">
+                        <div class="custom-div" id="btnGestionEspecialidades">
+                            Gestión de especialidades
+                        </div>
+                </li>
+                <li class="bd-links w-100">
+                    <a href="{{ route('app_index_codigos')}}">
+                        <div class="custom-div" id="btnGestionCodigos">
+                            Gestión de codigos
+                        </div>
+                </li>
+                <li class="bd-links w-100">
                     <a href="#">
                         <div class="custom-div" id="btnGestionCursos">
                             Gestión de cursos

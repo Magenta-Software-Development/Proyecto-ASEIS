@@ -31,7 +31,7 @@
     </div>
     <div class="BuscaYCrea">
 
-        <input type="text" class="buscarInput" placeholder="Buscar" />
+        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda"/>
 
         <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
             <p class="crearBoton1">Nuevo docente</p>
@@ -110,10 +110,13 @@
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreDocente">
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreDocente"/>
+                                        <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
+                                        </select>
                                     </div>
                                 </td>
                             </tr>
+           
                             <tr>
                                 <td>
                                     <div class="input-group">
