@@ -4,7 +4,6 @@
 @section('scripts')
     @vite('resources/js/editPerfDoc.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 @section('css')
@@ -23,11 +22,11 @@
             <img src="https://via.placeholder.com/232x232" alt="Perfil Docente" class="foto-redonda" />
         </div>
         <div class="info-generalDocente">
-            <h5 class="text-center mt-3 textTarjetaDoc" >Héctor Javier Paiz Ramos</h5>
-            <p class="text-center text-contenido" id="docenteListado">Docente</p>
-            <p class="text-center text-contenido" id="especialidadDocente">Especialidad: BackEnd</p>
-            <p class="text-center text-contenido" id="correoDocenteLis">Correo: hector.paiz@ues.edu.sv</p>
-            <p class="text-center text-contenido" id="DescDocenteLis">Descripción: Especialista en desarrollo de aplicaciones aplicaciones en Android</p>
+            <h5 class="text-center mt-3 textTarjetaDoc" id="nombreDocente-Pefil" ></h5>
+            <p class="text-center text-contenido" id="docenteListado"></p>
+            <p class="text-center text-contenido" id="especialidadDocente"></p>
+            <p class="text-center text-contenido" id="correoDocenteLis"></p>
+            <p class="text-center text-contenido" id="DescDocenteLis"></p>
         </div>
     </div>
     <div class="boton-editar">
@@ -50,27 +49,28 @@
                             <i class="fas fa-camera"></i>
                         </div>
                     </label>
-                        <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="loadTemporaryImage(this)">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
                         
                    </div>
                    <form>
-                    <div class="form-group">
-                        <div class="inputsArriba">
-                            <input type="text" class="campos" id="campo1" placeholder="Nombre Completo">
+                        <div class="form-group">
+                            <div class="inputsArriba">
+                                <input type="text" class="campos" id="campo1" placeholder="Nombre Completo">
+                            </div>
+                            <div class="inputsArriba">
+                                <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
+                                </select>
+                            </div>
                         </div>
-                        <div class="inputsArriba">
-                            <input type="text" class="campos" id="campo2" placeholder="Especialidad">
+                        <div class="form-group">
+                            <input type="text" class="campos" id="campo3" placeholder="Descripción">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="campos" id="campo3" placeholder="Descripción">
-                    </div>
-                    
-                    <div class="grupoBotones">
-                        <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                        <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal">Guardar Cambios</button>
-                    </div>
-                    </form>
+                        
+                        <div class="grupoBotones">
+                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardCambios" data-dismiss="modal" id="btn-GuardarCambiosActulizados">Guardar Cambios</button>
+                        </div>
+                   </form>
                     
                 </div>
                 
