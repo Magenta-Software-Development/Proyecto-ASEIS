@@ -25,6 +25,11 @@ Route::get('/registro-docente', function () {
     return view('registro-docente');
 })->name('registro');
 
+Route::get('/error', function () {
+    //redirije a login
+    return view('error');
+})->name('error');
+
 
 Route::controller(AuthController::class)->group(function () {
 
@@ -35,7 +40,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 //Todas estas rutas deben de estar bloqueadas hasta que se haga un auth o un login
-Route::middleware('auth')->group(function () {
+Route::middleware('web')->group(function () {
 
     Route::controller(RouteController::class)->group(function () {
 

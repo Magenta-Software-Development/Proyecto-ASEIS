@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Contracts\Providers\Auth as ProvidersAuth;
 
 class AuthController extends Controller
@@ -30,32 +31,16 @@ class AuthController extends Controller
     {
 
         //Trae todos los usuarios
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('id_usuario', $request->id)->first();
 
 
         //Si el usuario existe
         if ($user) {
+            Log::info("AuthController");
+            Log::info("Usuario existe");
             Auth::login($user); //inicia la sesion.
+            Log::info(Auth::check());
             return $user;
-        } else {
-
-            //Create an user object
-            $user = new User();
-            $user->names = "Usuario";
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            $user->rol = $request->rol['roles'];
-
-            User::create([
-                'name' => $user->names,
-                'email' => $user->email,
-                'password' => $user->password,
-                'rol' => $user->rol,
-            ]);
-
-            $user2 = User::where('email', $request->email)->first();
-            Auth::login($user2); //inicia la sesion
-            return $user2;
         }
     }
 
@@ -65,7 +50,6 @@ class AuthController extends Controller
         if (Auth::check()) {
 
             $user = Auth::user();
-            User::where('id', $user->id)->delete();
 
             Auth::logout();
             return redirect()->route('app_login')->with('success', 'Sesión cerrada correctamente');

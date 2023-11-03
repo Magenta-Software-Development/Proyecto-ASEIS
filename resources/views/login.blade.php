@@ -1,3 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
+Log::info("Login");
+Log::info(Auth::check());
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -33,6 +43,11 @@
                 <div class="w-full max-w-lg">
                     <p class="text-[30px] md:text-[40px] text-black h-12 font-semibold">
                         Bienvenido
+                        @if (Auth::check())
+                        Hay sesion
+                        @else
+                        No hay sesion
+                        @endif
                     </p>
                     @csrf
                     <div class="mt-7 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">

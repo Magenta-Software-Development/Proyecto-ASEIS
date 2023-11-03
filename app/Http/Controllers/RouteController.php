@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class RouteController extends Controller
 {
@@ -149,16 +150,19 @@ class RouteController extends Controller
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
     public function indexD()
     {
+        Log::info("Ingresa a RouteController");
         //Chequea que la sesion este activa
         if (Auth::check()) {
+            Log::info("Hay sesion");
             $user = Auth::user();
-            if ($user->rol == 'Docente') { //Si es docente le da acceso
+            if ($user->rol == 2) { //Si es docente le da acceso
                 return view('indexD');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
         }else{
+            Log::info("No hay sesion");
             return redirect()->route('app_login');
         }
     }

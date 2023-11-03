@@ -123,15 +123,19 @@ function verifyLogin(data = []) {
             token: token
         },
         success: function (response) {
-            //console.log(response);
+            console.log(response);
+
+            console.log("Rol: " + response.rol);
 
             //Espera 3 segundos y redirecciona
             setTimeout(function () {
-                if (response.rol == 'Admin') {
+                if (response.rol == "1") {
+                    console.log("Administrador");
                     window.location.href = "index";
-                } else if (response.rol == 'Docente') { //Docente (OJO)
+                } else if (response.rol == "2") { //Docente (OJO)
                     window.location.href = "indexD";
-                } else if (response.rol == 'Estudiante') {
+                    console.log("Docente");
+                } else if (response.rol == "3") {
                     sweetalert('error', message, "No tienes permisos para ingresar a esta pagina");
                     window.location.href = "login";
                 }
