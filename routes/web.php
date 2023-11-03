@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/gestionAdmin/indexCursosNoDisponibles', [RouteController::class, 'gestionCursosNoDisponibles'])->name('app_index_cursos_no_disponibles'); //Muestra el indice de gestion de usuarios de docentes
         Route::get('/gestionAdmin/indexCursosPublicados', [RouteController::class, 'gestionCursosDisponibles'])->name('app_index_cursos_publicados'); //Muestra el indice de gestion de usuarios de docentes
         Route::get('/GestionarCategorias/indexCategorias', [RouteController::class, 'gestionCategorias'])->name('app_index_categorias'); //Muestra el indice de gestion de usuarios de docentes
+        Route::get('/gestionAdmin/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
 
 
         //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
