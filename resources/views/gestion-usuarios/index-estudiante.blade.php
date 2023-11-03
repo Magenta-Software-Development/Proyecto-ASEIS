@@ -31,7 +31,7 @@
     </div>
     <div class="BuscaYCrea">
 
-        <input type="text" class="buscarInput" placeholder="Buscar" />
+        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda"/>
 
         <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
             <p class="crearBoton1">Nuevo estudiante</p>
