@@ -25,6 +25,7 @@ export default defineConfig({
                 "resources/js/desactivarUsuario.js",
                 "resources/js/registro-docente.js",
                 "resources/js/editPerfDoc.js",
+                "resources/js/cargarFotoCurso.js",
             ],
             refresh: true,
         }),
