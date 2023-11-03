@@ -29,6 +29,7 @@ export default defineConfig({
                 "resources/js/modulo-gestion-usuarios/estudiantes-admin.js",
                 "resources/js/modulo-gestion-codigos/codigos-admin.js",
                 "resources/js/modulo-gestion-especialidades/especialidades-admin.js",
+                "resources/js/cargarFotoCurso.js",
 
             ],
             refresh: true,

@@ -259,7 +259,19 @@ class RouteController extends Controller
         }
     }
 
-
+    public function gestionNoticias()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //Si es docente le da acceso
+                return view('gestion-admin.index-gestion-noticias');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
 
     /* public function NOMBRE DE LA FUNCION COMO EN WEB.PHP()
     {
