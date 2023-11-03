@@ -44,8 +44,7 @@ $(document).ready(function() {
 
         $("#campo1").val(cargarNombreInput);
         $("#campo3").val(cargarDescripcion);
-    
-
+        
         // Realiza una solicitud GET para obtener la lista de especialidades
         $.ajax({
             type: "GET",
@@ -81,10 +80,10 @@ $(document).ready(function() {
         });
     }
 
-    
-    //----------------------- Función para cargar la imagen y enviarla y subir los datos del docente --------------------------
-    function guardarCambios() {
 
+    //Para subir la imagen
+    function actualizarFotoPerfilDocente()
+    {
         //--------------------- Subir la imagen -------------------------------------------------------------------
         var fileInput = document.getElementById("imageInput");
         var imagen = fileInput.files[0];
@@ -129,12 +128,19 @@ $(document).ready(function() {
             console.error("No se ha seleccionado una imagen para subir.");
         }
         //--------------------------------------------- Fin del bloque subir y cambiar la foto ----------------------
-        
 
+    }
+    
+    //----------------------- Función para cargar la imagen y enviarla y subir los datos del docente --------------------------
+    function guardarCambios() {
+
+        actualizarFotoPerfilDocente();
+        
         //Obterner lo valores de los inputs para actulizar el perfil 
         var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
         var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
         var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
+        
 
         if(isNaN(idEspecialidad))
         {
