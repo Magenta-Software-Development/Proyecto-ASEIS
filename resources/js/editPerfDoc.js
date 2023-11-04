@@ -10,7 +10,6 @@ $(document).ready(function() {
     var cargarEspecilidad = "";
     var idEspecialidadPorDefecto = 1;
     
-
     //---------------------------- Obtener todos los datos del cliente y llenar la tarjeta ---------------------------------------
     $.ajax({
         type: "GET",
@@ -39,12 +38,14 @@ $(document).ready(function() {
     });
     //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
 
-
-    function llenarSelectEspecialidades() {
-
+    function llenarInpustDeEditar()
+    {
         $("#campo1").val(cargarNombreInput);
         $("#campo3").val(cargarDescripcion);
-        
+    }
+
+    function llenarEspecilidad(){
+
         // Realiza una solicitud GET para obtener la lista de especialidades
         $.ajax({
             type: "GET",
@@ -65,7 +66,6 @@ $(document).ready(function() {
                     return especialidad.estado === true;
                 });
         
-    
                 // Agrega cada especialidad como una opción
                 especialidadesFiltradas.forEach(function(especialidad) {
                     var option = document.createElement("option");
@@ -80,10 +80,7 @@ $(document).ready(function() {
         });
     }
 
-
-    //Para subir la imagen
-    function actualizarFotoPerfilDocente()
-    {
+    function cambiarFotoPerfil(){
         //--------------------- Subir la imagen -------------------------------------------------------------------
         var fileInput = document.getElementById("imageInput");
         var imagen = fileInput.files[0];
@@ -112,7 +109,6 @@ $(document).ready(function() {
                         success: function(putResponse) {
                             // Procesa la respuesta de la solicitud PUT
                             console.log("La imagen del docente ha sido actualizada:", putResponse);
-                            location.reload();
                         },
                         error: function(putError) {
                             console.error("Error al actualizar la imagen del docente:", putError);
@@ -128,20 +124,15 @@ $(document).ready(function() {
             console.error("No se ha seleccionado una imagen para subir.");
         }
         //--------------------------------------------- Fin del bloque subir y cambiar la foto ----------------------
-
     }
-    
-    //----------------------- Función para cargar la imagen y enviarla y subir los datos del docente --------------------------
-    function guardarCambios() {
 
-        actualizarFotoPerfilDocente();
-        
+    function guardarDatosDocente(){
+
         //Obterner lo valores de los inputs para actulizar el perfil 
         var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
         var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
         var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
         
-
         if(isNaN(idEspecialidad))
         {
             var datosObjeto = {    
@@ -179,11 +170,18 @@ $(document).ready(function() {
                 console.error("Error al actualizar los datos del docente:", putError);
             }
         });
-
     }
 
-    $("#btn-GuardarCambiosActulizados").click(guardarCambios);
-    $("#btn-editarPerfilDocente").click(llenarSelectEspecialidades);
+    $("#btn-GuardarCambiosActulizados").click(function() {
+        cambiarFotoPerfil(); //Se llama la funion de cambiar foto de perfil
+        setTimeout(guardarDatosDocente, 2000); //Se establecen 2 segundos para la repsues de la api
+    });
+
+
+    $("#btn-editarPerfilDocente").click(function() {
+        llenarEspecilidad() //--> Se hace el llamado a la funcion para cargar la especilaidad 
+        llenarInpustDeEditar() // --> Se hace el llamado  la funcion de llenar inpust
+    });
 
 });
 
