@@ -30,7 +30,9 @@ export default defineConfig({
                 "resources/js/modulo-gestion-codigos/codigos-admin.js",
                 "resources/js/modulo-gestion-especialidades/especialidades-admin.js",
                 "resources/js/cargarFotoCurso.js",
-
+                'resources/js/modulo-admin/cursos-disponibles.js',
+                'resources/js/modulo-admin/cursos-no-disponibles.js',
+                'resources/js/modulo-gestion-noticias/noticias-admin.js'
             ],
             refresh: true,
         }),

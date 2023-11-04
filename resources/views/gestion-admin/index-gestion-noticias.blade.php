@@ -1,18 +1,17 @@
 
-@if(Auth::user()->rol == 'Administrador')
+@if(Auth::user()->rol == 'Admin')
 @extends('Layouts.app')
-@section('title', 'Gestion de admin')
+@section('title', 'Gestion de noticias')
 @endif
 
+{{--  MAGENTA POR FAVOR REVISAR ESTO, PORQUE ME DUPLICA EL HTML 
 @if(Auth::user()->rol == 'Docente')
 @extends('Layouts.appDocente')
 @section('title', 'Gestion de admin')
-@endif
-
+@endif 
+--}}
 @section('scripts')
-
-
-
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 @endsection
 
 @section('css')
@@ -27,9 +26,7 @@
 @section('content')
 
 <div class="contenedorPrincipal">
-
     <!-- área de titulo -->
-    
     <div class="row align-items-center justify-content-center" style="width: 80%;">
     <div class="col-12">
         <label for="inputT" class="estiloTitulo">Titulo</label>
@@ -58,10 +55,9 @@
 </div>
 
 <!-- editor de texto BigBox -->
-<div class="row align-items-center justify-content-center" style="width: 80%;">
-    <div class="col-12">
-        <div id="editor" style="height: 100px;">
-        </div>
+<div class="box">
+    <div class="form-group">
+        <textarea id="content" name="content" class="form-control"></textarea>
     </div>
 </div>
 

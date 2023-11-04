@@ -65,6 +65,22 @@ class RouteController extends Controller
         }
     }
 
+    public function gestionCursos()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //si es admin le da acceso
+                return view('gestion-admin.index-cursos-crear');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }else{
+            return redirect()->route('app_login');
+        }
+    }
+
     public function gestionCursosNoDisponibles()
     {
         //Chequea que la sesion este activa
@@ -144,6 +160,35 @@ class RouteController extends Controller
             return redirect()->route('app_login');
         }
     }
+
+        public function gestionNoticias()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //Si es docente le da acceso
+                return view('gestion-admin.index-gestion-noticias');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
+    public function gestionIndexNoticias()
+    {
+        //Chequea que la sesion este activa
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($user->rol == 'Admin') { //Si es docente le da acceso
+                return view('gestion-admin.index-noticias');
+            } else {
+                //Send him back to where it was
+                return back()->with('error', 'No tienes permisos para acceder a esta página');
+            }
+        }
+    }
+
 ///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
@@ -259,19 +304,21 @@ class RouteController extends Controller
         }
     }
 
-    public function gestionNoticias()
+    public function GestionNoticiasDocente()
     {
         //Chequea que la sesion este activa
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->rol == 'Admin') { //Si es docente le da acceso
-                return view('gestion-admin.index-gestion-noticias');
+            if ($user->rol == 'Docente') { //Si es docente le da acceso
+                return view('gestion-perfilDocente.index-noticias-docente');
             } else {
                 //Send him back to where it was
                 return back()->with('error', 'No tienes permisos para acceder a esta página');
             }
         }
     }
+
+
 
     /* public function NOMBRE DE LA FUNCION COMO EN WEB.PHP()
     {
