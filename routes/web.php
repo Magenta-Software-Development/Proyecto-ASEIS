@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/GestionarEspecialidades/indexCategorias', [RouteController::class, 'gestionEspecialidades'])->name('app_index_especialidades'); //Muestra la pagina de gestion de especialidades
         Route::get('/GestionarCodigos/indexCategorias', [RouteController::class, 'gestionCodigos'])->name('app_index_codigos'); //Muestra la pagina de gestion de codigos
         Route::get('/gestionAdmin/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
-
+        Route::get('/gestionAdmin/indexGestionNoticiasPublicadas', [RouteController::class, 'gestionNoticiasPublicadas'])->name('app_gestion_noticias_publicadas'); //Muestra el indice de gestion de usuarios de docentes
 
         //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         Route::get('/indexD', [RouteController::class, 'indexD'])->name('app_index_docente'); //Muestra el indice del docente

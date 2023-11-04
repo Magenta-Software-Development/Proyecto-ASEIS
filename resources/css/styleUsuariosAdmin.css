@@ -90,8 +90,86 @@ button {
     color: #FFFFFF;
 }
 
+/*modal mas informacion de noticias publicadas*/
+.fuente-encabezado{
+    color: #000;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
 
+.imagen-banner{
+    width: 100%;
+    max-width: 1255px;
+}
 
+.contenido-noticia {
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    width: 100%;
+    max-width: 1246px;
+    height: 474px;
+    border: 2px solid #000;
+    overflow-y: auto;
+}
+
+.btn-editar-noticia{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    width: 100%;
+    max-width: 309px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 16px;
+    background: #1E6DA6;
+}
+
+.btn-editar-noticia:hover{
+    background-color: #1F76BD;
+}
+
+.btn-eliminar-noticia{
+    color: #F00;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    width: 100%;
+    max-width: 309px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 16px;
+    border: 3px solid #F00;
+    background: #FFF;
+}
+
+.btn-eliminar-noticia:hover{
+    background-color: #797979;
+    color: rgb(129, 3, 3);
+}
 /* Media query para móvil pequeño (360 x 640 px) */
 
 @media (max-width: 360px) {
@@ -200,4 +278,4 @@ button {
     }
 }
 
-/*gestion de cursos*/
+

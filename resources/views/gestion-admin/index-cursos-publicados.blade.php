@@ -48,7 +48,7 @@
                 
                 <div class="botonCurso botonFiltroDesactivoCurso">
                     <a href="#">
-                        <button>
+                        <button class="w-100">
                             más información
                         </button>
                     </a>                
@@ -56,7 +56,7 @@
 
                 <div class="botonCurso botonFiltroActivoCurso">
                     <a href="#">
-                        <button>
+                        <button class="w-100">
                             Deshabilitar
                         </button>
                     </a>
