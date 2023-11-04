@@ -90,7 +90,202 @@ button {
     color: #FFFFFF;
 }
 
+/*modal mas informacion de noticias publicadas*/
+.fuente-encabezado{
+    color: #000;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
 
+.imagen-banner{
+    width: 100%;
+    max-width: 1255px;
+}
+
+.contenido-noticia {
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    width: 100%;
+    max-width: 1246px;
+    height: 474px;
+    border: 2px solid #000;
+    overflow-y: auto;
+}
+
+.btn-editar-noticia{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    width: 100%;
+    max-width: 309px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 16px;
+    background: #1E6DA6;
+}
+
+.btn-editar-noticia:hover{
+    background-color: #1F76BD;
+}
+
+.btn-eliminar-noticia{
+    color: #F00;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: flex;
+    width: 100%;
+    max-width: 309px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 16px;
+    border: 3px solid #F00;
+    background: #FFF;
+}
+
+.btn-eliminar-noticia:hover{
+    background-color: #797979;
+    color: rgb(129, 3, 3);
+}
+/*modal Eliminar de noticias publicadas*/
+.img-eliminar-noticia{
+    width: 100%;
+    max-width: 238.148px;
+    height: 201.234px;
+    flex-shrink: 0;
+}
+
+.texto-eliminar-noticia{
+    color: #000;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
+
+.btn-cancelar-noticia{
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+
+    display: flex;
+    width: 100%;
+    max-width: 192px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+    background: #CECECE;
+}
+
+.btn-cancelar-noticia:hover{
+    background-color: #797979;
+}
+
+.btn-eliminar-noticia-modal{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+
+    display: flex;
+    width: 100%;
+    max-width: 190px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    
+
+    border-radius: 16px;
+    background: #D30A0A;
+}
+
+.btn-eliminar-noticia-modal:hover{
+    background: #840707;
+}
+
+/*modal edicion de noticias publicadas*/
+.btn-cancelar-noticia-edicion{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+
+    display: flex;
+    width: 100%;
+    max-width: 306px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+    background: #A5A5A5;
+}
+
+.btn-cancelar-noticia-edicion:hover{
+    background-color: #797979;
+}
+
+.btn-guardar-cambios{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+
+    display: flex;
+    width: 100%;
+    max-width: 306px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 16px;
+    background: #1F76BD;
+}
+
+.btn-guardar-cambios:hover{
+    background-color: #155386;
+}
 
 /* Media query para móvil pequeño (360 x 640 px) */
 
@@ -200,4 +395,4 @@ button {
     }
 }
 
-/*gestion de cursos*/
+
