@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class RouteController extends Controller
@@ -47,34 +46,12 @@ class RouteController extends Controller
         }
     }
 
-    public function gestionCursos()
+    public function gestionCursos(Request $request)
     {
-        //Chequea que la sesion este activa
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->rol == 'Admin') { //si es admin le da acceso
-                return view('gestion-admin.index-cursos-crear');
-            } else {
-                //Send him back to where it was
-                return back()->with('error', 'No tienes permisos para acceder a esta página');
-            }
-        }else{
-            return redirect()->route('app_login');
-        }
-    }
 
-    public function gestionCursos()
-    {
-        //Chequea que la sesion este activa
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->rol == 'Admin') { //si es admin le da acceso
-                return view('gestion-admin.index-cursos-crear');
-            } else {
-                //Send him back to where it was
-                return back()->with('error', 'No tienes permisos para acceder a esta página');
-            }
-        }else{
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            return view('gestion-admin.index-cursos-crear');
+        } else {
             return redirect()->route('app_login');
         }
     }
@@ -126,35 +103,26 @@ class RouteController extends Controller
         }
     }
 
-        public function gestionNoticias()
+    public function gestionNoticias(Request $request)
     {
-        //Chequea que la sesion este activa
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->rol == 'Admin') { //Si es docente le da acceso
-                return view('gestion-admin.index-gestion-noticias');
-            } else {
-                //Send him back to where it was
-                return back()->with('error', 'No tienes permisos para acceder a esta página');
-            }
+
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            return view('gestion-admin.index-gestion-noticias');
+        } else {
+            return redirect()->route('app_login');
         }
     }
 
-    public function gestionIndexNoticias()
+    public function gestionIndexNoticias(Request $request)
     {
-        //Chequea que la sesion este activa
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->rol == 'Admin') { //Si es docente le da acceso
-                return view('gestion-admin.index-noticias');
-            } else {
-                //Send him back to where it was
-                return back()->with('error', 'No tienes permisos para acceder a esta página');
-            }
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            return view('gestion-admin.index-gestion-noticias');
+        } else {
+            return redirect()->route('app_login');
         }
     }
 
-///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
+    ///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
     public function indexD(Request $request)
@@ -224,20 +192,14 @@ class RouteController extends Controller
         }
     }
 
-    public function GestionNoticiasDocente()
+    public function GestionNoticiasDocente(Request $request)
     {
-        //Chequea que la sesion este activa
-        if (Auth::check()) {
-            $user = Auth::user();
-            if ($user->rol == 'Docente') { //Si es docente le da acceso
-                return view('gestion-perfilDocente.index-noticias-docente');
-            } else {
-                //Send him back to where it was
-                return back()->with('error', 'No tienes permisos para acceder a esta página');
-            }
+        if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
+            return view('gestion-perfilDocente.index-noticias-docente');
+        } else {
+            return redirect()->route('app_login');
         }
     }
-
 
     public function gestionNoticiasPublicadas(Request $request)
     {
