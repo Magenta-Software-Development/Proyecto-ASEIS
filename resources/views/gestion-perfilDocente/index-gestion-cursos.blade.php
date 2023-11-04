@@ -16,6 +16,7 @@
 @vite('resources/css/gestionCrearCursos.css')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
+@vite('resources/js/modulo-gestion-docente/crearCursos.js')
 @endsection
 @section('content')
 
@@ -28,13 +29,23 @@
                     <label for="titulo" class="TextosForm" >Título</label>
                     <input type="text" class="form-control" id="titulo" placeholder="">
                 </div>
+
+                 <!--
+                <div class="col-md-7">
+                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                </div>
+                
+
+               
                 <div class="col-md-3">
                     <label for="button" class="btn btn-primary" id="button-cargarFoto">Subir una foto</label>
-                    <input type="file" class="fileCargar" style="display: none;" id="button">
+                    <input type="file" class="fileCargar" style="display: none;" id="button" onchange="mostrarNombreArchivo">
                 </div>
+                -->
                 <div class="col-md-4 InpArchivo">
-                    <input type="text" class="form-control" id="archivo-cargado" placeholder="">
-                </div>              
+                    <input type="file" class="form-control" id="archivo-cargado" placeholder="Nombre Archivo">
+                </div>  
+                   
             </div>
 
 
@@ -51,8 +62,6 @@
                     <label for="modalidad" class="TextosForm">Modalidad</label>
                     <select class="form-select form-control" id="modalidad" aria-label="Default select example">
                         <option disabled selected>Seleccione la modalidad</option>
-                        <option value="1" id="MPresencial">Presencial</option>
-                        <option value="2" id="MVirtual">Virtual</option>
                     </select>
                 </div>
             </div>
@@ -68,9 +77,7 @@
                     <label for="categoria" class="TextosFormdos">Categoría</label>
                     <select class="form-select form-control" id="categoria" aria-label="Default select example">
                         <option disabled selected>Seleccione una categoría</option>
-                        <option value="1" id="categoriaSelect">Programacion</option>
-                        <option value="2" id="categoriaSelect">Base de Datos</option>
-                        <option value="3" id="categoriaSelect">Redes</option>
+                        
                     </select>
                 </div>
             </div>

@@ -8,10 +8,14 @@
 @vite('resources/css/styleUsuariosAdmin.css')
 @vite('resources/css/index-usuarios.css')
 @vite('resources/css/styleCursos.css')
-@vite('resources/js/crearUsuarioAdmin.js')
-@vite('resources/css/informacion.css')
+@vite('resources/css/informacion.css') 
+<!--@vite('resources/js/crearUsuarioAdmin.js') -->
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/desactivarUsuario.js')
+<!-- @vite('resources/js/desactivarUsuario.js') -->
+
+<!-- SE Agrega el .js para cargar los cursos del docente-->
+@vite('resources/js/modulo-gestion-docente/listarCursosDocente.js')
+
 @endsection
 @section('content')
 
@@ -25,41 +29,11 @@
     </div>
    </div>
 
-   <!-- contenedor de cursos-->
-   <div class="container contenedorCursos">
+    <!-- contenedor de cursos-->
+    <div id="container-cursos-publicados">
+    </div>
 
-        <div class="row tablaContenidosCursos">
 
-            <div class="col-sm-4 align-items-start"><!-- imagen del curso -->
-                <img class="contenedorImagen" src="{{ asset('images/Rectangle 55.png') }}">
-            </div>
-
-            <div class="col-sm-3"><!-- nombre del curso y de el docente -->
-                <div class="contenedorNombreCurso">Introducción a Python</div>
-                <div class="contenedorNombreDocente">Héctor Javier Paiz</div>
-            </div>
-
-            <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
-                
-                <div class="botonCurso botonFiltroDesactivoCurso">
-                    <a href="#">
-                        <button>
-                            más información
-                        </button>
-                    </a>                
-                </div>
-
-                <div class="botonCurso botonFiltroActivoCurso">
-                    <a href="#">
-                        <button>
-                            Deshabilitar
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-   </div>
 
 </div>
 
