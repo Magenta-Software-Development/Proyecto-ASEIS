@@ -74,18 +74,12 @@ function crearListaCursos(cursos,filtro){
                                 </div>
                 
                                 <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
-                                    
-                                    <div class="botonCurso botonFiltroActivoCurso">
-                                        <button class="btnVerMasCurso" data-id-curso="${curso.id_curso}" >
-                                            más información
-                                        </button>
-                                    </div>
-                    
-                                    <div class="botonCurso botonFiltroDesactivoCurso ${curso.estado ? '' : 'BotonDeleteDisabled'}" ${curso.estado ? '' : 'disabled'}>
-                                        <button class="btnDeshabilitarCurso ${curso.estado ? '' : 'BotonDeleteDisabled'}" data-id-curso="${curso.id_curso}" ${curso.estado ? '' : 'disabled'}>
-                                            Deshabilitar
-                                        </button>
-                                    </div>
+                                    <button class="botonCurso botonFiltroActivoCurso btnVerMasCurso" data-id-curso="${curso.id_curso}" >
+                                        más información
+                                    </button>                    
+                                    <button class="botonCurso botonFiltroDesactivoCurso btnDeshabilitarCurso ${curso.estado ? '' : 'BotonDeleteDisabled'}" data-id-curso="${curso.id_curso}" ${curso.estado ? '' : 'disabled'}>
+                                        Deshabilitar
+                                    </button>
                                 </div>
                         </div>
                     </div>

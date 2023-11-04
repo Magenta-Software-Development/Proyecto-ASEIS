@@ -5,7 +5,8 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
-function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2, id){
+
+function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2){
     Swal.fire({
         title: title,
         text: message,
@@ -16,28 +17,70 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         confirmButtonText: messageConfirmButton
     }).then((result) => {
         if (result.isConfirmed) {
-            let data = {
-                id_noticia : id
-            }
-            $.ajax({
-                type: "POST",
-                url: "https://springgcp-402821.uc.r.appspot.com/api/noticias/eliminar", 
-                contentType: "application/json",
-                crossDomain: true,
-                data: JSON.stringify(data), 
-                success: function (response, textStatus, xhr) {
-                    sweetalert(icon2,title2,message2);
-                    listaNoticias("");
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                }
-            });
+           
         }
     });
 }
+
+function obtenerNoticiaPorId(id) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: "GET",
+            url: "https://springgcp-402821.uc.r.appspot.com/api/noticias/"+id,
+            contentType: "application/json",
+            crossDomain: true,
+            success: function(response, textStatus, xhr) {
+                resolve(response);
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                reject(errorThrown);
+            }
+        });
+    });
+}
+
+function verMasInformacionNoticia(id) {
+    const cuerpoNoticia = document.getElementById("cuerpoDeNoticia");
+    obtenerNoticiaPorId(id)
+        .then(noticia => {
+            //console.log(noticia);
+            console.log(noticia.noticia.titulo) // imprime 'Crean una nueva libreria de javascript llamada HTMX'
+            $("#txtEncabezadoNoticia").text(noticia.noticia.titulo);
+            $('#imgNoticia').attr('src', noticia.noticia.imagen);
+            cuerpoNoticia.innerHTML = `
+                ${noticia.noticia.descripcion}
+            `;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    $("#modalMasInfo").modal("show");
+}
+
+
+
 function eliminarNoticia(id){
-    sweetalertquestion("warning","Eliminando noticia","Estas seguro de eliminar esta noticia?","Si, eliminar","success","Noticia eliminada con exito","Se ha eliminado la noticia de manera exitosa!",id)
+    $("#btnEliminarNoticia").off("click").on("click",function (e) { 
+        e.preventDefault();
+        let data = {
+            id_noticia : id
+        }
+        $.ajax({
+            type: "POST",
+            url: "https://springgcp-402821.uc.r.appspot.com/api/noticias/eliminar", 
+            contentType: "application/json",
+            crossDomain: true,
+            data: JSON.stringify(data), 
+            success: function (response, textStatus, xhr) {
+                $("#modalEliminar").modal("hide");
+                sweetalert("success","Noticia Eliminada","La noticia ha sido eliminada con exito!");
+                listaNoticias("");
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    })
 }
 function crearListaNoticias(noticias,filtro){
     const contenedorListaNoticias = document.getElementById("container-noticias");
@@ -45,7 +88,7 @@ function crearListaNoticias(noticias,filtro){
     contenedorListaNoticias.style.marginTop = "25px";
     contenedorListaNoticias.style.width = "100%"
 
-    if (noticias.length === 0 || !noticias.some(noticia => !noticia.estado)) {
+    if (noticias.length === 0) {
         const mensaje = document.createElement('div');
         mensaje.className = 'alert alert-primary text-center';
         mensaje.textContent = 'No hay noticias disponibles en este momento.';
@@ -73,7 +116,7 @@ function crearListaNoticias(noticias,filtro){
                             Más información
                         </button>
 
-                        <button class="botonCurso botonFiltroDesactivoCurso btnEliminarNoticia" data-id-noticia="${noticia.id_noticia}">
+                        <button class="botonCurso botonFiltroDesactivoCurso btnEliminarNoticia" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-id-noticia="${noticia.id_noticia}">
                             Eliminar
                         </button
                     </div>
@@ -96,7 +139,7 @@ function crearListaNoticias(noticias,filtro){
             boton.addEventListener("click", function() {
                 const idNoticia = boton.dataset.idNoticia;
                 console.log("boton ver mas con id",idNoticia);
-                //verMas(id);
+                verMasInformacionNoticia(idNoticia);
             });
         });
     }
@@ -108,6 +151,7 @@ function listaNoticias(filtro){
         contentType: "application/json",
         crossDomain: true,
         success: function(response, textStatus, xhr) {
+            //console.log(response);
             crearListaNoticias(response,filtro);
         },
         error: function(xhr, textStatus, errorThrown) {
