@@ -10,8 +10,6 @@
 @vite('resources/css/styleCursos.css')
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
-@vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/desactivarUsuario.js')
 @endsection
 @section('content')
 

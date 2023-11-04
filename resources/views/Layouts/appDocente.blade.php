@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_gestion_noticias') }}">
+                    <a href="{{ route('app_index_gestion_noticias_docente') }}">
                         <div class="custom-div" id="btnGestionNoticias">
                             Gestion de noticias
                         </div>

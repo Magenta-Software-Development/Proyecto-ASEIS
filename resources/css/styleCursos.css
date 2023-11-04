@@ -195,7 +195,7 @@
     line-height: normal;
     text-align: center;
 
-    height: 51px;
+    height: auto;
     border-radius: 16px;
     background: #1E6DA6;
     transition: background 0.3s ease;
