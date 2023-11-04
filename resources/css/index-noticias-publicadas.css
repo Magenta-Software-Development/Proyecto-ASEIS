@@ -228,7 +228,7 @@
         line-height: normal;
         text-align: center;
 
-        height: 51px;
+        
         border-radius: 16px;
         background: #1E6DA6;
         transition: background 0.3s ease;
@@ -281,6 +281,9 @@
         .botonesCurso{
             width: 100%;
         }
+    }
+    @media (max-width: 750px) {
+
     }
     @media (max-width: 2000px) {
       .botonFiltroDesactivoCurso{
