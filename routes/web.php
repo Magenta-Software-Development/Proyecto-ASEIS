@@ -35,7 +35,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 //Todas estas rutas deben de estar bloqueadas hasta que se haga un auth o un login
-Route::middleware('auth')->group(function () {
+//Route::middleware('auth')->group(function () {
 
     Route::controller(RouteController::class)->group(function () {
 
@@ -63,4 +63,4 @@ Route::middleware('auth')->group(function () {
         //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER A CONFIGURAR TU FUNCION
 
     });
-});
+//});

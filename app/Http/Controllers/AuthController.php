@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use PhpParser\Node\Stmt\Return_;
 use Tymon\JWTAuth\Contracts\Providers\Auth as ProvidersAuth;
 
 class AuthController extends Controller
@@ -28,49 +30,37 @@ class AuthController extends Controller
 
     public function loginVerify(Request $request)
     {
+        //Iniciar una sesion con session->start() en el controlador
 
-        //Trae todos los usuarios
-        $user = User::where('email', $request->email)->first();
+        Log::info($request->all());
+
+        Log::info($request->id);
+        Log::info($request->token);
+        Log::info($request->rol);
 
 
-        //Si el usuario existe
-        if ($user) {
-            Auth::login($user); //inicia la sesion.
-            return $user;
-        } else {
+        $rol = $request->rol;
+        $request->session()->start();
+        session(['rol' => $rol]);
+        session()->save();
 
-            //Create an user object
-            $user = new User();
-            $user->names = "Usuario";
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
-            $user->rol = $request->rol['roles'];
+        Log::info(session_status());
 
-            User::create([
-                'name' => $user->names,
-                'email' => $user->email,
-                'password' => $user->password,
-                'rol' => $user->rol,
-            ]);
+        return $rol;
 
-            $user2 = User::where('email', $request->email)->first();
-            Auth::login($user2); //inicia la sesion
-            return $user2;
-        }
+
+
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-
-        if (Auth::check()) {
-
-            $user = Auth::user();
-            User::where('id', $user->id)->delete();
-
-            Auth::logout();
-            return redirect()->route('app_login')->with('success', 'Sesión cerrada correctamente');
-        } else {
-            return redirect()->route('app_login')->with('error', 'No hay ninguna sesión activa');
-        }
+        //Limpia la sesion
+        $request->session()->invalidate();
+        session()->flush();
+        return redirect()->route('app_login');
     }
 }
+
+/*Lo ultimo que hice fue intentar autenticar el inicio de sesion con un session start, quiero revisar que el session start de Js
+Inicie el session start de laravel, tal vez llamando con ajax a la funcion LoginVerify y solo iniciando la sesion de laravel me sirva
+Ojala lo pueda lograr, debo de */
