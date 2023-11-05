@@ -1,4 +1,5 @@
 var urlImagenDeFirebase = '';
+
 function sweetalert(icon, title, message) {
     Swal.fire({
         icon: icon,
@@ -17,9 +18,9 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         cancelButtonColor: '#d33',
         confirmButtonText: messageConfirmButton
     }).then((result) => {
-        if (result.isConfirmed) {
+        // if (result.isConfirmed) {
            
-        }
+        // }
     });
 }
 

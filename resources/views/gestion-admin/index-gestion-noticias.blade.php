@@ -2,11 +2,11 @@
     @extends('Layouts.app')
     @section('title', 'Gestion de admin')
 @endif
-
+{{-- 
 @if ($rol == 'Docente')
     @extends('Layouts.appDocente')
     @section('title', 'Gestion de admin')
-@endif
+@endif --}}
 
 @section('scripts')
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
