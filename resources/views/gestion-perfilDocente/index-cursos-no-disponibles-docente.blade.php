@@ -12,9 +12,13 @@
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/desactivarUsuario.js')
+
+<!-- SE Agrega el .js para cargar los cursos del docente-->
+@vite('resources/js/modulo-gestion-docente/listarCursosNoDisponibles.js')
+
 @endsection
 @section('content')
+
 
 <div class="contenedorPrincipal">
 
@@ -27,40 +31,8 @@
    </div>
 
    <!-- contenedor de cursos-->
-   <div class="container contenedorCursos">
-
-        <div class="row tablaContenidosCursos">
-
-            <div class="col-sm-4 align-items-start"><!-- imagen del curso -->
-                <img class="contenedorImagen" src="{{ asset('images/Rectangle 55.png') }}">
-            </div>
-
-            <div class="col-sm-3"><!-- nombre del curso y de el docente -->
-                <div class="contenedorNombreCurso"><h4>Introducción a Python</h4></div>
-                <div class="contenedorNombreDocente">Héctor Javier Paiz</div>
-            </div>
-
-            <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
-                
-                <div class="botonCurso botonFiltroDesactivoCurso">
-                    <a href="#">
-                        <button data-bs-toggle="modal" data-bs-target="#modalMasInfoNoPublic">
-                            más información
-                        </button>
-                    </a>                
-                </div>
-
-                <div class="botonCurso botonFiltroActivoCurso">
-                        <button>
-                            Habilitar
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+   <div id="container-cursos-publicados"></div>
+    
 </div>
 
 <!-- Full screen modal -->
