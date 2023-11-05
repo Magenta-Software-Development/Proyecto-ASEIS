@@ -53,8 +53,6 @@
                 <label for="modalidad" class="TextosForm">Modalidad</label>
                 <select class="form-select form-control" id="modalidad" aria-label="Default select example">
                     <option disabled selected>Seleccione la modalidad</option>
-                    <option value="1" id="MPresencial">Presencial</option>
-                    <option value="2" id="MVirtual">Virtual</option>
                 </select>
             </div>
         </div>
@@ -70,9 +68,6 @@
                 <label for="categoria" class="TextosFormdos">Categoría</label>
                 <select class="form-select form-control" id="categoria" aria-label="Default select example">
                     <option disabled selected>Seleccione una categoría</option>
-                    <option value="1" id="categoriaSelect">Programacion</option>
-                    <option value="2" id="categoriaSelect">Base de Datos</option>
-                    <option value="3" id="categoriaSelect">Redes</option>
                 </select>
             </div>
         </div>

@@ -44,8 +44,8 @@ $(document).ready(function() {
                                             
                                         <div class="botonCurso botonFiltroDesactivoCurso">
                                             <a href="#">
-                                                <button>
-                                                más información
+                                                <button data-bs-toggle="modal" data-bs-target="#modalMasInfoNoPublic">
+                                                    más información
                                                 </button>
                                             </a>                
                                         </div>

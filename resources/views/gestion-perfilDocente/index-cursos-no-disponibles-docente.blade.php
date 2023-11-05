@@ -31,30 +31,8 @@
    </div>
 
    <!-- contenedor de cursos-->
-    <div id="container-cursos-publicados">
-    </div>
-
-            <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
-                
-                <div class="botonCurso botonFiltroDesactivoCurso">
-                    <a href="#">
-                        <button data-bs-toggle="modal" data-bs-target="#modalMasInfoNoPublic">
-                            más información
-                        </button>
-                    </a>                
-                </div>
-
-                <div class="botonCurso botonFiltroActivoCurso">
-                        <button>
-                            Habilitar
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+   <div id="container-cursos-publicados"></div>
+    
 </div>
 
 <!-- Full screen modal -->

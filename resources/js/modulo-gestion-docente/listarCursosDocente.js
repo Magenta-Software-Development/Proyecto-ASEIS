@@ -3,8 +3,6 @@ $(document).ready(function() {
 
     var idUsuarioDocente = localStorage.getItem("id");
 
-    console.log("El id del usuario es: "+idUsuarioDocente);
-
     $.ajax({
         type: "GET", url: `https://springgcp-402821.uc.r.appspot.com/api/curso-usuario/ver-por-id-usuario/${idUsuarioDocente}`,
        
@@ -44,8 +42,8 @@ $(document).ready(function() {
                                             
                                         <div class="botonCurso botonFiltroDesactivoCurso">
                                             <a href="#">
-                                                <button>
-                                                más información
+                                                <button data-bs-toggle="modal" data-bs-target="#modalMasInformacion">
+                                                    más información
                                                 </button>
                                             </a>                
                                         </div>
