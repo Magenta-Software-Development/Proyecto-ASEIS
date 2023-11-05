@@ -35,29 +35,36 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
     });
 }
 
-function crearListaCodigos(categorias, filtro) {
-    const contenedorListaCategorias = document.getElementById("containerListaCodigos");
+function crearListaCodigos(codigos, filtro) {
+    const contenedorListaCodigos = document.getElementById("containerListaCodigos");
     $("#containerListaCodigos").empty();
-    contenedorListaCategorias.style.marginTop = "25px";
+    contenedorListaCodigos.style.marginTop = "25px";
 
-    categorias.codigos.forEach(codigo => {
-        if (codigo.codigo.toLowerCase().includes(filtro.toLowerCase())) {
-            const nuevoCategoriaDiv = document.createElement("div");
-            nuevoCategoriaDiv.className = "container text-center contenedorCurso";
-            nuevoCategoriaDiv.style.marginTop = "6px";
-            nuevoCategoriaDiv.innerHTML = '';
-            nuevoCategoriaDiv.innerHTML = `
-                <div class="row">
-                    <div class="col-8 letraCurso text-start">
-                        <p>${codigo.codigo}</p>
+    if(codigos.codigos.length === 0){
+        const mensaje = document.createElement('div');
+        mensaje.className = 'alert alert-primary text-center';
+        mensaje.textContent = 'No hay codigos disponibles en este momento.';
+        contenedorListaCodigos.appendChild(mensaje);
+    }else{
+        codigos.codigos.forEach(codigo => {
+            if (codigo.codigo.toLowerCase().includes(filtro.toLowerCase())) {
+                const nuevoCodigoDiv = document.createElement("div");
+                nuevoCodigoDiv.className = "container text-center contenedorCurso";
+                nuevoCodigoDiv.style.marginTop = "6px";
+                nuevoCodigoDiv.innerHTML = '';
+                nuevoCodigoDiv.innerHTML = `
+                    <div class="row">
+                        <div class="col-8 letraCurso text-start">
+                            <p>${codigo.codigo}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-            contenedorListaCategorias.appendChild(nuevoCategoriaDiv);
-        }
-    });
-}
+                `;
+                contenedorListaCodigos.appendChild(nuevoCodigoDiv);
+            }
+        });
+    }
 
+}
 function listaCodigos(filtro) {
     $.ajax({
         type: "GET",

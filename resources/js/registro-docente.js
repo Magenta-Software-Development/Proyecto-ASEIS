@@ -102,7 +102,6 @@ $(document).ready(function () {
             data: JSON.stringify(codigoAVerificar),
             success: function (response, textStatus, xhr) {
                 if(xhr.status == 200){
-                    
                     eliminarCodigo(codigo);
                 }
             },
