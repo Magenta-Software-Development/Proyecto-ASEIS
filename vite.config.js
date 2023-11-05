@@ -17,6 +17,7 @@ export default defineConfig({
                 "resources/css/perfilDocente.css",
                 "resources/css/gestionCrearCursos.css",
                 "resources/css/infoCursosModal.css",
+                "resources/css/loader.css",
     
                 //Js
                 "resources/js/app.js",
@@ -30,7 +31,7 @@ export default defineConfig({
                 "resources/js/modulo-gestion-usuarios/estudiantes-admin.js",
                 "resources/js/modulo-gestion-codigos/codigos-admin.js",
                 "resources/js/modulo-gestion-especialidades/especialidades-admin.js",
-                "resources/js/limitePalabras.js"
+                "resources/js/limitePalabras.js",
                 'resources/js/modulo-admin/cursos-disponibles.js',
                 'resources/js/modulo-admin/cursos-no-disponibles.js',
                 'resources/js/modulo-gestion-noticias/noticias-admin.js'
