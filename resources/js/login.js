@@ -43,21 +43,108 @@ $(document).ready(function API() {
                 if (status == 200) {
 
                     sweetalert('success', 'Bienvenido', message);
+
+                    console.log(response);
+
                     let id = response.usuario.id_usuario;
                     let token = response.token;
 
                     localStorage.setItem('id', id);
                     localStorage.setItem('token', token);
-                    localStorage.setItem('rol', response.usuario.rol);
+                    localStorage.setItem('rol', response.usuario.rol["roles"]);
+
+                    sessionStorage.setItem('id', id);
+                    sessionStorage.setItem('token', token);
+                    sessionStorage.setItem('rol', response.usuario.rol["roles"]);
+
+                    console.log(sessionStorage.getItem('id'));
+                    console.log(sessionStorage.getItem('token'));
+                    console.log(sessionStorage.getItem('rol'));
 
                     let dataNew = {
-                        username: datos.correo,
-                        password: datos.password,
-                        rol: response.usuario.rol,
+                        rol: response.usuario.rol["roles"],
+                        id: id,
+                        token: token
                     }
 
-                    //verificamos los datos y los enviamos al controller
-                    verifyLogin(dataNew);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/login/Verify",
+                        data: dataNew,
+                        success: function (response) {
+                            console.log(response);
+
+                            //Espera 3 segundos y redirecciona
+                            setTimeout(function () {
+
+                                if (response == "Admin") {
+                                    console.log("Admin");
+                                    window.location.href = "index";
+
+                                } else if (response == "Docente") { //Docente (OJO)
+
+                                    console.log("Docente");
+                                    sweetalert('success', "Bienvenido Docente");
+                                    window.location.href = "indexD";
+
+                                } else if (response == "Estudiante") {
+
+                                    console.log("Estudiante");
+                                    sweetalert('error', message, "No tienes permisos para ingresar a esta pagina");
+                                    window.location.href = "login";
+                                }
+                                else {
+
+                                    console.log("Error");
+                                    window.location.href = "login";
+                                }
+                            }, 1500);
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.log(xhr);
+                        }
+                    });
+
+                    /*
+                        $.ajax({
+                            type: "POST",
+                            url: "/login/Verify",
+                            data: {
+                                rol: rol,
+                                id: id,
+                                token: token
+                            },
+                            success: function (response) {
+    
+                                console.log(response);
+    
+                                setTimeout(function () {
+                                    if (sessionStorage.getItem('rol') == "Admin") {
+                                        window.location.href = "index";
+                                    }
+                                    else if (sessionStorage.getItem('rol') == "Docente") { //Docente (OJO)
+                                        window.location.href = "indexD";
+                                    }
+                                    else if (sessionStorage.getItem('rol') == "Estudiante") {
+                                        window.location.href = "login";
+                                    }
+                                }, 3000);
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                console.log(xhr);
+                            }
+    
+    
+                        });*/
+
+
+
                 } else if (status === 202) {
 
                     if (message == "No tienes permisos para ingresar") {
@@ -94,7 +181,7 @@ $(document).ready(function API() {
     });
 });
 
-function verifyLogin(data = []) {
+/*function verifyLogin(data = []) {
 
     let rol = data.rol;
     let id = localStorage.getItem('id');
@@ -123,26 +210,28 @@ function verifyLogin(data = []) {
             token: token
         },
         success: function (response) {
-            //console.log(response);
+            console.log(response);
+
 
             //Espera 3 segundos y redirecciona
             setTimeout(function () {
-                if (response.rol == 'Admin') {
+                if (response.rol == 1) {
                     window.location.href = "index";
-                } else if (response.rol == 'Docente') { //Docente (OJO)
+                } else if (response.rol == 2) { //Docente (OJO)
+                    sweetalert('success', "Bienvenido Docente");
                     window.location.href = "indexD";
-                } else if (response.rol == 'Estudiante') {
+                } else if (response.rol == 3) {
                     sweetalert('error', message, "No tienes permisos para ingresar a esta pagina");
                     window.location.href = "login";
                 }
                 else {
                     window.location.href = "login";
                 }
-            }, 1500);
+            }, 3000);
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log(xhr);
         }
     });
 
-}
+}*/

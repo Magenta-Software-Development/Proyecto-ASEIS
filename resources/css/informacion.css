@@ -6,6 +6,19 @@
     background: #132D3C;
 }
 
+.box
+{
+ width:100%;
+
+ border-radius:5px;
+ padding:16px;
+ margin:0 auto;
+}
+.ck-editor__editable[role="textbox"] {
+   /* editing area */
+   min-height: 300px;
+}
+
 /* Estilos para una imagen redonda */
 .rounded-image {
     width: 232px;
