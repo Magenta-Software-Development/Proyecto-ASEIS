@@ -40,7 +40,6 @@
 
             <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
                 <div class="botonCurso botonFiltroDesactivoCurso">
-                    <a href="#">
                         <button data-bs-toggle="modal" data-bs-target="#modalMasInformacion">
                             más información
                         </button>
