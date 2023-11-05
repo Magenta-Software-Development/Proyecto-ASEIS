@@ -80,9 +80,9 @@
                         </div>
                 </li>
                 <li class="bd-links w-100">
-                    <a href="{{ route('app_index_gestion_cursos')}} ">
+                    <a href="{{ route('app_index_gestion_cursosAdmin')}} ">
                         <div class="custom-div" id="btnGestionCursos">
-                            Gestión de cursos
+                            Creacion de cursos
                         </div>
                 </li>
                 <li class="bd-links w-100">
@@ -101,7 +101,7 @@
                 <li class="bd-links w-100">
                     <a href="{{ route('app_index_gestion_noticias') }}">
                         <div class="custom-div" id="btnGestionNoticias">
-                            Gestion de noticias
+                            Creacion de noticias
                         </div>
                     </a>
                 </li>
