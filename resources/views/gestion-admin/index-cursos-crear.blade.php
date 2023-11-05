@@ -45,15 +45,11 @@
             </div>
             <div class="col-md-4">
                 <label for="fechaFin" class="TextosForm">Fecha de Finalización</label>
-
                 <input type="date" class="form-control" id="fechaFin">
             </div>
             <div class="col-md-4">
-                <label for="modalidad" class="TextosForm">Modalidad</label>
-                <select class="form-select form-control" id="modalidad" aria-label="Default select example">
-                    <option disabled selected>Seleccione la modalidad</option>
-                    <option value="1" id="MPresencial">Presencial</option>
-                    <option value="2" id="MVirtual">Virtual</option>
+                <label for="modalidadCurso" class="TextosForm">Modalidad</label>
+                <select class="form-select form-control" id="modalidadCurso" aria-label="Default select example">
                 </select>
             </div>
         </div>
@@ -66,20 +62,17 @@
                 <input type="text" class="form-control" id="tutor" placeholder="">
             </div>
             <div class="col-md-6">
-                <label for="categoria" class="TextosFormdos">Categoría</label>
-                <select class="form-select form-control" id="categoria" aria-label="Default select example">
-                    <option disabled selected>Seleccione una categoría</option>
-                    <option value="1" id="categoriaSelect">Programacion</option>
-                    <option value="2" id="categoriaSelect">Base de Datos</option>
-                    <option value="3" id="categoriaSelect">Redes</option>
+                <label for="categoriaCurso" class="TextosFormdos">Categoría</label>
+                <select class="form-select form-control" id="categoriaCurso" aria-label="Default select example">
+ 
                 </select>
             </div>
         </div>
         <!-- Fila 4 -->
         <div class="row">
             <div class="col-md-6">
-                <label for="horarios" class="TextosFormtres">Horarios</label>
-                <input type="text" class="form-control" id="horarios" placeholder="">
+                <label for="horariosCurso" class="TextosFormtres">Horarios</label>
+                <input type="text" class="form-control" id="horariosCurso" placeholder="">
             </div>
             <div class="col-md-6">
                 <label for="cupos" class="TextosFormCupos">Cupos Disponibles</label>
@@ -91,8 +84,8 @@
         <div class="row">
 
             <div class="col-md-12">
-                <label for="descripcion" class="TextosFormDescripcion">Descripción del Curso</label>
-                <input class="form-control" id="descripcionC" rows="4" placeholder="">
+                <label for="descripcionCurso" class="TextosFormDescripcion">Descripción del Curso</label>
+                <input class="form-control" id="descripcionCurso" rows="4" placeholder="">
             </div>
         </div>
         <!-- seccion 2 del forumalario para los contenidos-->
@@ -102,7 +95,8 @@
             </div>
             <div class="col-md-4">
                 <button type="button" class="btn btn-primary ajusteBoton" data-bs-toggle="modal" data-bs-target="#mCrearContenidoCurso">
-                    Agregar Contenido</button>
+                    Agregar Contenido
+                </button>
             </div>
         </div>
 
@@ -117,9 +111,11 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">¡bienvenidos al primer curso de la asignatura! Lorem ipsum, dolor sit ame
+                            <div class="accordion-body">
+                                ¡bienvenidos al primer curso de la asignatura! Lorem ipsum, dolor sit ame
                                 consectetur adipisicing elit. Hic ad minus repudiandae quidem cum neque similique ex possimus corrupti laudantium iure adipisci quis,
-                                eveniet dicta obcaecati praesentium nostrum. Sed, itaque.</div>
+                                eveniet dicta obcaecati praesentium nostrum. Sed, itaque.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +132,7 @@
 </div>
 
 
-<!-- Modal para crear un curso -->
+<!-- Modal para crear un contenidos de curso -->
 <div class="modal fade modal-move-in-right" id="mCrearContenidoCurso" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

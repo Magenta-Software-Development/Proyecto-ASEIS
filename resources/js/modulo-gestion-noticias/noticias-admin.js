@@ -17,7 +17,6 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         confirmButtonText: messageConfirmButton
     }).then((result) => {
         if (result.isConfirmed) {
-           
         }
     });
 }

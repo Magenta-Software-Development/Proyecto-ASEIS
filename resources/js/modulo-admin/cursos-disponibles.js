@@ -36,6 +36,10 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         }
     });
 }
+function verMasInformacion(id){
+    $("#modalMasInformacion").modal('show');
+    console.log("Viendo mas informacion del curso",id)
+}
 function desactivarCurso(id){
     sweetalertquestion("warning","Deshabilitando curso","Estas seguro de deshabilitar este curso?","Si, deshabilitar","success","Curso deshabilitado con exito","Se ha deshabilitado el curso de manera exitosa!",id)
 }
@@ -101,7 +105,7 @@ function crearListaCursos(cursos,filtro){
         btnVerMasCurso.forEach(boton => {
             boton.addEventListener("click", function() {
                 const idCurso = boton.dataset.idCurso;
-                //verMas(idCurso);
+                verMasInformacion(idCurso);
                 //console.log(idCurso);
             });
         });
