@@ -59,17 +59,17 @@ function verMasInformacionNoticia(id) {
 
 
 function eliminarNoticia(id){
-    $("#btnEliminarNoticia").off("click").on("click",function (e) { 
+    $("#btnEliminarNoticia").off("click").on("click",function (e) {
         e.preventDefault();
         let data = {
             id_noticia : id
         }
         $.ajax({
             type: "POST",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/noticias/eliminar", 
+            url: "https://springgcp-402821.uc.r.appspot.com/api/noticias/eliminar",
             contentType: "application/json",
             crossDomain: true,
-            data: JSON.stringify(data), 
+            data: JSON.stringify(data),
             success: function (response, textStatus, xhr) {
                 $("#modalEliminar").modal("hide");
                 sweetalert("success","Noticia Eliminada","La noticia ha sido eliminada con exito!");
@@ -109,12 +109,12 @@ function crearListaNoticias(noticias,filtro){
                     <div class="col-sm-3">
                         <div class="contenedorNombreCurso"><h4>${noticia.titulo}</h4></div>
                     </div>
-        
+
                     <div class="col-sm-5 custom-align-bottom">
                         <button class="botonCurso botonFiltroActivoCurso btnVerMasNoticia" data-id-noticia="${noticia.id_noticia}">
                             Más información
                         </button>
-
+                    </br>
                         <button class="botonCurso botonFiltroDesactivoCurso btnEliminarNoticia" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-id-noticia="${noticia.id_noticia}">
                             Eliminar
                         </button
@@ -146,7 +146,7 @@ function crearListaNoticias(noticias,filtro){
 function listaNoticias(filtro){
     $.ajax({
         type: "GET",
-        url: "https://springgcp-402821.uc.r.appspot.com/api/noticias", 
+        url: "https://springgcp-402821.uc.r.appspot.com/api/noticias",
         contentType: "application/json",
         crossDomain: true,
         success: function(response, textStatus, xhr) {
