@@ -104,7 +104,7 @@ $(document).ready(function API() {
                                     console.log("Error");
                                     window.location.href = "login";
                                 }
-                            }, 3000);
+                            }, 1500);
                         },
                         error: function (xhr, textStatus, errorThrown) {
                             console.log(xhr);

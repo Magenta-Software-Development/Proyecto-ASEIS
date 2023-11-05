@@ -47,17 +47,24 @@ class AuthController extends Controller
         Log::info(session_status());
 
         return $rol;
-
-
-
     }
 
     public function logout(Request $request)
     {
+
+        Log::info(session_status());
+
+        if (session_status() == PHP_SESSION_ACTIVE) {
+            $request->session()->invalidate();
+            session()->flush();
+            return redirect()->route('app_login');
+        }
+        else
+        {
+            return redirect()->route('app_login');
+        }
         //Limpia la sesion
-        $request->session()->invalidate();
-        session()->flush();
-        return redirect()->route('app_login');
+
     }
 }
 

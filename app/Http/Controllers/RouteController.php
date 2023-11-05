@@ -46,11 +46,12 @@ class RouteController extends Controller
         }
     }
 
+    //Creacion de cursos
     public function gestionCursos(Request $request)
     {
 
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-admin.index-cursos-crear');
+            return view('gestion-admin.index-cursos-crear')->with('rol', $request->session()->get('rol'));
         } else {
             return redirect()->route('app_login');
         }
@@ -59,7 +60,7 @@ class RouteController extends Controller
     public function gestionCursosNoDisponibles(Request $request)
     {
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-admin.index-cursos-no-disponibles');
+            return view('gestion-admin.index-cursos-no-disponibles')->with('rol', $request->session()->get('rol'));
         } else {
             return redirect()->route('app_login');
         }
@@ -78,7 +79,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-categorias.index-categorias');
+            return view('gestion-admin.index-categorias');
         } else {
             return redirect()->route('app_login');
         }
@@ -88,7 +89,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-especialidades.index-especialidades');
+            return view('gestion-admin.index-especialidades');
         } else {
             return redirect()->route('app_login');
         }
@@ -97,7 +98,7 @@ class RouteController extends Controller
     public function gestionCodigos(Request $request)
     {
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-codigos.index-codigos');
+            return view('gestion-admin.index-codigos');
         } else {
             return redirect()->route('app_login');
         }
@@ -107,7 +108,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-admin.index-gestion-noticias');
+            return view('gestion-admin.index-gestion-noticias')->with('rol', $request->session()->get('rol'));
         } else {
             return redirect()->route('app_login');
         }
@@ -116,7 +117,7 @@ class RouteController extends Controller
     public function gestionIndexNoticias(Request $request)
     {
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-admin.index-gestion-noticias');
+            return view('gestion-admin.index-noticias');
         } else {
             return redirect()->route('app_login');
         }
@@ -146,7 +147,7 @@ class RouteController extends Controller
     public function indexCrearCurso(Request $request)
     {
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-gestion-cursos');
+            return view('gestion-perfilDocente.index-gestion-cursos')->with('rol', $request->session()->get('rol'));
         } else {
             return redirect()->route('app_login');
         }

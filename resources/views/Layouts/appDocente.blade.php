@@ -65,7 +65,7 @@
                 <li class="bd-links w-100">
                     <a href="{{ route('app_index_gestion_cursos') }}">
                         <div class="custom-div" id="btnGestionCursos">
-                            Gestión de cursos
+                            Creacion de cursos
                         </div>
                 </li>
                 <li class="bd-links w-100">

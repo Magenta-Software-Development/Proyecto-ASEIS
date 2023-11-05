@@ -49,8 +49,8 @@ Route::controller(AuthController::class)->group(function () {
         Route::get('/GestionarEspecialidades/indexCategorias', [RouteController::class, 'gestionEspecialidades'])->name('app_index_especialidades'); //Muestra la pagina de gestion de especialidades
         Route::get('/GestionarCodigos/indexCategorias', [RouteController::class, 'gestionCodigos'])->name('app_index_codigos'); //Muestra la pagina de gestion de codigos
         Route::get('/gestionAdmin/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_index_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
-        Route::get('/gestionAdmin/indexGestionCursos', [RouteController::class, 'gestionCursos'])->name('app_index_gestion_cursos'); //Muestra el indice de gestion de crear noticas del administrador.
-        Route::get('/gestionAdmin/indexCursos', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
+        Route::get('/gestionAdmin/indexGestionCursos', [RouteController::class, 'gestionCursos'])->name('app_index_gestion_cursosAdmin'); //Muestra el indice de gestion de crear noticas del administrador.
+        Route::get('/gestionAdmin/indexNoticias', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
 
 
         //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
