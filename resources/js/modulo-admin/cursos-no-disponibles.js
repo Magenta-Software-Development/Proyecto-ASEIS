@@ -67,17 +67,17 @@ function crearListaCursos(cursos, filtro) {
                                 <div class="col-sm-4 align-items-start"><!-- imagen del curso -->
                                     <img class="contenedorImagen" src="${curso.imagen}">
                                 </div>
-                    
+
                                 <div class="col-sm-3"><!-- nombre del curso y de el docente -->
                                     <div class="contenedorNombreCurso">${curso.titulo}</div>
                                     <div class="contenedorNombreDocente">${curso.id_docente.nombre}</div>
                                 </div>
-                
+
                                 <div class="col-sm-5 custom-align-bottom"><!-- botones de mas informacion y habilitar -->
                                     <button class="btnVerMasCurso botonCurso botonFiltroActivoCurso" data-id-curso="${curso.id_curso}">
                                     Más información
                                     </button>
-                    
+                    <br>
                                     <button class="botonCurso botonFiltroDesactivoCurso btnHabilitarCurso ${curso.estado ? 'BotonDeleteDisabled' : ''}" data-id-curso="${curso.id_curso}"  ${curso.estado ? 'disabled' : ''}>
                                         Habilitar
                                     </button>
@@ -106,7 +106,7 @@ function crearListaCursos(cursos, filtro) {
         });
     }
 
-    
+
 }
 function listaCursosNoDisponibles(filtro) {
     $.ajax({
