@@ -3,6 +3,7 @@
 
 @section('scripts')
     @vite('resources/js/editPerfDoc.js')
+    @vite('resources/js/limitePalabras.js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
@@ -64,6 +65,10 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="campos" id="campo3" placeholder="Descripción">
+                            <div class="ContlimitePalabras">
+                                Palabras: <span id="limitePalabras">0</span> / 30
+                                
+                            </div>
                         </div>
                         
                         <div class="grupoBotones">
