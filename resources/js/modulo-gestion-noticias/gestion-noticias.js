@@ -18,7 +18,7 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         confirmButtonText: messageConfirmButton
     }).then((result) => {
         if (result.isConfirmed) {
-           
+
         }
     });
 }
@@ -50,11 +50,11 @@ function crearNoticia(contenidoTextEditor,urlImagen,titulo){
     console.log(JSON.stringify(data));
     // Realizamos una solicitud AJAX utilizando jQuery
     $.ajax({
-        url: 'https://springgcp-402821.uc.r.appspot.com/api/noticias/crear', 
-        type: 'POST', 
+        url: 'https://springgcp-402821.uc.r.appspot.com/api/noticias/crear',
+        type: 'POST',
         contentType: "application/json",
         crossDomain: true,
-        data: JSON.stringify(data), 
+        data: JSON.stringify(data),
         success: function(response, textStatus, xhr) {
             // Si la solicitud fue exitosa aca...
             if(xhr.status == 201){//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(editor => {
             // El editor está listo y se puede acceder a través del parámetro 'editor'
             function obtenerContenido() {
+                console.log("Funciona correctamente");
                 const contenido = editor.getData();
                 return contenido;
             }
@@ -136,3 +137,20 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error(error);
         });
 });
+
+
+
+function showFileName() {
+    const input = document.getElementById("imageInput");
+    const fileNameElement = document.getElementById("filename");
+
+    if (input.files.length > 0) {
+        const fileName = input.files[0].name;
+        fileNameElement.value = fileName;
+    } else {
+        fileNameElement.value = "";
+    }
+}
+
+document.getElementById("imageInput").addEventListener("change", showFileName);
+
