@@ -16,6 +16,7 @@ export default defineConfig({
                 "resources/css/desactivarUsuario.css",
                 "resources/css/perfilDocente.css",
                 "resources/css/gestionCrearCursos.css",
+                "resources/css/infoCursosModal.css",
     
                 //Js
                 "resources/js/app.js",
@@ -29,7 +30,7 @@ export default defineConfig({
                 "resources/js/modulo-gestion-usuarios/estudiantes-admin.js",
                 "resources/js/modulo-gestion-codigos/codigos-admin.js",
                 "resources/js/modulo-gestion-especialidades/especialidades-admin.js",
-                "resources/js/cargarFotoCurso.js",
+                "resources/js/limitePalabras.js"
 
             ],
             refresh: true,

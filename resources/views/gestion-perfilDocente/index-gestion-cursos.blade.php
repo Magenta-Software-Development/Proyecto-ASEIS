@@ -78,7 +78,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="horarios" class="TextosFormtres">Horarios</label>
-                    <input type="text" class="form-control" id="horarios" placeholder="">
+                    <input type="text" class="form-control" id="horarios" placeholder="Día(s) de la semana, Hora de inicio a Hora de fin">
+                    
                 </div>
                 <div class="col-md-6">
                     <label for="cupos" class="TextosFormCupos">Cupos Disponibles</label>

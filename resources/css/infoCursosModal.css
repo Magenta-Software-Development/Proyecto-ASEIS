@@ -1,0 +1,269 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+.modal-content{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.modal-header{
+    background-color:white;
+}
+
+.iconoCerrarModal{
+    padding-left: 40px;
+    font-size: 35px;
+}
+
+.contModalInfoCursos{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.columna-imagen{
+    margin-bottom: 80px;
+}
+
+.imgColumnaIzquierda{
+    width: 600px;
+    height: 430px;
+    top: 138px;
+    left: 47px;
+    border-radius: 16px;
+}
+
+.contenidoHeaderCol{
+    margin-top: -3px;
+    color: black;
+    font-family: Inter, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.DescripcionSect{
+    text-align: start;
+}
+
+.iconosModal{
+    font-size: 30px;
+    text-align: center;
+}
+
+.espacioFilas{
+    margin-top: 20px;
+}
+
+.medFila{
+    padding-top: 0%;
+}
+
+.medidaFechas{
+    padding-top: 0%;
+    margin-bottom: 0%;
+    width: 400px;
+    height: 23px;
+}
+
+
+.lblmedidaDescrip{
+    padding-top: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    width: 1240px;
+    height: auto;
+}
+
+.modal-content-scroll {
+    overflow-y: auto;
+}
+
+.contModalContentCursos{
+margin-top: 60px;
+}
+
+.tarjetaEstModal{
+    background-color: #80AFD1;
+    height: 110px;
+    width: 1200px;
+    margin-left: 50px;
+    border-radius: 16px;
+    margin-top: 21px;
+}
+
+.tarjetaEstModal-body{
+    height: 110px;
+}
+
+.fotoContenedor{
+    margin-right: -40px;
+    padding: 0;
+}
+.foto-estudianteP {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-top: 5%;
+    margin-left: 12%;
+}
+
+.EstudianteC{
+    color: #000;
+    padding-top: 10px;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0%;
+}
+
+#nombreEstudiante{
+    margin-top: 20px;
+}
+
+.estilosBtn{
+    background: #fff;
+    color: #2E86DE;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+}
+#btnInfoverEstudiante {
+    margin-top: 10px;
+    width: 150px;
+    height: 56px;
+}
+.containerBtnMas{
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+#btnVerMasEst {
+    background-color: #D9D9D9;
+    color: black;
+    margin-top: 10px;
+    width: 250px;
+    height: 46px;
+}
+
+button i{
+    margin-right: 10px;
+}
+
+.contModalComentarios {
+    margin-top: 110px;
+    margin-bottom: 30px;
+}
+.contenedorDeComentarios{
+    width: 1500px;
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
+.tarjetaEstModalC{
+    height: 265px;
+    width: 1200px;
+    margin-left: 50px;
+    border-radius: 16px;
+    margin-top: 21px;
+}
+.tarjetaComentario{
+    background-color: #D9D9D9;
+    width: 990px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border-radius: 16px;
+    height: auto;
+    max-height: 500px;
+    padding-bottom: 30px;
+
+}
+
+.comentarioEs{
+    width: 970px;
+    height: auto;
+    max-height: 100px;
+    overflow-y: auto;  
+}
+.contModalBotonesCursos {
+    margin-top: 20px; /* Aumenta el margen superior para mantener la distancia */
+}
+.contenedorBotonEC{
+    margin-left: 100px;
+}
+
+#btnComentarioE {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 0%;
+    width: 240px;
+    height: 56px;
+}
+#btnDeshabilitarCurso{
+    background-color: #D9D9D9;
+    color: black;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 0%;
+    width: 240px;
+    height: 56px;
+    border: 2px solid #d6d6d6;
+    transition: background-color 0.3s;
+}
+
+#btnDeshabilitarCurso:hover {
+    background-color: rgb(173, 173, 173); 
+    color: white; 
+}
+.hover{
+    transition: background-color 0.3s;
+}
+#btnEditarCurso{
+    background-color: #1E6DA6;
+    color: white;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: auto;
+    width: 240px;
+    height: 56px;
+    transition: background-color 0.3s;
+}
+
+#btnEditarCurso:hover {
+    background-color: #055086;
+    color: white; 
+}
+/*APLICANDO EL MOVIMIENTO DEL MODAL/*/
+.modal.modal-move-in-right.show {
+    animation: moveInRight 700ms ease-out;
+}
+
+@keyframes moveInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
