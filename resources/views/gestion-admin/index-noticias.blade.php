@@ -1,9 +1,6 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de admin')
 
-
-
-
 @section('scripts')
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 

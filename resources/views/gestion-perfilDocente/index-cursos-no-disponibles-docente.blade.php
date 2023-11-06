@@ -7,21 +7,20 @@
 
 @endsection
 @section('css')
-    @vite('resources/css/styleUsuariosAdmin.css')
-    @vite('resources/css/index-usuarios.css')
-    @vite('resources/css/styleCursos.css')
-    @vite('resources/css/infoCursosModal.css')
-    @vite('resources/js/crearUsuarioAdmin.js')
-    @vite('resources/css/informacion.css')
-    @vite('resources/css/desactivarUsuario.css')
-    @vite('resources/js/desactivarUsuario.js')
+@vite('resources/css/styleUsuariosAdmin.css')
+@vite('resources/css/index-usuarios.css')
+@vite('resources/css/styleCursos.css')
+@vite('resources/css/infoCursosModal.css')
+@vite('resources/js/crearUsuarioAdmin.js')
+@vite('resources/css/informacion.css')
+@vite('resources/css/desactivarUsuario.css')
 
+<!-- SE Agrega el .js para cargar los cursos del docente-->
+@vite('resources/js/modulo-gestion-docente/listarCursosNoDisponibles.js')
 
-
-
-    @vite('resources/js/modulo-gestion-usuarios/estudiantes-admin.js')
 @endsection
 @section('content')
+
 
     <div class="contenedorPrincipal">
 
@@ -33,6 +32,7 @@
             </div>
         </div>
 
+        <div id="container-cursos-publicados">
         <!-- contenedor de cursos-->
         <div class="container contenedorCursos">
 
@@ -71,7 +71,7 @@
         </div>
 
     </div>
-
+</div>
 
     <!-- Extra Large Modal -->
     <div id="extralarge-modal" tabindex="-1"
