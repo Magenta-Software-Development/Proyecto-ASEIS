@@ -1,12 +1,6 @@
-@if ($rol == 'Admin')
-    @extends('Layouts.app')
-    @section('title', 'Gestion de admin')
-@endif
+@extends('Layouts.app')
+@section('title', 'Gestion de admin')
 
-@if ($rol == 'Docente')
-    @extends('Layouts.appDocente')
-    @section('title', 'Gestion de admin')
-@endif
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -26,11 +20,11 @@
 <div class="contenedorPrincipal">
 
     <!-- area de busqueda -->
-   <div class="contenedorBusqueda">
+    <div class="contenedorBusqueda">
         <input type="text" class="InputBuscar" placeholder="Buscar" />
-   </div>
+    </div>
 
-   <!-- contenedor de cursos-->
+    <!-- contenedor de cursos-->
     <div id="container-cursos-no-publicados">
     </div>
 

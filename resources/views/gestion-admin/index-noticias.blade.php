@@ -1,9 +1,6 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de admin')
 
-
-
-
 @section('scripts')
 @vite('resources/js/modulo-gestion-noticias/noticias-admin.js');
 @endsection
