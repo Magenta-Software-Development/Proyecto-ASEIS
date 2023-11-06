@@ -32,6 +32,7 @@
 
    <!-- contenedor de cursos-->
     <div id="container-cursos-no-publicados">
+
     </div>
 
 </div>
