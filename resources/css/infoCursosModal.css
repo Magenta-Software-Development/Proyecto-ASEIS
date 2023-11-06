@@ -232,8 +232,25 @@ button i{
     transition: background-color 0.3s;
 }
 
+#btnHabilitarCurso{
+    background-color: #1E6DA6;
+    color: white;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 0%;
+    width: 240px;
+    height: 56px;
+    border: 2px solid #d6d6d6;
+    transition: background-color 0.3s;
+}
+
 #btnDeshabilitarCurso:hover {
     background-color: rgb(173, 173, 173); 
+    color: black; 
+}
+
+#btnHabilitarCurso:hover {
+    background-color: #055086; 
     color: white; 
 }
 .hover{
@@ -254,6 +271,22 @@ button i{
     background-color: #055086;
     color: white; 
 }
+
+#btnEditarCursoNoPublic{
+    background-color: #D9D9D9;
+    color: black;
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: auto;
+    width: 240px;
+    height: 56px;
+    transition: background-color 0.3s;
+}
+#btnEditarCursoNoPublic:hover {
+    background-color: rgb(173, 173, 173);
+    color: black; 
+}
+
 /*APLICANDO EL MOVIMIENTO DEL MODAL/*/
 .modal.modal-move-in-right.show {
     animation: moveInRight 700ms ease-out;
