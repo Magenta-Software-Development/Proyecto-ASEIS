@@ -8,6 +8,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use PhpParser\Node\Stmt\Return_;
 use Tymon\JWTAuth\Contracts\Providers\Auth as ProvidersAuth;
 
 class AuthController extends Controller
@@ -29,32 +30,44 @@ class AuthController extends Controller
 
     public function loginVerify(Request $request)
     {
+        //Iniciar una sesion con session->start() en el controlador
 
-        //Trae todos los usuarios
-        $user = User::where('id_usuario', $request->id)->first();
+        Log::info($request->all());
+
+        Log::info($request->id);
+        Log::info($request->token);
+        Log::info($request->rol);
 
 
-        //Si el usuario existe
-        if ($user) {
-            Log::info("AuthController");
-            Log::info("Usuario existe");
-            Auth::login($user); //inicia la sesion.
-            Log::info(Auth::check());
-            return $user;
-        }
+        $rol = $request->rol;
+        $request->session()->start();
+        session(['rol' => $rol]);
+        session()->save();
+
+        Log::info(session_status());
+
+        return $rol;
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
 
-        if (Auth::check()) {
+        Log::info(session_status());
 
-            $user = Auth::user();
-
-            Auth::logout();
-            return redirect()->route('app_login')->with('success', 'Sesión cerrada correctamente');
-        } else {
-            return redirect()->route('app_login')->with('error', 'No hay ninguna sesión activa');
+        if (session_status() == PHP_SESSION_ACTIVE) {
+            $request->session()->invalidate();
+            session()->flush();
+            return redirect()->route('app_login');
         }
+        else
+        {
+            return redirect()->route('app_login');
+        }
+        //Limpia la sesion
+
     }
 }
+
+/*Lo ultimo que hice fue intentar autenticar el inicio de sesion con un session start, quiero revisar que el session start de Js
+Inicie el session start de laravel, tal vez llamando con ajax a la funcion LoginVerify y solo iniciando la sesion de laravel me sirva
+Ojala lo pueda lograr, debo de */

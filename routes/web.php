@@ -40,7 +40,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 //Todas estas rutas deben de estar bloqueadas hasta que se haga un auth o un login
-Route::middleware('web')->group(function () {
+//Route::middleware('auth')->group(function () {
 
     Route::controller(RouteController::class)->group(function () {
 
@@ -53,8 +53,10 @@ Route::middleware('web')->group(function () {
         Route::get('/GestionarCategorias/indexCategorias', [RouteController::class, 'gestionCategorias'])->name('app_index_categorias'); //Muestra la pagina de gestion de categorias
         Route::get('/GestionarEspecialidades/indexCategorias', [RouteController::class, 'gestionEspecialidades'])->name('app_index_especialidades'); //Muestra la pagina de gestion de especialidades
         Route::get('/GestionarCodigos/indexCategorias', [RouteController::class, 'gestionCodigos'])->name('app_index_codigos'); //Muestra la pagina de gestion de codigos
-        Route::get('/gestionAdmin/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
-        Route::get('/gestionAdmin/indexGestionNoticiasPublicadas', [RouteController::class, 'gestionNoticiasPublicadas'])->name('app_gestion_noticias_publicadas'); //Muestra el indice de gestion de usuarios de docentes
+        Route::get('/gestionAdmin/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_index_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
+        Route::get('/gestionAdmin/indexGestionCursos', [RouteController::class, 'gestionCursos'])->name('app_index_gestion_cursosAdmin'); //Muestra el indice de gestion de crear noticas del administrador.
+        Route::get('/gestionAdmin/indexNoticias', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
+
 
         //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         Route::get('/indexD', [RouteController::class, 'indexD'])->name('app_index_docente'); //Muestra el indice del docente
@@ -64,8 +66,9 @@ Route::middleware('web')->group(function () {
         Route::get('/gestionDocente/indexCursosNoDisponiblesDocente', [RouteController::class, 'CursosNoDisponiblesDocente'])->name('app_index_cursos_no_disponibles_docente'); //Muestra la pagina de gestion de cursos no disponibles por ese docente en especifico
         Route::get('/gestionDocente/indexNoticiasDocente', [RouteController::class, 'NoticiasDocente'])->name('app_index_noticias_docente'); //Muestra la pagina de crear noticias para ese docente en especifico
         Route::get('/gestionDocente/indexNoticiasPublicadas', [RouteController::class, 'NoticiasPublicadas'])->name('app_index_noticias_publicadas'); //Muestra la pagina de gestion de noticias publicadas por ese docente en especifico
+        Route::get('/gestionDocente/indexGestionNoticiasD', [RouteController::class, 'GestionNoticiasDocente'])->name('app_index_gestion_noticias_docente'); //Muestra el indice de gestion de noticias
 
         //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER A CONFIGURAR TU FUNCION
 
     });
-});
+//});

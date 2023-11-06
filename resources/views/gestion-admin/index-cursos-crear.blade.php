@@ -1,14 +1,12 @@
-@extends('Layouts.appDocente')
-@section('title', 'Creacion de cursos - Docente')
-
+@extends('Layouts.app')
+@section('title', 'Crear curso ADMIN')
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
 
-@endsection
-
-@section('scripts')
-@vite('resources/js/cargarFotoCurso.js')
+{{-- @vite('resources/js/cargarFotoCurso.js') --}}
+{{--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+--}}
 @endsection
 
 @section('css')
@@ -17,8 +15,8 @@
 @vite('resources/css/gestionCrearCursos.css')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/modulo-gestion-docente/crearCursos.js')
 @endsection
+
 @section('content')
 
 <div class="container contenedorCursos">
@@ -47,12 +45,15 @@
             </div>
             <div class="col-md-4">
                 <label for="fechaFin" class="TextosForm">Fecha de Finalización</label>
+
                 <input type="date" class="form-control" id="fechaFin">
             </div>
             <div class="col-md-4">
                 <label for="modalidad" class="TextosForm">Modalidad</label>
                 <select class="form-select form-control" id="modalidad" aria-label="Default select example">
                     <option disabled selected>Seleccione la modalidad</option>
+                    <option value="1" id="MPresencial">Presencial</option>
+                    <option value="2" id="MVirtual">Virtual</option>
                 </select>
             </div>
         </div>
@@ -68,6 +69,9 @@
                 <label for="categoria" class="TextosFormdos">Categoría</label>
                 <select class="form-select form-control" id="categoria" aria-label="Default select example">
                     <option disabled selected>Seleccione una categoría</option>
+                    <option value="1" id="categoriaSelect">Programacion</option>
+                    <option value="2" id="categoriaSelect">Base de Datos</option>
+                    <option value="3" id="categoriaSelect">Redes</option>
                 </select>
             </div>
         </div>
@@ -88,7 +92,7 @@
 
             <div class="col-md-12">
                 <label for="descripcion" class="TextosFormDescripcion">Descripción del Curso</label>
-                <input class="form-control" id="descripcionC" rows="4" placeholder=""></input>
+                <input class="form-control" id="descripcionC" rows="4" placeholder="">
             </div>
         </div>
         <!-- seccion 2 del forumalario para los contenidos-->
@@ -151,7 +155,7 @@
 
                         <div class="col-md-12">
                             <label for="descripcion" class="TextosFormDescripcion alturaDescripc medFormModal">Descripción del Curso</label>
-                            <input class="form-control mx-auto" id="descripcionModal" rows="4" placeholder=""></input>
+                            <input class="form-control mx-auto" id="descripcionModal" rows="4" placeholder="">
                         </div>
                     </div>
 
@@ -167,9 +171,4 @@
         </div>
     </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 @endsection
