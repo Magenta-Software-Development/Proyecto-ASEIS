@@ -5,10 +5,7 @@
 
 
 @section('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-
     @vite('resources/js/modulo-gestion-noticias/noticias-admin.js');
-    @vite('resources/js/modulo-gestion-noticias/editar-noticias.js');
 @endsection
 
 @section('css')
@@ -77,8 +74,8 @@
 
                         <!-- botones de editar y eliminar -->
                         <div class="row mt-5">
-                            <div class="col-6 align-items-center justify-content-center d-flex">
-                                <button class="btn-editar-noticia" data-bs-toggle="modal" data-bs-target="#modalEditar">
+                            <div class="col-12 align-items-center justify-content-center d-flex">
+                                <button class="btn-editar-noticia" data-bs-toggle="modal" data-bs-target="#modalEditar" id="btnEditarNoticia">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none">
                                         <path
@@ -89,18 +86,6 @@
                                 </button>
                             </div>
 
-                            <div class="col-6 align-items-center justify-content-center d-flex">
-                                <button class="btn-eliminar-noticia" data-bs-toggle="modal" data-bs-target="#modalEliminar">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M7 21C6.45 21 5.979 20.804 5.587 20.412C5.195 20.02 4.99933 19.5493 5 19V6H4V4H9V3H15V4H20V6H19V19C19 19.55 18.804 20.021 18.412 20.413C18.02 20.805 17.5493 21.0007 17 21H7ZM9 17H11V8H9V17ZM13 17H15V8H13V17Z"
-                                            fill="#FF0000" />
-                                    </svg>
-                                    <p>Eliminar</p>
-                                </button>
-                            </div>
                         </div>
                     </div>
 
@@ -201,25 +186,19 @@
 
                             <!-- área de archivo -->
                             <div class="row align-items-center justify-content-center" style="width: 80%;">
-                                <div class="col-4">
-
-                                    <button class="btn-guardar-cambios">
-                                        <p>Subir un archivo</p>
-                                    </button>
-
-                                </div>
-
+                                <button class="botonArchivo botonNoticia col-4" id="botonSubir">
+                                    Subir imagen de portada
+                                </button>
+                                <input type="file" id="imageInput" accept="image/*" style="display: none;">
                                 <div class="col-8">
-                                    <input type="text" class="form-control inputTitulo" id="inputT"
-                                        style="width: 100%;" />
+                                    <input type="text" class="form-control inputTitulo" id="filename" style="width: 100%;" disabled/>
                                 </div>
-
                             </div>
 
                             <!-- editor de texto BigBox -->
                             <div class="row align-items-center justify-content-center" style="width: 80%;">
                                 <div class="col-12">
-                                    <textarea id="contentDescripcion2" name="content" class="form-control"></textarea>
+                                    <textarea id="contentDescripcion" name="content" class="form-control"></textarea>
                                 </div>
                             </div>
 
@@ -234,7 +213,7 @@
                                 </div>
 
                                 <div class="col-6 align-items-center justify-content-center d-flex">
-                                    <button class="btn-guardar-cambios">
+                                    <button class="btn-guardar-cambios" id="btnActualizarNoticia">
                                         <p>Guardar cambios</p>
                                     </button>
                                 </div>

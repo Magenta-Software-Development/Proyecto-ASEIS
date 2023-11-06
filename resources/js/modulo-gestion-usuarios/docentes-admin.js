@@ -154,7 +154,8 @@ function crearListaDocentes(docente, filtro) {
         contenedorDocentes.appendChild(mensaje); 
     }else{
         docente.forEach(usuario => {
-            if(usuario.nombre.toLowerCase().includes(filtro.toLowerCase())){
+            console.log(usuario)
+            if (usuario.id_usuario.rol.roles.includes('Docente') && usuario.nombre.toLowerCase().includes(filtro.toLowerCase())) {
                     const nuevoDocenteDiv = document.createElement("div");
                     nuevoDocenteDiv.className = "cuerpoUsuarios";
                     nuevoDocenteDiv.style = "margin-top:5px";

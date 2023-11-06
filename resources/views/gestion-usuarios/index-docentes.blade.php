@@ -37,7 +37,6 @@
             <p class="crearBoton1">Nuevo docente</p>
         </button>
     </div>
-
     <div id="contenedorDocentes">
     </div>
 </div>
@@ -96,6 +95,7 @@
     </div>
 </div>
 
+
 <!-- Modal para editar información de usuario -->
 <div class="modal right" id="modal-DocenteE" tabindex="-1" aria-labelledby="modal-DocenteElLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -143,6 +143,8 @@
         </div>
     </div>
 </div>
+
+
 
 <!--modal para desactivar Usuario-->
 <div class="modal" id="modalconfirmacion" tabindex="-1" role="dialog">

@@ -4,12 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(editor => {
             // El editor está listo y se puede acceder a través del parámetro 'editor'
             function obtenerContenido() {
-                console.log("Funciona correctamente");
                 const contenido = editor.getData();
                 return contenido;
             }
-
-            const botonObtenerContenido = document.getElementById('btnCrearNoticias');
+            const botonObtenerContenido = document.getElementById('btnActualizarNoticia');
             botonObtenerContenido.addEventListener('click', function(){
                 const contenidoTextEditor = obtenerContenido();
                 const urlImagen = urlImagenDeFirebase;
