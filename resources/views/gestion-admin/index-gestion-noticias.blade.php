@@ -1,9 +1,14 @@
-@extends('Layouts.app')
-@section('title', 'Gestion de admin')
-
+@if ($rol == 'Admin')
+    @extends('Layouts.app')
+    @section('title', 'Gestion de admin')
+@endif
+{{-- 
+@if ($rol == 'Docente')
+    @extends('Layouts.appDocente')
+    @section('title', 'Gestion de admin')
+@endif --}}
 
 @section('scripts')
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 @vite('resources/js/modulo-gestion-noticias/gestion-noticias.js');
 @endsection
 

@@ -9,13 +9,7 @@
 @vite('resources/css/index-usuarios.css')
 @vite('resources/css/styleCursos.css')
 @vite('resources/css/infoCursosModal.css')
-@vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
-@vite('resources/css/desactivarUsuario.css')
-<!-- @vite('resources/js/desactivarUsuario.js') -->
-
-<!-- SE Agrega el .js para cargar los cursos del docente-->
-@vite('resources/js/modulo-gestion-docente/listarCursosDocente.js')
 
 @endsection
 @section('content')

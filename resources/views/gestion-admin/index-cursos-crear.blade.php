@@ -1,12 +1,14 @@
 @extends('Layouts.app')
 @section('title', 'Crear curso ADMIN')
-@section('scripts')
 
-{{-- @vite('resources/js/cargarFotoCurso.js') --}}
-{{--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
---}}
+@section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+@vite('resources/js/modulo-admin/crear-cursos.js')
+@endsection
+
+@section('scripts')
+@vite('resources/js/cargarFotoCurso.js')
 @endsection
 
 @section('css')
@@ -18,7 +20,6 @@
 @endsection
 
 @section('content')
-
 <div class="container contenedorCursos">
     <!-- Formulario -->
     <form class="contenedorFormulario">
@@ -28,12 +29,15 @@
                 <label for="titulo" class="TextosForm">Título</label>
                 <input type="text" class="form-control" id="titulo" placeholder="">
             </div>
+
+            <!--
             <div class="col-md-3">
                 <label for="button" class="btn btn-primary" id="button-cargarFoto">Subir una foto</label>
                 <input type="file" class="fileCargar" style="display: none;" id="button">
             </div>
+            -->
             <div class="col-md-4 InpArchivo">
-                <input type="text" class="form-control" id="archivo-cargado" placeholder="">
+                <input type="file" class="form-control" id="archivo-cargado" accept="image/*" placeholder="">
             </div>
         </div>
 
@@ -45,17 +49,15 @@
             </div>
             <div class="col-md-4">
                 <label for="fechaFin" class="TextosForm">Fecha de Finalización</label>
-
                 <input type="date" class="form-control" id="fechaFin">
             </div>
             <div class="col-md-4">
                 <label for="modalidad" class="TextosForm">Modalidad</label>
                 <select class="form-select form-control" id="modalidad" aria-label="Default select example">
                     <option disabled selected>Seleccione la modalidad</option>
-                    <option value="1" id="MPresencial">Presencial</option>
-                    <option value="2" id="MVirtual">Virtual</option>
                 </select>
             </div>
+            
         </div>
 
         <!-- Fila 3 -->
@@ -63,15 +65,14 @@
 
             <div class="col-md-6">
                 <label for="tutor" class="TextosFormdos">Tutor</label>
-                <input type="text" class="form-control" id="tutor" placeholder="">
+                <select class="form-select form-control" id="tutores" aria-label="Default select example">
+                    <option disabled selected>Seleccione un tutor</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label for="categoria" class="TextosFormdos">Categoría</label>
                 <select class="form-select form-control" id="categoria" aria-label="Default select example">
                     <option disabled selected>Seleccione una categoría</option>
-                    <option value="1" id="categoriaSelect">Programacion</option>
-                    <option value="2" id="categoriaSelect">Base de Datos</option>
-                    <option value="3" id="categoriaSelect">Redes</option>
                 </select>
             </div>
         </div>
@@ -92,7 +93,7 @@
 
             <div class="col-md-12">
                 <label for="descripcion" class="TextosFormDescripcion">Descripción del Curso</label>
-                <input class="form-control" id="descripcionC" rows="4" placeholder="">
+                <input class="form-control" id="descripcionC" rows="4" placeholder=""></input>
             </div>
         </div>
         <!-- seccion 2 del forumalario para los contenidos-->
@@ -128,7 +129,7 @@
 
         <div class="row">
             <div class="col-md-12 contBtnCurso">
-                <button type="submit" class="btn btn-primary btnCrearCursos">Crear Curso</button>
+                <button id="btnCrearCurso" type="submit" class="btn btn-primary btnCrearCursos">Crear Curso</button>
             </div>
         </div>
     </form>
@@ -155,14 +156,14 @@
 
                         <div class="col-md-12">
                             <label for="descripcion" class="TextosFormDescripcion alturaDescripc medFormModal">Descripción del Curso</label>
-                            <input class="form-control mx-auto" id="descripcionModal" rows="4" placeholder="">
+                            <input class="form-control mx-auto" id="descripcionModal" rows="4" placeholder=""></input>
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         <div class="grupBotones">
-                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-dismiss="modal">Crear</button>
+                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-bs-dismiss="modal" id="btn-Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-bs-dismiss="modal">Crear</button>
                         </div>
                     </div>
                 </form>
