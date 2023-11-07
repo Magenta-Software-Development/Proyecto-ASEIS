@@ -34,7 +34,7 @@
         </button>
         <input type="file" id="imageInput" accept="image/*" style="display: none;">
     <div class="col-8">
-        <input type="text" class="form-control inputTitulo" id="inputT" style="width: 100%;" disabled/>
+        <input type="text" class="form-control inputTitulo" id="inputNombreImagen" style="width: 100%;" disabled/>
     </div>
 
 </div>
