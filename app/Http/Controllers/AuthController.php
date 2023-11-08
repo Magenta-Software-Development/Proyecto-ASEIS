@@ -25,12 +25,18 @@ class AuthController extends Controller
 
     public function login()
     {
+
+        
+
+
         return view('login'); //retorna la vista login
     }
 
     public function loginVerify(Request $request)
     {
         //Iniciar una sesion con session->start() en el controlador
+
+        Log::info(User::all());
 
         Log::info($request->all());
 

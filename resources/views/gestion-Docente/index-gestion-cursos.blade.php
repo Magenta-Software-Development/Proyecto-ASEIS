@@ -4,7 +4,7 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
-
+@vite('resources/js/modulo-gestion-docente/crearCursos.js')
 @endsection
 
 @section('scripts')
@@ -17,7 +17,7 @@
 @vite('resources/css/gestionCrearCursos.css')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/modulo-gestion-docente/crearCursos.js')
+
 @endsection
 @section('content')
 
@@ -30,12 +30,15 @@
                 <label for="titulo" class="TextosForm">Título</label>
                 <input type="text" class="form-control" id="titulo" placeholder="">
             </div>
+
+            <!--
             <div class="col-md-3">
                 <label for="button" class="btn btn-primary" id="button-cargarFoto">Subir una foto</label>
                 <input type="file" class="fileCargar" style="display: none;" id="button">
             </div>
+            -->
             <div class="col-md-4 InpArchivo">
-                <input type="text" class="form-control" id="archivo-cargado" placeholder="">
+                <input type="file" class="form-control" id="archivo-cargado" placeholder="">
             </div>
         </div>
 
@@ -55,6 +58,7 @@
                     <option disabled selected>Seleccione la modalidad</option>
                 </select>
             </div>
+
         </div>
 
         <!-- Fila 3 -->
@@ -124,7 +128,7 @@
 
         <div class="row">
             <div class="col-md-12 contBtnCurso">
-                <button type="submit" class="btn btn-primary btnCrearCursos">Crear Curso</button>
+                <button id="btnCrearCurso" type="submit" class="btn btn-primary btnCrearCursos">Crear Curso</button>
             </div>
         </div>
     </form>
@@ -157,8 +161,8 @@
 
                     <div class="modal-footer">
                         <div class="grupBotones">
-                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-dismiss="modal">Crear</button>
+                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-bs-dismiss="modal" id="btn-Cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-bs-dismiss="modal">Crear</button>
                         </div>
                     </div>
                 </form>

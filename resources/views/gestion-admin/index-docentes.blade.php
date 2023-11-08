@@ -1,12 +1,12 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de docentes')
 @section('scripts')
-    <!-- Inicio Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
-    <!-- Fin Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Inicio Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+<!-- Fin Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
@@ -31,13 +31,12 @@
     </div>
     <div class="BuscaYCrea">
 
-        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda"/>
+        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda" />
 
         <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
             <p class="crearBoton1">Nuevo docente</p>
         </button>
     </div>
-
     <div id="contenedorDocentes">
     </div>
 </div>
@@ -96,6 +95,7 @@
     </div>
 </div>
 
+
 <!-- Modal para editar información de usuario -->
 <div class="modal right" id="modal-DocenteE" tabindex="-1" aria-labelledby="modal-DocenteElLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -110,13 +110,13 @@
                             <tr>
                                 <td>
                                     <div class="input-group">
-                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreDocente"/>
+                                        <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreDocente" />
                                         <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
                                         </select>
                                     </div>
                                 </td>
                             </tr>
-           
+
                             <tr>
                                 <td>
                                     <div class="input-group">
@@ -143,6 +143,8 @@
         </div>
     </div>
 </div>
+
+
 
 <!--modal para desactivar Usuario-->
 <div class="modal" id="modalconfirmacion" tabindex="-1" role="dialog">

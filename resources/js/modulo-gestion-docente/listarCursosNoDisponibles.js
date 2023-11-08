@@ -53,7 +53,7 @@ $(document).ready(function() {
                                         <div class="botonCurso botonFiltroActivoCurso">
                                             <a href="#">
                                                 <button>
-                                                Deshabilitar
+                                                    Habilitar
                                                 </button>
                                             </a>
                                         </div>

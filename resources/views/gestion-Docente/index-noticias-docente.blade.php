@@ -1,6 +1,6 @@
 @extends('Layouts.appDocente')
-@section('title', 'Creacion de noticias - Docente')
 
+@section('title', 'Creacion de noticias - Docente')
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
 @vite('resources/css/index-usuarios.css')
 @vite('resources/css/styleCursos.css')
 @vite('resources/css/informacion.css')
-@vite('resources/js/BigBox.js')
+<!--@vite('resources/js/BigBox.js')-->
 @endsection
 @section('content')
 
@@ -34,7 +34,7 @@
         </button>
         <input type="file" id="imageInput" accept="image/*" style="display: none;">
     <div class="col-8">
-        <input type="text" class="form-control inputTitulo" id="inputT" style="width: 100%;" disabled/>
+        <input type="text" class="form-control inputTitulo" id="inputNombreImagen" style="width: 100%;" disabled/>
     </div>
 
 </div>

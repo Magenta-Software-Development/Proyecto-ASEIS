@@ -1,4 +1,3 @@
-
 .container {
     background-color: #ffffff;
     padding: 20px;
@@ -13,7 +12,7 @@
     justify-content: center;
 }
 
-.formulario-CrearUsuarioAdmin{
+.formulario-CrearUsuarioAdmin {
     background-color: #ffffff;
     max-width: 668px;
     height: 300px;
@@ -50,7 +49,8 @@ input[type="password"] {
     border-radius: 16px;
     border: 2px solid #797979;
     transition: border-color 0.3s;
-    font-size: 18px; /*Esta linea es para el tamaño de la letra dentro del input */
+    font-size: 18px;
+    /*Esta linea es para el tamaño de la letra dentro del input */
 }
 
 .button-container {
@@ -66,7 +66,7 @@ button {
     border-radius: 5px;
 }
 
-.button-common{
+.button-common {
     width: 163px;
     height: 56px;
     top: 441px;
@@ -79,9 +79,10 @@ button {
     line-height: 24px;
     text-align: center;
 }
+
 .btn-Cancelar {
     background-color: #CECECE;
-    color:#000000;
+    color: #000000;
     margin-right: 60px;
 }
 
@@ -91,9 +92,9 @@ button {
 }
 
 /*modal mas informacion de noticias publicadas*/
-.fuente-encabezado{
+.fuente-encabezado {
     color: #000;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 64px;
     font-style: normal;
     font-weight: 600;
@@ -101,14 +102,25 @@ button {
     text-align: center;
 }
 
-.imagen-banner{
+.imagen-banner {
     width: 100%;
-    max-width: 1255px;
+    /*max-width: 1255px;*/
+
+    /*//-Magenta:  
+    //Probe con estas propiedades para que la imagen "rellene" el espacio del contenedor*/
+
+    max-width: auto;
+    height: 100%;
+    max-height: 200px;
+    object-fit: cover;
+
+
 }
 
 .contenido-noticia {
+
     color: #000;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -117,13 +129,15 @@ button {
     width: 100%;
     max-width: 1246px;
     height: 474px;
-    border: 2px solid #000;
+    padding: 16px;
+    border-radius: 16px;
+    border: 2px solid #797979;
     overflow-y: auto;
 }
 
-.btn-editar-noticia{
+.btn-editar-noticia {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -141,13 +155,13 @@ button {
     background: #1E6DA6;
 }
 
-.btn-editar-noticia:hover{
+.btn-editar-noticia:hover {
     background-color: #1F76BD;
 }
 
-.btn-eliminar-noticia{
+.btn-eliminar-noticia {
     color: #F00;
-    font-family: Inter;
+    font-family: Inter , sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -166,21 +180,22 @@ button {
     background: #FFF;
 }
 
-.btn-eliminar-noticia:hover{
+.btn-eliminar-noticia:hover {
     background-color: #797979;
     color: rgb(129, 3, 3);
 }
+
 /*modal Eliminar de noticias publicadas*/
-.img-eliminar-noticia{
+.img-eliminar-noticia {
     width: 100%;
     max-width: 238.148px;
     height: 201.234px;
     flex-shrink: 0;
 }
 
-.texto-eliminar-noticia{
+.texto-eliminar-noticia {
     color: #000;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
@@ -188,9 +203,9 @@ button {
     text-align: center;
 }
 
-.btn-cancelar-noticia{
+.btn-cancelar-noticia {
     color: #000;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -208,13 +223,13 @@ button {
     background: #CECECE;
 }
 
-.btn-cancelar-noticia:hover{
+.btn-cancelar-noticia:hover {
     background-color: #797979;
 }
 
-.btn-eliminar-noticia-modal{
+.btn-eliminar-noticia-modal {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -227,20 +242,20 @@ button {
     padding: 16px;
     justify-content: center;
     align-items: center;
-    
+
 
     border-radius: 16px;
     background: #D30A0A;
 }
 
-.btn-eliminar-noticia-modal:hover{
+.btn-eliminar-noticia-modal:hover {
     background: #840707;
 }
 
 /*modal edicion de noticias publicadas*/
-.btn-cancelar-noticia-edicion{
+.btn-cancelar-noticia-edicion {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -258,13 +273,13 @@ button {
     background: #A5A5A5;
 }
 
-.btn-cancelar-noticia-edicion:hover{
+.btn-cancelar-noticia-edicion:hover {
     background-color: #797979;
 }
 
-.btn-guardar-cambios{
+.btn-guardar-cambios {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -283,7 +298,7 @@ button {
     background: #1F76BD;
 }
 
-.btn-guardar-cambios:hover{
+.btn-guardar-cambios:hover {
     background-color: #155386;
 }
 
@@ -294,32 +309,40 @@ button {
         width: 100%;
         padding: 10px;
     }
+
     .formulario-CrearUsuarioAdmin {
         max-width: 100%;
     }
+
     .input-container {
         margin: 5px 0;
     }
+
     label {
         font-size: 16px;
         width: auto;
     }
+
     input[type="email"],
     input[type="password"] {
         width: 100%;
     }
+
     .button-container {
         margin: 20px 0;
     }
+
     .button-common {
         width: 100%;
         font-size: 18px;
         padding: 12px;
     }
+
     .btn-Cancelar,
     .btn-Crear {
         width: 100%;
-        margin: 5px 0; /* Agrega espacio vertical entre los botones */
+        margin: 5px 0;
+        /* Agrega espacio vertical entre los botones */
     }
 }
 
@@ -330,32 +353,40 @@ button {
         width: 100%;
         padding: 10px;
     }
+
     .formulario-CrearUsuarioAdmin {
         max-width: 100%;
     }
+
     .input-container {
         margin: 5px 0;
     }
+
     label {
         font-size: 16px;
         width: auto;
     }
+
     input[type="email"],
     input[type="password"] {
         width: 100%;
     }
+
     .button-container {
         margin: 20px 0;
     }
+
     .button-common {
         width: 100%;
         font-size: 18px;
         padding: 12px;
     }
+
     .btn-Cancelar,
     .btn-Crear {
         width: 100%;
-        margin: 5px 0; /* Agrega espacio vertical entre los botones */
+        margin: 5px 0;
+        /* Agrega espacio vertical entre los botones */
     }
 }
 
@@ -366,33 +397,39 @@ button {
         width: 100%;
         padding: 10px;
     }
+
     .formulario-CrearUsuarioAdmin {
         max-width: 100%;
     }
+
     .input-container {
         margin: 10px 0;
     }
+
     label {
         font-size: 20px;
         width: auto;
     }
+
     input[type="email"],
     input[type="password"] {
         width: 100%;
     }
+
     .button-container {
         margin: 30px 0;
     }
+
     .button-common {
         width: 100%;
         font-size: 22px;
         padding: 14px;
     }
+
     .btn-Cancelar,
     .btn-Crear {
         width: 100%;
-        margin: 10px 0; /* Agrega espacio vertical entre los botones */
+        margin: 10px 0;
+        /* Agrega espacio vertical entre los botones */
     }
 }
-
-
