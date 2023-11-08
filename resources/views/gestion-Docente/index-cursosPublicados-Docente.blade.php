@@ -328,12 +328,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                        <p id="textBtnEditCurso">Editar</p>
-                                                    </button>
+                                                    <a href="{{ route('app_index_editar_cursoPublicadoDocente') }}">
+                                                        <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                            <p id="textBtnEditCurso">Editar</p>
+                                                        </button>
+                                                    </a>                                                    
                                                 </div>
-
                                             </div>
 
                                         </div>

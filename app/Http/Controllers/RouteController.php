@@ -172,7 +172,42 @@ class RouteController extends Controller
             return redirect()->route('app_login');
         }
     }
+    public function gestionIndexEditarCursoPublicado(Request $request)
+    {
 
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            return view('gestion-admin.index-editar-cursoPublicado');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
+    public function gestionIndexEditarCursoNoDisponible(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            return view('gestion-admin.index-editar-cursoNoDisponible');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
+    public function gestionIndexEditarCursoPublicadoDocente(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
+            return view('gestion-Docente.index-editar-cursoPublicadoDocente');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
+    public function gestionIndexEditarCursoNoDisponibleDocente(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
+            return view('gestion-Docente.index-editar-cursoNoDisponibleDocente');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
     public function NoticiasDocente(Request $request)
     {
 

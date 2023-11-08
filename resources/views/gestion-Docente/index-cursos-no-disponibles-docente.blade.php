@@ -675,12 +675,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button class="estilosBtn" id="btnEditarCursoNoPublic" data-bs-toggle="modal" data-bs-target="#modalEliminarComentario">
+                                                <a href="{{ route('app_index_editar_cursoNoDisponibleDocente') }}">
+                                                <button class="estilosBtn" id="btnEditarCursoNoPublic" data-bs-toggle="modal" data-bs-target="#modalEliminarComentario">
                                                         <i class="fas fa-pencil-alt"></i>
                                                         <p id="textBtnEditCurso">Editar</p>
                                                     </button>
+                                                </a>
                                                 </div>
-
 
                                             </div>
 

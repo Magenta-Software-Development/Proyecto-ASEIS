@@ -54,6 +54,12 @@ Route::controller(RouteController::class)->group(function () {
     Route::get('/AdministrarCodigos/indexCodigos', [RouteController::class, 'gestionCodigos'])->name('app_index_codigos'); //Muestra la pagina de gestion de codigos
     Route::get('/AdministrarNoticias/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_index_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
     Route::get('/AdministrarNoticias/indexNoticias', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
+    //ruta de editar curso Admin
+    Route::get('/AdministrarCursos/indexEditarCursoPublicado', [RouteController::class, 'gestionIndexEditarCursoPublicado'])->name('app_index_editar_cursoPublicado');
+    Route::get('/AdministrarCursos/indexEditarCursoNoDisponible', [RouteController::class, 'gestionIndexEditarCursoNoDisponible'])->name('app_index_editar_cursoNoDisponible'); 
+    //ruta de editar curso Docente
+    Route::get('/AdministrarCursos/indexEditarCursoPublicadoDocente', [RouteController::class, 'gestionIndexEditarCursoPublicadoDocente'])->name('app_index_editar_cursoPublicadoDocente');
+    Route::get('/AdministrarCursos/indexEditarCursoNoDisponibleDocente', [RouteController::class, 'gestionIndexEditarCursoNoDisponibleDocente'])->name('app_index_editar_cursoNoDisponibleDocente'); 
 
     //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Route::get('/indexD', [RouteController::class, 'indexD'])->name('app_index_docente'); //Muestra el indice del docente
