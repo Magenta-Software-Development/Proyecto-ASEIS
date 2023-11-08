@@ -2,7 +2,7 @@
 
 .tarjetaDatosDoc {
     width: 780px;
-    height: 450px;
+    height:fit-content;
     border-radius: 16px;
     background: #132D3C;
     color: #fff;
@@ -24,7 +24,8 @@
 
 .boton-editar {
     text-align: center;
-    margin-top: 20px; /* Puedes ajustar el margen superior según tu preferencia */
+    margin-top: 20px;
+    /* Puedes ajustar el margen superior según tu preferencia */
 }
 
 #btn-editarPerfilDocente {
@@ -51,7 +52,7 @@
 }
 
 /* Estilos para el contenido del perfil EN MODAL*/
-.imagenModPerfil img{
+.imagenModPerfil img {
     width: 180px;
     height: 180px;
     border: 2px solid #333;
@@ -67,16 +68,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color:#D9D9D9;
+    background-color: #D9D9D9;
     position: absolute;
     bottom: 50px;
     right: 25px;
     cursor: pointer;
 }
+
 /* ESTILOS PARA CAMARITA ENCIMA DE IMAGEN DE PERFIL*/
-.camera-icon i{
+.camera-icon i {
     font-size: 24px;
-    color: black; 
+    color: black;
     position: relative;
 }
 
@@ -87,12 +89,13 @@
     height: 232px;
 }
 
-#textBtnEditar{
-    font-family: Inter;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+#textBtnEditar {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
+
 /*Estilos para boton Editar Perfil Docente*/
 #btn-editarPerfilDocente {
     display: flex;
@@ -109,10 +112,11 @@ line-height: normal;
     font-size: 26px;
     margin: auto;
 }
+
 /*Aplicando espacio entre icono y texto editar*/
 #btn-editarPerfilDocente i {
-    font-size: 20px; 
-    margin-right: 10px; 
+    font-size: 20px;
+    margin-right: 10px;
 }
 
 /* Estilos para foto de perfil */
@@ -126,7 +130,7 @@ line-height: normal;
 
 .textTarjetaDoc {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
@@ -136,7 +140,7 @@ line-height: normal;
 /* Cambia el color del texto a blanco */
 .text-contenido {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -154,6 +158,7 @@ line-height: normal;
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -165,7 +170,7 @@ line-height: normal;
     transform: translate(-20%);
 }
 
-.modal-body{
+.modal-body {
     width: 900px;
     height: 550px;
     border-radius: 16px;
@@ -176,12 +181,14 @@ line-height: normal;
     align-items: center;
     text-align: center;
     margin: auto;
-}   
+}
+
 .grupoBotones {
     margin-top: 20px;
-    
-} 
-.button-common{
+
+}
+
+.button-common {
     width: 150px;
     height: 36px;
     padding: 5px;
@@ -193,6 +200,7 @@ line-height: normal;
     text-align: center;
     border: transparent;
 }
+
 .btn-GuardCambios {
     background-color: #1F76BD;
     color: #FFFFFF;
@@ -215,7 +223,7 @@ line-height: normal;
 .inputsArriba {
     display: inline-block;
     align-items: center;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 #campo1 {
@@ -225,34 +233,35 @@ line-height: normal;
     border-radius: 16px;
     border: 2px solid #797979;
     display: flex;
-    align-items: center; 
-    margin:auto;
+    align-items: center;
+    margin: auto;
     font-family: Inter, sans-serif;
     font-size: 20px;
 }
-#campo2{
+
+#campo2 {
     width: 380px;
     height: 50px;
     padding: 16px;
     border-radius: 16px;
     border: 2px solid #797979;
     display: flex;
-    align-items: center; 
+    align-items: center;
     font-family: Inter, sans-serif;
     font-size: 20px;
     margin-left: 20px;
 }
 
-#campo3{
+#campo3 {
     width: 791px;
     height: 130px;
     padding: 16px;
     border-radius: 16px;
     border: 2px solid #797979;
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
     font-family: Inter, sans-serif;
-    font-size: 20px; 
+    font-size: 20px;
 }
 
 /* Media query para móvil pequeño (360 x 640 px) */
@@ -261,74 +270,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -342,74 +372,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -423,74 +474,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -504,74 +576,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -585,74 +678,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -666,74 +780,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -747,74 +882,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;
@@ -828,74 +984,95 @@ line-height: normal;
         width: 100%;
         height: auto;
     }
+
     .contenedor-tarjeta {
         margin: 2%;
         height: auto;
     }
+
     .boton-editar {
         margin-top: 10px;
     }
+
     #btn-editarPerfilDocente {
         width: 100%;
     }
-    .profile-image img, .imagenModPerfil img {
+
+    .profile-image img,
+    .imagenModPerfil img {
         width: 40%;
         height: auto;
     }
+
     .camera-icon {
         width: 20%;
         height: auto;
     }
+
     .camera-icon i {
         font-size: 16px;
     }
+
     .image-label {
         width: 80%;
         height: auto;
     }
+
     #textBtnEditar {
         font-size: 14px;
     }
+
     #btn-editarPerfilDocente {
         height: 40px;
         font-size: 18px;
     }
+
     .foto-redonda {
         width: 80%;
         height: auto;
     }
+
     .textTarjetaDoc {
         font-size: 24px;
     }
+
     .text-contenido {
         font-size: 16px;
         margin-top: 10px;
         margin-bottom: 6px;
     }
+
     .modal-body {
         width: 100%;
         height: auto;
     }
+
     .button-common {
         width: 100%;
         height: 40px;
         font-size: 16px;
     }
+
     .btn-GuardCambios {
         margin-left: 20px;
     }
+
     .btn-Cancelar {
         margin-left: 0;
     }
+
     .inputsArriba {
         margin-bottom: 10px;
     }
-    #campo1, #campo2 {
+
+    #campo1,
+    #campo2 {
         width: 100%;
         height: 40px;
         font-size: 16px;
         margin-left: 0;
     }
+
     #campo3 {
         width: 100%;
         height: 80px;

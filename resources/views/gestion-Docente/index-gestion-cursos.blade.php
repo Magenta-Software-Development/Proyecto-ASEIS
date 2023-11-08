@@ -58,7 +58,7 @@
                     <option disabled selected>Seleccione la modalidad</option>
                 </select>
             </div>
-            
+
         </div>
 
         <!-- Fila 3 -->

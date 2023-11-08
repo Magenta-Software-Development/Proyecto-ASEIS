@@ -43,11 +43,6 @@ Log::info(Auth::check());
                 <div class="w-full max-w-lg">
                     <p class="text-[30px] md:text-[40px] text-black h-12 font-semibold">
                         Bienvenido
-                        @if (Auth::check())
-                        Hay sesion
-                        @else
-                        No hay sesion
-                        @endif
                     </p>
                     @csrf
                     <div class="mt-7 gap-[19px] font-inter font-[600] inline-flex flex-col items-start text-black text-left [flex-grow:1] w-full">
@@ -65,7 +60,7 @@ Log::info(Auth::check());
                     <input type="hidden" name="rol" id="rol" class="rol form-control">
                     <div class="gap-[36px] flex flex-col items-end w-full">
                         <p class=" text-[#6D6D6D] mt-6 text-xl">
-                            ¿Olvidaste tu contraseña?
+                            <!--¿Olvidaste tu contraseña?-->
                         </p>
                     </div>
 
