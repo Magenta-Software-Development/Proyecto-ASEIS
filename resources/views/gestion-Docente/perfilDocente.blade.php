@@ -57,6 +57,7 @@
                     <input type="file" id="imageInput" accept="image/*" style="display: none;">
 
                 </div>
+
                 <form>
                     <div class="form-group">
                         <div class="inputsArriba">
@@ -68,10 +69,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea type="text" class="campos" id="campo3" placeholder="Descripción">
+                        <textarea type="text" class="campos" id="campo3" placeholder="Descripción"></textarea>
                         <div class="ContlimitePalabras">
                             Palabras: <span id="limitePalabras">0</span> / 30
-
                         </div>
                     </div>
 
