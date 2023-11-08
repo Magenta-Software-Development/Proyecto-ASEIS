@@ -93,7 +93,7 @@
 
             <div class="col-md-12">
                 <label for="descripcion" class="TextosFormDescripcion">Descripción del Curso</label>
-                <input class="form-control" id="descripcionC" rows="4" placeholder=""></input>
+                <textarea class="form-control" id="descripcionC" rows="4" placeholder=""></textarea>
             </div>
         </div>
         <!-- seccion 2 del forumalario para los contenidos-->
