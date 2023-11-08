@@ -26,17 +26,18 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
 
 function obtenerFechaActual() {
     const fechaActual = new Date();
-    const año = fechaActual.getFullYear();
+    const anio = fechaActual.getFullYear();
     const mes = fechaActual.getMonth() + 1;
     const dia = fechaActual.getDate();
     // Formateando la fecha como "año-mes-día"
-    return `${año}-${mes < 10 ? '0' : ''}${mes}-${dia < 10 ? '0' : ''}${dia}`;
+    return `${dia < 10 ? '0' : ''}${dia}-${mes < 10 ? '0' : ''}${mes}-${anio}`;
 }
 
 
 function crearNoticia(contenidoTextEditor,urlImagen,titulo){
     const idUsuario = localStorage.getItem('id');
     const fechaActual = obtenerFechaActual();
+    //console.log(fechaActual);//imprimir 
     console.log(idUsuario);
     console.log(fechaActual);
     var data = {
