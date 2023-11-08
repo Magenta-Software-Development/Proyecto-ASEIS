@@ -72,10 +72,25 @@ function crearNoticia(contenidoTextEditor,urlImagen,titulo){
     });
 }
 
-
-document.getElementById('botonSubir').addEventListener('click', function() {
-    document.getElementById('imageInput').click();
+document.getElementById("botonSubir").addEventListener("click", function () {
+    document.getElementById("imageInput").click();
 });
+
+document.getElementById("imageInput").addEventListener("change", showFileName);
+
+function showFileName() {
+    
+    const input = document.getElementById("imageInput");
+    const fileNameElement = document.getElementById("inputNombreImagen");
+
+    if (input.files.length > 0) {
+        const fileName = input.files[0].name;
+        fileNameElement.value = fileName;
+    } else {
+        fileNameElement.value = "";
+    }
+}
+
 
 document.getElementById('imageInput').addEventListener('change', function(event) {
         //--------------------- Subir la imagen -------------------------------------------------------------------

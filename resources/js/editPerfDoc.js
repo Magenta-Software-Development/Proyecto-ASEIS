@@ -1,194 +1,182 @@
-$(document).ready(function() {
-   
-    // Obtener el ID del docente almacenado en el localStorage este es el id de usuario no de docente
-    var idDocente = localStorage.getItem("id");
-    var idDocenteImagenActualizar = 1; //Para poder obtener el id de docente
+function sweetalert(icon, title, message) {
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: message,
+    });
+}
 
-    //Variables para establecer los valores por defecto que trae la api cuando se consulta el docente 
-    var cargarNombreInput = "";
-    var cargarDescripcion = "";
-    var cargarEspecilidad = "";
-    var idEspecialidadPorDefecto = 1;
-    
-    //---------------------------- Obtener todos los datos del cliente y llenar la tarjeta ---------------------------------------
-    $.ajax({
-        type: "GET",
-        url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
-        success: function(data) {
-            
-            //Se obinenen lo valores y se llana las variables
-            cargarNombreInput = data.nombre;
-            cargarDescripcion = data.descripcion;
-            cargarEspecilidad = data.id_especialidad.especialidad;
-            idEspecialidadPorDefecto = data.id_especialidad.id_especialidad;
+$(document).ready(async function() {
+    const idDocente = localStorage.getItem("id");
+    let idDocenteImagenActualizar = 1;
+    let cargarNombreInput = "";
+    let cargarDescripcion = "";
+    let cargarEspecilidad = "";
+    let idEspecialidadPorDefecto = 1;
 
-            idDocenteImagenActualizar = data.id_docente; //-->Obtenemos el id de docente para pasarlo como parametro en el endpoit de actulizar
+    // Función para obtener los datos del docente
+    async function obtenerDatosDocente() {
+        try {
+            const response = await $.ajax({
+                type: "GET",
+                url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
+            });
+            cargarNombreInput = response.nombre;
+            cargarDescripcion = response.descripcion;
+            idEspecialidadPorDefecto = response.id_especialidad.id_especialidad;
+            cargarEspecilidad = response.id_especialidad.especialidad;
 
-            $("#nombreDocente-Pefil").text(data.nombre);
-            $("#especialidadDocente").text(`Especialidad: ${data.id_especialidad.especialidad}`);
-            $("#correoDocenteLis").text(`Correo: ${data.id_usuario.correo}`);
-            $("#DescDocenteLis").text(`Descripción: ${data.descripcion}`);
+            $("#nombreDocente-Pefil").text(response.nombre);
+            $("#especialidadDocente").text(`Especialidad: ${response.id_especialidad.especialidad}`);
+            $("#correoDocenteLis").text(`Correo: ${response.id_usuario.correo}`);
+            $("#DescDocenteLis").text(`Descripción: ${response.descripcion}`);
 
             // También puedes actualizar la imagen
-            $(".foto-redonda").attr("src", data.imagen);
-        },
-        error: function(error) {
+            $(".foto-redonda").attr("src", response.imagen);
+
+            idDocenteImagenActualizar = response.id_docente;
+        } catch (error) {
             console.error("Error al cargar la información del docente:", error);
         }
-    });
-    //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
+    }
 
-    function llenarInpustDeEditar()
-    {
+    // Función para llenar los campos de edición
+    function llenarInputsDeEditar() {
         $("#campo1").val(cargarNombreInput);
         $("#campo3").val(cargarDescripcion);
     }
 
-    function llenarEspecilidad(){
+    // Función para llenar el select de especialidades
+    async function llenarEspecialidades() {
+        try {
+            const especialidades = await $.ajax({
+                type: "GET",
+                url: "https://springgcp-402821.uc.r.appspot.com/api/especialidades",
+            });
 
-        // Realiza una solicitud GET para obtener la lista de especialidades
-        $.ajax({
-            type: "GET",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/especialidades",
-            success: function(especialidades) {
-                // Obtén el select por su ID
-                var selectEspecialidades = document.getElementById("especialidadDocenteSelector");
-    
-                // Limpia el select de opciones existentes
-                selectEspecialidades.innerHTML = "";
-    
-                // Agrega una opción por defecto
-                var defaultOption = document.createElement("option");
-                defaultOption.text = cargarEspecilidad; // Se carga el select con la especialidad
-                selectEspecialidades.add(defaultOption);
+            const selectEspecialidades = document.getElementById("especialidadDocenteSelector");
+            selectEspecialidades.innerHTML = "";
 
-                var especialidadesFiltradas = especialidades.filter(function(especialidad) {
-                    return especialidad.estado === true;
-                });
-        
-                // Agrega cada especialidad como una opción
-                especialidadesFiltradas.forEach(function(especialidad) {
-                    var option = document.createElement("option");
-                    option.value = especialidad.id_especialidad;
-                    option.text = especialidad.especialidad;
-                    selectEspecialidades.add(option);
-                });
-            },
-            error: function(error) {
-                console.error("Error al cargar las especialidades:", error);
-            }
-        });
+            // Agrega la opción por defecto
+            const defaultOption = document.createElement("option");
+            defaultOption.text = cargarEspecilidad; //Se carga la especialidad que trae en la peticion de obtner los datos del docente
+            selectEspecialidades.add(defaultOption);
+
+            // Filtra las especialidades activas
+            const especialidadesFiltradas = especialidades.filter(especialidad => especialidad.estado === true);
+
+            // Agrega las especialidades al select
+            especialidadesFiltradas.forEach(especialidad => {
+                const option = document.createElement("option");
+                option.value = especialidad.id_especialidad;
+                option.text = especialidad.especialidad;
+                selectEspecialidades.add(option);
+            });
+        } catch (error) {
+            console.error("Error al cargar las especialidades:", error);
+        }
     }
 
-    function cambiarFotoPerfil(){
-        //--------------------- Subir la imagen -------------------------------------------------------------------
-        var fileInput = document.getElementById("imageInput");
-        var imagen = fileInput.files[0];
-        
+    // Función para cambiar la foto de perfil
+    async function cambiarFotoPerfil() {
+        const fileInput = document.getElementById("imageInput");
+        const imagen = fileInput.files[0];
+
         if (imagen) {
-            var formData = new FormData();
-            formData.append("file", imagen);
+            try {
+                const formData = new FormData();
+                formData.append("file", imagen);
 
-            // Realizar la solicitud POST para subir la imagen al servidor
-            $.ajax({
-                type: "POST",
-                url: "https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    // La variable "response" debería contener la URL de la imagen en Firebase
-                    var urlImagenDeFirebase = response.message;
+                const response = await $.ajax({
+                    type: "POST",
+                    url: "https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                });
 
-                    // Ahora, realiza la solicitud PUT para actualizar la imagen del docente
-                    $.ajax({
-                        type: "PUT",
-                        url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar-foto-de-perfil/${idDocenteImagenActualizar}`,
-                        data: JSON.stringify({ imagen: ""+urlImagenDeFirebase }),
-                        contentType: "application/json",
-                        success: function(putResponse) {
-                            // Procesa la respuesta de la solicitud PUT
-                            console.log("La imagen del docente ha sido actualizada:", putResponse);
-                        },
-                        error: function(putError) {
-                            console.error("Error al actualizar la imagen del docente:", putError);
-                        }
-                    });
+                const urlImagenDeFirebase = response.message;
 
-                },
-                error: function(error) {
-                    console.error("Error al subir la imagen:", error);
+                const putResponse = await $.ajax({
+                    type: "PUT",
+                    url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar-foto-de-perfil/${idDocenteImagenActualizar}`,
+                    data: JSON.stringify({ imagen: "" + urlImagenDeFirebase }),
+                    contentType: "application/json",
+                });
+
+                //Para no tener que recargar la pagina otra vez solo que lo eficiente tiene que ser el estatus de la peticion
+                if (putResponse.message === "Foto de perfil actualizada con exito") {
+                    $(".foto-redonda").attr("src", urlImagenDeFirebase);
                 }
-            });
+                
+            } catch (error) {
+                sweetalert('error', 'No se pudo actilizar la foto');
+            }
         } else {
             console.error("No se ha seleccionado una imagen para subir.");
         }
-        //--------------------------------------------- Fin del bloque subir y cambiar la foto ----------------------
     }
 
-    function guardarDatosDocente(){
+    // Función para guardar los datos del docente
+    async function guardarDatosDocente() {
+        const nombre = $("#campo1").val();
+        const descripcion = $("#campo3").val();
+        const idEspecialidad = $("#especialidadDocenteSelector").val();
+        let idEspecialidadInt;
 
-        //Obterner lo valores de los inputs para actulizar el perfil 
-        var nombre = $("#campo1").val(); // Obtiene el valor del campo de nombre
-        var descripcion = $("#campo3").val(); // Obtiene el valor del campo de descripción
-        var idEspecialidad = $("#especialidadDocenteSelector").val(); // Obtiene el valor seleccionado del select
-        
-        if(isNaN(idEspecialidad))
-        {
-            var datosObjeto = {    
-                nombre: nombre,
-                descripcion: descripcion,
-                id_especialidad: {
-                    id_especialidad: idEspecialidadPorDefecto// Convierte el valor a un número entero
-                }
-            }; 
-        }
-        else{
+        //Cargar La especialidad para una variable que ayuda a que no se recargue la pagina
+        let textoEspecialidad = $("#especialidadDocenteSelector option:selected").text(); // Esto obtiene el texto ("Backend" en tu caso)
 
-            var datosObjeto = {    
-                nombre: nombre,
-                descripcion: descripcion,
-                id_especialidad: {
-                    id_especialidad: parseInt(idEspecialidad)// Convierte el valor a un número entero
-                }
-            }; 
-
+        if (isNaN(idEspecialidad)) {
+            idEspecialidadInt = idEspecialidadPorDefecto;
+        } else {
+            idEspecialidadInt = parseInt(idEspecialidad);
         }
 
-        //Funcionabilida para mandar los datos y poder actulizar
-        $.ajax({
-            type: "PUT",
-            url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/${idDocenteImagenActualizar}`, // Reemplaza "12" con el ID correcto
-            data: JSON.stringify(datosObjeto),
-            contentType: "application/json",
-            success: function(putResponse) {
-                // Procesa la respuesta de la solicitud PUT
-                console.log("Los datos del docente han sido actualizados:", putResponse);
-                location.reload();
+        const datosObjeto = {
+            nombre: nombre,
+            descripcion: descripcion,
+            id_especialidad: {
+                id_especialidad: idEspecialidadInt,
             },
-            error: function(putError) {
-                console.error("Error al actualizar los datos del docente:", putError);
+        };
+
+        try {
+            const putResponse = await $.ajax({
+                type: "PUT",
+                url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/${idDocenteImagenActualizar}`,
+                data: JSON.stringify(datosObjeto),
+                contentType: "application/json",
+            });
+
+            if(putResponse.message === "Tu cuenta ha sido actualizada con exito")
+            {
+                $("#nombreDocente-Pefil").text(nombre);
+                $("#especialidadDocente").text(`Especialidad: ${textoEspecialidad}`);
+                $("#DescDocenteLis").text(`Descripción: ${descripcion}`);
             }
-        });
+
+            console.log("Los datos del docente han sido actualizados:", putResponse);
+            
+        } catch (error) {
+            console.error("Error al actualizar los datos del docente:", error);
+        }
     }
 
-    $("#btn-GuardarCambiosActulizados").click(function() {
-        cambiarFotoPerfil(); //Se llama la funion de cambiar foto de perfil
-        setTimeout(guardarDatosDocente, 2000); //Se establecen 2 segundos para la repsues de la api
+    // Manejar el botón de Guardar Cambios
+    $("#btn-GuardarCambiosActulizados").click(async function() {
+        await cambiarFotoPerfil();
+        await guardarDatosDocente();
+        sweetalert('success', 'Actulizado con exito');
+        
     });
 
-
-    $("#btn-editarPerfilDocente").click(function() {
-        llenarEspecilidad() //--> Se hace el llamado a la funcion para cargar la especilaidad 
-        llenarInpustDeEditar() // --> Se hace el llamado  la funcion de llenar inpust
+    // Manejar el botón de Editar Perfil
+    $("#btn-editarPerfilDocente").click(async function() {
+        await llenarEspecialidades();
+        llenarInputsDeEditar();
     });
 
+    // Obtener los datos del docente al cargar la página
+    await obtenerDatosDocente();
 });
-
-
-
-
-
-
-
-

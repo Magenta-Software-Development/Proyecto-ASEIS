@@ -25,6 +25,10 @@ class AuthController extends Controller
 
     public function login()
     {
+
+
+
+
         return view('login'); //retorna la vista login
     }
 
@@ -32,11 +36,11 @@ class AuthController extends Controller
     {
         //Iniciar una sesion con session->start() en el controlador
 
+        /*Log::info(User::all());
         Log::info($request->all());
-
         Log::info($request->id);
         Log::info($request->token);
-        Log::info($request->rol);
+        Log::info($request->rol);*/
 
 
         $rol = $request->rol;
@@ -54,15 +58,11 @@ class AuthController extends Controller
 
         Log::info(session_status());
 
-        if (session_status() == PHP_SESSION_ACTIVE) {
-            $request->session()->invalidate();
-            session()->flush();
-            return redirect()->route('app_login');
-        }
-        else
-        {
-            return redirect()->route('app_login');
-        }
+        $request->session()->invalidate();
+        session()->flush();
+        return redirect()->route('app_login');
+
+
         //Limpia la sesion
 
     }

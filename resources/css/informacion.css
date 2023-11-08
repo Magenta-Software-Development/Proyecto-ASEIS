@@ -6,17 +6,17 @@
     background: #132D3C;
 }
 
-.box
-{
- width:100%;
+.box {
+    width: 100%;
 
- border-radius:5px;
- padding:16px;
- margin:0 auto;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 0 auto;
 }
+
 .ck-editor__editable[role="textbox"] {
-   /* editing area */
-   min-height: 300px;
+    /* editing area */
+    min-height: 300px;
 }
 
 /* Estilos para una imagen redonda */
@@ -25,13 +25,14 @@
     height: 232px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: lightgray 0.139px -36.941px / 100% 149.982% no-repeat; /* Cambia el color de fondo de la imagen */
+    background: lightgray 0.139px -36.941px / 100% 149.982% no-repeat;
+    /* Cambia el color de fondo de la imagen */
 }
 
 /* Cambia el color del título a blanco */
 .modal-title {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
@@ -41,7 +42,7 @@
 /* Cambia el color del texto a blanco */
 .text-white {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -100,7 +101,7 @@
 /* Estilos para un botón de cancelar */
 .btn-cancel {
     color: #000;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -118,7 +119,7 @@
 /* Estilos para un botón de guardar */
 .btn-save {
     color: #FFF;
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
