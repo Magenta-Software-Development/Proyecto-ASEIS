@@ -157,7 +157,7 @@
 
                     <div class="modal-footer">
                         <div class="grupBotones">
-                            <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-dismiss="modal" id="btn-Cancelar">Cancelar</button>
+                        <button type="button" class="btn-close btn btn-secondary button-common btn-Cancelar" data-bs-dismiss="modal" aria-label="Cerca">Cancelar</button>
                             <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-dismiss="modal">Crear</button>
                         </div>
                     </div>

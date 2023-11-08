@@ -36,7 +36,7 @@
 </div>
 
 <!-- Full screen modal -->
-<div class="modal" id="modalMasInfoNoPublic" tabindex="-1" role="dialog">
+<div class="modal fade" id="modalMasInfoNoPublic" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-fullscreen-sm-down" role="document">
         <div class="modal-content">
             <!-- Contenido del modal -->
@@ -223,7 +223,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                                    <button class="estilosBtn" id="btnInfoverEstudiante" data-toggle="modal" data-target="#modalVerInfoEstudiante">
+                                                    <button class="estilosBtn" id="btnInfoverEstudiante" data-bs-toggle="modal" data-bs-target="#modalVerInfoEstudiante">
                                                     <i class="fa-solid fa-user"></i><p id="textBtnInfoEstudiante">Ver Más</p>
                                                     </button>
                                                 </div>
@@ -316,5 +316,7 @@
         </div>
     </div>
 </div>
+
+
 
 @endsection

@@ -111,7 +111,7 @@
                                 <td>
                                     <div class="input-group">
                                         <input type="text" class="form-control label-simple" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1" id="inputNombreDocente"/>
-                                        <select id="especialidadDocenteSelector" class="form-select" aria-label="Default select example">
+                                        <select id="especialidadDocenteSelector" class="form-select border" aria-label="Default select example">
                                         </select>
                                     </div>
                                 </td>
