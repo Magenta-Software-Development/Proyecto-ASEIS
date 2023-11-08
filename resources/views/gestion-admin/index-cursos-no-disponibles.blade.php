@@ -1,7 +1,5 @@
-@if ($rol == 'Admin')
-    @extends('Layouts.app')
-    @section('title', 'Gestion de admin')
-@endif
+@extends('Layouts.app')
+@section('title', 'Gestion de admin')
 
 {{-- @if ($rol == 'Docente')
     @extends('Layouts.appDocente')
@@ -25,12 +23,13 @@
 <div class="contenedorPrincipal">
 
     <!-- area de busqueda -->
-   <div class="contenedorBusqueda">
+    <div class="contenedorBusqueda">
         <input type="text" class="InputBuscar" placeholder="Buscar" />
-   </div>
+    </div>
 
-   <!-- contenedor de cursos-->
+    <!-- contenedor de cursos-->
     <div id="container-cursos-no-publicados">
+
     </div>
 
     <div class="modal" id="modalMasInformacion" tabindex="-1" role="dialog">

@@ -25,14 +25,14 @@
 <div class="contenedorPrincipal">
     <!-- área de titulo -->
     <div class="row align-items-center justify-content-center" style="width: 80%;">
-    <div class="col-12">
-        <label for="inputT" class="estiloTitulo" style="width: 100% !important">Titulo de la noticia:</label>
-        <input type="text" class="form-control inputTitulo" id="inputT" style="width: 100%;"/>
+        <div class="col-12">
+            <label for="inputT" class="estiloTitulo" style="width: 100% !important">Titulo de la noticia:</label>
+            <input type="text" class="form-control inputTitulo" id="inputT" style="width: 100%;" />
+        </div>
     </div>
-</div>
 
-<!-- área de archivo -->
-<div class="row align-items-center justify-content-center" style="width: 80%;">
+    <!-- área de archivo -->
+    <div class="row align-items-center justify-content-center" style="width: 80%;">
         <button class="botonArchivo botonNoticia col-4" id="botonSubir">
             Subir imagen de portada
         </button>
@@ -41,27 +41,27 @@
         <input type="text" class="form-control inputTitulo" id="filename" style="width: 100%;" disabled/>
     </div>
 
-</div>
-
-<!-- editor de texto BigBox -->
-<div class="box">
-    <div class="form-group">
-        <textarea id="contentDescripcion" name="content" class="form-control"></textarea>
-    </div>
-</div>
-
-
-
-<!-- boton para crear noticia -->
-
-<div class="row align-items-center justify-content-center" style="width: 25%;">
-    <div class="col-12">
-        <button class="botonArchivo botonNoticia" id="btnCrearNoticias">
-            <p>Crear noticia</p>
-        </button>
     </div>
 
-</div>
+    <!-- editor de texto BigBox -->
+    <div class="box">
+        <div class="form-group">
+            <textarea id="contentDescripcion" name="content" class="form-control"></textarea>
+        </div>
+    </div>
+
+
+
+    <!-- boton para crear noticia -->
+
+    <div class="row align-items-center justify-content-center" style="width: 25%;">
+        <div class="col-12">
+            <button class="botonArchivo botonNoticia" id="btnCrearNoticias">
+                <p>Crear noticia</p>
+            </button>
+        </div>
+
+    </div>
 
 </div>
 
