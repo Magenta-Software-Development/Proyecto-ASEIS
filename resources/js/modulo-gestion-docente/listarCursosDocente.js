@@ -5,8 +5,8 @@ $(document).ready(function() {
 
     $.ajax({
         type: "GET", url: `https://springgcp-402821.uc.r.appspot.com/api/curso-usuario/ver-por-id-usuario/${idUsuarioDocente}`,
-       
         success: function(data) {
+
 
             const contenedorListaCursos = document.getElementById("container-cursos-publicados");
             $("#container-cursos-publicados").empty();
