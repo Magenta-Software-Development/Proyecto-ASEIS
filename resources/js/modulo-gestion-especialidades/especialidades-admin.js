@@ -1,3 +1,4 @@
+let arregloEspecialidades = [];
 //funcion para crear alertas personalizadas estilos sweet.
 function sweetalert(icon, title, message) {
     Swal.fire({
@@ -6,7 +7,6 @@ function sweetalert(icon, title, message) {
         text: message,
     })
 }
-
 function activarEspecialidad(id){
     $("#btnActivarEspecialidad").off("click").on("click",function () { 
         let data = {
@@ -49,8 +49,9 @@ function desactivarEspecialidad(id){
         });
     })
 }
-
 async function editarEspecialidad(id){
+    let especialidadTemp = obtenerInfoEspecialidad(id);
+    $("#inputEditarEspecialidadNombre").val(especialidadTemp)
     $("#editarEspecialidad").modal("show");
     $("#btnEditarEspecialidad").off("click").on("click",function () { 
         if($.trim($("#inputEditarEspecialidadNombre").val()) !== ''){
@@ -81,8 +82,7 @@ async function editarEspecialidad(id){
         }
     });
 }
-
-function crearListaEspecialidades(especialidades,filtro){
+function crearListaEspecialidades(especialidades){
     const contenedorListaEspecialidades = document.getElementById("containerListaEspecialidades");
     $("#containerListaEspecialidades").empty();
     contenedorListaEspecialidades.style.marginTop = "25px";
@@ -94,7 +94,6 @@ function crearListaEspecialidades(especialidades,filtro){
     }
     else{
         especialidades.forEach(especialidad => {
-            if (especialidad.especialidad.toLowerCase().includes(filtro.toLowerCase())) {
                 const nuevoEspecialidadDiv = document.createElement("div");
                 nuevoEspecialidadDiv.className = "container text-center contenedorCurso";
                 nuevoEspecialidadDiv.style.marginTop = "6px";
@@ -136,8 +135,6 @@ function crearListaEspecialidades(especialidades,filtro){
             </div>
             `;
             contenedorListaEspecialidades.appendChild(nuevoEspecialidadDiv);
-            }
-            
         });
     
         const btnEditar = document.querySelectorAll(".btnEditarCategoria");
@@ -212,14 +209,49 @@ $('#btnCrearEspecialidad').off("click").on("click",function() {
         });
     } // fin del condicional para evaluar que los datos esten bien, antes de enviar peticion a la API.
 });
-
-const inputBusqueda = document.getElementById("inputBusqueda");
-
+function obtenerInfoEspecialidad(id) {
+    const Especialidad = parseInt(id);
+    const especialidadEncontrada = arregloEspecialidades.find(especialidad => especialidad.id_especialidad === Especialidad);
+    if (especialidadEncontrada) {
+        return especialidadEncontrada.especialidad;
+    } else {
+        console.error("Especialidad no encontrada en el arreglo local.");
+    }
+}
+function obtenerEspecialidadesDelServidor() {
+    // Hace una solicitud al servidor para obtener loa codigos del usuario
+    $.ajax({
+        type: "GET",
+        url: `https://springgcp-402821.uc.r.appspot.com/api/especialidades`,
+        contentType: "application/json",
+        crossDomain: true,
+        success: function(response, textStatus, xhr) {
+            // Almacenando los datos en el arreglo local
+            arregloEspecialidades = response;
+            // Llama a la función para mostrar los codigos en la página
+            crearListaEspecialidades(arregloEspecialidades);
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.error(errorThrown);
+        }
+    });
+}
+function buscarEspecialidades(filtro) {
+    // Realizar la búsqueda en el arreglo local listaNoticias
+    const resultados = arregloEspecialidades.filter(especialidad => {
+        // Aplicar lógica de filtrado según el filtro proporcionado por el usuario
+        // Por ejemplo, buscar en el título de la noticia
+        return especialidad.especialidad.toLowerCase().includes(filtro.toLowerCase());
+    });
+    // Llamar a la función para mostrar los resultados en la página
+    crearListaEspecialidades(resultados);
+}
+const inputBusqueda = document.getElementById("inputBusqueda")
 inputBusqueda.addEventListener('input', function() {
     const valorBusqueda = inputBusqueda.value;
-    listaEspecialidades(valorBusqueda);
+    buscarEspecialidades(valorBusqueda);
 });
 
 $(document).ready(function () {
-    listaEspecialidades("");
+    obtenerEspecialidadesDelServidor();
 });

@@ -1,4 +1,5 @@
 var urlImagenDeFirebase = '';
+let arregloNoticias = [];
 
 function sweetalert(icon, title, message) {
     Swal.fire({
@@ -7,7 +8,6 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
-
 function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2){
     Swal.fire({
         title: title,
@@ -22,7 +22,6 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         }
     });
 }
-
 function obtenerNoticiaPorId(id) {
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -39,7 +38,6 @@ function obtenerNoticiaPorId(id) {
         });
     });
 }
-
 function obtenerFechaActual() {
     const fechaActual = new Date();
     const año = fechaActual.getFullYear();
@@ -76,7 +74,7 @@ function actualizarNoticia(contenidoTextEditor,urlImagen,titulo,idNoticia){
                 urlImagenDeFirebase = '';
                 $("#modalEditar").modal("hide");
                 sweetalert('success','Actualizado con exito!',response.message);
-                listaNoticias("");
+                obtenerNoticiasDelServidor();
             }
         },
         error: function(error) {
@@ -90,21 +88,19 @@ function actualizarNoticia(contenidoTextEditor,urlImagen,titulo,idNoticia){
 }
 function verMasInformacionNoticia(id) {
     const cuerpoNoticia = document.getElementById("cuerpoDeNoticia");
-    obtenerNoticiaPorId(id)
-        .then(noticia => {
-            //console.log(noticia);
-            console.log(noticia.noticia.titulo) // imprime 'Crean una nueva libreria de javascript llamada HTMX'
-            $("#txtEncabezadoNoticia").text(noticia.noticia.titulo);
-            $('#imgNoticia').attr('src', noticia.noticia.imagen);
-            cuerpoNoticia.innerHTML = `
-                ${noticia.noticia.descripcion}
-            `;
-            $("#btnEditarNoticia").attr("data-idNoticia",id);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    $("#modalMasInfo").modal("show");
+    const idNoticia = parseInt(id);
+    const noticiaEncontrada = arregloNoticias.find(noticia => noticia.id_noticia === idNoticia);
+    if (noticiaEncontrada) {
+        $("#txtEncabezadoNoticia").text(noticiaEncontrada.titulo);
+        $('#imgNoticia').attr('src', noticiaEncontrada.imagen);
+        cuerpoNoticia.innerHTML = `
+            ${noticiaEncontrada.descripcion}
+        `;
+        $("#btnEditarNoticia").attr("data-idNoticia", idNoticia);
+        $("#modalMasInfo").modal("show");
+    } else {
+        console.error("Noticia no encontrada en el arreglo local.");
+    }
 }
 function eliminarNoticia(id){
     $("#btnEliminarNoticia").off("click").on("click",function (e) {
@@ -121,7 +117,7 @@ function eliminarNoticia(id){
             success: function (response, textStatus, xhr) {
                 $("#modalEliminar").modal("hide");
                 sweetalert("success","Noticia Eliminada","La noticia ha sido eliminada con exito!");
-                listaNoticias("");
+                obtenerNoticiasDelServidor();
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -129,7 +125,147 @@ function eliminarNoticia(id){
         });
     })
 }
-function crearListaNoticias(noticias,filtro){
+
+document.getElementById('botonSubir').addEventListener('click', function() {
+    document.getElementById('imageInput').click();
+});
+
+async function subirImagen() {
+    return new Promise((resolve, reject) => {
+        var fileInput = document.getElementById("imageInput");
+        var imagen = fileInput.files[0];
+
+        if (imagen) {
+            var formData = new FormData();
+            formData.append("file", imagen);
+
+            // Realizar la solicitud POST para subir la imagen al servidor usando async/await
+            $.ajax({
+                type: "POST",
+                url: "https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    // La variable "response" debería contener la URL de la imagen en Firebase
+                    resolve(response.message); // Resuelve la promesa con el URL de la imagen
+                },
+                error: function(error) {
+                    reject("Error al subir la imagen: " + error); // Rechaza la promesa con el mensaje de error
+                }
+            });
+        } else {
+            reject("No se ha seleccionado una imagen para subir."); // Rechaza la promesa si no se selecciona ninguna imagen
+        }
+    });
+}
+// Uso de la función asíncrona
+document.getElementById('imageInput').addEventListener('change', async function(event) {
+    try {
+        // Espera a que se suba la imagen y obtén el URL resultante
+        urlImagenDeFirebase = await subirImagen();
+        // Usa el URL de la imagen como sea necesario
+    } catch (error) {
+        // Maneja los errores que puedan ocurrir durante la subida de la imagen
+        console.error(error);
+    }
+});
+
+$("#btnEditarNoticia").off("click").on("click",function (e) { 
+    e.preventDefault();
+    ClassicEditor
+    .create(document.querySelector('#contentDescripcion'))
+    .then(editor => {
+        // El editor está listo y se puede acceder a través del parámetro 'editor'
+        function obtenerContenido() {
+            console.log("Funciona correctamente");
+            const contenido = editor.getData();
+            return contenido;
+        }
+
+        const idNoticia = $(this).attr("data-idNoticia");
+        obtenerNoticiaPorId(idNoticia)
+        .then(noticia => {
+            //console.log(noticia);
+            $("#inputT").val(noticia.noticia.titulo);
+            editor.setData(noticia.noticia.descripcion);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        const botonObtenerContenido = document.getElementById('btnActualizarNoticia');
+        botonObtenerContenido.addEventListener('click', async function(){
+            try {
+                const contenidoTextEditor = await obtenerContenido();
+                const urlImagen = await subirImagen();
+                const inputT = $("#inputT").val();
+        
+                // Validando si los valores no están vacíos
+                if (contenidoTextEditor && urlImagen && inputT) {
+                    $("#inputT").val('');
+                    editor.setData('');
+                    actualizarNoticia(contenidoTextEditor, urlImagen, inputT, idNoticia);
+                } else {
+                    // Al menos uno de los valores sí está vacío, muestra un mensaje de error
+                    sweetalert('error', 'Campos vacíos', 'Antes de crear una noticia, debe llenar todos los campos que se le piden.');
+                }
+            } catch (error) {
+                // Maneja cualquier error que pueda ocurrir durante la subida de la imagen
+                console.error(error);
+                sweetalert('error', 'Error al subir la imagen', 'Ocurrió un error al subir la imagen. Por favor, inténtalo de nuevo más tarde.');
+            }
+        });
+        
+    })
+    .catch(error => {
+        console.error(error);
+    });
+});
+
+document.getElementById("imageInput").addEventListener("change", showFileName);
+
+function showFileName() {
+    const input = document.getElementById("imageInput");
+    const fileNameElement = document.getElementById("filename");
+
+    if (input.files.length > 0) {
+        const fileName = input.files[0].name;
+        fileNameElement.value = fileName;
+    } else {
+        fileNameElement.value = "";
+    }
+}
+function obtenerNoticiasDelServidor() {
+    // Hacer la solicitud al servidor para obtener las noticias del usuario
+    $.ajax({
+        type: "GET",
+        url: `https://springgcp-402821.uc.r.appspot.com/api/noticias`,
+        contentType: "application/json",
+        crossDomain: true,
+        success: function(response, textStatus, xhr) {
+            // Almacenar los datos en el arreglo local listaNoticias
+            arregloNoticias = response;
+            // Llamar a la función para mostrar las noticias en la página
+            crearListaNoticias(arregloNoticias);
+        },
+        error: function(xhr, textStatus, errorThrown) {
+            console.error(errorThrown);
+        }
+    });
+}
+function buscarNoticias(filtro) {
+    // Realizar la búsqueda en el arreglo local listaNoticias
+    const resultados = arregloNoticias.filter(noticia => {
+        // Aplicar lógica de filtrado según el filtro proporcionado por el usuario
+        // Por ejemplo, buscar en el título de la noticia
+        return noticia.titulo.toLowerCase().includes(filtro.toLowerCase());
+    });
+
+    // Llamar a la función para mostrar los resultados en la página
+    crearListaNoticias(resultados);
+}
+function crearListaNoticias(noticias){
     const contenedorListaNoticias = document.getElementById("container-noticias");
     $("#container-noticias").empty();
     contenedorListaNoticias.style.marginTop = "25px";
@@ -191,135 +327,12 @@ function crearListaNoticias(noticias,filtro){
         });
     }
 }
-function listaNoticias(filtro){
-    $.ajax({
-        type: "GET",
-        url: "https://springgcp-402821.uc.r.appspot.com/api/noticias",
-        contentType: "application/json",
-        crossDomain: true,
-        success: function(response, textStatus, xhr) {
-            //console.log(response);
-            crearListaNoticias(response,filtro);
-        },
-        error: function(xhr, textStatus, errorThrown) {
-            console.error(errorThrown);
-        }
-    });
-}
-
-document.getElementById('botonSubir').addEventListener('click', function() {
-    document.getElementById('imageInput').click();
+const inputBusqueda = document.getElementById("inputBusqueda");
+inputBusqueda.addEventListener('input', function() {
+    const valorBusqueda = inputBusqueda.value;
+    buscarNoticias(valorBusqueda);
 });
-
-async function subirImagen() {
-    return new Promise((resolve, reject) => {
-        var fileInput = document.getElementById("imageInput");
-        var imagen = fileInput.files[0];
-
-        if (imagen) {
-            var formData = new FormData();
-            formData.append("file", imagen);
-
-            // Realizar la solicitud POST para subir la imagen al servidor usando async/await
-            $.ajax({
-                type: "POST",
-                url: "https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    // La variable "response" debería contener la URL de la imagen en Firebase
-                    resolve(response.message); // Resuelve la promesa con el URL de la imagen
-                },
-                error: function(error) {
-                    reject("Error al subir la imagen: " + error); // Rechaza la promesa con el mensaje de error
-                }
-            });
-        } else {
-            reject("No se ha seleccionado una imagen para subir."); // Rechaza la promesa si no se selecciona ninguna imagen
-        }
-    });
-}
-
-// Uso de la función asíncrona
-document.getElementById('imageInput').addEventListener('change', async function(event) {
-    try {
-        // Espera a que se suba la imagen y obtén el URL resultante
-        urlImagenDeFirebase = await subirImagen();
-        // Usa el URL de la imagen como sea necesario
-    } catch (error) {
-        // Maneja los errores que puedan ocurrir durante la subida de la imagen
-        console.error(error);
-    }
-});
-
-$("#btnEditarNoticia").off("click").on("click",function (e) { 
-    e.preventDefault();
-    ClassicEditor
-    .create(document.querySelector('#contentDescripcion'))
-    .then(editor => {
-        // El editor está listo y se puede acceder a través del parámetro 'editor'
-        function obtenerContenido() {
-            console.log("Funciona correctamente");
-            const contenido = editor.getData();
-            return contenido;
-        }
-
-        const idNoticia = $(this).attr("data-idNoticia");
-        obtenerNoticiaPorId(idNoticia)
-        .then(noticia => {
-            //console.log(noticia);
-            console.log(noticia.noticia.titulo) // imprime 'Crean una nueva libreria de javascript llamada HTMX'
-            $("#inputT").val(noticia.noticia.titulo);
-            editor.setData(noticia.noticia.descripcion);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-
-        const botonObtenerContenido = document.getElementById('btnActualizarNoticia');
-        botonObtenerContenido.addEventListener('click', async function(){
-            try {
-                const contenidoTextEditor = await obtenerContenido();
-                const urlImagen = await subirImagen();
-                const inputT = $("#inputT").val();
-        
-                // Validando si los valores no están vacíos
-                if (contenidoTextEditor && urlImagen && inputT) {
-                    $("#inputT").val('');
-                    editor.setData('');
-                    actualizarNoticia(contenidoTextEditor, urlImagen, inputT, idNoticia);
-                } else {
-                    // Al menos uno de los valores sí está vacío, muestra un mensaje de error
-                    sweetalert('error', 'Campos vacíos', 'Antes de crear una noticia, debe llenar todos los campos que se le piden.');
-                }
-            } catch (error) {
-                // Maneja cualquier error que pueda ocurrir durante la subida de la imagen
-                console.error(error);
-                sweetalert('error', 'Error al subir la imagen', 'Ocurrió un error al subir la imagen. Por favor, inténtalo de nuevo más tarde.');
-            }
-        });
-        
-    })
-    .catch(error => {
-        console.error(error);
-    });
-});
-
-document.getElementById("imageInput").addEventListener("change", showFileName);
-
-function showFileName() {
-    const input = document.getElementById("imageInput");
-    const fileNameElement = document.getElementById("filename");
-
-    if (input.files.length > 0) {
-        const fileName = input.files[0].name;
-        fileNameElement.value = fileName;
-    } else {
-        fileNameElement.value = "";
-    }
-}
 
 $(document).ready(function () {
-    listaNoticias("");
+    obtenerNoticiasDelServidor();
 });

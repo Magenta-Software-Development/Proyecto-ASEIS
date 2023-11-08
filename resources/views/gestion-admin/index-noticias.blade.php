@@ -22,7 +22,7 @@
         <div class="contenedorBusqueda">
             <div class="InputBuscar">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar..." />
+                <input type="text" placeholder="Buscar..." id="inputBusqueda" />
             </div>
         </div>
 

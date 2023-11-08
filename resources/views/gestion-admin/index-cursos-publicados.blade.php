@@ -19,7 +19,7 @@
 
     <!-- area de busqueda -->
    <div class="contenedorBusqueda">
-        <input type="text" class="InputBuscar" placeholder="Buscar" />
+        <input type="text" class="InputBuscar" placeholder="Buscar" id="inputBusqueda"/>
    </div>
 
    <!-- contenedor de cursos-->

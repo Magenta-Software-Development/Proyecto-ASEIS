@@ -1,3 +1,4 @@
+let arregloCodigos = [];
 function sweetalert(icon, title, message) {
     Swal.fire({
         icon: icon,
@@ -5,7 +6,6 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
-
 function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2){
     Swal.fire({
         title: title,
@@ -25,7 +25,7 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
                 success: function (response, textStatus, xhr) {
                     localStorage.removeItem('idUsuario');
                     sweetalert(icon2,title2,message2);
-                    listaCodigos("");
+                    obtenerCodigosDelServidor();
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(errorThrown);
@@ -34,20 +34,18 @@ function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title
         }
     });
 }
-
-function crearListaCodigos(codigos, filtro) {
+function crearListaCodigos(codigos) {
     const contenedorListaCodigos = document.getElementById("containerListaCodigos");
     $("#containerListaCodigos").empty();
     contenedorListaCodigos.style.marginTop = "25px";
 
-    if(codigos.codigos.length === 0){
+    if(codigos.length === 0){
         const mensaje = document.createElement('div');
         mensaje.className = 'alert alert-primary text-center';
         mensaje.textContent = 'No hay codigos disponibles en este momento.';
         contenedorListaCodigos.appendChild(mensaje);
     }else{
-        codigos.codigos.forEach(codigo => {
-            if (codigo.codigo.toLowerCase().includes(filtro.toLowerCase())) {
+        codigos.forEach(codigo => {
                 const nuevoCodigoDiv = document.createElement("div");
                 nuevoCodigoDiv.className = "container text-center contenedorCurso";
                 nuevoCodigoDiv.style.marginTop = "6px";
@@ -60,31 +58,41 @@ function crearListaCodigos(codigos, filtro) {
                     </div>
                 `;
                 contenedorListaCodigos.appendChild(nuevoCodigoDiv);
-            }
         });
     }
-
 }
-function listaCodigos(filtro) {
+function obtenerCodigosDelServidor() {
+    // Hace una solicitud al servidor para obtener loa codigos del usuario
     $.ajax({
         type: "GET",
-        url: "https://springgcp-402821.uc.r.appspot.com/api/codigos", 
+        url: `https://springgcp-402821.uc.r.appspot.com/api/codigos`,
         contentType: "application/json",
         crossDomain: true,
         success: function(response, textStatus, xhr) {
-            crearListaCodigos(response, filtro);
+            // Almacenando los datos en el arreglo local
+            arregloCodigos = response.codigos;
+            // Llama a la función para mostrar los codigos en la página
+            crearListaCodigos(arregloCodigos);
         },
         error: function(xhr, textStatus, errorThrown) {
             console.error(errorThrown);
         }
     });
 }
-
+function buscarCodigo(filtro) {
+    // Realizar la búsqueda en el arreglo local listaNoticias
+    const resultados = arregloCodigos.filter(codigo => {
+        // Aplicar lógica de filtrado según el filtro proporcionado por el usuario
+        // Por ejemplo, buscar en el título de la noticia
+        return codigo.codigo.toLowerCase().includes(filtro.toLowerCase());
+    });
+    // Llamar a la función para mostrar los resultados en la página
+    crearListaCodigos(resultados);
+}
 const inputBusqueda = document.getElementById("inputBusqueda");
-
 inputBusqueda.addEventListener('input', function() {
     const valorBusqueda = inputBusqueda.value;
-    listaCodigos(valorBusqueda);
+    buscarCodigo(valorBusqueda);
 });
 
 $("#creaCodigos").click(function (e) { 
@@ -93,5 +101,5 @@ $("#creaCodigos").click(function (e) {
 });
 
 $(document).ready(function () {
-    listaCodigos("");
+    obtenerCodigosDelServidor();
 });
