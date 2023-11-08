@@ -120,16 +120,11 @@ function eliminarNoticia(id){
             data: JSON.stringify(data),
             success: function (response, textStatus, xhr) {
                 $("#modalEliminar").modal("hide");
-                sweetalert("success","Noticia Eliminada", response.message);
-
-                //ESto es poque despues de la alerta queda opaco la pagina y no devuelve el control 
-                //Es decir como si estuviera sobrepuesta la alerta todavia
-                
+                sweetalert("success","Noticia Eliminada","La noticia ha sido eliminada con exito!");
+                listaNoticias("");
                 setTimeout(function() {
                     location.reload();
                 }, 2000); 
-                
-                listaNoticias("");
             },
             error: function (xhr, textStatus, errorThrown) {
                 console.log(errorThrown);
@@ -145,7 +140,7 @@ function crearListaNoticias(noticias,filtro){
 
     if (noticias.length === 0) {
         const mensaje = document.createElement('div');
-        mensaje.className = 'alert alert-primary text-center';
+        mensaje.Name = 'alert alert-primary text-center';
         mensaje.textContent = 'No hay noticias disponibles en este momento.';
         contenedorListaNoticias.appendChild(mensaje);
     }
@@ -200,10 +195,11 @@ function crearListaNoticias(noticias,filtro){
     }
 }
 function listaNoticias(filtro){
-    var idUsuarioNoticia = localStorage.getItem("id")
+    
+    var idUsuarioNoticia = localStorage.getItem("id");
     $.ajax({
         type: "GET",
-        url:`https://springgcp-402821.uc.r.appspot.com/api/noticias/usuario/${idUsuarioNoticia}`,
+        url: `https://springgcp-402821.uc.r.appspot.com/api/noticias/usuario/${idUsuarioNoticia}`,
         contentType: "application/json",
         crossDomain: true,
         success: function(response, textStatus, xhr) {
