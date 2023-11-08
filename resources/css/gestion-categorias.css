@@ -19,7 +19,7 @@
     font-weight: 400;
     text-align: left;
     color: rgba(121, 121, 121, 1);
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     padding: 16px;
     border-radius: 16px;
     align-items: center;
@@ -44,7 +44,7 @@
     width: 15%;
     color: #FFF;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: auto;
     font-style: normal;
     font-weight: auto;
@@ -70,7 +70,7 @@
     /* Oculta el contenido que excede el ancho del contenedor */
     text-overflow: ellipsis;
     /* Muestra los tres puntos (...) cuando el texto se corta */
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 300%;
     /* antes estaba en 36px por si se rompe en otras pantallas */
     font-style: normal;
@@ -113,6 +113,8 @@
 
 .letrabtnEliminar { /*Estilo para el texto del boton de eliminar*/
     color: #F00;
+
+    font-family: Inter , sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -121,6 +123,8 @@
 
 .letrabtnActivar { /*Estilo para el texto del boton de eliminar*/
     color: rgba(4, 181, 7, 0.791);
+
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -136,6 +140,8 @@
 
 .letrabtnEditar { /*Estilo para el texto del boton de editar*/
     color: #1E6DA6;
+
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -178,7 +184,7 @@
 .letraCategoria { /*Estilo para el texto de la categoria*/
     color: #000;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -196,7 +202,7 @@
     background: #CECECE;
     color: #000;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -214,7 +220,7 @@
     background: #1F76BD;
     color: #FFF;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -224,7 +230,7 @@
 .letraEliminar { /*Estilo para el texto de eliminar*/
     color: #000;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
@@ -242,7 +248,7 @@
     background: #D30A0A;
     color: #FFF;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -260,7 +266,7 @@
     background: #049304;
     color: #FFF;
 
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
