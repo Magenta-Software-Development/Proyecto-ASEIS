@@ -7,11 +7,10 @@
     height: 56px;
     border-radius: 16px;
     box-shadow: none;
-    
+
 }
 
-.modal-title-delete
-{
+.modal-title-delete {
     background-color: #ffffff;
     color: #000000;
     font-family: Inter, sans-serif;
@@ -19,7 +18,7 @@
     font-weight: 600;
 }
 
-.button-common{
+.button-common {
     width: 120px;
     height: 36px;
     top: 10px;
@@ -34,6 +33,7 @@
     margin-left: auto;
     border: transparent;
 }
+
 .btn-Eliminar {
     background-color: #ff0000;
     color: #ffffff;
@@ -58,6 +58,7 @@
     .modal-dialog {
         max-width: 90%;
     }
+
     .button-common {
         width: 100%;
     }
@@ -69,6 +70,7 @@
     .modal-dialog {
         max-width: 90%;
     }
+
     .button-common {
         width: 100%;
     }
@@ -86,5 +88,3 @@
     }
 }
 */
-
-
