@@ -15,6 +15,7 @@
 @vite('resources/css/styleCursos.css')
 @vite('resources/css/infoCursosModal.css')
 
+
 <!--
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')

@@ -19,6 +19,7 @@ export default defineConfig({
                 "resources/css/infoCursosModal.css",
                 "resources/css/loader.css",
                 "resources/css/editarCurso.css",
+                
     
                 //Js
                 "resources/js/app.js",
