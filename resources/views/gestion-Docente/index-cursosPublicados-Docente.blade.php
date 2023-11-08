@@ -29,19 +29,15 @@
 <div class="contenedorPrincipal">
 
     <!-- area de busqueda -->
-    <div class="contenedorBusqueda">
-        <div class="InputBuscar">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Buscar..." />
-        </div>
+   <div class="contenedorBusqueda">
+        <input type="text" class="InputBuscar" placeholder="Buscar" />
+   </div>
+
+   <!-- contenedor de cursos-->
+    <div id="container-cursos-publicados">
     </div>
 
-    <!-- contenedor de cursos-->
-    <div id="container-cursos-publicados"></div>
-
-</div>
-
-<div class="modal" id="modalMasInformacion" tabindex="-1" role="dialog">
+    <div class="modal" id="modalMasInformacion" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-fullscreen-sm-down" role="document">
             <div class="modal-content">
                 <!-- Contenido del modal -->
@@ -317,4 +313,6 @@
     </div>
 
 </div>
-            @endsection
+
+
+@endsection

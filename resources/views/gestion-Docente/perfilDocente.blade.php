@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea type="text" class="campos" id="campo3" placeholder="Descripción">
+                        <textarea type="text" class="campos" id="campo3" placeholder="Descripción"></textarea>
                         <div class="ContlimitePalabras">
                             Palabras: <span id="limitePalabras">0</span> / 30
 
