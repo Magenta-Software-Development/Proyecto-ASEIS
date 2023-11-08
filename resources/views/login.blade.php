@@ -1,3 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
+Log::info("Login");
+Log::info(Auth::check());
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -48,6 +58,11 @@
                         <input type="password" name="password" id="password" class="password form-control [box-shadow:0px_0px_0px_2px_rgba(121,_121,_121,_1)_inset] [box-shadow-width:2px] w-full h-[60px] rounded-2xl" />
                     </div>
                     <input type="hidden" name="rol" id="rol" class="rol form-control">
+                    <div class="gap-[36px] flex flex-col items-end w-full">
+                        <p class=" text-[#6D6D6D] mt-6 text-xl">
+                            <!--¿Olvidaste tu contraseña?-->
+                        </p>
+                    </div>
 
 
                     <!-- Modal de Indicador de Carga -->

@@ -21,7 +21,7 @@
       font-weight: 400;
       text-align: left;
       color: rgba(121, 121, 121, 1);
-      font-family: Inter;
+      font-family: Inter, sans-serif;
       padding: 16px;
       border-radius: 16px;
       align-items: center;
@@ -79,7 +79,7 @@
 
     .contenedorNombreCurso{
       color: #000;
-      font-family: Inter;
+      font-family: Inter, sans-serif;
       font-size: 20px;
       font-style: normal;
       font-weight: 600;
@@ -94,7 +94,7 @@
 
     .contenedorNombreDocente{
       color: #000;
-      font-family: Inter;
+      font-family: Inter, sans-serif;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -117,7 +117,7 @@
 
     .botonFiltroActivoCurso {
       color: #FFF;
-      font-family: Inter;
+      font-family: Inter, sans-serif;
       font-size: 15px;
       font-style: normal;
       font-weight: 600;
@@ -167,7 +167,7 @@
     .letrabtnEliminar { /*Estilo para el texto del boton de eliminar*/
         color: #F00;
 
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 24px;
         font-style: normal;
         font-weight: 600;
@@ -176,7 +176,7 @@
 
     .botonFiltroDesactivoCurso {
 
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
@@ -196,7 +196,7 @@
     }
     .estiloTitulo{
         color: #000;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
@@ -207,7 +207,7 @@
         font-weight: 400;
         text-align: left;
         color: rgba(121, 121, 121, 1);
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         padding: 16px;
         border-radius: 16px;
         align-items: center;
@@ -221,7 +221,7 @@
 
     .botonNoticia {
         color: #FFF;
-        font-family: Inter;
+        font-family: Inter, sans-serif;
         font-size: 20px;
         font-style: normal;
         font-weight: 600;

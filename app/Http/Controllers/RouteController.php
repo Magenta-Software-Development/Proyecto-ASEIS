@@ -31,7 +31,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-usuarios.index-docentes');
+            return view('gestion-admin.index-docentes');
         } else {
             return redirect()->route('app_login');
         }
@@ -40,7 +40,7 @@ class RouteController extends Controller
     public function gestionIndexEstudiante(Request $request)
     {
         if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
-            return view('gestion-usuarios.index-estudiante');
+            return view('gestion-admin.index-estudiante');
         } else {
             return redirect()->route('app_login');
         }
@@ -138,7 +138,7 @@ class RouteController extends Controller
     public function perfilDocente(Request $request)
     {
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.perfilDocente');
+            return view('gestion-Docente.perfilDocente');
         } else {
             return redirect()->route('app_login');
         }
@@ -147,7 +147,7 @@ class RouteController extends Controller
     public function indexCrearCurso(Request $request)
     {
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-gestion-cursos')->with('rol', $request->session()->get('rol'));
+            return view('gestion-Docente.index-gestion-cursos')->with('rol', $request->session()->get('rol'));
         } else {
             return redirect()->route('app_login');
         }
@@ -157,7 +157,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-cursosPublicados-Docente');
+            return view('gestion-Docente.index-cursosPublicados-Docente');
         } else {
             return redirect()->route('app_login');
         }
@@ -167,7 +167,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-cursos-no-disponibles-Docente');
+            return view('gestion-Docente.index-cursos-no-disponibles-Docente');
         } else {
             return redirect()->route('app_login');
         }
@@ -177,7 +177,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-noticias-docente');
+            return view('gestion-Docente.index-noticias-docente');
         } else {
             return redirect()->route('app_login');
         }
@@ -187,7 +187,7 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-noticias-publicadas');
+            return view('gestion-Docente.index-noticias-publicadas');
         } else {
             return redirect()->route('app_login');
         }
@@ -196,7 +196,7 @@ class RouteController extends Controller
     public function GestionNoticiasDocente(Request $request)
     {
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-perfilDocente.index-noticias-docente');
+            return view('gestion-Docente.index-noticias-docente');
         } else {
             return redirect()->route('app_login');
         }
