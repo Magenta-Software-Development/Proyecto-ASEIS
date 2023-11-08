@@ -1,4 +1,3 @@
-
 function sweetalert(icon, title, message) {
     Swal.fire({
         icon: icon,
@@ -50,7 +49,6 @@ async function cargarSelectCategoria(){
                     datosRecibidos.forEach(function (categoria) {
 
                         if (categoria.estado === true) {
-
                             var opcionCategoria = document.createElement("option")
                             opcionCategoria.value = categoria.id_categoria;
                             opcionCategoria.textContent = categoria.categoria;
@@ -72,59 +70,30 @@ async function cargarSelectCategoria(){
 
 }
 
-async function cargarNombreDocente()
-{
-    return new Promise((resolve, reject) => {
-
-        var idDocente = localStorage.getItem("id");
-        var nombreTutor = document.getElementById("tutor");
-
-        
+async function cargarSelectTutores() {
+    return new Promise(function (resolve, reject) {
+        var selectModalidad = document.getElementById("tutores"); //Obtner el select para manipularlo
         $.ajax({
             type: "GET",
-            url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
-            success: function(data) {
-                
-                //Se obinenen lo valores y se llana las variables
-                var nombreDocente = data.nombre;
-                // Establece el valor del input con el nombre del docente
-                if (nombreDocente) {
-                    nombreTutor.value = nombreDocente;
+            url: "https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-todos",
+            success: function (data) {
+                if (data && data.length > 0) {
+                    data.forEach(function (docente) {
+                        console.log(docente);
+                        var option = document.createElement("option"); 
+                        option.value = docente.id_docente;
+                        option.textContent = docente.nombre; 
+                        selectModalidad.appendChild(option); 
+                    });
+                    resolve(); //Resuelve la promesa
+                } else {
+                    reject("No se encontraron modalidades"); //Si no hay datos se rechaza la promesa
                 }
-
-                resolve() //Resuelve la promesa
             },
-            error: function(error) {
-                reject(error)
+            error: function (error) {
+                reject(error); //Se rechaza la promesa en caso de eroror
             }
         });
-        //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
-
-    });
-}
-
-async function obtenerIdDocente()
-{
-    return new Promise((resolve, reject) => {
-
-        var idDocente = localStorage.getItem("id"); //Es el id de usuario
-        var idDocenteParametro = "";
-        
-        //
-        $.ajax({
-            type: "GET",
-            url: `https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-docente-por-usuario/${idDocente}`,
-            success: function(data) {
-                //Se obinenen lo valores y se llana las variables
-                idDocenteParametro = data.id_docente;
-                resolve(idDocenteParametro) //Resuelve la promesa y se devuelve el id del docente
-            },
-            error: function(error) {
-                reject(error)
-            }
-        });
-        //---------------------------- Fin de obtener todos los datos del cliente --------------------------------------
-
     });
 }
 
@@ -137,6 +106,7 @@ function limpiarFormulario() {
     document.getElementById("horarios").value = "";
     document.getElementById("modalidad").selectedIndex = 0; 
     document.getElementById("categoria").selectedIndex = 0; 
+    document.getElementById("tutores").selectedIndex = 0;
 }
 
 async function subirImagenFirebase(){
@@ -184,9 +154,11 @@ function obtenerCursoData() {
     const horario = document.getElementById("horarios").value;
     const modalidadId = parseInt(document.getElementById("modalidad").value, 10);
     const categoriaId = parseInt(document.getElementById("categoria").value, 10);
+    const tutores =    parseInt(document.getElementById("tutores").value, 10);
     const idUsuario = localStorage.getItem("id");
+    console.log(tutores);
 
-    if (!titulo || !descripcion || isNaN(cupo) || cupo <= 0 || !fechaInicio || !fechaFin || !horario || modalidadId === 0 || categoriaId === 0) {
+    if (!titulo || !descripcion || isNaN(cupo) || cupo <= 0 || !fechaInicio || !fechaFin || !horario || modalidadId === 0 || categoriaId === 0 || tutores === 0) {
         sweetalert('error', 'Error', 'No deben haber campos vacíos.');
         return;
     }
@@ -203,7 +175,7 @@ function obtenerCursoData() {
             id_modalidad: modalidadId
         },
         id_docente: {
-            id_docente: null // Esto debe llenarse después de obtener el ID del docente
+            id_docente: tutores // Esto debe llenarse después de obtener el ID del docente
         },
         imagen: null, // Esto debe llenarse después de subir la imagen
         estado: true,
@@ -212,14 +184,7 @@ function obtenerCursoData() {
         },
         temas: {
             contenido: {
-                tema1: {
-                    titulo: "Introduccion al tema 1",
-                    descripcion: "Contenido 1"
-                },
-                tema2: {
-                    titulo: "Introduccion al tema 2",
-                    descripcion: "Contenido 2"
-                }
+
             }
         }
     };
@@ -233,9 +198,6 @@ async function crearCurso() {
     try {
         const urlDeImagen = await subirImagenFirebase();
         cursoData.imagen = urlDeImagen;
-
-        const idDocente = await obtenerIdDocente();
-        cursoData.id_docente.id_docente = idDocente;
 
         const response = await $.ajax({
             type: "POST",
@@ -265,6 +227,7 @@ async function crearCurso() {
 
         sweetalert('success', 'Curso creado con éxito!', segundaRespuesta.message);
     } catch (error) {
+        console.log(cursoData);
         console.log("Error al crear el curso:", error);
         sweetalert('error', 'Error al crear el curso', error.message);
     }
@@ -274,7 +237,7 @@ $(document).ready(async function () {
     try {
         await cargarSelectModalidad();
         await cargarSelectCategoria();
-        await cargarNombreDocente();
+        await cargarSelectTutores();
         console.log("Nombre cargado con éxito");
     } catch (error) {
         console.log("Error en la carga de datos:", error);
@@ -291,8 +254,3 @@ $(document).ready(async function () {
         }
     });
 });
-
-
-
-
-

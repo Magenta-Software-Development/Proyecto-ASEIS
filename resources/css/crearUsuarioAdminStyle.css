@@ -1,5 +1,4 @@
-
-.formulario-CrearUsuarioAdmin{
+.formulario-CrearUsuarioAdmin {
     background-color: #ffffff;
     max-width: 668px;
     height: 300px;
@@ -36,7 +35,8 @@ input[type="password"] {
     border-radius: 16px;
     border: 2px solid #797979;
     transition: border-color 0.3s;
-    font-size: 18px; /*Esta linea es para el tamaño de la letra dentro del input */
+    font-size: 18px;
+    /*Esta linea es para el tamaño de la letra dentro del input */
 }
 
 .button-container {
@@ -52,7 +52,7 @@ button {
     border-radius: 5px;
 }
 
-.button-common{
+.button-common {
     width: 163px;
     height: 56px;
     top: 441px;
@@ -65,9 +65,10 @@ button {
     line-height: 24px;
     text-align: center;
 }
+
 .btn-Cancelar {
     background-color: #CECECE;
-    color:#000000;
+    color: #000000;
     margin-right: 60px;
 }
 

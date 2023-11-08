@@ -20,7 +20,7 @@ ul {
   transition-property: all;
   font-weight: 600;
   text-align: left;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   padding: 20px;
   border-radius: 16px;
   align-items: center;
@@ -32,7 +32,7 @@ ul {
   color: rgba(30, 109, 166, 1);
 }
 
-.cuerpoGestion{
+.cuerpoGestion {
   padding-top: 58px;
   padding-right: 30px;
   padding-left: 30px;
@@ -48,7 +48,8 @@ ul {
   width: 100%;
 }
 
-.botonesFiltro {/*modf Eliseo*/
+.botonesFiltro {
+  /*modf Eliseo*/
   align-items: center;
   display: flex;
   gap: 2vw;
@@ -64,7 +65,7 @@ ul {
   transition-property: all;
   font-weight: 600;
   text-align: left;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   padding: 16px;
   border-radius: 16px;
   align-items: center;
@@ -79,7 +80,8 @@ ul {
   color: white;
 }
 
-.botonFiltro {/*modf Eliseo*/
+.botonFiltro {
+  /*modf Eliseo*/
   transition-property: all;
   width: 100%;
   font-size: 1.3vw;
@@ -89,11 +91,12 @@ ul {
   align-items: center;
 }
 
-.botonFiltroDesactivo {/*modf Eliseo*/
+.botonFiltroDesactivo {
+  /*modf Eliseo*/
   transition-property: all;
   font-weight: 600;
   text-align: left;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   padding: 16px;
   border-radius: 16px;
   align-items: center;
@@ -107,7 +110,8 @@ ul {
   color: rgba(30, 109, 166, 1);
 }
 
-.BuscaYCrea {/*modf Eliseo*/
+.BuscaYCrea {
+  /*modf Eliseo*/
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   align-items: center;
@@ -120,11 +124,12 @@ ul {
   max-width: 894px;
 }
 
-.buscarInput {/*modf Eliseo*/
+.buscarInput {
+  /*modf Eliseo*/
   font-weight: 400;
   text-align: left;
   color: rgba(121, 121, 121, 1);
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   padding: 16px;
   border-radius: 16px;
   align-items: center;
@@ -137,7 +142,8 @@ ul {
   flex-grow: 1;
 }
 
-.crearBoton {/*modf Eliseo*/
+.crearBoton {
+  /*modf Eliseo*/
   padding: 16px;
   border-radius: 16px;
   align-items: center;
@@ -150,7 +156,8 @@ ul {
   max-width: 211px;
 }
 
-.crearBoton1 {/*modf Eliseo*/
+.crearBoton1 {
+  /*modf Eliseo*/
   font-size: 1vw;
 }
 
@@ -170,7 +177,8 @@ ul {
   font-weight: 600;
 }
 
-.imagenUsuario {/*modf Eliseo*/
+.imagenUsuario {
+  /*modf Eliseo*/
   background-repeat: no-repeat;
   background-position: -0.02px -5.3px;
   background-size: cover;
@@ -180,21 +188,25 @@ ul {
   width: 71px;
 }
 
-.nombreDocenteBox{/*modf Eliseo*/
+.nombreDocenteBox {
+  /*modf Eliseo*/
   width: 30%;
 }
 
-.DocenteNombreTxt {/*modf Eliseo*/
+.DocenteNombreTxt {
+  /*modf Eliseo*/
   width: 100%;
   font-size: 100%;
 }
 
-.DocenteDescripcionTxt {/*modf Eliseo*/
+.DocenteDescripcionTxt {
+  /*modf Eliseo*/
   width: 100%;
   font-size: 100%;
 }
 
-.BotonEdit {/*modf Eliseo*/
+.BotonEdit {
+  /*modf Eliseo*/
   color: rgba(30, 109, 166, 1);
   padding: 16px;
   border-radius: 16px;
@@ -209,20 +221,23 @@ ul {
 
 }
 
-.BotonEditSymbol {/*modf Eliseo*/
+.BotonEditSymbol {
+  /*modf Eliseo*/
   margin-top: 5%;
   height: 24px;
   min-width: 24px;
   width: 25%;
 }
 
-.BotonEditarText {/*modf Eliseo*/
+.BotonEditarText {
+  /*modf Eliseo*/
   width: 75%;
   min-width: 16px;
   font-size: 1.3vw;
 }
 
-.BotonVerMas {/*modf Eliseo*/
+.BotonVerMas {
+  /*modf Eliseo*/
   color: rgba(30, 109, 166, 1);
   padding: 16px;
   border-radius: 16px;
@@ -237,7 +252,8 @@ ul {
 
 }
 
-.BotonDelete {/*modf Eliseo*/
+.BotonDelete {
+  /*modf Eliseo*/
   color: rgb(255, 255, 255);
   padding: 16px;
   border-radius: 16px;
@@ -253,39 +269,48 @@ ul {
 }
 
 .BotonDeleteDisabled {
-  background-color: #ccc !important; /* Color gris para los botones deshabilitados */
-  color: #555; /* Color de texto para los botones deshabilitados */
-  cursor: not-allowed; /* Cambia el cursor cuando el botón está deshabilitado */
+  background-color: #ccc !important;
+  /* Color gris para los botones deshabilitados */
+  color: #555;
+  /* Color de texto para los botones deshabilitados */
+  cursor: not-allowed;
+  /* Cambia el cursor cuando el botón está deshabilitado */
 }
 
 
-.BotonVerMasText {/*modf Eliseo*/
+.BotonVerMasText {
+  /*modf Eliseo*/
   width: 75%;
   min-width: 16px;
   font-size: 1.3vw;
 }
 
 @media (max-width: 768px) {
-  .BotonEdit{
+  .BotonEdit {
     margin-left: 0%;
   }
-  .nombreDocenteBox {/*modf Eliseo*/
+
+  .nombreDocenteBox {
+    /*modf Eliseo*/
     width: 50%;
   }
 
-  .crearBoton1{
-    font-size: 13px;
-  }
-  .botonFiltro{
+  .crearBoton1 {
     font-size: 13px;
   }
 
-  .imagenUsuario{
+  .botonFiltro {
+    font-size: 13px;
+  }
+
+  .imagenUsuario {
     display: none;
   }
+
   .BotonVerMasText {
     display: none;
   }
+
   .BotonEditarText {
     display: none;
   }
