@@ -99,7 +99,7 @@
 
                                 <div class=" flex flex-col items-end mt-[36px] leading-none h-6">
                                     <p class="text-[#6D6D6D] text-xl inline">
-                                        ¿Aun no tienes una cuenta? <span class="text-[#1F76BD] text-xl inline"> <a href="{{route('registro')}}"> Regístrate aquí </a></span>
+                                        ¿Tienes un codigo? <span class="text-[#1F76BD] text-xl inline"> <a href="{{route('registro')}}"> Activa tu cuenta </a></span>
                                     </p>
                                 </div>
                             </div>
