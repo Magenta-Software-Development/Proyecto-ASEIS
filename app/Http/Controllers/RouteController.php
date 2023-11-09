@@ -150,7 +150,20 @@ class RouteController extends Controller
             //Si el rol es el que se quiere dejar accesar y el token es diferente de null, entonces se muestra la vista
             //El token sera null cuando se cierre sesion
 
-            return view('gestion-admin.index-mostrar-todos-los-Alumnos-Inscritos-Admin');
+            return view('gestion-admin.index-mostrar-estudiantes-cursosNoDisponibles');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
+
+    public function VerAlumnosInscritosAdminPublicados(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            //Si el rol es el que se quiere dejar accesar y el token es diferente de null, entonces se muestra la vista
+            //El token sera null cuando se cierre sesion
+
+            return view('gestion-admin.index-mostrar-estudiantes-cursosPublicados');
         } else {
             return redirect()->route('app_login');
         }
@@ -271,12 +284,21 @@ class RouteController extends Controller
     {
 
         if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
-            return view('gestion-Docente.index-mostrar-todos-los-Alumnos-Inscritos');
+            return view('gestion-Docente.index-mostrar-estudiantes-cursosNoDisponibles');
         } else {
             return redirect()->route('app_login');
         }
     }
 
+    public function VerAlumnosInscritosPublicados(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
+            return view('gestion-Docente.index-mostrar-estudiantes-cursosPublicados');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
 
 
 
