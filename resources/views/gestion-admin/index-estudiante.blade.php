@@ -1,12 +1,12 @@
 @extends('Layouts.app')
 @section('title', 'Gestion de estudiantes')
 @section('scripts')
-    <!-- Inicio Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
-    <!-- Fin Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Inicio Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+<!-- Fin Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
@@ -31,7 +31,7 @@
     </div>
     <div class="BuscaYCrea">
 
-        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda"/>
+        <input type="text" class="buscarInput" placeholder="Buscar" id="inputBusqueda" />
 
         <button class="crearBoton" data-bs-toggle="modal" data-bs-target="#modal-CrearUsuario">
             <p class="crearBoton1">Nuevo estudiante</p>
@@ -100,7 +100,7 @@
         <div class="modal-content ">
             <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center ">
-                    <img src="" alt="Usuario" id="img_estudianteEdit"  class="img-fluid rounded-circle rounded-image">
+                    <img src="" alt="Usuario" id="img_estudianteEdit" class="img-fluid rounded-circle rounded-image">
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless">
@@ -119,7 +119,7 @@
                             <tr>
                                 <td class="text-center" colspan="2">
                                     <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close" >
+                                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close">
                                             Cancelar
                                         </button>
                                         <button type="button" class="btn btn-primary btn-save ms-5" data-bs-dismiss="modal" aria-label="Close" id="btnEditarEstudiante">
