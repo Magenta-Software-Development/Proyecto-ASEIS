@@ -148,12 +148,13 @@ async function subirImagenFirebase(){
             
         if (imagen) {
             var formData = new FormData();
-            formData.append("fñile", imagen);
+            formData.append("file", imagen);
 
             // Realizar la solicitud POST para subir la imagen al servidor
             $.ajax({
                 type: "POST",
-                url: "https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
+                
+                url:"https://springgcp-402821.uc.r.appspot.com/api/subir-archivo",
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -282,9 +283,6 @@ $(document).ready(async function () {
         try {
             await crearCurso();
             limpiarFormulario();
-            setTimeout(function () {
-                location.reload();
-            }, 1500);
             
         } catch (error) {
             console.log("Error al crear el curso", error);
