@@ -57,7 +57,7 @@
                                     <div class="row">
                                     <!-- Fila del titulo del curso -->
                                         <div class="col-md-12 contenidoHeaderCol">
-                                            <h4 id="tituloCurso">Introducción a Python</h4>
+                                            <h4 id="tituloCurso"></h4>
                                         </div>
                                         <!-- Filas con los iconos y detalles-->
                                         <div class="col-md-2 iconosModal espacioFilas">
@@ -69,7 +69,7 @@
                                                         <p>Inicio:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="fechaI" class="medidaFechas"><p id="fechaInicioCurso">20 de Noviembre 2023</p></label>
+                                                        <label for="fechaI" class="medidaFechas"><p id="fechaInicioCurso"></p></label>
                                                     </div>
                                                 </div>
                                                 <div class="row medFila">
@@ -77,7 +77,7 @@
                                                         <p>Finalización:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                    <label for="fechaF" class="medidaFechas"><p id="fechaFinCurso">20 de Diciembre 2023</p></label>
+                                                    <label for="fechaF" class="medidaFechas"><p id="fechaFinCurso"></p></label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -90,7 +90,7 @@
                                                         <p>Horario:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                        <label for="fechaI" class="medidaFechas"><p id="horarioCurso">Lunes, Martes, Jueves, Viernes y sabado, 7 a.m. - 10 a.m.</p></label>
+                                                        <label for="fechaI" class="medidaFechas"><p id="horarioCurso"></p></label>
                                                     </div>
                                                 </div>
 
@@ -104,7 +104,7 @@
                                                         <p>Modalidad:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                    <label for="lblMod" class="medidaFechas"><p id="modalidadCurso">Presencial</p></label>
+                                                    <label for="lblMod" class="medidaFechas"><p id="modalidadCurso"></p></label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -117,7 +117,7 @@
                                                         <p>Tutor:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                    <label for="lblTutor" class="medidaFechas"><p id="tutorAsignado">Hector Javier Paiz</p></label>
+                                                    <label for="lblTutor" class="medidaFechas"><p id="tutorAsignado"></p></label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -130,7 +130,7 @@
                                                         <p>Cupos Disponibles:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                    <label for="lblCupos" class="medidaFechas"><p id="cuposCurso">50</p></label>
+                                                    <label for="lblCupos" class="medidaFechas"><p id="cuposCurso"></p></label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -143,7 +143,7 @@
                                                         <p>Calificación:</p>
                                                     </div>
                                                     <div class="col-md-10">
-                                                    <label for="lblCupos" class="medidaFechas"><p id="puntuacionCurso">10</p></label>
+                                                    <label for="lblCupos" class="medidaFechas"><p id="puntuacionCurso"></p></label>
                                                     </div>
                                                 </div>
                                         </div>
@@ -166,10 +166,7 @@
                                                     <div class="col-md-12">
                                                         <label for="descripCurso" class="lblmedidaDescrip">
                                                             <p id="descripcionCurso">
-                                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat ipsum molestiae sint ab
-                                                                laudantium placeat necessitatibus modi sapiente voluptatum expedita quam at dolores, temporibus explicabo, itaque ratione odit? Eos, sunt?
-                                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aliquam aliquid eum voluptatum animi nisi assumenda deleniti provident labore, est mollitia explicabo
-                                                                omnis voluptates aspernatur perspiciatis modi enim ad sunt.
+                                                                
                                                             </p>
                                                         </label>
                                                     </div>

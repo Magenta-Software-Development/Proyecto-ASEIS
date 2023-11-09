@@ -93,7 +93,7 @@ function verMasInformacion(id) {
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${tema}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            <label for="descripcionAcordion">${tema}</label>
+                                            <label for="descripcionAcordion">${descripcionTema.titulo}</label>
                                         </button>
                                     </h2>
                                     <div id="${tema}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
