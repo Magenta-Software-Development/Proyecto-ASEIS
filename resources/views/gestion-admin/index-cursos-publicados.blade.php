@@ -220,10 +220,11 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
-                                                            <button class="estilosBtn" id="btnVerMasEst" data-toggle="modal" data-target="#modalVerMasEstudiantes">
-                                                                <i class="fa-solid fa-user"></i>
-                                                                <p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
-                                                            </button>
+                                                            <a href="{{route('app_index_ver_alumnos_inscritos_Admin')}}">
+                                                                <button class="estilosBtn" id="btnVerMasEst">
+                                                                <i class="fa-solid fa-user"></i><p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
+                                                                </button>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>

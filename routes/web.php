@@ -54,6 +54,7 @@ Route::controller(RouteController::class)->group(function () {
     Route::get('/AdministrarCodigos/indexCodigos', [RouteController::class, 'gestionCodigos'])->name('app_index_codigos'); //Muestra la pagina de gestion de codigos
     Route::get('/AdministrarNoticias/indexGestionNoticias', [RouteController::class, 'gestionNoticias'])->name('app_index_gestion_noticias'); //Muestra el indice de gestion de usuarios de docentes
     Route::get('/AdministrarNoticias/indexNoticias', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
+    Route::get('/AdministrarCursos/indexCursosNoDisponibles/VerAlumnosInscritos', [RouteController::class, 'VerAlumnosInscritosAdmin'])->name('app_index_ver_alumnos_inscritos_Admin'); //Muestra la pagina de ver todos los alumnos inscritos en la ruta de cursos no disponibles Admin
     //ruta de editar curso Admin
     Route::get('/AdministrarCursos/indexEditarCursoPublicado', [RouteController::class, 'gestionIndexEditarCursoPublicado'])->name('app_index_editar_cursoPublicado');
     Route::get('/AdministrarCursos/indexEditarCursoNoDisponible', [RouteController::class, 'gestionIndexEditarCursoNoDisponible'])->name('app_index_editar_cursoNoDisponible'); 
@@ -70,7 +71,7 @@ Route::controller(RouteController::class)->group(function () {
     Route::get('/Docente/indexNoticiasPublicadas', [RouteController::class, 'NoticiasPublicadas'])->name('app_index_noticias_publicadas'); //Muestra la pagina de gestion de noticias publicadas por ese docente en especifico
     Route::get('/Docente/indexCrearNoticia', [RouteController::class, 'GestionNoticiasDocente'])->name('app_index_gestion_noticias_docente'); //Muestra el indice de gestion de noticias
     Route::get('/Docente/indexCursosNoDisponiblesDocente/VerAlumnosInscritos', [RouteController::class, 'VerAlumnosInscritos'])->name('app_index_ver_alumnos_inscritos'); //Muestra la pagina de ver todos los alumnos inscritos en la ruta de cursos no disponibles
-
+    
     //Route::get('TU RUTA', [RouteController::class, 'NOMBRE DE LA FUNCION'])->name('NOMBRE DE LLAMADO DE LA RUTA'); -> IR A ROUTE CONTROLLER A CONFIGURAR TU FUNCION
 
 });
