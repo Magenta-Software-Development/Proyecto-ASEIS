@@ -7,13 +7,13 @@
 <!-- Fin Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@vite('resources/js/modulo-gestion-usuarios/docentes-admin.js')
 @endsection
 @section('css')
 @vite('resources/css/styleUsuariosAdmin.css')
 @vite('resources/css/index-usuarios.css')
 @vite('resources/css/informacion.css')
 @vite('resources/css/desactivarUsuario.css')
-@vite('resources/js/modulo-gestion-usuarios/docentes-admin.js')
 @endsection
 @section('content')
 <div class="cuerpoGestion">
@@ -79,7 +79,7 @@
                     </svg>
                 </button>
                 <div class="d-flex justify-content-center align-items-center">
-                    <img src="" id="img_docente" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                    <img id="img_docente" alt="Usuario" class="img-fluid rounded-circle rounded-image">
                 </div>
                 <h5 class="text-center mt-3 modal-title" id="nombre_docente"></h5>
                 <br>
@@ -102,7 +102,7 @@
         <div class="modal-content ">
             <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center ">
-                    <img src="{{ asset('images/Ellipse_10.png') }}" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                    <img src="" alt="Usuario" id="img_docenteEdit" class="img-fluid rounded-circle rounded-image">
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless">

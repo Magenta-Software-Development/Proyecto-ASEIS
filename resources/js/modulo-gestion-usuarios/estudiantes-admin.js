@@ -11,6 +11,8 @@ function sweetalert(icon, title, message) {
 async function cargarDatos(id) {
     try {
         let estudiante = await getInfoEstudiante(id); //espera una promesa, de la funcion getInfoEstudiante
+        //console.log(estudiante);
+        $("#img_estudianteEdit").attr("src", estudiante.estudiante.imagen);
         $("#inputNombreEstudiante").val(estudiante.estudiante.nombre); //de la promesa que obtenemos agregamos el valor nombre del estudiante
         $("#inputDescripcionEstudiante").val(estudiante.estudiante.descripcion); //asignamos al input el valor de la descripcion del estudiante
         return estudiante; // Devolviendo el docente para su posterior uso a la hora de actualizar

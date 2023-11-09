@@ -44,6 +44,8 @@ function llenarSelectEspecialidades(especialidadDocente) {
 async function cargarDatos(id) {
     try {
         let docente = await getInfoDocente(id);
+        //console.log(docente.imagen);
+        $("#img_docenteEdit").attr("src", docente.imagen);
         $("#inputNombreDocente").val(docente.nombre);
         $("#inputDescripcionDocente").val(docente.descripcion);
         llenarSelectEspecialidades(docente.id_especialidad.especialidad);
@@ -125,7 +127,7 @@ async function getInfoDocente(id) {
 function mostrarModal(id) {
     getInfoDocente(id)
         .then(docente => {
-            //console.log(docente);
+            console.log(docente.imagen);
             // Actualizando el contenido del modal con los datos del docente
             $("#img_docente").attr("src", docente.imagen);
             $("#nombre_docente").text(docente.nombre);
@@ -154,12 +156,12 @@ function crearListaDocentes(docente, filtro) {
         contenedorDocentes.appendChild(mensaje);
     } else {
         docente.forEach(usuario => {
-            if (usuario.nombre.toLowerCase().includes(filtro.toLowerCase())) {
-                const nuevoDocenteDiv = document.createElement("div");
-                nuevoDocenteDiv.className = "cuerpoUsuarios";
-                nuevoDocenteDiv.style = "margin-top:5px";
-                nuevoDocenteDiv.innerHTML = '';
-                nuevoDocenteDiv.innerHTML = `
+            if (usuario.id_usuario.rol.roles.includes('Docente') && usuario.nombre.toLowerCase().includes(filtro.toLowerCase())) {
+                    const nuevoDocenteDiv = document.createElement("div");
+                    nuevoDocenteDiv.className = "cuerpoUsuarios";
+                    nuevoDocenteDiv.style = "margin-top:5px";
+                    nuevoDocenteDiv.innerHTML = '';
+                    nuevoDocenteDiv.innerHTML = `
                     <div class="imagenUsuario"><img src="${usuario.imagen}"></div>
                     <div class="nombreDocenteBox">
                         <p class="DocenteNombreTxt">${usuario.nombre}</p>

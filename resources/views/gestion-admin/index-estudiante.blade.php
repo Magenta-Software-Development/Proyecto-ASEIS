@@ -100,7 +100,7 @@
         <div class="modal-content ">
             <div class="modal-body">
                 <div class="d-flex justify-content-center align-items-center ">
-                    <img src="{{ asset('images/Ellipse_10.png') }}" alt="Usuario" class="img-fluid rounded-circle rounded-image">
+                    <img src="" alt="Usuario" id="img_estudianteEdit"  class="img-fluid rounded-circle rounded-image">
                 </div>
                 <div class="table-responsive">
                     <table class="table table-borderless">

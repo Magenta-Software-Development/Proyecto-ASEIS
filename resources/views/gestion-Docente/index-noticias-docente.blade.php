@@ -32,7 +32,7 @@
         <button class="botonArchivo botonNoticia col-4" id="botonSubir">
             Subir imagen de portada
         </button>
-        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        <input type="file" id="imageInput" accept="image/jpeg, image/png" style="display: none;">
     <div class="col-8">
         <input type="text" class="form-control inputTitulo" id="inputNombreImagen" style="width: 100%;" disabled/>
     </div>
