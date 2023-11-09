@@ -1,0 +1,93 @@
+.tamanioContainer {
+    width: 80%;
+    max-height: 80%;
+    margin-top: 5vh;
+    overflow-y: scroll;
+}
+
+.tarjeta {
+    padding-top: 12px;
+    padding-right: 29px;
+    padding-left: 40px;
+    padding-bottom: 12px;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    background-color: rgba(128, 175, 209, 1);
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+.imagenUser {
+    background-repeat: no-repeat;
+    background-position: -0.02px -5.3px;
+    background-size: cover;
+    border-radius: 50%;
+    box-sizing: border-box;
+    height: 71px;
+    width: 71px;
+}
+
+.nombreDocenteBox {
+    width: 30%;
+}
+
+.EstudianteNombreTxt, .EstudianteTxt {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 0 0 10px; /* Añadí esto para ajustar el margen izquierdo */
+}
+
+.BotonVerMas {
+    color: rgba(30, 109, 166, 1);
+    padding: 16px;
+    border-radius: 16px;
+    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    min-height: 50px;
+    width: 15%;
+    height: 10px;
+    margin-left: auto;
+}
+
+.BotonVerMasText {
+    width: 75%;
+    min-width: 16px;
+    font-size: 1.3vw;
+    margin-top: -1vh;
+}
+
+@media (max-width: 768px) {
+    .nombreDocenteBox {
+        width: 50%;
+    }
+    .imagenUser {
+        display: none;
+    }
+    .BotonVerMasText {
+        display: none;
+    }
+}
+
+
+.btn-back {
+    width: 71px;
+    height: 71px;
+    flex-shrink: 0;
+    background: transparent;
+    /* Establece un fondo transparente */
+    border: none;
+    /* Elimina el borde del botón */
+    cursor: pointer;
+    /* Cambia el cursor al estilo de mano */
+}
