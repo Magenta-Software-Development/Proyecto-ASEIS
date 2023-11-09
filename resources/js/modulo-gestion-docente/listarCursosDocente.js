@@ -114,6 +114,7 @@ function verMasInformacion(id) {
     } else {
         console.error("Curso no encontrado en el arreglo.");
     }
+    localStorage.setItem("idCursoDisponible",id)
 }
 function desactivarCurso(id){
     sweetalertquestion("warning","Deshabilitando curso","Estas seguro de deshabilitar este curso?","Si, deshabilitar","success","Curso deshabilitado con exito","Se ha deshabilitado el curso de manera exitosa!",id)
@@ -231,6 +232,7 @@ inputBusqueda.addEventListener('input', function () {
     const valorBusqueda = inputBusqueda.value;
     buscarCursos(valorBusqueda);
 });
+
 $(document).ready(function () {
     obtenerListaCursosDisponibles();
 });
