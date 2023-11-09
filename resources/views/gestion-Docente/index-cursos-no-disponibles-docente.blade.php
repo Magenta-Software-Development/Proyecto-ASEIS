@@ -219,11 +219,7 @@
                                                             <p class="EstudianteC" id="rolE">Estudiante</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                                        <button class="estilosBtn" id="btnInfoverEstudiante" data-toggle="modal" data-target="#modalVerInfoEstudiante">
-                                                        <i class="fa-solid fa-user"></i><p id="textBtnInfoEstudiante">Ver Más</p>
-                                                        </button>
-                                                    </div>
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">

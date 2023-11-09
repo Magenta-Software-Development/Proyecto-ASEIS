@@ -217,15 +217,11 @@
                                                             <p class="EstudianteC" id="rolE">Estudiante</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                                        <button class="estilosBtn" id="btnInfoverEstudiante" data-toggle="modal" data-target="#modalVerInfoEstudiante">
-                                                        <i class="fa-solid fa-user"></i><p id="textBtnInfoEstudiante">Ver Más</p>
-                                                        </button>
-                                                    </div>
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
-                                                        <a href="{{route('app_index_ver_alumnos_inscritos')}}">
+                                                        <a href="{{route('app_index_ver_alumnos_inscritos_publicados')}}">
                                                             <button class="estilosBtn" id="btnVerMasEst">
                                                             <i class="fa-solid fa-user"></i><p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
                                                             </button>
@@ -303,7 +299,7 @@
                                                             <i class="fas fa-pencil-alt"></i>
                                                             <p id="textBtnEditCurso">Editar</p>
                                                         </button>
-                                                    </a>                                                    
+                                                    </a>
                                                 </div>
                                             </div>
 
