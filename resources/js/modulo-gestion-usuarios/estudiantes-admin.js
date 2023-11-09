@@ -6,7 +6,21 @@ function sweetalert(icon, title, message) {
         text: message,
     })
 }
-
+function sweetalertquestion(icon,title,message,messageConfirmButton,idUsuario){
+    Swal.fire({
+        title: title,
+        text: message,
+        icon: icon,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: messageConfirmButton
+    }).then((result) => {
+        if (result.isConfirmed) {
+            restablecerPass(idUsuario);
+        }
+    });
+}
 //funcion asincrona para cargar los datos, utilizada para llevar los datos al modal editar.
 async function cargarDatos(id) {
     try {
@@ -77,7 +91,22 @@ function desactivarEstudiante(id) {
     })
 
 }
-
+function restablecerPass(idUsuario) {
+    $.ajax({
+        type: "PUT",
+        url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/restablecer-contrasena/" + idUsuario,
+        contentType: "application/json",
+        crossDomain: true,
+        success: function (response, textStatus, xhr) {
+            sweetalert("success", "Contraseña restablecida", 'La contraseña ha sido restablecida con exito!');
+            listarDocentes("");
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            sweetalert('error','Ha ocurrido un error', errorThrown)
+            console.error(errorThrown);
+        }
+    });
+}
 async function getInfoEstudiante(id) {
     try {
         const response = await $.ajax({
@@ -152,12 +181,12 @@ function crearListaEstudiantes(usuarios, filtro) {
                         <p class="BotonVerMasText">Ver más</p>
                     </button>
 
-                    <button class="BotonVerMas" data-id-docente="">
+                    <button class="BotonVerMas BotonRestablecerPassEstudiante" data-id-usuario="${usuario.id_usuario.id_usuario}">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-restore" width="25" height="25" viewBox="0 0 24 24">
-                    <path fill="#1E6DA6" d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
-                    </svg>
-                    <p class="BotonVerMasText">Restablecer</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-restore" width="25" height="25" viewBox="0 0 24 24">
+                        <path fill="#1E6DA6" d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
+                        </svg>
+                        <p class="BotonVerMasText">Restablecer</p>
                     </button>
 
                     <button type="button" class="BotonDelete ${usuario.id_usuario.estado ? '' : 'BotonDeleteDisabled'}" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-estudiante="${usuario.id_estudiante}" data-id-usuario="${usuario.id_usuario.id_usuario}" ${usuario.id_usuario.estado ? '' : 'disabled'}>
@@ -176,6 +205,15 @@ function crearListaEstudiantes(usuarios, filtro) {
             boton.addEventListener("click", function () {
                 const idEstudiante = boton.dataset.idEstudiante;
                 mostrarModal(idEstudiante);
+            });
+        });
+
+        const BotonRestablecerPassEstudiante = document.querySelectorAll(".BotonRestablecerPassEstudiante");
+        BotonRestablecerPassEstudiante.forEach(boton => {
+            boton.addEventListener("click", function () {
+                const idUsuario = boton.dataset.idUsuario;
+                //console.log("click en restablecer idUSUARIO:",idUsuario);
+                sweetalertquestion('question','Quieres restaurar la contraseña?','La contraseña se establecera a Minerva.23','Si, restablecer',idUsuario);
             });
         });
 

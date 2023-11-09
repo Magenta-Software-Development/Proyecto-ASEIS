@@ -39,6 +39,7 @@ function sweetalertquestion(icon, title, message, messageConfirmButton, icon2, t
     });
 }
 function verMasInformacion(id) {
+
     const contenedorTemarioCurso = document.getElementById("contenedorTemarioCurso");
     contenedorTemarioCurso.style.marginTop = '2rem';
     contenedorTemarioCurso.style.marginBottom = '3.2rem';
@@ -102,6 +103,7 @@ function verMasInformacion(id) {
     } else {
         console.error("Curso no encontrado en el arreglo.");
     }
+    localStorage.setItem('idCursoNoDisponible',id);
 }
 function activarCurso(id) {
     sweetalertquestion("warning", "Habilitando curso", "Estas seguro de habilitar este curso?", "Si, habilitar", "success", "Curso habilitado con exito", "Se ha habilitado el curso de manera exitosa!", id)

@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <!-- seccion de acordeon de los contenidos-->
+        {{-- <!-- seccion de acordeon de los contenidos-->
         <div class="row">
             <div class="col-md-12">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -125,7 +125,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        <!--Contenedor para poder almacenar el codigo html del js, ya que se crea dinamicamente desde el js
+        De igual manera se crea una estructura como la que se habia definido la cual está en el js-->
+        <div id="contenedor-acordeones"></div>
 
         <div class="row">
             <div class="col-md-12 contBtnCurso">
@@ -163,7 +166,7 @@
                     <div class="modal-footer">
                         <div class="grupBotones">
                             <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-bs-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-bs-dismiss="modal">Crear</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" id="btn-Crear" data-bs-dismiss="modal">Crear</button>
                         </div>
                     </div>
                 </form>

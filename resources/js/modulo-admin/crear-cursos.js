@@ -5,7 +5,6 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
-
 async function cargarSelectModalidad() {
     return new Promise(function (resolve, reject) {
 
@@ -182,16 +181,11 @@ function obtenerCursoData() {
         id_categoria: {
             id_categoria: categoriaId
         },
-        temas: {
-            contenido: {
-
-            }
-        }
+        temas: temas
     };
 
     return { cursoData, idUsuario };
 }
-
 async function crearCurso() {
     const { cursoData, idUsuario } = obtenerCursoData();
 
@@ -224,23 +218,28 @@ async function crearCurso() {
             crossDomain: true,
             data: JSON.stringify(cuerpoSegundaPeticion),
         });
-
+        $("#contenedor-acordeones").empty();
         sweetalert('success', 'Curso creado con éxito!', segundaRespuesta.message);
+
     } catch (error) {
         console.log(cursoData);
         console.log("Error al crear el curso:", error);
         sweetalert('error', 'Error al crear el curso', error.message);
     }
 }
-
+//Estructura global para poder establcer los temas e ir llenandolos cunado se de clic en el boton agragar
+// Luego pasarlo como cuerpo de la petcion al endpoint
+const temas = {
+    contenido: {}
+};
 $(document).ready(async function () {
     try {
         await cargarSelectModalidad();
         await cargarSelectCategoria();
         await cargarSelectTutores();
-        console.log("Nombre cargado con éxito");
+        //console.log("Nombre cargado con éxito");
     } catch (error) {
-        console.log("Error en la carga de datos:", error);
+        //console.log("Error en la carga de datos:", error);
     }
 
     var btnCrarCurso = document.getElementById("btnCrearCurso");
@@ -251,6 +250,64 @@ $(document).ready(async function () {
             limpiarFormulario();
         } catch (error) {
             console.log("Error al crear el curso", error);
+        }
+    });
+    /////////////////////////////////////////////////////////
+    // Obtener el botón "Crear" en el modal
+    const btnCrear = document.querySelector("#btn-Crear");
+    // Mantén un contador para los acordeones
+    let contadorAcordeones = 1;
+
+    // Agregar un evento al botón para crear un nuevo acordeón
+    btnCrear.addEventListener("click", function () {
+
+        const identificadorAcordeon = "acordeon" + contadorAcordeones;
+
+        const titulo = document.querySelector("#tituloModal").value;
+        const descripcion = document.querySelector("#descripcionModal").value;
+        if (titulo && descripcion) {
+
+            const nuevoAcordeon = document.createElement("div");
+            nuevoAcordeon.className = "row";
+            nuevoAcordeon.innerHTML = `
+                <div class="col-md-12">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${identificadorAcordeon}" aria-expanded="false" aria-controls="${titulo}">
+                                    <label for="descripcionAcordion">${titulo}</label>
+                                </button>
+                            </h2>
+                            <div id="${identificadorAcordeon}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body" style="visibility:visible !important">${descripcion}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Agregar el nuevo acordeón al documento
+            const contenedorAcordeones = document.querySelector("#contenedor-acordeones");
+            contenedorAcordeones.appendChild(nuevoAcordeon);
+
+            // Agregar el nuevo tema a la estructura global temas
+            const nuevoTemaKey = `tema${contadorAcordeones}`;
+            temas.contenido[nuevoTemaKey] = {
+                titulo: titulo,
+                descripcion: descripcion
+            };
+
+            //console.log(temas)
+
+            //Lipiar los campos
+            document.querySelector("#tituloModal").value = "";
+            document.querySelector("#descripcionModal").value = "";
+
+            contadorAcordeones++;
+
+        }
+        else{
+            sweetalert('error', 'Campos vacios!');
         }
     });
 });

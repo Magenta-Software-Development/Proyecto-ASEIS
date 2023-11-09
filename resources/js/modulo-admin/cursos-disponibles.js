@@ -72,6 +72,8 @@ function verMasInformacion(id) {
         $("#cuposCurso").text(curso.cupo);
         $("#descripcionCurso").text(curso.descripcion);
 
+        $("#textBtnMasEstudiantes").attr("data-idCursoNoDisponible", idCurso);
+
         const longitudTemas = Object.keys(curso.temas.contenido).length;
         //console.log("Número de temas:", longitudTemas);
         if (longitudTemas === 0) {
@@ -93,7 +95,7 @@ function verMasInformacion(id) {
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${tema}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            <label for="descripcionAcordion">${tema}</label>
+                                            <label for="descripcionAcordion">${descripcionTema.titulo}</label>
                                         </button>
                                     </h2>
                                     <div id="${tema}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
@@ -114,6 +116,7 @@ function verMasInformacion(id) {
     } else {
         console.error("Curso no encontrado en el arreglo.");
     }
+    localStorage.setItem('idCursoDisponible',id);
 }
 function desactivarCurso(id){
     sweetalertquestion("warning","Deshabilitando curso","Estas seguro de deshabilitar este curso?","Si, deshabilitar","success","Curso deshabilitado con exito","Se ha deshabilitado el curso de manera exitosa!",id)

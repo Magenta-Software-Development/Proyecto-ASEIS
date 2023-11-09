@@ -12,6 +12,7 @@
 
 @section('title', 'Gestion de admin')
 @vite('resources/css/VerTodosLosAlumnos.css')
+@vite('resources/js/modulo-admin/listaEstudiantesInscritosCursos.js')
 
 <h1>Admin</h1>
  <!-- Botón de retroceso -->
@@ -25,23 +26,9 @@
  </a>
 <div class="container tamanioContainer">
 
-    <div class="container tarjeta">
-        <div class="imagenUser"><img class="imagenUser" src="{{ asset('images/Ellipse_10.png') }}"></div>
-        <div class="nombreDocenteBox">
-            <p class="EstudianteNombreTxt">Elin Francisco Treminio Parada</p>
-            <p class="EstudianteTxt">Estudiante</p>
-        </div>
-        <button class="BotonVerMas" data-bs-target="#modal-Estudiante" data-bs-toggle="modal">
-            <div class="BotonEditSymbol">
-                <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 6.75 7.5 C 6.75 8.892 7.303 10.228 8.288 11.212 C 9.272 12.197 10.608 12.75 12 12.75 C 13.392 12.75 14.728 12.197 15.712 11.212 C 16.697 10.228 17.25 8.892 17.25 7.5 C 17.25 6.108 16.697 4.772 15.712 3.788 C 14.728 2.803 13.392 2.25 12 2.25 C 10.608 2.25 9.272 2.803 8.288 3.788 C 7.303 4.772 6.75 6.108 6.75 7.5 Z M 19.5 21.75 H 3.75 C 3.551 21.75 3.36 21.671 3.22 21.53 C 3.079 21.39 3 21.199 3 21 V 18.75 C 3 17.755 3.395 16.802 4.098 16.098 C 4.802 15.395 5.755 15 6.75 15 H 17.25 C 18.245 15 19.198 15.395 19.902 16.098 C 20.605 16.802 21 17.755 21 18.75 V 21 C 21 21.199 20.921 21.39 20.78 21.53 C 20.64 21.671 20.449 21.75 20.25 21.75 H 19.5 Z" fill="#1E6DA6" />
-                </svg>
-            </div>
-            <p class="BotonVerMasText">Ver más</p>
-        </button>
+    <div id="containerUsuariosInscritos">
+        
     </div>
-    <br>
-
 
 <!-- Modal para ver información de usuario -->
 <div class="modal right" id="modal-Estudiante" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">

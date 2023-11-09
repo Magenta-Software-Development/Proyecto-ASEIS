@@ -95,7 +95,7 @@ inputBusqueda.addEventListener('input', function() {
     buscarCodigo(valorBusqueda);
 });
 
-$("#creaCodigos").click(function (e) { 
+$("#creaCodigos").off("click").on("click",function (e) { 
     e.preventDefault();
     sweetalertquestion("question","Creando nuevo codigo","Deseas crear un nuevo codigo de verificacion?","Si, crear","success","Codigo creado exitosamente","Se ha creado un nuevo codigo de verificacion de manera exitosa!!");
 });
