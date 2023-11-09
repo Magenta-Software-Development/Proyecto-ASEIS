@@ -23,7 +23,9 @@
 @section('content')
 
 <div class="contenedorPrincipal">
-    <!-- área de titulo -->
+
+    <!-- área de titulo  -->
+    
     <div class="row align-items-center justify-content-center" style="width: 80%;">
         <div class="col-12">
             <label for="inputT" class="estiloTitulo" style="width: 100% !important">Titulo de la noticia:</label>

@@ -18,14 +18,14 @@ export default defineConfig({
                 "resources/css/gestionCrearCursos.css",
                 "resources/css/infoCursosModal.css",
                 "resources/css/loader.css",
+                "resources/css/editarCurso.css",
+                
                 "resources/css/VerTodosLosAlumnos.css",
 
                 //Js
                 "resources/js/app.js",
                 "resources/js/load-file.js",
                 "resources/js/login.js",
-                "resources/js/crearUsuariosAdmin.js",
-                "resources/js/desactivarUsuario.js",
                 "resources/js/registro-docente.js",
                 "resources/js/modulo-gestion-categorias/categorias-admin.js",
                 "resources/js/modulo-gestion-usuarios/docentes-admin.js",

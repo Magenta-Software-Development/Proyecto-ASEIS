@@ -15,6 +15,7 @@
 @vite('resources/css/styleCursos.css')
 @vite('resources/css/infoCursosModal.css')
 
+
 <!--
 @vite('resources/js/crearUsuarioAdmin.js')
 @vite('resources/css/informacion.css')
@@ -285,24 +286,29 @@
                             </div>
                         </div> <!-- Final de la quinta sección -->
 
-                        <!-- Inicio ultima seccion botones del curso -->
-                        <div class="contModalBotonesCursos">
-                        <div class="row">
-                            <div class="col-md-12">
-                                    <div class="row">
-                                         <!-- seccion de de botones de los contenidos-->
+                            <!-- Inicio ultima seccion botones del curso -->
+                            <div class="contModalBotonesCursos">
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <button class="estilosBtn" id="btnDeshabilitarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
-                                                <i class="fa-solid fa-ban"></i><p id="textBtnDesCurso">Deshabilitar</p>
-                                                </button>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
-                                                    <i class="fas fa-pencil-alt"></i> <p id="textBtnEditCurso">Editar</p>
-                                                </button>
-                                            </div>
+                                            <!-- seccion de de botones de los contenidos-->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button class="estilosBtn" id="btnHabilitarCurso" data-bs-toggle="modal" data-bs-target="#modalEliminarComentario">
+                                                        <i class="fa-solid fa-toggle-on"></i>
+                                                        <p id="textBtnDesCurso">Habilitar</p>
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                <a href="{{ route('app_index_editar_cursoNoDisponibleDocente') }}">
+                                                <button class="estilosBtn" id="btnEditarCursoNoPublic" data-bs-toggle="modal" data-bs-target="#modalEliminarComentario">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        <p id="textBtnEditCurso">Editar</p>
+                                                    </button>
+                                                </a>
+                                                </div>
 
+                                            </div>
                                         </div>
 
                                     </div>
@@ -313,8 +319,7 @@
                 </div><!-- Final de body -->
             </div>
         </div>
-    </div>
-</div>
+        <!--Fin full screen modal -->
 
 
 @endsection
