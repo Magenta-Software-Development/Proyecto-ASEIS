@@ -11,7 +11,7 @@ function llenarSelectEspecialidades(especialidadDocente) {
     $.ajax({
         type: "GET",
         url: "https://springgcp-402821.uc.r.appspot.com/api/especialidades",
-        success: function(especialidades) {
+        success: function (especialidades) {
             // Obtén el select por su ID
             var selectEspecialidades = document.getElementById("especialidadDocenteSelector");
 
@@ -23,20 +23,20 @@ function llenarSelectEspecialidades(especialidadDocente) {
             defaultOption.text = especialidadDocente; // Se carga el select con la especialidad
             selectEspecialidades.add(defaultOption);
 
-            var especialidadesFiltradas = especialidades.filter(function(especialidad) {
+            var especialidadesFiltradas = especialidades.filter(function (especialidad) {
                 return especialidad.estado === true;
             });
-    
+
 
             // Agrega cada especialidad como una opción
-            especialidadesFiltradas.forEach(function(especialidad) {
+            especialidadesFiltradas.forEach(function (especialidad) {
                 var option = document.createElement("option");
                 option.value = especialidad.id_especialidad;
                 option.text = especialidad.especialidad;
                 selectEspecialidades.add(option);
             });
         },
-        error: function(error) {
+        error: function (error) {
             console.error("Error al cargar las especialidades:", error);
         }
     });
@@ -56,12 +56,12 @@ async function cargarDatos(id) {
     }
 }
 
-async function editarDocente(id){
+async function editarDocente(id) {
     const docenteTemp = await cargarDatos(id);
     //console.log(especialidad);
     $("#modal-DocenteE").modal("show");
-    $("#btnEditarDocente").off("click").on("click",function () { 
-        if($.trim($("#inputNombreDocente").val()) !== '' && $.trim($("#inputDescripcionDocente").val()) !== ''){
+    $("#btnEditarDocente").off("click").on("click", function () {
+        if ($.trim($("#inputNombreDocente").val()) !== '' && $.trim($("#inputDescripcionDocente").val()) !== '') {
             let data = {
                 nombre: $("#inputNombreDocente").val(),
                 descripcion: $("#inputDescripcionDocente").val(),
@@ -72,21 +72,21 @@ async function editarDocente(id){
             $("#inputNombreDocente").val("");
             $("#inputDescripcionDocente").val("");
             $.ajax({
-                url: 'https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/'+id, 
-                type: 'PUT', 
+                url: 'https://springgcp-402821.uc.r.appspot.com/api/docentes/actualizar/' + id,
+                type: 'PUT',
                 contentType: "application/json",
                 crossDomain: true,
-                data: JSON.stringify(data), 
-                success: function(response, textStatus, xhr) {
+                data: JSON.stringify(data),
+                success: function (response, textStatus, xhr) {
                     // Si la solicitud fue exitosa aca...
-                    sweetalert('success','Actualizado con exito!',response.message);
+                    sweetalert('success', 'Actualizado con exito!', response.message);
                     listarDocentes("");
                 },
-                error: function(error) {
+                error: function (error) {
                     // Ocurrió un error en la solicitud, no encontro correo...
                     //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
                     if (error.status == 500) {
-                        sweetalert('error',"Ocurrio un error",error.responseJSON.message);
+                        sweetalert('error', "Ocurrio un error", error.responseJSON.message);
                     }
                 }
             });
@@ -94,18 +94,18 @@ async function editarDocente(id){
     });
 }
 
-function desactivarDocente(id){
-    $("#btnDesactivarDocente").off("click").on("click",function() {
+function desactivarDocente(id) {
+    $("#btnDesactivarDocente").off("click").on("click", function () {
         $.ajax({
             type: "PUT",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/desactivar/"+id, 
+            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/desactivar/" + id,
             contentType: "application/json",
             crossDomain: true,
-            success: function(response, textStatus, xhr) {
-                sweetalert('success','Usuario desactivado', response.message);
+            success: function (response, textStatus, xhr) {
+                sweetalert('success', 'Usuario desactivado', response.message);
                 listarDocentes("");
             },
-            error: function(xhr, textStatus, errorThrown) {
+            error: function (xhr, textStatus, errorThrown) {
                 console.error(errorThrown);
             }
         });
@@ -131,14 +131,14 @@ function mostrarModal(id) {
             // Actualizando el contenido del modal con los datos del docente
             $("#img_docente").attr("src", docente.imagen);
             $("#nombre_docente").text(docente.nombre);
-            $("#estado_docente").text(docente.id_usuario.estado?"Estado: Activo":"Estado: Desactivado");
+            $("#estado_docente").text(docente.id_usuario.estado ? "Estado: Activo" : "Estado: Desactivado");
             $("#especialidad_docente").text("Especialidad: " + docente.id_especialidad.especialidad);
             $("#correo_docente").text("Correo: " + docente.id_usuario.correo);
             $("#descripcion_docente").text("Descripción: " + docente.descripcion);
 
             // Mostrar el modal
             $("#modal-Docente").modal("show");
-           // console.log("cargo el modal por fin.")
+            // console.log("cargo el modal por fin.")
         })
         .catch(error => {
             console.error(error);
@@ -149,12 +149,12 @@ function crearListaDocentes(docente, filtro) {
     $("#contenedorDocentes").empty();
     contenedorDocentes.style = "width:100%";
 
-    if(docente.length === 0){
+    if (docente.length === 0) {
         const mensaje = document.createElement('div');
         mensaje.className = 'alert alert-primary text-center';
         mensaje.textContent = 'No hay docentes creados en este momento.';
-        contenedorDocentes.appendChild(mensaje); 
-    }else{
+        contenedorDocentes.appendChild(mensaje);
+    } else {
         docente.forEach(usuario => {
             if (usuario.id_usuario.rol.roles.includes('Docente') && usuario.nombre.toLowerCase().includes(filtro.toLowerCase())) {
                     const nuevoDocenteDiv = document.createElement("div");
@@ -165,7 +165,7 @@ function crearListaDocentes(docente, filtro) {
                     <div class="imagenUsuario"><img src="${usuario.imagen}"></div>
                     <div class="nombreDocenteBox">
                         <p class="DocenteNombreTxt">${usuario.nombre}</p>
-                        <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado?"Activo":"Inactivo"}</p>
+                        <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado ? "Activo" : "Inactivo"}</p>
                     </div>
                     <button class="BotonEdit" data-id-docente="${usuario.id_docente}">
                         <div class="BotonEditSymbol">
@@ -183,6 +183,7 @@ function crearListaDocentes(docente, filtro) {
                         </div>
                         <p class="BotonVerMasText">Ver más</p>
                     </button>
+                    
                     <button class="BotonVerMas" data-id-docente="">
 
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-restore" width="25" height="25" viewBox="0 0 24 24">
@@ -190,6 +191,7 @@ function crearListaDocentes(docente, filtro) {
                     </svg>
                     <p class="BotonVerMasText">Restablecer</p>
                     </button>
+
                     <button type="button" class="BotonDelete ${usuario.id_usuario.estado ? '' : 'BotonDeleteDisabled'}" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-docente="${usuario.id_docente}" data-id-usuario="${usuario.id_usuario.id_usuario}" ${usuario.id_usuario.estado ? '' : 'disabled'}>
                         <div class="BotonEditSymbol">
                             <i class="fa-solid fa-ban" style="color: #1E6DA6;"></i>
@@ -200,45 +202,45 @@ function crearListaDocentes(docente, filtro) {
                 contenedorDocentes.appendChild(nuevoDocenteDiv);
             }
         });
-    
+
         const btnVerMas = document.querySelectorAll(".BotonVerMas");
         btnVerMas.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 const idDocente = boton.dataset.idDocente;
                 mostrarModal(idDocente);
             });
         });
-    
+
         const btnEditar = document.querySelectorAll(".BotonEdit");
         btnEditar.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 const idDocente = boton.dataset.idDocente;
                 editarDocente(idDocente);
             });
         });
-    
+
         const btnDelete = document.querySelectorAll(".BotonDelete");
         btnDelete.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 const idUsuario = boton.dataset.idUsuario;
                 desactivarDocente(idUsuario);
             });
         });
     }
 }
-function validandoDatos(){
+function validandoDatos() {
     let email = document.getElementById("emailDocente").value;
     let password = document.getElementById("passwordDocente").value;
     //Se valida que los campos no estén vacios
     if (email.trim() === '' || password.trim() === '') {
-          sweetalert("warning","Los campos están vacios", "Por favor, llene adecuadamente los campos que se le piden.");
-        return(false);
+        sweetalert("warning", "Los campos están vacios", "Por favor, llene adecuadamente los campos que se le piden.");
+        return (false);
     }
 
     // Se valida el formato del correo electrónico usando expresiones regulares, tiene que ser terminacxion @ues.edu.sv
     var emailRegex = /^[a-zA-Z0-9._%+-]+@ues\.edu\.sv$/;
     if (!emailRegex.test(email)) {
-        sweetalert("warning","Formato incorrecto", "Los correos deben tener terminacion @ues.edu.sv");
+        sweetalert("warning", "Formato incorrecto", "Los correos deben tener terminacion @ues.edu.sv");
         //alert("El correo debe ser de la forma: usuario@ues.edu.sv");
         return false;
     }
@@ -246,30 +248,30 @@ function validandoDatos(){
     // Se valida la contraseña del input
     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     if (!passwordRegex.test(password)) {
-        sweetalert("warning","Contraseña Incorrecta","La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número");
+        sweetalert("warning", "Contraseña Incorrecta", "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número");
         return false;
     }
     ///alert("Formulario válido, puedes continuar.");
     return true;
 }
-function listarDocentes(filtro){
+function listarDocentes(filtro) {
     $.ajax({
         type: "GET",
         url: "https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-todos",
         contentType: "application/json",
         crossDomain: true,
-        success: function(response, textStatus, xhr) {
+        success: function (response, textStatus, xhr) {
             crearListaDocentes(response, filtro);
         },
-        error: function(xhr, textStatus, errorThrown) {
+        error: function (xhr, textStatus, errorThrown) {
             console.error(errorThrown);
         }
     });
 }
- //Le agrego un evento de clic al boton crear docente, si se da clic se ejecuta la siguiente funcion
- $('#btnCrearDocente').off("click").on("click",function() {
+//Le agrego un evento de clic al boton crear docente, si se da clic se ejecuta la siguiente funcion
+$('#btnCrearDocente').off("click").on("click", function () {
     // Obtengo el valor del correo electrónico del input
-    if(validandoDatos()){
+    if (validandoDatos()) {
         var data = {
             correo: $("#emailDocente").val(),
             password: $("#passwordDocente").val(),
@@ -278,23 +280,23 @@ function listarDocentes(filtro){
         console.log(JSON.stringify(data));
         // Realizamos una solicitud AJAX utilizando jQuery
         $.ajax({
-            url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/crear-docente', 
-            type: 'POST', 
+            url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/crear-docente',
+            type: 'POST',
             contentType: "application/json",
             crossDomain: true,
-            data: JSON.stringify(data), 
-            success: function(response, textStatus, xhr) {
+            data: JSON.stringify(data),
+            success: function (response, textStatus, xhr) {
                 // Si la solicitud fue exitosa aca...
-                if(xhr.status == 201){//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
-                    sweetalert('success','Creado con exito!',response.message);
+                if (xhr.status == 201) {//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
+                    sweetalert('success', 'Creado con exito!', response.message);
                     listarDocentes("");
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 // Ocurrió un error en la solicitud, no encontro correo...
                 //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
                 if (error.status == 500) {
-                    sweetalert('error',"Correo Existente",error.responseJSON.message);
+                    sweetalert('error', "Correo Existente", error.responseJSON.message);
                 }
             }
         });
@@ -302,7 +304,7 @@ function listarDocentes(filtro){
 });
 const inputBusqueda = document.getElementById("inputBusqueda");
 
-inputBusqueda.addEventListener('input', function() {
+inputBusqueda.addEventListener('input', function () {
     const valorBusqueda = inputBusqueda.value;
     listarDocentes(valorBusqueda);
 });

@@ -30,10 +30,10 @@
 
     <div class="contenedorPrincipal">
 
-        <!-- area de busqueda -->
-        <div class="contenedorBusqueda">
-            <input type="text" class="InputBuscar" placeholder="Buscar" id="inputBusqueda" />
-        </div>
+    <!-- area de busqueda -->
+    <div class="contenedorBusqueda">
+        <input type="text" class="InputBuscar" placeholder="Buscar" id="inputBusqueda" />
+    </div>
 
         <!-- contenedor de cursos-->
         <div id="container-cursos-no-publicados">

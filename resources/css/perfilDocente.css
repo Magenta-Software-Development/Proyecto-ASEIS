@@ -2,7 +2,7 @@
 
 .tarjetaDatosDoc {
     width: 780px;
-    height:fit-content;
+    height: auto;
     border-radius: 16px;
     background: #132D3C;
     color: #fff;
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 525px;
+    height: 700px;
 }
 
 .boton-editar {

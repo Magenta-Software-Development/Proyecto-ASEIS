@@ -19,7 +19,6 @@ export default defineConfig({
                 "resources/css/infoCursosModal.css",
                 "resources/css/loader.css",
                 "resources/css/editarCurso.css",
-                
                 "resources/css/VerTodosLosAlumnos.css",
 
                 //Js
@@ -35,7 +34,8 @@ export default defineConfig({
                 "resources/js/limitePalabras.js",
                 'resources/js/modulo-admin/cursos-disponibles.js',
                 'resources/js/modulo-admin/cursos-no-disponibles.js',
-                'resources/js/modulo-gestion-noticias/noticias-admin.js'
+                'resources/js/modulo-gestion-noticias/noticias-admin.js',
+                'resources/js/load-image.js',
             ],
             refresh: true,
         }),
