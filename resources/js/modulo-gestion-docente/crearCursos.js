@@ -148,7 +148,7 @@ async function subirImagenFirebase(){
             
         if (imagen) {
             var formData = new FormData();
-            formData.append("file", imagen);
+            formData.append("fñile", imagen);
 
             // Realizar la solicitud POST para subir la imagen al servidor
             $.ajax({

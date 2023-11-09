@@ -102,6 +102,7 @@ function verMasInformacion(id) {
     } else {
         console.error("Curso no encontrado en el arreglo.");
     }
+    localStorage.setItem("idCursoDisponible",id)
 }
 function activarCurso(id) {
     sweetalertquestion("warning", "Habilitando curso", "Estas seguro de habilitar este curso?", "Si, habilitar", "success", "Curso habilitado con exito", "Se ha habilitado el curso de manera exitosa!", id)
