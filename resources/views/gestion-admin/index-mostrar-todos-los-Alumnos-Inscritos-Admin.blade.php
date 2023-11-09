@@ -10,6 +10,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
+<!--KJBKBK-->
+
 @section('title', 'Gestion de admin')
 @vite('resources/css/VerTodosLosAlumnos.css')
 
