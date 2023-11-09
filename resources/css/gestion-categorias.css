@@ -2,7 +2,8 @@
     padding-top: 80px;
 }
 
-.BuscaYCrea { /*Estilo para contenedor que tiene el boton de crear y buscador*/
+.BuscaYCrea {
+    /*Estilo para contenedor que tiene el boton de crear y buscador*/
     font-weight: 400;
     color: rgba(255, 255, 255, 1);
     align-items: center;
@@ -15,7 +16,8 @@
 
 }
 
-.buscarInput { /*Estilo para el input de buscar*/
+.buscarInput {
+    /*Estilo para el input de buscar*/
     font-weight: 400;
     text-align: left;
     color: rgba(121, 121, 121, 1);
@@ -32,7 +34,8 @@
     margin-left: 10%;
 }
 
-.crearBoton { /*Estilo para el boton de crear*/
+.crearBoton {
+    /*Estilo para el boton de crear*/
     padding: 1.5%;
     border-radius: 16px;
     align-items: center;
@@ -52,17 +55,17 @@
 }
 
 
-.contenedorCurso { /*Estilo para el contenedor de cada curso*/
-    margin-top: 5%;
-    margin-left: 5%;
-    width: 90%;
+.contenedorCurso {
+    /*Estilo para el contenedor de cada curso*/
+    width: auto;
     height: 95px;
     flex-shrink: 0;
     border-radius: 16px;
     background: #80AFD1;
 }
 
-.letraCurso { /*Estilo para el texto del curso*/
+.letraCurso {
+    /*Estilo para el texto del curso*/
     color: #000;
     white-space: nowrap;
     /* Evita que el texto se divida en varias líneas */
@@ -78,7 +81,8 @@
     line-height: normal;
 }
 
-.botonesCurso { /*Estilo para el contenedor de los botones de editar y eliminar*/
+.botonesCurso {
+    /*Estilo para el contenedor de los botones de editar y eliminar*/
     display: flex;
     padding: 1%;
     justify-content: center;
@@ -105,23 +109,26 @@
     .botonesCurso {
         padding: 2%;
     }
+
     .letraBoton {
         display: none;
     }
 }
 
 
-.letrabtnEliminar { /*Estilo para el texto del boton de eliminar*/
+.letrabtnEliminar {
+    /*Estilo para el texto del boton de eliminar*/
     color: #F00;
 
-    font-family: Inter , sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 }
 
-.letrabtnActivar { /*Estilo para el texto del boton de eliminar*/
+.letrabtnActivar {
+    /*Estilo para el texto del boton de eliminar*/
     color: rgba(4, 181, 7, 0.791);
 
     font-family: Inter, sans-serif;
@@ -131,14 +138,15 @@
     line-height: normal;
 }
 
-#iconActivar{
+#iconActivar {
     color: #0fbd43;
     font-size: 200px;
     padding-top: 10%;
     display: block;
 }
 
-.letrabtnEditar { /*Estilo para el texto del boton de editar*/
+.letrabtnEditar {
+    /*Estilo para el texto del boton de editar*/
     color: #1E6DA6;
 
     font-family: Inter, sans-serif;
@@ -164,7 +172,8 @@
     transform: translate3d(0, 0, 0);
 }
 
-.modal-content { /*Estilo para el contenedor del modal*/
+.modal-content {
+    /*Estilo para el contenedor del modal*/
     width: 947px;
     height: 508px;
     border-radius: 16px;
@@ -172,7 +181,8 @@
 
 }
 
-.label-simple { /*Estilo para el texto de la etiqueta*/
+.label-simple {
+    /*Estilo para el texto de la etiqueta*/
     display: flex;
     padding: 16px;
     align-items: center;
@@ -181,7 +191,8 @@
     border: 2px solid #797979;
 }
 
-.letraCategoria { /*Estilo para el texto de la categoria*/
+.letraCategoria {
+    /*Estilo para el texto de la categoria*/
     color: #000;
 
     font-family: Inter, sans-serif;
@@ -191,7 +202,8 @@
     line-height: normal;
 }
 
-.btn-cancel { /*Estilo para el boton de cancelar*/
+.btn-cancel {
+    /*Estilo para el boton de cancelar*/
     display: flex;
     width: 163px;
     padding: 16px;
@@ -209,7 +221,8 @@
     line-height: normal;
 }
 
-.btn-save { /*Estilo para el boton de guardar*/
+.btn-save {
+    /*Estilo para el boton de guardar*/
     display: flex;
     width: 187px;
     padding: 16px;
@@ -227,7 +240,8 @@
     line-height: normal;
 }
 
-.letraEliminar { /*Estilo para el texto de eliminar*/
+.letraEliminar {
+    /*Estilo para el texto de eliminar*/
     color: #000;
 
     font-family: Inter, sans-serif;
@@ -237,7 +251,8 @@
     line-height: normal;
 }
 
-.btn-eliminar { /*Estilo para el boton de eliminar*/
+.btn-eliminar {
+    /*Estilo para el boton de eliminar*/
     display: flex;
     width: 190px;
     padding: 16px;
@@ -255,7 +270,8 @@
     line-height: normal;
 }
 
-.btn-activar { /*Estilo para el boton de eliminar*/
+.btn-activar {
+    /*Estilo para el boton de eliminar*/
     display: flex;
     width: 190px;
     padding: 16px;

@@ -19,11 +19,11 @@ async function cargarDatos(id) {
         throw error;
     }
 }
-async function editarEstudiante(id){
+async function editarEstudiante(id) {
     const estudianteTemp = await cargarDatos(id);
     //console.log(estudianteTemp.estudiante.current_year);
-    $("#btnEditarEstudiante").off("click").on("click",function (e) { 
-        if($.trim($("#inputNombreEstudiante").val()) !== '' && $.trim($("#inputDescripcionEstudiante").val()) !== ''){
+    $("#btnEditarEstudiante").off("click").on("click", function (e) {
+        if ($.trim($("#inputNombreEstudiante").val()) !== '' && $.trim($("#inputDescripcionEstudiante").val()) !== '') {
             let data = {
                 nombre: $("#inputNombreEstudiante").val(),
                 edad: -1,
@@ -35,40 +35,40 @@ async function editarEstudiante(id){
             $("#inputNombreEstudiante").val("");
             $("#inputDescripcionEstudiante").val("");
             $.ajax({
-                url: 'https://springgcp-402821.uc.r.appspot.com/api/estudiantes/actualizar/'+id, 
-                type: 'PUT', 
+                url: 'https://springgcp-402821.uc.r.appspot.com/api/estudiantes/actualizar/' + id,
+                type: 'PUT',
                 contentType: "application/json",
                 crossDomain: true,
-                data: JSON.stringify(data), 
-                success: function(response, textStatus, xhr) {
+                data: JSON.stringify(data),
+                success: function (response, textStatus, xhr) {
                     // Si la solicitud fue exitosa aca...
-                    sweetalert('success','Actualizado con exito!',response.message);
+                    sweetalert('success', 'Actualizado con exito!', response.message);
                     listarEstudiantes("");
                 },
-                error: function(error) {
+                error: function (error) {
                     // Ocurrió un error en la solicitud, no encontro correo...
                     console.error('Error en la solicitud AJAX:', error);
                     //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
                     if (error.status == 500) {
-                        sweetalert('error',"Ocurrio un error",error.responseJSON.message);
+                        sweetalert('error', "Ocurrio un error", error.responseJSON.message);
                     }
                 }
-            });    
+            });
         }
     });
 }
-function desactivarEstudiante(id){
-    $("#btnDesactivarEstudiante").off("click").on("click",function () { 
+function desactivarEstudiante(id) {
+    $("#btnDesactivarEstudiante").off("click").on("click", function () {
         $.ajax({
             type: "PUT",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/desactivar/" + id, 
+            url: "https://springgcp-402821.uc.r.appspot.com/api/usuarios/desactivar/" + id,
             contentType: "application/json",
             crossDomain: true,
-            success: function(response, textStatus, xhr) {
-                sweetalert('success','Usuario desactivado', response.message);
+            success: function (response, textStatus, xhr) {
+                sweetalert('success', 'Usuario desactivado', response.message);
                 listarEstudiantes("");
             },
-            error: function(xhr, textStatus, errorThrown) {
+            error: function (xhr, textStatus, errorThrown) {
                 console.error(errorThrown);
             }
         });
@@ -92,46 +92,46 @@ async function getInfoEstudiante(id) {
 
 function mostrarModal(id) {
     getInfoEstudiante(id)
-    .then(student => {
-        //console.log(student);
-        //console.log(student.estudiante.id_usuario.rol.roles);
-        // Actualizamos el contenido del modal con los datos del estudiante
-        $("#img_estudiante").attr("src", student.estudiante.imagen);
-        $("#nombre_estudiante").text(student.estudiante.nombre);
-        $("#estado_estudiante").text(student.estudiante.id_usuario.estado?"Estado: Activo":"Estado: Desactivado");
-        $("#especialidad_estudiante").text(student.estudiante.id_usuario.rol.roles);
-        $("#correo_estudiante").text("Correo: "+student.estudiante.id_usuario.correo);
-        $("#descripcion_estudiante").text("Descripción: " + student.estudiante.descripcion);
-        // Mostramos el modal
-        $("#modal-Estudiante").modal("show");
-        //console.log("cargo el modal por fin.")
-    })
-    .catch(error => {
-        console.error(error);
-    });
+        .then(student => {
+            //console.log(student);
+            //console.log(student.estudiante.id_usuario.rol.roles);
+            // Actualizamos el contenido del modal con los datos del estudiante
+            $("#img_estudiante").attr("src", student.estudiante.imagen);
+            $("#nombre_estudiante").text(student.estudiante.nombre);
+            $("#estado_estudiante").text(student.estudiante.id_usuario.estado ? "Estado: Activo" : "Estado: Desactivado");
+            $("#especialidad_estudiante").text(student.estudiante.id_usuario.rol.roles);
+            $("#correo_estudiante").text("Correo: " + student.estudiante.id_usuario.correo);
+            $("#descripcion_estudiante").text("Descripción: " + student.estudiante.descripcion);
+            // Mostramos el modal
+            $("#modal-Estudiante").modal("show");
+            //console.log("cargo el modal por fin.")
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
-function crearListaEstudiantes(usuarios,filtro) {
+function crearListaEstudiantes(usuarios, filtro) {
     const contenedorEstudiantes = document.getElementById("contenedorEstudiantes");
     $("#contenedorEstudiantes").empty();
     contenedorEstudiantes.style = "width:100%";
-    if(usuarios.length === 0){
+    if (usuarios.length === 0) {
         const mensaje = document.createElement('div');
         mensaje.className = 'alert alert-primary text-center';
         mensaje.textContent = 'No hay estudiantes creados en este momento.';
-        contenedorEstudiantes.appendChild(mensaje); 
-    }else{
+        contenedorEstudiantes.appendChild(mensaje);
+    } else {
         usuarios.forEach(usuario => {
-            if(usuario.nombre.toLowerCase().includes(filtro.toLowerCase())){
-                    const nuevoEstudianteDiv = document.createElement("div");
-                    nuevoEstudianteDiv.className = "cuerpoUsuarios";
-                    nuevoEstudianteDiv.style = "margin-top:5px";
-                    nuevoEstudianteDiv .innerHTML = '';
-                    nuevoEstudianteDiv.innerHTML = `
+            if (usuario.nombre.toLowerCase().includes(filtro.toLowerCase())) {
+                const nuevoEstudianteDiv = document.createElement("div");
+                nuevoEstudianteDiv.className = "cuerpoUsuarios";
+                nuevoEstudianteDiv.style = "margin-top:5px";
+                nuevoEstudianteDiv.innerHTML = '';
+                nuevoEstudianteDiv.innerHTML = `
                     <div class="imagenUsuario"><img src="${usuario.imagen}"></div>
                     <div class="nombreDocenteBox">
                         <p class="DocenteNombreTxt">${usuario.nombre}</p>
-                        <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado?"Activo":"Inactivo"}</p>
+                        <p class="DocenteDescripcionTxt">${usuario.id_usuario.estado ? "Activo" : "Inactivo"}</p>
                     </div>
                     <button class="BotonEdit" data-bs-toggle="modal" data-bs-target="#modal-EstudianteE" data-id-estudiante="${usuario.id_estudiante}">
                         <div class="BotonEditSymbol">
@@ -149,6 +149,15 @@ function crearListaEstudiantes(usuarios,filtro) {
                         </div>
                         <p class="BotonVerMasText">Ver más</p>
                     </button>
+
+                    <button class="BotonVerMas" data-id-docente="">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-restore" width="25" height="25" viewBox="0 0 24 24">
+                    <path fill="#1E6DA6" d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
+                    </svg>
+                    <p class="BotonVerMasText">Restablecer</p>
+                    </button>
+
                     <button type="button" class="BotonDelete ${usuario.id_usuario.estado ? '' : 'BotonDeleteDisabled'}" data-bs-toggle="modal" data-bs-target="#modalconfirmacion" data-id-estudiante="${usuario.id_estudiante}" data-id-usuario="${usuario.id_usuario.id_usuario}" ${usuario.id_usuario.estado ? '' : 'disabled'}>
                         <div class="BotonEditSymbol">
                             <i class="fa-solid fa-ban" style="color: #1E6DA6;"></i>
@@ -159,76 +168,76 @@ function crearListaEstudiantes(usuarios,filtro) {
                 contenedorEstudiantes.appendChild(nuevoEstudianteDiv);
             }
         });
-    
+
         const btnVerMas = document.querySelectorAll(".BotonVerMas");
         btnVerMas.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 const idEstudiante = boton.dataset.idEstudiante;
                 mostrarModal(idEstudiante);
             });
         });
-    
+
         const btnEditar = document.querySelectorAll(".BotonEdit");
         btnEditar.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 const idEstudiante = boton.dataset.idEstudiante;
                 editarEstudiante(idEstudiante);
             });
         });
-    
+
         const btnDelete = document.querySelectorAll(".BotonDelete");
         btnDelete.forEach(boton => {
-            boton.addEventListener("click", function() {
+            boton.addEventListener("click", function () {
                 desactivarEstudiante(boton.dataset.idUsuario);
             });
         });
     }
 }
 
-function validandoDatos(){
+function validandoDatos() {
     let email = document.getElementById("emailEstudiante").value;
     let password = document.getElementById("passwordEstudiante").value;
     //Se valida que los campos no estén vacios
     if (email.trim() === '' || password.trim() === '') {
-          sweetalert("warning","Los campos están vacios", "Por favor, llene adecuadamente los campos que se le piden.");
-        return(false);
+        sweetalert("warning", "Los campos están vacios", "Por favor, llene adecuadamente los campos que se le piden.");
+        return (false);
     }
     // Se valida el formato del correo electrónico usando expresiones regulares, tiene que ser terminacxion @ues.edu.sv
     var emailRegex = /^[a-zA-Z0-9._%+-]+@ues\.edu\.sv$/;
     if (!emailRegex.test(email)) {
-        sweetalert("warning","Formato incorrecto", "Los correos deben tener terminacion @ues.edu.sv");        //alert("El correo debe ser de la forma: usuario@ues.edu.sv");
+        sweetalert("warning", "Formato incorrecto", "Los correos deben tener terminacion @ues.edu.sv");        //alert("El correo debe ser de la forma: usuario@ues.edu.sv");
         return false;
     }
 
     // Se valida la contraseña del input
     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
     if (!passwordRegex.test(password)) {
-        sweetalert("warning","Contraseña Incorrecta","La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número");
+        sweetalert("warning", "Contraseña Incorrecta", "La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número");
         return false;
     }
     ///alert("Formulario válido, puedes continuar.");
-    return true;  
+    return true;
 }
 
-function listarEstudiantes(filtro){
+function listarEstudiantes(filtro) {
     $.ajax({
         type: "GET",
-        url: "https://springgcp-402821.uc.r.appspot.com/api/estudiantes/buscar-todos", 
+        url: "https://springgcp-402821.uc.r.appspot.com/api/estudiantes/buscar-todos",
         contentType: "application/json",
         crossDomain: true,
-        success: function(response, textStatus, xhr) {
+        success: function (response, textStatus, xhr) {
             //console.log(response);
-            crearListaEstudiantes(response,filtro);
+            crearListaEstudiantes(response, filtro);
         },
-        error: function(xhr, textStatus, errorThrown) {
+        error: function (xhr, textStatus, errorThrown) {
             console.error(errorThrown);
         }
     });
 }
-  //Le agrego un evento de clic al boton crear docente, si se da clic se ejecuta la siguiente funcion
-$('#btnCrearEstudiante').off("click").on("click",function() {
+//Le agrego un evento de clic al boton crear docente, si se da clic se ejecuta la siguiente funcion
+$('#btnCrearEstudiante').off("click").on("click", function () {
     // Obtengo el valor del correo electrónico del input
-    if(validandoDatos()){
+    if (validandoDatos()) {
         var data = {
             correo: $("#emailEstudiante").val(),
             password: $("#passwordEstudiante").val(),
@@ -237,22 +246,22 @@ $('#btnCrearEstudiante').off("click").on("click",function() {
         console.log(JSON.stringify(data));
         // Realizamos una solicitud AJAX utilizando jQuery
         $.ajax({
-            url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/crear-estudiante', 
-            type: 'POST', 
+            url: 'https://springgcp-402821.uc.r.appspot.com/api/usuarios/crear-estudiante',
+            type: 'POST',
             contentType: "application/json",
             crossDomain: true,
-            data: JSON.stringify(data), 
-            success: function(response, textStatus, xhr) {
-                if(xhr.status == 201){//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
-                    sweetalert('success','Creado con exito!',response.message);
+            data: JSON.stringify(data),
+            success: function (response, textStatus, xhr) {
+                if (xhr.status == 201) {//Se encuentra el correo del usuario, con rol invitado, procedemos a activar su cuenta
+                    sweetalert('success', 'Creado con exito!', response.message);
                     listarEstudiantes("");
                 }
             },
-            error: function(error) {
+            error: function (error) {
                 // Ocurrió un error en la solicitud, no encontro correo...
                 //dentro del objeto error se encuentra el mensaje de eror y codigo de estado...
                 if (error.status == 500) {
-                    sweetalert('error',"Correo Existente",error.responseJSON.message);
+                    sweetalert('error', "Correo Existente", error.responseJSON.message);
                 }
             }
         });
@@ -260,7 +269,7 @@ $('#btnCrearEstudiante').off("click").on("click",function() {
 });
 const inputBusqueda = document.getElementById("inputBusqueda");
 
-inputBusqueda.addEventListener('input', function() {
+inputBusqueda.addEventListener('input', function () {
     const valorBusqueda = inputBusqueda.value;
     listarEstudiantes(valorBusqueda);
 });
