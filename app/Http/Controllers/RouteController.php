@@ -156,6 +156,19 @@ class RouteController extends Controller
         }
     }
 
+    public function loadData(Request $request)
+    {
+
+        if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+            //Si el rol es el que se quiere dejar accesar y el token es diferente de null, entonces se muestra la vista
+            //El token sera null cuando se cierre sesion
+
+            return view('load-data');
+        } else {
+            return redirect()->route('app_login');
+        }
+    }
+
 
 
 

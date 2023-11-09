@@ -3,7 +3,7 @@
 @section('title', 'Inicio')
 
 @section('scripts')
-@vite(['resources/js/load-file.js'])
+@vite(['resources/js/indexTime.js'])
 @endsection
 
 @section('content')
