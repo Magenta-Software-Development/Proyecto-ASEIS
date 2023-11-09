@@ -1,3 +1,5 @@
+let arregloCursos = [];
+
 function sweetalert(icon, title, message) {
     Swal.fire({
         icon: icon,
@@ -27,7 +29,7 @@ function sweetalertquestion(icon, title, message, messageConfirmButton, icon2, t
                 data: JSON.stringify(data),
                 success: function (response, textStatus, xhr) {
                     sweetalert(icon2, title2, message2);
-                    listaCursosNoDisponibles("");
+                    obtenerListaCursosNoDisponibles("");
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(errorThrown);
@@ -36,90 +38,75 @@ function sweetalertquestion(icon, title, message, messageConfirmButton, icon2, t
         }
     });
 }
-async function getInfoCurso(id) {
-    try {
-        const response = await $.ajax({
-            type: "GET",
-            url: "https://springgcp-402821.uc.r.appspot.com/api/cursos/buscar-curso/" + id,
-            contentType: "application/json",
-            crossDomain: true
-        });
-        return response;
-    } catch (error) {
-        throw error;
-    }
-}
-function verMasInformacion(id){
+function verMasInformacion(id) {
     const contenedorTemarioCurso = document.getElementById("contenedorTemarioCurso");
     contenedorTemarioCurso.style.marginTop = '2rem';
     contenedorTemarioCurso.style.marginBottom = '3.2rem';
     contenedorTemarioCurso.innerHTML = '';
+    const idCurso = parseInt(id);
+    const curso = arregloCursos.cursos.find(course => course.id_curso === idCurso);
+    if (curso) {
+        // Actualizando el contenido del modal con los datos del docente
+        $("#imagenCurso").attr("src", curso.imagen);
+        $("#tituloCurso").text(curso.titulo);
+        $("#tutorAsignado").text(curso.id_docente.nombre);
+        $("#fechaInicioCurso").text(curso.fecha_ini);
+        $("#fechaFinCurso").text(curso.fecha_fin);
+        $("#horarioCurso").text(curso.horario);
+        $("#modalidadCurso").text(curso.id_modalidad.modalidad);
+        $("#tutorAsignado").text(curso.nombre);
+        $("#cuposCurso").text(curso.cupo);
+        $("#puntuacionCurso").text(curso.puntuacion);
+        $("#cuposCurso").text(curso.cupo);
+        $("#descripcionCurso").text(curso.descripcion);
 
-    getInfoCurso(id)
-        .then(curso => {
-            
-            // Actualizando el contenido del modal con los datos del docente
-            $("#imagenCurso").attr("src", curso.curso.imagen);
-            $("#tituloCurso").text(curso.curso.titulo);
-            $("#tutorAsignado").text(curso.curso.id_docente.nombre);
-            $("#fechaInicioCurso").text(curso.curso.fecha_ini);
-            $("#fechaFinCurso").text(curso.curso.fecha_fin);
-            $("#horarioCurso").text(curso.curso.horario);
-            $("#modalidadCurso").text(curso.curso.id_modalidad.modalidad);
-            $("#tutorAsignado").text(curso.curso.nombre);
-            $("#cuposCurso").text(curso.curso.cupo);
-            $("#puntuacionCurso").text(curso.curso.puntuacion);
-            $("#cuposCurso").text(curso.curso.cupo);
-            $("#descripcionCurso").text(curso.curso.descripcion);
-            
-            const longitudTemas = Object.keys(curso.curso.temas.contenido).length;
-            //console.log("Número de temas:", longitudTemas);
-            if (longitudTemas === 0) {
-                const mensaje = document.createElement('div');
-                mensaje.style.marginTop = '3rem';
-                mensaje.style.marginBottom = '3rem';
-                mensaje.className = 'alert alert-primary text-center';
-                mensaje.textContent = 'En este momento este curso no posee temas.';
-                contenedorTemarioCurso.appendChild(mensaje);
-            }else{
-                for (const temas in curso.curso.temas.contenido) {
-                    const descripcionTema = curso.curso.temas.contenido[temas];
-                    const tema = temas;
-                    const contenedorAcordion = document.createElement('div');
-                    contenedorAcordion.style.marginTop = "1rem";
-                    contenedorAcordion.className = "accordion accordion-flush";
-                    contenedorAcordion.innerHTML = '';
-                    contenedorAcordion.innerHTML = `
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${tema}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    <label for="descripcionAcordion">${tema}</label>
-                                </button>
-                            </h2>
-                            <div id="${tema}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
-                                <div class="accordion-body" style="visibility:visible !important">
-                                    ${descripcionTema.descripcion}
+        const longitudTemas = Object.keys(curso.temas.contenido).length;
+        //console.log("Número de temas:", longitudTemas);
+        if (longitudTemas === 0) {
+            const mensaje = document.createElement('div');
+            mensaje.style.marginTop = '3rem';
+            mensaje.style.marginBottom = '3rem';
+            mensaje.className = 'alert alert-primary text-center';
+            mensaje.textContent = 'En este momento este curso no posee temas.';
+            contenedorTemarioCurso.appendChild(mensaje);
+        } else {
+            for (const temas in curso.temas.contenido) {
+                const descripcionTema = curso.temas.contenido[temas];
+                const tema = temas;
+                const contenedorAcordion = document.createElement('div');
+                contenedorAcordion.style.marginTop = "1rem";
+                contenedorAcordion.className = "accordion accordion-flush";
+                contenedorAcordion.innerHTML = '';
+                contenedorAcordion.innerHTML = `
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#${tema}" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            <label for="descripcionAcordion">${tema}</label>
+                                        </button>
+                                    </h2>
+                                    <div id="${tema}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                                        <div class="accordion-body" style="visibility:visible !important">
+                                            ${descripcionTema.descripcion}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    `;
-                    contenedorTemarioCurso.appendChild(contenedorAcordion);
-                }
+                            `;
+                contenedorTemarioCurso.appendChild(contenedorAcordion);
             }
+        }
 
 
-            // Ahora muestro el modal, cuando ya cargue todos los datos
-            $("#modalMasInformacion").modal('show');
-           // console.log("cargo el modal por fin.")
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        // Ahora muestro el modal, cuando ya cargue todos los datos
+        $("#modalMasInformacion").modal('show');
+        // console.log("cargo el modal por fin.")
+    } else {
+        console.error("Curso no encontrado en el arreglo.");
+    }
 }
 function activarCurso(id) {
     sweetalertquestion("warning", "Habilitando curso", "Estas seguro de habilitar este curso?", "Si, habilitar", "success", "Curso habilitado con exito", "Se ha habilitado el curso de manera exitosa!", id)
 }
-function crearListaCursos(cursos, filtro) {
+function crearListaCursos(cursos) {
     
     var idUsuarioCursosNoPublicados = parseInt(localStorage.getItem("id"));
 
@@ -128,7 +115,7 @@ function crearListaCursos(cursos, filtro) {
     contenedorListaCursos.style.marginTop = "25px";
     contenedorListaCursos.style.width = "100%"
 
-    const cursosNoPublicados = cursos.cursos.filter(curso => !curso.estado);
+    const cursosNoPublicados = cursos.filter(curso => !curso.estado);
 
     if (cursosNoPublicados.length === 0) {
         const mensaje = document.createElement('div');
@@ -196,20 +183,45 @@ function crearListaCursos(cursos, filtro) {
 
 
 }
-function listaCursosNoDisponibles(filtro) {
+function obtenerListaCursosNoDisponibles() {
+    // Hacer la solicitud al servidor para obtener las noticias del usuario
     $.ajax({
         type: "GET",
         url: "https://springgcp-402821.uc.r.appspot.com/api/cursos/ver",
         contentType: "application/json",
         crossDomain: true,
         success: function (response, textStatus, xhr) {
-            crearListaCursos(response, filtro);
+            // Almacenar los datos en el arreglo local arregloCursos
+            arregloCursos = response;
+            // Llamar a la función para mostrar los cursos en la página
+            crearListaCursos(arregloCursos.cursos);
         },
         error: function (xhr, textStatus, errorThrown) {
             console.error(errorThrown);
         }
     });
 }
-$(document).ready(function () {
-    listaCursosNoDisponibles("");
+function buscarCursos(filtro) {
+    // Realiza la búsqueda en el arreglo local ArregloCursos
+    const resultados = arregloCursos.cursos.filter(curso => {
+        // Aca se va buscar por el título del curso
+        return curso.titulo.toLowerCase().includes(filtro.toLowerCase());
+    });
+
+    // Llama a la función para mostrar los resultados en la página
+    crearListaCursos(resultados);
+}
+const inputBusqueda = document.getElementById("inputBusqueda");
+inputBusqueda.addEventListener('input', function () {
+    const valorBusqueda = inputBusqueda.value;
+    buscarCursos(valorBusqueda);
 });
+$(document).ready(function () {
+    obtenerListaCursosNoDisponibles();
+});
+
+
+
+
+
+

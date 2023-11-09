@@ -1,5 +1,6 @@
 var urlImagenDeFirebase = '';
 let arregloNoticias = [];
+let editorInstance;
 
 function sweetalert(icon, title, message) {
     Swal.fire({
@@ -125,7 +126,6 @@ function eliminarNoticia(id){
         });
     })
 }
-
 document.getElementById('botonSubir').addEventListener('click', function() {
     document.getElementById('imageInput').click();
 });
@@ -171,55 +171,62 @@ document.getElementById('imageInput').addEventListener('change', async function(
     }
 });
 
-$("#btnEditarNoticia").off("click").on("click",function (e) { 
+$("#btnEditarNoticia").off("click").on("click", function (e) {
     e.preventDefault();
-    ClassicEditor
-    .create(document.querySelector('#contentDescripcion'))
-    .then(editor => {
-        // El editor está listo y se puede acceder a través del parámetro 'editor'
-        function obtenerContenido() {
-            console.log("Funciona correctamente");
-            const contenido = editor.getData();
-            return contenido;
-        }
+    // Destruye la instancia anterior del editor si existe
+    if (editorInstance) {
+        editorInstance.destroy().then(() => {
+            // Crea una nueva instancia de CKEditor después de destruir la instancia anterior
+            ClassicEditor.create(document.querySelector('#contentDescripcion'))
+                .then(editor => {
+                    editorInstance = editor;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    } else {
+        // Si no hay instancia anterior del editor, simplemente crea una nueva instancia
+        ClassicEditor.create(document.querySelector('#contentDescripcion'))
+            .then(editor => {
+                editorInstance = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 
-        const idNoticia = $(this).attr("data-idNoticia");
-        obtenerNoticiaPorId(idNoticia)
+    const idNoticia = $(this).attr("data-idNoticia");
+    obtenerNoticiaPorId(idNoticia)
         .then(noticia => {
-            //console.log(noticia);
             $("#inputT").val(noticia.noticia.titulo);
-            editor.setData(noticia.noticia.descripcion);
+            editorInstance.setData(noticia.noticia.descripcion);
         })
         .catch(error => {
             console.error(error);
         });
 
-        const botonObtenerContenido = document.getElementById('btnActualizarNoticia');
-        botonObtenerContenido.addEventListener('click', async function(){
-            try {
-                const contenidoTextEditor = await obtenerContenido();
-                const urlImagen = await subirImagen();
-                const inputT = $("#inputT").val();
-        
-                // Validando si los valores no están vacíos
-                if (contenidoTextEditor && urlImagen && inputT) {
-                    $("#inputT").val('');
-                    editor.setData('');
-                    actualizarNoticia(contenidoTextEditor, urlImagen, inputT, idNoticia);
-                } else {
-                    // Al menos uno de los valores sí está vacío, muestra un mensaje de error
-                    sweetalert('error', 'Campos vacíos', 'Antes de crear una noticia, debe llenar todos los campos que se le piden.');
-                }
-            } catch (error) {
-                // Maneja cualquier error que pueda ocurrir durante la subida de la imagen
-                console.error(error);
-                sweetalert('error', 'Error al subir la imagen', 'Ocurrió un error al subir la imagen. Por favor, inténtalo de nuevo más tarde.');
+    const botonObtenerContenido = document.getElementById('btnActualizarNoticia');
+    botonObtenerContenido.addEventListener('click', async function(){
+        try {
+            const contenidoTextEditor = editorInstance.getData();
+            const urlImagen = await subirImagen();
+            const inputT = $("#inputT").val();
+
+            // Validando si los valores no están vacíos
+            if (contenidoTextEditor && urlImagen && inputT) {
+                $("#inputT").val('');
+                editorInstance.setData('');
+                actualizarNoticia(contenidoTextEditor, urlImagen, inputT, idNoticia);
+            } else {
+                // Al menos uno de los valores sí está vacío, muestra un mensaje de error
+                sweetalert('error', 'Campos vacíos', 'Antes de crear una noticia, debe llenar todos los campos que se le piden.');
             }
-        });
-        
-    })
-    .catch(error => {
-        console.error(error);
+        } catch (error) {
+            // Maneja cualquier error que pueda ocurrir durante la subida de la imagen
+            console.error(error);
+            sweetalert('error', 'Error al subir la imagen', 'Ocurrió un error al subir la imagen. Por favor, inténtalo de nuevo más tarde.');
+        }
     });
 });
 

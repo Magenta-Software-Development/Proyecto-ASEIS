@@ -27,7 +27,6 @@
         </div>
 
         <!-- contenedor de cursos-->
-        <!-- contenedor de cursos-->
         <div id="container-noticias">
 
         </div>
