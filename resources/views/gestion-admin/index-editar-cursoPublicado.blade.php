@@ -18,41 +18,46 @@
     <!--contendor principal-->
     <div class="container">
         <!--boton de regreso-->
-        <div class="row w-100">
-            <div class="col-12 d-flex justify-content-start align-items-start">
-                X
+        <div class="row">
+            <div class="col-1 d-flex justify-content-start align-items-start">
+                <a href="{{ route('app_index_cursos_publicados')}}">
+                    <button>
+                        <-
+                    </button>
+                </a>
             </div>
         </div>
 
         <!--contenedor de Titulo y subir foto-->
         <div class="row mt-5">
-            <div class="col-6">
-                <label for="inputT" class="estiloTitulo" style="width: 100% !important">Titulo de la noticia:</label>
+            <div class="col-sm-6 ">
+                <label for="inputT" class="estiloTitulo">Titulo de la noticia:</label>
                 <input type="text" class="form-control input-titulo-editar" id="inputT" />
             </div>
 
-            <div class="col-3">
-                <button class="w-100">
-                    <p>subir una foto</p>
+            <div class="col-sm-2">
+                <button class=" d-flex boton-imagen mt-4">
+                    subir una foto
                 </button>
             </div>
 
-            <div class="col-3">
-                <input type="text" class="form-control inputTitulo" id="" style="width: 100%;" />
+            <div class="col-sm-4">
+                <input type="text" class="form-control input-imagen mt-4" id="" />
             </div>
+        </div>
             <!-- contenedor de fechas -->
             <div class="row mt-5">
                 <div class="col-md-4">
-                    <label for="fechaInicio" class="TextosForm">Fecha de Inicio</label>
-                    <input type="date" class="form-control" id="fechaInicio">
+                    <label for="fechaInicio" class="">Fecha de Inicio</label>
+                    <input type="date" class="form-control input-todos" id="fechaInicio">
                 </div>
                 <div class="col-md-4">
-                    <label for="fechaFin" class="TextosForm">Fecha de Finalización</label>
-                    <input type="date" class="form-control" id="fechaFin">
+                    <label for="fechaFin" class="">Fecha de Finalización</label>
+                    <input type="date" class="form-control input-todos" id="fechaFin">
                 </div>
                 <div class="col-md-4">
-                    <label for="modalidad" class="TextosForm">Modalidad</label>
-                    <select class="form-select form-control" id="modalidad" aria-label="Default select example">
+                    <label for="modalidad" class="">Modalidad</label>
+                    <select class="form-select form-control input-todos" id="modalidad" aria-label="Default select example">
                         <option disabled selected>Seleccione la modalidad</option>
                     </select>
                 </div>
@@ -63,14 +68,14 @@
             <div class="row mt-5">
 
                 <div class="col-md-6">
-                    <label for="tutor" class="TextosFormdos">Tutor</label>
-                    <select class="form-select form-control" id="tutores" aria-label="Default select example">
+                    <label for="tutor" class="">Tutor</label>
+                    <select class="form-select form-control input-todos" id="tutores" aria-label="Default select example">
                         <option disabled selected>Seleccione un tutor</option>
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="categoria" class="TextosFormdos">Categoría</label>
-                    <select class="form-select form-control" id="categoria" aria-label="Default select example">
+                    <label for="categoria" class="">Categoría</label>
+                    <select class="form-select form-control input-todos" id="categoria" aria-label="Default select example">
                         <option disabled selected>Seleccione una categoría</option>
                     </select>
                 </div>
@@ -80,29 +85,29 @@
             <!-- contenedor de horarios y cupos -->
             <div class="row mt-5">
                 <div class="col-md-6">
-                    <label for="horarios" class="TextosFormtres">Horarios</label>
-                    <input type="text" class="form-control" id="horarios" placeholder="">
+                    <label for="horarios" class="">Horarios</label>
+                    <input type="text" class="form-control input-todos" id="horarios" placeholder="">
                 </div>
                 <div class="col-md-6">
-                    <label for="cupos" class="TextosFormCupos">Cupos Disponibles</label>
-                    <input type="number" class="form-control" id="cupos" min="1">
+                    <label for="cupos" class="">Cupos Disponibles</label>
+                    <input type="number" class="form-control input-todos" id="cupos" min="1">
                 </div>
             </div>
 
             <!-- contenedor de Descripcion -->
             <div class="row mt-5">
                 <div class="col-md-12">
-                    <label for="descripcion" class="TextosFormDescripcion">Descripción del Curso</label>
-                    <textarea class="form-control" id="descripcionC" rows="4" placeholder=""></textarea>
+                    <label for="descripcion" class=" ">Descripción del Curso</label>
+                    <textarea class="form-control input-text-area" id="descripcionC" rows="4" placeholder=""></textarea>
                 </div>
             </div>
             <!-- seccion 2 del forumalario para los contenidos-->
             <div class="row mt-5">
                 <div class="col-md-8">
-                    <label for="contenidoTituloCrear" class="ajusteContenido">Contenido</label>
+                    <label for="" class="estilo-texto-contenido">Contenido</label>
                 </div>
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-primary ajusteBoton" data-bs-toggle="modal" data-bs-target="#mCrearContenidoCurso">
+                <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <button type="button" class="btn btn-primary boton-agregar" data-bs-toggle="modal" data-bs-target="#mCrearContenidoCurso">
                         Agregar Contenido</button>
                 </div>
             </div>
@@ -113,7 +118,7 @@
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <button class="accordion-button collapsed input-todos" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                     <label for="descripcionAcordion">Introducción</label>
                                 </button>
                             </h2>
@@ -127,17 +132,15 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-md-6 contBtnCurso">
-                    <button id="btnCrearCurso" type="submit" class="btn btn-primary btnCrearCursos">Cancelar</button>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-6 contBtnCurso d-flex justify-content-center align-items-center">                    
+                    <button id="btnCrearCurso" type="submit" class="btn btn-primary boton-cancelar">Cancelar</button>
                 </div>
-                <div class="col-md-6 contBtnCurso">
-                    <button id="btnCrearCurso" type="submit" class="btn btn-primary btnCrearCursos">Guardar Cambios</button>
+                <div class="col-md-6 contBtnCurso d-flex justify-content-center align-items-center">
+                    <button id="btnCrearCurso" type="submit" class="btn btn-primary boton-guardar-cambios">Guardar Cambios</button>
                 </div>
             </div>
             </form>
-
-        </div>
 
 
         <!-- Modal para crear un curso -->
