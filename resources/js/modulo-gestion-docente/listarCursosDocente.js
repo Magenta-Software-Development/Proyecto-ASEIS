@@ -234,6 +234,7 @@ inputBusqueda.addEventListener('input', function () {
 });
 
 $(document).ready(function () {
+    //Funcion
     obtenerListaCursosDisponibles();
 });
 
