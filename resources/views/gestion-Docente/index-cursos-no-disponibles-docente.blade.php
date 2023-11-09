@@ -224,31 +224,31 @@
                                                     <div class="row">
                                                         <div class="col-md-2 fotoContenedor">
                                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ANn3QhxrnpEDbVVoG4sutpEF16LCntBjLg&usqp=CAU" alt="Perfil del Estudiante" class="foto-estudianteP fotoContenedor" id="fotoPerfil" />
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <h5 class="EstudianteC" id="nombreEstudiante">Nayib Bukele Armando Ortez</h5>
                                                         </div>
-                                                        <div class="col-md-10">
-                                                            <div class="row">
-                                                                <h5 class="EstudianteC" id="nombreEstudiante">Nayib Bukele Armando Ortez</h5>
-                                                            </div>
-                                                            <div class="row">
-                                                                <p class="EstudianteC" id="rolE">Estudiante</p>
-                                                            </div>
+                                                        <div class="row">
+                                                            <p class="EstudianteC" id="rolE">Estudiante</p>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
-                                                            <a href="{{route('app_index_ver_alumnos_inscritos')}}">
-                                                                <button class="estilosBtn" id="btnVerMasEst">
-                                                                    <i class="fa-solid fa-user"></i>
-                                                                    <p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
-                                                                </button>
-                                                            </a>
-                                                        </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
+                                                        <a href="{{route('app_index_ver_alumnos_inscritos')}}">
+                                                        <button class="estilosBtn" id="btnVerMasEst">
+                                                        <i class="fa-solid fa-user"></i><p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
+                                                        </button>
+                                                    </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div> <!-- Final de la cuarta sección -->
+                            </div>
+                        </div> <!-- Final de la cuarta sección -->
 
 
                                 <!-- Inicio quinta seccion Comentarios del curso -->

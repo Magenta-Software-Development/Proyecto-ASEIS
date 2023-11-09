@@ -91,3 +91,41 @@
     cursor: pointer;
     /* Cambia el cursor al estilo de mano */
 }
+
+.modal-gestion {
+    width: 927px;
+    height: 740px;
+    border-radius: 16px;
+    background: #132D3C;
+}
+
+/* Estilos para una imagen redonda */
+.rounded-image {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: lightgray 0.139px -36.941px / 100% 149.982% no-repeat;
+    /* Cambia el color de fondo de la imagen */
+}
+
+/* Cambia el color del título a blanco */
+.modal-title {
+    color: #FFF;
+    font-family: Inter, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Cambia el color del texto a blanco */
+.text-white {
+    color: #FFF;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+

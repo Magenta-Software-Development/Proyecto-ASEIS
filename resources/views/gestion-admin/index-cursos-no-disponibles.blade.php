@@ -291,7 +291,7 @@
                                                 <a href="{{ route('app_index_editar_cursoNoDisponible') }}">
                                                     <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
                                                         <i class="fas fa-pencil-alt"></i> <p id="textBtnEditCurso">Editar</p>
-                                                    </button>   
+                                                    </button>
                                                 </a>
                                             </div>
 

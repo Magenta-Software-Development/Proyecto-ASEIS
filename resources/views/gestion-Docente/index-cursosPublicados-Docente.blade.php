@@ -222,34 +222,31 @@
                                                     <div class="row">
                                                         <div class="col-md-2 fotoContenedor">
                                                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ANn3QhxrnpEDbVVoG4sutpEF16LCntBjLg&usqp=CAU" alt="Perfil del Estudiante" class="foto-estudianteP fotoContenedor" id="fotoPerfil" />
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <h5 class="EstudianteC" id="nombreEstudiante">Nayib Bukele Armando Ortez</h5>
                                                         </div>
-                                                        <div class="col-md-8">
-                                                            <div class="row">
-                                                                <h5 class="EstudianteC" id="nombreEstudiante">Nayib Bukele Armando Ortez</h5>
-                                                            </div>
-                                                            <div class="row">
-                                                                <p class="EstudianteC" id="rolE">Estudiante</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2 d-flex justify-content-center align-items-center">
-      
+                                                        <div class="row">
+                                                            <p class="EstudianteC" id="rolE">Estudiante</p>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
-                                                            <a href="{{route('app_index_ver_alumnos_inscritos')}}">
-                                                                <button class="estilosBtn" id="btnVerMasEst">
-                                                                    <i class="fa-solid fa-user"></i>
-                                                                    <p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
-                                                                </button>
-                                                            </a>
-                                                        </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
+                                                        <a href="{{route('app_index_ver_alumnos_inscritos_publicados')}}">
+                                                            <button class="estilosBtn" id="btnVerMasEst">
+                                                            <i class="fa-solid fa-user"></i><p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
+                                                            </button>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div> <!-- Final de la cuarta sección -->
+                            </div>
+                        </div> <!-- Final de la cuarta sección -->
 
 
                                 <!-- Inicio quinta seccion Comentarios del curso -->
@@ -300,28 +297,28 @@
                                     </div>
                                 </div> <!-- Final de la quinta sección -->
 
-                                <!-- Inicio ultima seccion botones del curso -->
-                                <div class="contModalBotonesCursos">
-                                    <div class="row">
-                                        <div class="col-md-12">
+                            <!-- Inicio ultima seccion botones del curso -->
+                            <div class="contModalBotonesCursos">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <!-- seccion de de botones de los contenidos-->
                                             <div class="row">
-                                                <!-- seccion de de botones de los contenidos-->
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <button class="estilosBtn" id="btnDeshabilitarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
-                                                            <i class="fa-solid fa-ban"></i>
-                                                            <p id="textBtnDesCurso">Deshabilitar</p>
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a href="{{ route('app_index_editar_cursoPublicadoDocente') }}">
-                                                            <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                                <p id="textBtnEditCurso">Editar</p>
-                                                            </button>
-                                                        </a>
-                                                    </div>
+                                                <div class="col-md-6">
+                                                    <button class="estilosBtn" id="btnDeshabilitarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
+                                                        <i class="fa-solid fa-ban"></i>
+                                                        <p id="textBtnDesCurso">Deshabilitar</p>
+                                                    </button>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('app_index_editar_cursoPublicadoDocente') }}">
+                                                        <button class="estilosBtn" id="btnEditarCurso" data-toggle="modal" data-target="#modalEliminarComentario">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                            <p id="textBtnEditCurso">Editar</p>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
 
                                             </div>
                                         </div>

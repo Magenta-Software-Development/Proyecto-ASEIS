@@ -215,7 +215,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12 d-flex justify-content-center align-items-center containerBtnMas">
-                                                            <a href="{{route('app_index_ver_alumnos_inscritos_Admin')}}">
+                                                            <a href="{{route('app_index_ver_alumnos_inscritos_Admin_publicados')}}">
                                                                 <button class="estilosBtn" id="btnVerMasEst">
                                                                 <i class="fa-solid fa-user"></i><p id="textBtnMasEstudiantes">Ver Más Estudiantes</p>
                                                                 </button>
