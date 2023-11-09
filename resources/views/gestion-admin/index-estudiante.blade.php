@@ -118,6 +118,13 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <div class="input-group">
+                                    <input type="text" class="form-control label-simple" placeholder="Contraseña" aria-label="password" aria-describedby="basic-addon1" id="inputContraseniaEstudiante" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="text-center" colspan="2">
                                     <div class="d-flex justify-content-center">
                                         <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal" aria-label="Close" >
