@@ -56,14 +56,12 @@ Route::controller(RouteController::class)->group(function () {
     Route::get('/AdministrarNoticias/indexNoticias', [RouteController::class, 'gestionIndexNoticias'])->name('app_index_noticias'); //Muestra el indice de gestion de crear noticas del administrador.
     Route::get('/AdministrarCursos/indexCursosNoDisponibles/VerAlumnosInscritos', [RouteController::class, 'VerAlumnosInscritosAdmin'])->name('app_index_ver_alumnos_inscritos_Admin'); //Muestra la pagina de ver todos los alumnos inscritos en la ruta de cursos no disponibles Admin
     Route::get('/AdministrarCursos/indexCursosPublicados/VerAlumnosInscritos', [RouteController::class, 'VerAlumnosInscritosAdminPublicados'])->name('app_index_ver_alumnos_inscritos_Admin_publicados'); //Muestra la pagina de ver todos los alumnos inscritos en la ruta de cursos publicados Admin
-    //ruta de editar curso Admin
     Route::get('/AdministrarCursos/indexEditarCursoPublicado', [RouteController::class, 'gestionIndexEditarCursoPublicado'])->name('app_index_editar_cursoPublicado');
     Route::get('/AdministrarCursos/indexEditarCursoNoDisponible', [RouteController::class, 'gestionIndexEditarCursoNoDisponible'])->name('app_index_editar_cursoNoDisponible');
-    //ruta de editar curso Docente
     Route::get('/AdministrarCursos/indexEditarCursoPublicadoDocente', [RouteController::class, 'gestionIndexEditarCursoPublicadoDocente'])->name('app_index_editar_cursoPublicadoDocente');
     Route::get('/AdministrarCursos/indexEditarCursoNoDisponibleDocente', [RouteController::class, 'gestionIndexEditarCursoNoDisponibleDocente'])->name('app_index_editar_cursoNoDisponibleDocente');
-    Route::get('/LoadData', [RouteController::class, 'loadData'])->name('app_load_data'); 
-    
+    Route::get('/LoadData', [RouteController::class, 'loadData'])->name('app_load_data');
+
 
     //Rutas de Docente -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     Route::get('/indexD', [RouteController::class, 'indexD'])->name('app_index_docente'); //Muestra el indice del docente
