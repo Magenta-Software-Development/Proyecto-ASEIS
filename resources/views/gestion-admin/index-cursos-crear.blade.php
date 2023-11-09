@@ -37,7 +37,7 @@
             </div>
             -->
             <div class="col-md-4 InpArchivo">
-                <input type="file" class="form-control" id="archivo-cargado" accept="image/*" placeholder="">
+                <input type="file" class="form-control" id="archivo-cargado" accept="image/jpeg, image/png" placeholder="">
             </div>
         </div>
 
