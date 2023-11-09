@@ -123,6 +123,23 @@ class RouteController extends Controller
         }
     }
 
+
+        public function VerAlumnosInscritosAdmin(Request $request)
+        {
+
+            if ($request->session()->get('rol') == 'Admin' && $request->session()->token() != null) {
+                //Si el rol es el que se quiere dejar accesar y el token es diferente de null, entonces se muestra la vista
+                //El token sera null cuando se cierre sesion
+
+                return view('gestion-admin.index-mostrar-todos-los-Alumnos-Inscritos-Admin');
+            } else {
+                return redirect()->route('app_login');
+            }
+        }
+
+
+
+
     ///////////////////////////////CAMBIAR ROL DOCENTE -> ADMINISTRADOR CUANDO TERMINE DE HACER CAMBIOS/////////////////////
 
     //Funciones de ruta para docente --------------------------------------------------------------------------------------------------------
@@ -213,8 +230,21 @@ class RouteController extends Controller
     }
 
 
+        public function VerAlumnosInscritos(Request $request)
+        {
+
+            if ($request->session()->get('rol') == 'Docente' && $request->session()->token() != null) {
+                return view('gestion-Docente.index-mostrar-todos-los-Alumnos-Inscritos');
+            } else {
+                return redirect()->route('app_login');
+            }
+        }
+
+
+
+
     /*
-    
+
     Estructura de la ruta:
 
     Roles:
@@ -227,7 +257,7 @@ class RouteController extends Controller
             if ($request->session()->get('rol') == 'ROL AL QUE SE QUIERE DAR ACCESO' && $request->session()->token() != null) {
                 //Si el rol es el que se quiere dejar accesar y el token es diferente de null, entonces se muestra la vista
                 //El token sera null cuando se cierre sesion
-                
+
                 return view('RUTA A LA VISTA QUE QUIERES MOSTRAR');
             } else {
                 return redirect()->route('app_login');

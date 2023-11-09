@@ -159,7 +159,7 @@ function crearListaCursos(cursos) {
                     `;
                 contenedorListaCursos.appendChild(nuevoCursoDiv);
             }
-            
+
         });
 
         const btnHabilitarCurso = document.querySelectorAll(".btnHabilitarCurso");
