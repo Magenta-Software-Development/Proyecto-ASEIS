@@ -66,7 +66,7 @@
 
             <div class="col-md-6">
                 <label for="tutor" class="TextosFormdos">Tutor</label>
-                <input type="text" class="form-control" id="tutor" placeholder="">
+                <input type="text" class="form-control" id="tutor" placeholder="" disabled>
             </div>
             <div class="col-md-6">
                 <label for="categoria" class="TextosFormdos">Categoría</label>
@@ -106,7 +106,12 @@
             </div>
         </div>
 
+        <!--Contenedor para poder almacenar el codigo html del js, ya que se crea dinamicamente desde el js
+        De igual manera se crea una estructura como la que se habia definido la cual está en el js-->
+        <div id="contenedor-acordeones"></div>
+
         <!-- seccion de acordeon de los contenidos-->
+        <!-- Modal comentado ya que el que se necesita esta en el js
         <div class="row">
             <div class="col-md-12">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -117,14 +122,13 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">¡bienvenidos al primer curso de la asignatura! Lorem ipsum, dolor sit ame
-                                consectetur adipisicing elit. Hic ad minus repudiandae quidem cum neque similique ex possimus corrupti laudantium iure adipisci quis,
-                                eveniet dicta obcaecati praesentium nostrum. Sed, itaque.</div>
+                            <div class="accordion-body" style="visibility:visible !important">Bienvenido a la introduccion</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        Fin de la estructura del modal-->
 
         <div class="row">
             <div class="col-md-12 contBtnCurso">
@@ -162,7 +166,7 @@
                     <div class="modal-footer">
                         <div class="grupBotones">
                             <button type="button" class="btn btn-secondary button-common btn-Cancelar" data-bs-dismiss="modal" id="btn-Cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" data-bs-dismiss="modal">Crear</button>
+                            <button type="button" class="btn btn-dark button-common btn-GuardaCambios" id="btn-Crear" data-bs-dismiss="modal">Crear</button>
                         </div>
                     </div>
                 </form>
