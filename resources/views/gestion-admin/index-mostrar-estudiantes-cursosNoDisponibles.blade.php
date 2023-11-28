@@ -17,7 +17,7 @@
 <h1>Admin</h1>
  <!-- Botón de retroceso -->
  <a href="{{ route('app_index_cursos_no_disponibles') }}">
- <button type="button" class="btn btn-back">
+ <button type="button" class="btn btn-back" id="btnBackMain">
 
     <svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
         <path d="M54.625 18.4287L50.5713 14.375L34.5 30.4463L18.4287 14.375L14.375 18.4287L30.4463 34.5L14.375 50.5713L18.4287 54.625L34.5 38.5537L50.5713 54.625L54.625 50.5713L38.5537 34.5L54.625 18.4287Z" fill="black"/>
@@ -29,7 +29,6 @@
     <div id="containerUsuariosInscritos">
         
     </div>
-
 
 <!-- Modal para ver información de usuario -->
     <div class="modal right" id="modal-Estudiante" tabindex="-1" aria-labelledby="modal-DocentelLabel" aria-hidden="true">

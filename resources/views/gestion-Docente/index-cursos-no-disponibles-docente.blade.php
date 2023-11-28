@@ -250,68 +250,13 @@
                                                 <div class="col-md-12 contenidoHeaderCol DescripcionSect">
                                                     <h4>Comentarios</h4>
                                                 </div>
-                                                <div class="contenedorDeComentarios">
-                                                    <div class="tarjetaEstModalC">
-                                                        <div class="tarjetaEstModal-body">
-                                                            <div class="row">
-                                                                <div class="col-md-2 fotoContenedor">
-                                                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ANn3QhxrnpEDbVVoG4sutpEF16LCntBjLg&usqp=CAU"
-                                                                        alt="Foto del Estudiante"
-                                                                        class="foto-estudianteP fotoContenedor"
-                                                                        id="fotoPerfil" />
-                                                                </div>
-                                                                <div class="tarjetaComentario">
-                                                                    <div class="col-md-10">
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <h5 class="EstudianteC"
-                                                                                    id="nombreEstudiante">Nayib Bukele
-                                                                                    Armando Ortez</h5>
-                                                                            </div>
+                                                
+                                                <div class="contenedorDeComentarios" id="commentsContainer">
 
-                                                                        </div>
-                                                                        <div class="row comentarioEs">
-                                                                            <p class="EstudianteC" id="comentarioE">
-                                                                            <p>Lorem, ipsum dolor sit amet consectetur
-                                                                                adipisicing elit. Quas, velit! Perspiciatis
-                                                                                doloremque modi nulla unde odit dolor odio!
-                                                                                Necessitatibus asperiores voluptatum placeat
-                                                                                porro perspiciatis reiciendis corporis
-                                                                                fugiat nemo repellendus architecto.Lorem
-                                                                                ipsum dolor sit, amet consectetur
-                                                                                adipisicing elit. Consequatur explicabo
-                                                                                asperiores error nostrum. Itaque voluptatum
-                                                                                eos consectetur quis, nostrum doloremque ab
-                                                                                optio, sapiente eligendi, dolores ad
-                                                                                expedita excepturi commodi possimus.Lorem
-                                                                                ipsum dolor sit amet consectetur,
-                                                                                adipisicing elit. Quisquam consequatur earum
-                                                                                et enim ipsa corrupti amet veniam
-                                                                                praesentium hic at, ducimus aliquid animi
-                                                                                non in illo nulla magni, obcaecati libero.
-                                                                            </p>
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div
-                                                                                class="col-md-12 d-flex justify-content-center align-items-center contenedorBotonEC">
-                                                                                <button
-                                                                                    onclick="openModal()"class="estilosBtn"
-                                                                                    id="btnComentarioE">
-                                                                                    <i class="fa-solid fa-trash-can"></i>
-                                                                                    <p id="textBtnComentario">Eliminar
-                                                                                        Comentario</p>
-                                                                                </button>
 
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                    <!-- FIN DE MODALS PARA ELIMINAR COMENTARIO DE CURSO -->
 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- Final de la Modal C -->
-
+                                                </div>
                                                     <!-- MODALS PARA ELIMINAR COMENTARIO Y DESHABILITAR CURSO -->
                                                     <div id="myModal" class="modal-wrapper">
                                                         <div class="modal-content">
@@ -328,15 +273,11 @@
                                                             <div class="buttons">
                                                                 <button class="cancel-btn"
                                                                     onclick="closeModal()">Cancelar</button>
-                                                                <button class="disable-btn"
-                                                                    id="EliminarBtn">Eliminar</button>
+                                                                <button class="disable-btn" id="EliminarBtn" onclick="closeModal()">Eliminar</button>
                                                             </div>
                                                         </div>
                                                     </div>
-
-                                                    <!-- FIN DE MODALS PARA ELIMINAR COMENTARIO DE CURSO -->
-
-                                                </div>
+                                                
                                                 <!-- Final del contenedor que engloba a todos los comentarios de la Modal C -->
                                             </div>
                                         </div>
@@ -350,40 +291,37 @@
                                                     <!-- seccion de de botones de los contenidos-->
                                                     <div class="row">
                                                         <div class="col-md-6">
+
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a
-                                                                href="{{ route('app_index_editar_cursoNoDisponibleDocente') }}">
-                                                                <button class="estilosBtn" id="btnEditarCursoNoPublic"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#modalEliminarComentario">
+                                                            <a href="{{ route('app_index_editar_cursoPublicado') }}">
+                                                                <button class="estilosBtn" id="btnEditarCurso"
+                                                                    data-toggle="modal" data-target="#modalEliminarComentario">
                                                                     <i class="fas fa-pencil-alt"></i>
                                                                     <p id="textBtnEditCurso">Editar</p>
                                                                 </button>
                                                             </a>
+
                                                         </div>
 
                                                     </div>
+
                                                 </div>
-
                                             </div>
-                                        </div>
-                                    </div> <!-- Final ultima seccion -->
+                                        </div> <!-- Final ultima seccion -->
 
-                                </div><!-- Final de contModalInfoCursos -->
-                            </div><!-- Final de body -->
+                                    </div><!-- Final de contModalInfoCursos -->
+                                </div><!-- Final de body -->
+                            </div>
                         </div>
                     </div>
-                    <!--Fin full screen modal -->
 
-                    <script>
-                        function openModal() {
-                            document.getElementById('myModal').style.display = 'flex';
-                        }
+                </div>
 
-                        function closeModal() {
-                            document.getElementById('myModal').style.display = 'none';
-                        }
-                    </script>
+                <script>
+                    function closeModal() {
+                        document.getElementById('myModal').style.display = 'none';
+                    }
+                </script>
+@endsection
 
-                @endsection

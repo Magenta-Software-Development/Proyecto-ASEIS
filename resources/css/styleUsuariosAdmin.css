@@ -37,8 +37,7 @@ label {
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    width: 181px;
-    height: 24px;
+    height: 1.5rem;
 }
 
 input[type="email"],

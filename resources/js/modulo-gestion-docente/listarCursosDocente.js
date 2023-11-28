@@ -1,10 +1,50 @@
 let arregloCursos = [];
+let cursoDisponibleId = 0;
 function sweetalert(icon, title, message) {
     Swal.fire({
         icon: icon,
         title: title,
         text: message,
     });
+}
+function comentariosalert(icon, title, message) {
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: message,
+    });
+    verMasInformacion(cursoDisponibleId);
+}
+$("#EliminarBtn").data("id-comentario", null);
+function openModal(idComentario) {
+    document.getElementById('myModal').style.display = 'flex';
+    $("#EliminarBtn").data("id-comentario", idComentario);
+}
+$("#EliminarBtn").off("click").on("click", function () {
+    const idComentario = $(this).data("id-comentario");
+    if (idComentario !== null) {
+        let data = {
+            id_curso_comentario: idComentario,
+        }
+        $.ajax({
+            type: "DELETE",
+            url: "https://springgcp-402821.uc.r.appspot.com/api/comentario/eliminar",
+            contentType: "application/json",
+            crossDomain: true,
+            data: JSON.stringify(data),
+            success: function (response, textStatus, xhr) {
+                comentariosalert("success", "Comentario eliminado", response.message);
+                // Restablece el valor a null después de eliminar el comentario
+                $("#EliminarBtn").data("id-comentario", null);
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log(errorThrown);
+            }
+        });
+    }
+});
+function closeModal() {
+    document.getElementById('myModal').style.display = 'none';
 }
 function sweetalertquestion(icon,title,message,messageConfirmButton, icon2,title2,message2, id){
     Swal.fire({
@@ -50,12 +90,30 @@ async function getInfoCurso(id) {
         throw error;
     }
 }
-function verMasInformacion(id) {
+async function getComentariosCurso(id){
+    try {
+        const response = await $.ajax({
+            type: "GET",
+            url: "https://springgcp-402821.uc.r.appspot.com/api/comentario/curso/" + id,
+            contentType: "application/json",
+            crossDomain: true
+        });
+        return response.comentarios;
+    } catch (error) {
+        throw error;
+    }
+}
+async function verMasInformacion(id) {
+    const idCurso = parseInt(id);
+    const comentarios = await getComentariosCurso(idCurso);
     const contenedorTemarioCurso = document.getElementById("contenedorTemarioCurso");
     contenedorTemarioCurso.style.marginTop = '2rem';
     contenedorTemarioCurso.style.marginBottom = '3.2rem';
     contenedorTemarioCurso.innerHTML = '';
-    const idCurso = parseInt(id);
+    ///
+    const contenedorComentarios = document.getElementById("commentsContainer");
+    contenedorComentarios.innerHTML = '';
+    ////
     const curso = arregloCursos.cursos.find(course => course.id_curso === idCurso);
     if (curso) {
         // Actualizando el contenido del modal con los datos del docente
@@ -107,13 +165,83 @@ function verMasInformacion(id) {
             }
         }
 
+        const longitudComentarios = Object.keys(comentarios).length;
+        //console.log(comentarios);
 
+        if(longitudComentarios === 0){
+            const mensaje = document.createElement('div');
+            mensaje.style.marginTop = '3rem';
+            mensaje.style.marginBottom = '3rem';
+            mensaje.className = 'alert alert-primary text-center';
+            mensaje.textContent = 'Este curso no posee comentarios.';
+            contenedorComentarios.appendChild(mensaje);
+        }else{
+            comentarios.forEach(comentario =>{
+                const contenedorTarjetaComentario = document.createElement('div');
+                contenedorTarjetaComentario.className = "tarjetaEstModalC";
+                contenedorTarjetaComentario.innerHTML = '';
+                //console.log(comentario.id_estudiante);
+                contenedorTarjetaComentario.innerHTML = `
+                    <div class="tarjetaEstModal-body">
+                    <div class="row">
+                        <div class="col-md-2 fotoContenedor">
+                            <img src="${comentario.id_estudiante.imagen}"
+                                alt="Foto del Estudiante"
+                                class="foto-estudianteP fotoContenedor" id="fotoPerfil" />
+                        </div>
+                        <div class="tarjetaComentario">
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="EstudianteC" id="nombreEstudiante">
+                                            ${comentario.id_estudiante.nombre}
+                                        </h5>
+                                    </div>
+        
+                                </div>
+                                <div class="row comentarioEs">
+                                    <p class="EstudianteC" id="comentarioE">
+                                        <p> ${comentario.comentario}</p>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <div
+                                        class="col-md-12 d-flex justify-content-center align-items-center contenedorBotonEC">
+                                        <button class="estilosBtn buttonsDeleteCo"
+                                            id="btnComentarioE" data-id-comentario="${comentario.id_curso_comentario}">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                            <p id="textBtnComentario">Eliminar
+                                                Comentario</p>
+                                        </button>
+        
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                `;
+            contenedorComentarios.appendChild(contenedorTarjetaComentario);
+            });
+            
+            const btnEliminarComentario = document.querySelectorAll(".buttonsDeleteCo");
+            btnEliminarComentario.forEach(boton => {
+                boton.addEventListener("click", function () {
+                    const idComentario = boton.dataset.idComentario;
+                    //console.log(idComentario);
+                    openModal(idComentario);
+                });
+            });
+
+        }
         // Ahora muestro el modal, cuando ya cargue todos los datos
         $("#modalMasInformacion").modal('show');
         // console.log("cargo el modal por fin.")
     } else {
         console.error("Curso no encontrado en el arreglo.");
     }
+    cursoDisponibleId = idCurso;
 }
 function desactivarCurso(id){
     sweetalertquestion("warning","Deshabilitando curso","Estas seguro de deshabilitar este curso?","Si, deshabilitar","success","Curso deshabilitado con exito","Se ha deshabilitado el curso de manera exitosa!",id)
@@ -196,7 +324,6 @@ function crearListaCursos(cursos){
         });
     }
 }
-
 function obtenerListaCursosDisponibles() {
     // Hacer la solicitud al servidor para obtener las noticias del usuario
     $.ajax({

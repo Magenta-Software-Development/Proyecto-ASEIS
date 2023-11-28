@@ -104,8 +104,8 @@ function obtenerListaEstudiantesInscritos() {
 }
 
 $(document).ready(function () {
-    id
+    idCurso = localStorage.getItem('idCursoNoDisponible');
     //Curso = localStorage.getItem('idCursoNoDisponible');console.log("SE ESTA QUERIENDO VER LOS ESTUDIANTES DEL CURSO CON ID: ", idCurso);
-    obtenerListaEstudiantesInscritos();
+    obtenerListaEstudiantesInscritos(idCurso);
     
 });

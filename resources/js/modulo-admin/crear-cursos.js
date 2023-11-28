@@ -1,3 +1,4 @@
+let selectTutor; 
 
 function sweetalert(icon, title, message) {
     Swal.fire({
@@ -6,11 +7,38 @@ function sweetalert(icon, title, message) {
         text: message,
     });
 }
+
+async function cargarSelectTutores() {
+    return new Promise(function (resolve, reject) {
+        selectTutor = document.getElementById("tutores"); //Obtner el select para manipularlo
+        $.ajax({
+            type: "GET",
+            url: "https://springgcp-402821.uc.r.appspot.com/api/docentes/buscar-todos",
+            success: function (data) {
+                if (data && data.length > 0) {
+                    data.forEach(function (docente) {
+                        if (docente.id_usuario.estado === true) {
+                            var option = document.createElement("option"); 
+                            option.value = docente.id_docente;
+                            option.textContent = docente.nombre; 
+                            selectTutor.appendChild(option); 
+                        }
+                    });
+                    resolve(); //Resuelve la promesa
+                } else {
+                    reject("No se encontraron tutores"); //Si no hay datos se rechaza la promesa
+                }
+            },
+            error: function (error) {
+                reject(error); //Se rechaza la promesa en caso de eroror
+            }
+        });
+    });
+}
+
 async function cargarSelectModalidad() {
     return new Promise(function (resolve, reject) {
-
         var selectModalidad = document.getElementById("modalidad"); //Obtner el select para manipularlo
-
         $.ajax({
             type: "GET",
             url: "https://springgcp-402821.uc.r.appspot.com/api/modalidades",
@@ -220,7 +248,8 @@ async function crearCurso() {
         const urlDeImagen = await subirImagenFirebase();
         cursoData.imagen = urlDeImagen;
 
-        const idDocente = await obtenerIdDocente();
+        const idDocente = selectTutor.value;
+        console.log(idDocente);
         cursoData.id_docente.id_docente = idDocente;
 
         const response = await $.ajax({

@@ -102,7 +102,7 @@
                 <label for="contenidoTituloCrear" class="ajusteContenido">Contenido</label>
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-primary ajusteBoton" data-bs-toggle="modal" data-bs-target="#mCrearContenidoCurso">
+                <button type="button" id="btn-AgregarContenido" class="btn btn-primary ajusteBoton" data-bs-toggle="modal" data-bs-target="#mCrearContenidoCurso">
                     Agregar Contenido</button>
             </div>
         </div>
@@ -145,7 +145,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-            <div class="modal-body">
+            <div class="modal-body" id="modalAggContenido">
 
                 <form>
                     <div class="row">

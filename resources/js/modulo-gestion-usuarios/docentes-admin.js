@@ -63,6 +63,7 @@ async function cargarDatos(id) {
         $("#img_docenteEdit").attr("src", docente.imagen);
         $("#inputNombreDocente").val(docente.nombre);
         $("#inputDescripcionDocente").val(docente.descripcion);
+        //console.log(docente.id);
         llenarSelectEspecialidades(docente.id_especialidad.especialidad);
         return docente; // Devolver el docente para su posterior uso si es necesario
     } catch (error) {
@@ -84,6 +85,7 @@ async function editarDocente(id) {
                     "id_especialidad": $("#especialidadDocenteSelector").val()
                 }
             }
+            console.log(data);
             $("#inputNombreDocente").val("");
             $("#inputDescripcionDocente").val("");
             $.ajax({
