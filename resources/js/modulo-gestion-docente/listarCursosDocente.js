@@ -358,7 +358,9 @@ inputBusqueda.addEventListener('input', function () {
     const valorBusqueda = inputBusqueda.value;
     buscarCursos(valorBusqueda);
 });
+
 $(document).ready(function () {
+    //Funcion
     obtenerListaCursosDisponibles();
 });
 
